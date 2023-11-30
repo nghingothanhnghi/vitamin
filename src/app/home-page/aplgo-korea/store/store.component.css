@@ -1,0 +1,310 @@
+/**/
+
+
+
+
+.intro {
+    background: #000;
+}
+
+.intro h2 {
+    color: #f0875a;
+}
+
+@media all and (max-width: 575px) {
+    .intro h2 {
+        font-size: 40px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .intro h2 {
+        font-size: 46px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .intro h2 {
+        font-size: 52px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .intro h2 {
+        font-size: 58px;
+    }
+}
+
+
+
+
+
+.intro h4 {
+    color: #FFF;
+    margin-bottom: .8em;
+}
+
+.intro p {
+    color: #89867F;
+}
+
+
+@media all and (max-width: 575px) {
+    .intro .container {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .intro .container {
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .intro .container {
+        padding-top: 50px;
+        padding-bottom: 70px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .intro .container {
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .locations .container {
+        padding-top: 40px;
+        padding-bottom: 110px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .locations .container {
+        padding-top: 50px;
+        padding-bottom: 120px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .locations .container {
+        padding-top: 60px;
+        padding-bottom: 130px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .locations .container {
+        padding-top: 70px;
+        padding-bottom: 140px;
+    }
+}
+
+
+
+
+
+
+.location:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+@media all and (max-width: 767px) {
+    .location:not(:last-child) {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .location:not(:last-child) {
+        margin-bottom: 35px;
+        padding-bottom: 35px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .location:not(:last-child) {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.location .col-map {
+    background: #F3F4FB;
+    height: 290px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+@media all and (max-width: 575px) {
+    .location .col-map {
+        margin-bottom: 25px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .location .col-map {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media all and (max-width: 767px) {
+    .location .col-map {
+        order: 1;   
+    }
+
+    .location .col-info {
+        order: 2;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+    .location .col-map {
+        width: 50%;        
+    }
+
+    .location .col-info {
+        width: 46%;
+        margin-right: 4%;
+    }
+}
+
+
+
+
+
+
+
+
+.location h4 {
+    color: #f0875a;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+
+@media all and (max-width: 991px) {
+    .location p {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .location p {
+        margin-bottom: 40px;
+    }
+}
+
+
+
+.location .gallery ul {
+    margin: 0;
+}
+
+.location .gallery ul li {
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.location .gallery ul li:hover {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .1);
+}
+
+
+
+.location .gallery ul li img {
+    width: auto;
+    height: 100%;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+    .location .gallery ul li {
+        width: 23.5%;
+    }
+
+    .location .gallery ul li:not(:nth-child(4n)) {
+        margin-right: 2%;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .location .gallery ul li {
+        width: 18.4%;
+    }
+
+    .location .gallery ul li:not(:nth-child(5n)) {
+        margin-right: 1.6%;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .location .gallery ul li {
+        width: 23.5%;
+    }
+
+    .location .gallery ul li:not(:nth-child(4n)) {
+        margin-right: 2%;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .location .gallery ul li {
+        width: 18.4%;
+    }
+
+    .location .gallery ul li:not(:nth-child(5n)) {
+        margin-right: 1.6%;
+    }
+}

@@ -1,0 +1,77 @@
+/**/
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .form-body {
+        margin-top: 15px;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+    }
+}
+
+
+
+@media all and (min-width: 576px) {
+    .cash-receipt .label {
+        margin-top: 0;
+        margin-bottom: auto;
+        align-items: center;
+        display: flex;
+        height: 38px;
+    }
+}
+
+
+.s1 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.s2 {
+    margin-bottom: 10px;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.s1 {
+        width: 100%;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.s1 {
+        margin-right: 10px;
+        width: 40%;
+    }
+    .s2 {
+        margin-top: 10px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.s1 {
+        width: 100%;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	.s1 {
+        margin-right: 10px;
+        width: 40%;
+    }
+    .s2 {
+        margin-top: 10px;
+    }    
+}
+
+
+

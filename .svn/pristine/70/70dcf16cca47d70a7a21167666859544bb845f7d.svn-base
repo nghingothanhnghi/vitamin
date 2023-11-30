@@ -1,0 +1,103 @@
+
+div.wowChart {
+  margin : 5px;
+}
+
+div.wowChart h2 {
+  margin : 0px;
+  font-size : 14px;
+  font-weight: normal;
+  min-height: 20px;
+}
+
+div.wowChart h2:hover {
+  background: #fcfaca;
+  cursor: text;
+}
+
+div.wowChart a {
+	 color : black;
+     font-size : 14px;  
+     text-decoration: none;
+}
+div.wowChart p {
+	font-size : 13px;  
+}
+div.wowChart a:hover{cursor: pointer;}
+div.wowChart ul {
+  list-style : none;
+  margin : 4px;
+  padding : 0px;
+  font-size : 0.8em;
+  text-align : left;
+}
+
+div.wowChart ul.stack,
+div.wowChart ul.stack ul { text-align : center; }
+
+div.wowChart table { width : 100%; }
+
+div.wowChart tr.lines td.line {
+  width : 1px;
+  height : 20px;
+}
+
+div.wowChart tr.lines td.top { border-top : 1px solid  black; }
+
+div.wowChart tr.lines td.left { border-right : 1px solid  black; }
+
+div.wowChart tr.lines td.right { border-left : 0px solid  black; }
+
+div.wowChart tr.lines td.half { width : 50%; }
+
+div.wowChart td {
+  text-align : center;
+  vertical-align : top;
+  padding : 0px 2px;
+}
+
+div.wowChart div.node {
+  cursor : default;
+  border : 1px solid #e7e7e7;
+  display : inline-block;
+  padding : 5px;
+  width : 115px;
+  min-height : 140px;
+  height : auto;
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #fbfbfb)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #fbfbfb 100%); /* W3C */
+  line-height : 1.3em;
+  border-radius : 4px;
+  -moz-border-radius : 4px;
+  -webkit-border-radius : 4px;
+  position: relative;
+  box-shadow: 1px 1px 0px #ddd;
+}
+
+div.wowChart div.nodeMobile{
+	height: 80px;
+	font-size: 12px;
+}
+
+div.wowChart p {
+	margin-bottom: 5px !important;
+}
+
+div.wowChart .img img {
+  width: 50px;
+  margin-bottom: 5px;
+  border-radius: 35px;
+  border: 1px solid #739e3c;
+  object-fit: cover;
+}
+
+
+div.wowChart .img {
+  margin: 0 auto;
+  margin-top: 5px;
+}

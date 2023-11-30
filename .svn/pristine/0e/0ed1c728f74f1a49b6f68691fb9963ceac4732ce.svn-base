@@ -1,0 +1,660 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 1. Down Pay - Down Payment */
+
+
+
+
+/*----- 1. Buyer -----*/
+
+#down-payment .buyer .inputs-row {
+	align-items: center;
+}
+
+
+
+@media (max-width: 575px) {
+	#down-payment .buyer .vt-table {
+		box-shadow: none;
+	}
+	#down-payment .buyer .vt-table tbody, 
+	#down-payment .buyer .vt-table tbody tr,
+	#down-payment .buyer .vt-table tbody tr td {
+		display: block;
+		background: #FFF;
+		width: 100%;
+		text-align: left;
+	}
+	#down-payment .buyer .vt-table tbody tr {
+		border: none;
+	}
+	
+	#down-payment .buyer .vt-table tbody tr td {
+		text-align: left;
+		border: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#down-payment .buyer .vt-table tbody tr td:first-child {
+		padding-top: 10px;
+		padding-bottom: 0;
+		font-weight: bold;
+	}
+	#down-payment .buyer .vt-table tbody tr td:last-child {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+
+
+
+
+
+
+
+/*------ 2. Recipient -------*/
+
+#down-payment .recipient-list .radios-group li {
+	margin-bottom: 0;
+}
+
+#down-payment .recipient-list .radios-group li:not(:last-child) {
+	margin-right: 20px;
+}
+
+
+
+@media (max-width: 575px) {
+	#down-payment .recipient-list {
+		border-bottom: 1px solid rgba(0,0,0,.1);
+	}
+}
+
+
+
+@media (max-width: 575px) {
+	#down-payment .recipient .vt-table {
+		box-shadow: none;
+	}
+	#down-payment .recipient .vt-table tbody, 
+	#down-payment .recipient .vt-table tbody tr,
+	#down-payment .recipient .vt-table tbody tr td {
+		display: block;
+		background: #FFF;
+		width: 100%;
+		text-align: left;
+	}
+	#down-payment .recipient .vt-table tbody tr:last-child {
+		border: none;
+	}
+	
+	#down-payment .recipient .vt-table tbody tr td {
+		text-align: left;
+		border: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#down-payment .recipient .vt-table tbody tr td:first-child {
+		padding-top: 10px;
+		padding-bottom: 0;
+		font-weight: bold;
+	}
+	#down-payment .recipient .vt-table tbody tr td:last-child {
+		padding-top: 0;
+		padding-bottom: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------ 3. Standard Member Name -------*/
+
+#down-payment .recipient .standard-member-name {
+	border-top: none;
+}
+
+@media (max-width: 575px) {
+	#down-payment .recipient .standard-member-name {
+		border-bottom: 1px solid rgba(0,0,0,.1);
+	}
+}
+
+
+
+#down-payment .recipient .standard-member-name input {
+	margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+	#down-payment .recipient .standard-member-name input {
+		max-width: 200px;
+	}
+	#down-payment .recipient .standard-member-name a {
+		padding: 5px 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 360px) {
+	#down-payment .vt-table td:first-child {
+		width: 25%;
+	}
+}
+
+@media (min-width: 361px) and (max-width: 575px) {
+	#down-payment .vt-table td:first-child {
+		width: 22.5%;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#down-payment .vt-table td:first-child {
+		width: 20%;
+	}
+}
+
+
+@media (min-width: 768px) {
+	#down-payment .vt-table td:first-child {
+		width: 20%;
+	}
+}
+
+
+
+#down-payment .vt-table td:first-child {
+	background: #F4F3FD;
+	text-align: center;
+	border-right: 1px solid rgba(0,0,0,.1);
+}
+
+
+@media (min-width: 576px) {
+	#down-payment .cash-receipt input,
+	#down-payment .email input,
+	#down-payment .payment input,
+	#down-payment .dropdown-select {
+		max-width: 245px;
+	}
+
+	#down-payment .payment .amount {
+		justify-content: end;
+	}
+	#down-payment .payment .amount input {
+		margin-left: 10px;
+	}
+}
+
+#down-payment .vt-table td.cardtype, 
+#down-payment .vt-table td.warning-img {
+    background: #fff;
+	}
+
+
+
+
+
+
+
+
+@media (max-width: 575px) {	
+	#down-payment .phone .date {
+		max-width: 125px;
+	}
+	#down-payment .phone .lb {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
+
+
+
+
+
+
+
+@media (min-width: 576px) {
+	#down-payment .phone input {
+		max-width: 65px;
+	}
+	
+	#down-payment .phone .date {
+		max-width: 125px;
+	}
+	
+	#down-payment .phone .lb {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+
+
+
+
+#down-payment .label {
+    display: flex;
+    align-items: center;
+	margin-left: 10px;
+}
+
+
+#down-payment .address .input {
+	margin-bottom: 10px;
+}
+
+#down-payment .address .input:last-child {
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 575px) {
+	#down-payment .searching-result .standard-member-name {
+		padding-left: 5px;
+		margin-bottom: 10px;
+	}	
+	#down-payment .searching-result .inquiry-classification {
+		padding-right: 5px;
+		margin-bottom: 10px;
+	}
+	#down-payment .searching-result .submit-btn {
+		width: 100%;
+	}
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#down-payment .searching-result .standard-member-name, 
+	#down-payment .searching-result .inquiry-classification {
+		padding-right: 10px;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#down-payment .searching-result .standard-member-name, 
+	#down-payment .searching-result .inquiry-classification {
+		padding-right: 15px;
+	}
+}
+
+
+@media (min-width: 992px) {
+	#down-payment .searching-result .standard-member-name, 
+	#down-payment .searching-result .inquiry-classification {
+		padding-right: 20px;
+	}
+}
+
+
+
+
+
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#down-payment .searching-result .searching-form .submit-btn {
+		min-width: 100px;
+	}
+}
+
+
+@media (min-width: 768px) {
+	#down-payment .searching-result .searching-form .submit-btn {
+		min-width: 120px;
+	}
+}
+
+
+
+
+
+@media (max-width: 575px) {
+	#down-payment .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-bottom: 5px;
+	}
+}
+
+@media (min-width: 576px) {
+	#down-payment .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-right: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#down-payment .approve-payment-btn {
+    min-width: 150px;
+}
+
+
+
+
+
+
+#down-payment .office-section img {
+    width: auto;
+	max-width: 100%;
+}
+
+#down-payment .office-section .warning {
+    margin-top: 10px;
+}
+
+
+
+
+
+#down-payment .inquiry-classification .dropdown-select {
+	min-width: 140px;
+}
+
+
+
+
+
+
+/*--- Standard Member Name ---*/
+
+
+@media (min-width: 576px) {
+	#down-payment .searching-result .standard-member-name input {
+		max-width: 150px;
+		margin-right: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#down-payment .payment-method {
+    border-top: none;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+	#down-payment .payment-method.credit-card 
+	.card-type .amount-info {
+		text-align: right;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 2. Down Pay - Your Entire Approval History */
+
+
+#approval-history .inquiry-classification .dropdown-select {
+	min-width: 140px;
+}
+
+
+
+@media (max-width: 575px) {	
+	#approval-history .searching-result .standard-member-name, 
+	#approval-history .searching-result .inquiry-classification {
+		margin-bottom: 10px;
+	}
+	#approval-history .searching-result .inquiry-classification {
+		padding-right: 10px;
+	}	
+}
+
+
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#approval-history .searching-result .standard-member-name, 
+	#approval-history .searching-result .inquiry-classification {
+		padding-right: 10px;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#approval-history .searching-result .standard-member-name, 
+	#approval-history .searching-result .inquiry-classification {
+		padding-right: 15px;
+	}
+}
+
+
+@media (min-width: 992px) {
+	#approval-history .searching-result .standard-member-name, 
+	#approval-history .searching-result .inquiry-classification {
+		padding-right: 20px;
+	}
+}
+
+
+
+
+
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#approval-history .searching-result .searching-form .submit-btn {
+		min-width: 100px;
+	}
+}
+
+
+@media (min-width: 768px) {
+	#approval-history .searching-result .searching-form .submit-btn {
+		min-width: 120px;
+	}
+}
+
+
+
+
+
+@media (max-width: 575px) {
+	#approval-history .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-bottom: 5px;
+	}
+}
+
+@media (min-width: 576px) {
+	#approval-history .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-right: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 3. Down Pay - Other Person - Person Approval Details */
+
+
+
+#others-approval-details .inquiry-classification .dropdown-select {
+	min-width: 140px;
+}
+
+
+
+@media (max-width: 575px) {	
+	#others-approval-details .searching-result .standard-member-name, 
+	#others-approval-details .searching-result .inquiry-classification {
+		margin-bottom: 10px;
+	}
+	#others-approval-details .searching-result .inquiry-classification {
+		padding-right: 10px;
+	}	
+}
+
+
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#others-approval-details .searching-result .standard-member-name, 
+	#others-approval-details .searching-result .inquiry-classification {
+		padding-right: 10px;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#others-approval-details .searching-result .standard-member-name, 
+	#others-approval-details .searching-result .inquiry-classification {
+		padding-right: 15px;
+	}
+}
+
+
+@media (min-width: 992px) {
+	#others-approval-details .searching-result .standard-member-name, 
+	#others-approval-details .searching-result .inquiry-classification {
+		padding-right: 20px;
+	}
+}
+
+
+
+
+
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#others-approval-details .searching-result .searching-form .submit-btn {
+		min-width: 100px;
+	}
+}
+
+
+@media (min-width: 768px) {
+	#others-approval-details .searching-result .searching-form .submit-btn {
+		min-width: 120px;
+	}
+}
+
+
+
+
+
+@media (max-width: 575px) {
+	#others-approval-details .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-bottom: 5px;
+	}
+}
+
+@media (min-width: 576px) {
+	#others-approval-details .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-right: 10px;
+	}
+}
+

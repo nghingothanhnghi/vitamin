@@ -1,0 +1,15 @@
+
+
+.hr-table {
+    border-top: none;
+}
+
+th:first-child,
+td:first-child {
+    border-left: none !important;
+}
+
+th:last-child,
+td:last-child {
+    border-right: none !important;
+}

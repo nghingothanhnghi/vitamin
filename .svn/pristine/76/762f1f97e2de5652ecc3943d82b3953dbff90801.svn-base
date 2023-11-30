@@ -1,0 +1,109 @@
+<h2 class="h-small">결제 상세 정보</h2>
+<div class="table-container row draggable-element">
+  <div class="col col_data draggable-items-wrapper" draggableWrapper> 
+    <div class="table-wrapper">
+      <table class="hr-table">
+        <thead>
+          <tr>
+            <th style="white-space: nowrap; text-align: center;">결제유형</th>
+            <th style="white-space: nowrap; text-align: center;">결제여부</th>
+            <th style="white-space: nowrap; text-align: center;">결제금액</th>
+            <th style="white-space: nowrap; text-align: center;">입금계좌</th>
+            <th style="white-space: nowrap; text-align: center;">입금자명</th>
+            <th style="white-space: nowrap; text-align: center;">입금번호</th>
+            <th style="white-space: nowrap; text-align: center;">승인번호</th>
+            <th style="white-space: nowrap; text-align: center;">입금만료일</th>
+            <th style="white-space: nowrap; text-align: center;">카드사명</th>
+            <th style="white-space: nowrap; text-align: center;">카드번호</th>
+            <th style="white-space: nowrap; text-align: center;">소유주명</th>
+            <th style="white-space: nowrap; text-align: center;">결제일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td>{{ item.kindName }}</td>
+            <td style="text-align: center;">{{ item.ispay }}</td>
+            <td style="text-align: right;">{{ item.amt | setComma }}원</td>
+            <td>{{ item.cardCd }}</td>
+            <td>{{ item.username }}</td>
+            <td style="text-align: center;">{{ item.moneyNo }}</td>
+            <td style="text-align: center;">{{ item.cardAppNo }}</td>
+            <td style="text-align: center;">{{ item.expDate }}</td>
+            <td>{{ item.cardName }}</td>
+            <td style="text-align: center;">{{ item.cardNo }}</td>
+            <td>{{ item.cardHolder }}</td>
+            <td style="text-align: center;">{{ item.cardAppDate }}</td>
+          </tr>
+        </tbody>
+        <ng-container *ngIf="totalRows < 5">
+          <tbody>
+            <tr *ngFor="let row of rows; index as i">
+              <ng-container *ngFor="let col of cols; index as j">
+                <td>
+                  <span>&nbsp;</span>
+                  <ng-container *ngIf="totalRows === 0 && i === 2 && j === 6">
+                    <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                  </ng-container>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</div>
+
+<table class="hr-mobile-table">
+  <tbody *ngFor="let item of items">
+    <tr>
+      <td>결제유형</td>
+      <td>{{ item.kindName }}</td>
+    </tr>
+    <tr>
+      <td>결제여부</td>
+      <td>{{ item.ispay }}</td>
+    </tr>
+    <tr>
+      <td>결제금액</td>
+      <td>{{ item.amt | setComma }}원</td>
+    </tr>
+    <tr>
+      <td>입금계좌</td>
+      <td>{{ item.cardCd }}</td>
+    </tr>
+    <tr>
+      <td>입금자명</td>
+      <td>{{ item.username }}</td>
+    </tr>
+    <tr>
+      <td>입금번호</td>
+      <td>{{ item.moneyNo }}</td>
+    </tr>
+    <tr>
+      <td>승인번호</td>
+      <td>{{ item.cardAppNo }}</td>
+    </tr>
+    <tr>
+      <td>입금만료일</td>
+      <td>{{ item.expDate }}</td>
+    </tr>
+    <tr>
+      <td>카드사명</td>
+      <td>{{ item.cardName }}</td>
+    </tr>
+    <tr>
+      <td>카드번호</td>
+      <td>{{ item.cardNo }}</td>
+    </tr>
+    <tr>
+      <td>소유주명</td>
+      <td>{{ item.cardHolder }}</td>
+    </tr>
+    <tr>
+      <td>결제일</td>
+      <td>{{ item.cardAppDate }}</td>
+    </tr>
+  </tbody>
+  <grid-no-data-mobile [items]="items"></grid-no-data-mobile>
+</table>

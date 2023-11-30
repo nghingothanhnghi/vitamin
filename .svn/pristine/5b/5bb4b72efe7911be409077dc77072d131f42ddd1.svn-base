@@ -1,0 +1,177 @@
+<div id="payment-information" class="office-section">
+  <div class="office-heading">
+    <h2 class="h-small">결제정보</h2>
+    <span>결제정보를 확인하실 수 있습니다.</span>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="hr-mobile-table">
+      <tbody>
+        <tr>
+          <td class="th-hr-mobile">총 주문금액</td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.ordAmt !== null">
+              <span>{{ orderInfo.ordAmt | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordAmt === null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="th-hr-mobile">총PV</td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.ordPv1 !== null">
+              <span>{{ orderInfo.ordPv1 | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordPv1 === null">
+              <span>0</span>
+            </ng-container>
+          </td>
+        </tr>
+        <tr *ngIf="isPoint">
+          <td class="th-hr-mobile">총{{ smWowWord.oMileage }}</td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.ordPoint !== null">
+              <span>{{ orderInfo.ordPoint | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordPoint === null">
+              <span>0</span>
+            </ng-container>
+          </td>
+        </tr>
+        <tr>
+          <td class="th-hr-mobile">상품합계금액</td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.ordAmt !== null">
+              <span>{{ orderInfo.ordAmt | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordAmt === null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="th-hr-mobile">배송비</td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.deliAmt !== null">
+              <span>{{ orderInfo.deliAmt | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.deliAmt === null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="th-hr-mobile">총 결제금액</td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.totalAmt !== null">
+              <span>{{ +orderInfo.totalAmt - point | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.totalAmt === null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="hr-table">
+      <thead>
+        <tr>
+          <th>총 주문금액</th>
+          <th>총PV</th>
+          <th *ngIf="isPoint">총{{ smWowWord.oMileage }}</th>
+          <th>상품합계금액</th>
+          <th>배송비</th>
+          <th>총 결제금액</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.ordAmt !== null">
+              <span>{{ orderInfo.ordAmt | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordAmt === null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+          <td>
+              <div *ngIf="isPv1">
+                <ng-container *ngIf="orderInfo && orderInfo.ordPv1 !== null">
+                  <span>{{ orderInfo.ordPv1 | setComma }}</span>
+                  <span>{{ smWowWord.oPv1 }}</span>
+                </ng-container>
+                <ng-container *ngIf="!orderInfo || orderInfo.ordPv1 === null">
+                  <span>0</span>
+                  <span>{{ smWowWord.oPv1 }}</span>
+                </ng-container>
+              </div>
+
+              <!-- <div *ngIf="isPv2">
+                <ng-container *ngIf="orderInfo && orderInfo.ordPv2 !== null">
+                  <span>{{ orderInfo.ordPv2 | setComma }}</span>
+                  <span>{{ smWowWord.oPv2 }}</span>
+                </ng-container>
+                <ng-container *ngIf="!orderInfo || orderInfo.ordPv2 === null">
+                  <span>0</span>
+                  <span>{{ smWowWord.oPv2 }}</span>
+                </ng-container>
+              </div> -->
+
+              <!-- <div *ngIf="isPv3">
+                <ng-container *ngIf="orderInfo && orderInfo.ordPv3 !== null">
+                  <span>{{ orderInfo.ordPv3 | setComma }}</span>
+                  <span>{{ smWowWord.oPv3 }}</span>
+                </ng-container>
+                <ng-container *ngIf="!orderInfo || orderInfo.ordPv3 === null">
+                  <span>0</span>
+                  <span>{{ smWowWord.oPv3 }}</span>
+                </ng-container>
+              </div> -->
+          </td>
+          <td *ngIf="isPoint">
+            <ng-container *ngIf="orderInfo && orderInfo.ordPoint !== null">
+              <span>{{ orderInfo.ordPoint | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordPoint === null">
+              <span>0</span>
+            </ng-container>
+          </td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.ordAmt !== null">
+              <span>{{ orderInfo.ordAmt | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordAmt === null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.deliAmt !== null">
+              <span>{{ orderInfo.deliAmt | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.deliAmt === null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+          <td>
+            <ng-container *ngIf="orderInfo && orderInfo.ordAmt !== null && orderInfo.deliAmt !== null">
+              <span>{{ +orderInfo.totalAmt - point | setComma }}</span>
+            </ng-container>
+            <ng-container *ngIf="!orderInfo || orderInfo.ordAmt === null ||  orderInfo.deliAmt=== null">
+              <span>0</span>
+            </ng-container>
+            <span>원</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

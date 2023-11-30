@@ -1,0 +1,27 @@
+<div id="sub-order-search" class="office-page">
+  <section class="section-content searching-result">
+    <sub-order-search-filter 
+      [page]="page" 
+      [len]="len"
+      [userid]="userid"
+      [username]="username"
+      [reload]="reload"
+      (openMemberPopup)="handleOnToggleMemberPopup($event);"
+      (search)="handleOnSearch($event);"
+    ></sub-order-search-filter>
+    <sub-order-search-grid
+      [len]="len"
+      [page]="page"
+      (changeLen)="handleOnChangeLen($event)"
+      (changePage)="handleOnChangePage($event)"
+      (resetReload)="handleOnResetReload($event)"
+    ></sub-order-search-grid>
+  </section>
+  <section class="popups-container">
+    <member-popup 
+      [show]="showMemberPopup" 
+      (clickClosePopup)="handleOnToggleMemberPopup($event);"
+      (clickRowItem)="handleOnClickRowMemberPopup($event);"
+    ></member-popup>
+  </section>
+</div>

@@ -1,0 +1,40 @@
+export interface QnaModel {
+    comId       :String;
+    boardNo     :String;
+    cateCd      :String;
+    kindCd      :String;
+    boardSeq    :String;
+    boardLv     :String;
+    sortNo      :String;
+    title       :String;
+    readCnt     :String;
+    downCnt     :String;
+    urlInfo     :String;
+    readKind    :String;
+    topYn       :String;
+    secretYn    :String;
+    filePath    :String;
+    fileName    :String;
+    fileNameOrg :String;
+    insUser     :String;
+    insDate     :String;
+    updDate     :String;
+    updUser     :String;
+	contents    :String;
+	contentsNew :String;
+	contentsEdit:String;
+	boardNoQ    :String;
+	boardNoA    :String;
+	boardCate   :String;
+	contentsQ   :String;
+	insUserQ    :String;
+	insNameQ    :String;
+	insDateQ    :String;
+	contentsA   :String;
+	insUserA    :String;
+	insNameA    :String;
+	insDateA    :String;
+	boardSeqA   :String;
+	seq         :String;
+
+}

@@ -1,0 +1,9 @@
+<div id="index" [ngClass]="isLogined ? 'not-logged' : ''">
+    <hp-slider [urlWownet]="urlWownet"></hp-slider>
+    <hp-features [urlWownet]="urlWownet" [lshowPdtYn] = "lshowPdtYn"></hp-features>
+    <!-- <hp-about></hp-about> -->
+    <!-- <hp-products></hp-products> -->
+    <!-- <hp-media [urlWownet]="urlWownet"></hp-media> -->
+    <!-- <hp-notice [urlWownet]="urlWownet"></hp-notice> -->
+    <board-popup></board-popup>
+</div>

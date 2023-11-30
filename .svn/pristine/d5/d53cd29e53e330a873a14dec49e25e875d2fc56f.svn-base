@@ -1,0 +1,191 @@
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import * as memberInforInquiryAction from "@app/actions/myoffice/member/member-infor-inquiry.actions"
+import { MemInfo } from '@models/myoffice/member/mem-info.model';
+import { RankHistory } from '@models/myoffice/member/rank-history.model';
+import { AffiliatedMember } from '@models/myoffice/member/affiliated-member.model';
+import { Member } from '@models/myoffice/member/member.model';
+import * as memberInforInquirySelector from '@selectors/myoffice/member/member-infor-inquiry.selector'
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { ActivatedRoute } from '@angular/router';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { ReportUtil } from '@app/common/util/report.util';
+import { AuthUtil } from '@app/common/util/auth.util';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { PaginationInstance } from 'ngx-pagination';
+import { MemberConstants } from '@app/common/constant/member.constant';
+import { LenConstant } from '@app/common/constant/len.constant';
+import { getWAlertStatus, WAlertState } from '@app/selectors/w-alert.selector';
+import { WAlertStatus } from '@app/models/components/w-alert-stauts.model';
+import { setWAlert } from '@app/actions/w-alert.action';
+import { WAlertConstant } from '@app/common/constant/w-alert-icon.constant';
+import { MessageConstant } from '@app/common/constant/message.constant';
+
+declare const modifyBackToCloseModal: any;
+
+@Component({
+  selector: 'app-member-information-inquiry',
+  templateUrl: './member-information-inquiry.component.html',
+  styleUrls: ['./member-information-inquiry.component.css']
+})
+export class MemberInformationInquiryComponent implements OnInit {
+  page: number = 1;
+  len: number = 10;
+
+
+  memInfo$ = new Observable<MemInfo>;
+  rankHistories$ = new Observable<RankHistory[]>;
+  affiliatedMember$ = new Observable<AffiliatedMember>;
+  treeInfos$ = new Observable<Member[]>;
+  countTreeInfos$ = new Observable<Number>;
+  showMemberPopup: boolean = false;
+  totalItems: number = 0;
+  userId: string = '';
+  userName: string = '';
+
+  options: SelectDropdownModel[] = [];
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+  collection: Member[] = [];
+
+  totalCols: number = 7;
+  totalRows: number = 0;
+  rows: number[] = [];
+  cols: number[] = [];
+  wAlertStatus$ = new Observable<WAlertStatus>();
+  config: PaginationInstance = {
+    id: 'tableMem',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+  constructor(private route: ActivatedRoute,
+    private actRoute: ActivatedRoute,
+    private _overlayLoadingStore: Store<OverlayLoadingState>,
+    private _memberInforInquiryStore: Store<memberInforInquirySelector.MemberInfoInquiryState>,
+    private _wAlertStore: Store<WAlertState>,
+  ) {
+    this.memInfo$ = this._memberInforInquiryStore.select(memberInforInquirySelector.getMemInfo);
+    this.rankHistories$ = this._memberInforInquiryStore.select(memberInforInquirySelector.getRankHistories);
+    this.affiliatedMember$ = this._memberInforInquiryStore.select(memberInforInquirySelector.getAffiliatedMember);
+    this.treeInfos$ = this._memberInforInquiryStore.select(memberInforInquirySelector.getTreeInfo);
+    this.countTreeInfos$ = this._memberInforInquiryStore.select(memberInforInquirySelector.countTreeInfo);
+    this.wAlertStatus$ = this._wAlertStore.select(getWAlertStatus);
+  }
+
+  ngOnInit(): void {
+    let member = AuthUtil.getLoginedInfo();
+    if (member) {
+      this.userId = ConvertUtil.convertToSring(member.userid);
+    }
+    this.options = LenConstant.listLen;
+    this.selectedValue = this.options[0];
+    this.route.queryParams.subscribe(params => {
+      let usId = params['userid'];
+      if(ValidationUtil.isNotNullAndNotEmpty(usId)){
+          this.userId = usId
+      }
+    });
+
+    this.actRoute.queryParams.subscribe(res => {
+      const urlSearchParams = new URLSearchParams(res);
+
+      const userid = urlSearchParams.get('userid')
+
+      if(userid) {
+        this.userId = userid;
+      }
+    });
+    this.treeInfos$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collection = res;
+      } else {
+        this.collection = [];
+      }
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+      this.setBlankRow();
+    });
+
+
+    this.countTreeInfos$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    })
+    this. onSearch();
+
+  }
+  onSearch(){
+    setTimeout(() => {
+      this._overlayLoadingStore.dispatch( setShowOverlayLoading({loading: true }));
+    }, 1);
+    this._memberInforInquiryStore.dispatch(memberInforInquiryAction.loadMemInfo(this.userId));
+    this._memberInforInquiryStore.dispatch(memberInforInquiryAction.loadRankHistorys(this.userId));
+    this._memberInforInquiryStore.dispatch(memberInforInquiryAction.loadAffiliatedMember(this.userId));
+    this._memberInforInquiryStore.dispatch(memberInforInquiryAction.loadTreeInfo(this.userId, this.page -1, this.len));
+    this._memberInforInquiryStore.dispatch(memberInforInquiryAction.countTreeInfo(this.userId));
+
+    this.memInfo$.subscribe(res => {
+      if (res) {
+        this.userName = res.username
+      }
+    });
+  }
+  handleOnClickRow(item:Member)  {
+    window.open(MemberConstants.URL_MEMBER_INQUIRY+"?userid=" + item.userid,"_blank")
+  }
+  onChangeLen(selected: SelectDropdownModel): void {
+    this.page = 1;
+    this.len = Number(selected.value)
+    this.config.itemsPerPage = this.len;
+    this.config.currentPage = this.page;
+    this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    this._memberInforInquiryStore.dispatch(memberInforInquiryAction.loadTreeInfo(this.userId, this.page-1, this.len));
+  }
+  setBlankRow() {
+    this.totalRows = this.collection.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+
+    this.cols = new Array(this.totalCols);
+  }
+
+  onChangePage(page: Number): void {
+    this.page = Number(page);
+    this.config.itemsPerPage = this.len;
+    this.config.currentPage = this.page;
+    this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    this._memberInforInquiryStore.dispatch(memberInforInquiryAction.loadTreeInfo(this.userId, this.page-1, this.len));
+  }
+
+
+  handleOnClickToggleMemberPopup(show: boolean): void {
+    this.showMemberPopup = show;
+    this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+  }
+  handleOnClickRowMemberPopup(member: Member): void {
+    this.userId = member.userid
+    this.userName = member.username
+    this.onSearch()
+  }
+  handleOnClickShowMemPopup(): void {
+    modifyBackToCloseModal();
+    this.showMemberPopup = true
+  }
+
+  handleOnClickMemberReport(): void {
+    if (ValidationUtil.isNotNullAndNotEmpty(this.userId) ) {
+      ReportUtil.openMemberInquiryReport(this.userId);
+    } else {
+      this._wAlertStore.dispatch(setWAlert({ wAlert: { icon: WAlertConstant.warning, message: MessageConstant.msgNoMemInfor }}));
+    }
+  }
+}

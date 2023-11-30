@@ -1,0 +1,165 @@
+<div id="affiliate-member-analysis" class="office-page">
+
+    <div class="container mobile-container">
+
+        <div class="position-chart office-block mobile-block">
+            <h2 class="h-small">직급별 인수</h2>
+            <div class="chart hr-chart" id="chart-member-rank">
+                <ul class="row value-row">
+                    <li class="col" *ngFor="let item of memberRanks$ | async">
+                        <div class="value"><span>{{item.cntMem}}</span></div>
+                        <span class="bar" [ngStyle]="{'height.px': getHeigthOfElement(item.cntMem)}"></span>
+                    </li>
+
+                    <div class="hr-lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </ul>
+                <ul class="row label-row">
+                    <li class="col" *ngFor="let item of memberRanks$ | async">{{item.rankName}}</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="row age-combination office-block mobile-block">
+
+            <div class="col-md-4 age-chart">
+                <h2 class="h-small">연령별 인수</h2>
+                <div class="chart circle-chart">
+                    <div id="chart-member-age">
+                        <google-chart #chart [type]="type" [data]="dataChartAge" [options]="options">
+                        </google-chart>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 combination-table">
+                <div class="table-container row draggable-element" id="table-member-gender">
+                    <div class="col col_data">
+                        <div class="table-wrapper draggable-items-wrapper" draggableWrapper>
+                            <table class="hr-table" style="display: table">
+                                <thead>
+                                    <tr>
+                                        <th>직급</th>
+                                        <th>10대</th>
+                                        <th>20대</th>
+                                        <th>30대</th>
+                                        <th>40대</th>
+                                        <th>50대</th>
+                                        <th>60대</th>
+                                        <th>70대</th>
+                                        <th>기타 </th>
+                                        <th>합계</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of analysisMemberGendersBody">
+                                        <td>{{item.rankName | setComma }}</td>
+                                        <td>{{item.cntAge10 | setComma }}</td>
+                                        <td>{{item.cntAge20 | setComma }}</td>
+                                        <td>{{item.cntAge30 | setComma }}</td>
+                                        <td>{{item.cntAge40 | setComma }}</td>
+                                        <td>{{item.cntAge50 | setComma }}</td>
+                                        <td>{{item.cntAge60 | setComma }}</td>
+                                        <td>{{item.cntAge70 | setComma }}</td>
+                                        <td>{{item.cntAgeOther | setComma }}</td>
+                                        <td>{{item.cntMem | setComma }}</td>
+                                    </tr>
+
+
+                                </tbody>
+                                <tfoot>
+                                    <tr *ngIf="analysisMemberGendersFooter">
+                                        <td>{{analysisMemberGendersFooter.rankName | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAge10 | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAge20 | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAge30 | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAge40 | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAge50 | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAge60 | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAge70 | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntAgeOther | setComma }}</td>
+                                        <td>{{analysisMemberGendersFooter.cntMem | setComma }}</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="monthly-subscriber-acquisition office-block mobile-block last none">
+            <h2 class="h-small">월별 입회자 인수</h2>
+            <div class="table-container row draggable-element" id="table-member-month">
+                <div class="col col_data">
+                    <div class="table-wrapper draggable-items-wrapper" draggableWrapper>
+                        <table class="hr-table" style="display: table">
+                            <thead>
+                                <tr>
+                                    <th>년</th>
+                                    <th>1월</th>
+                                    <th>2월</th>
+                                    <th>3월</th>
+                                    <th>4월</th>
+                                    <th>5월</th>
+                                    <th>6월</th>
+                                    <th>7월</th>
+                                    <th>8월</th>
+                                    <th>9월</th>
+                                    <th>10월</th>
+                                    <th>11월</th>
+                                    <th>12월</th>
+                                    <th>합계</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of analysisMemberMonthBodys">
+                                    <td>{{item.year }}</td>
+                                    <td>{{item.m01 | setComma }}</td>
+                                    <td>{{item.m02 | setComma }}</td>
+                                    <td>{{item.m03 | setComma }}</td>
+                                    <td>{{item.m04 | setComma }}</td>
+                                    <td>{{item.m05 | setComma }}</td>
+                                    <td>{{item.m06 | setComma }}</td>
+                                    <td>{{item.m07 | setComma }}</td>
+                                    <td>{{item.m08 | setComma }}</td>
+                                    <td>{{item.m09 | setComma }}</td>
+                                    <td>{{item.m10 | setComma }}</td>
+                                    <td>{{item.m11 | setComma }}</td>
+                                    <td>{{item.m12 | setComma }}</td>
+                                    <td>{{item.cnt | setComma }}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr *ngIf="analysisMemberMonthsFooter">
+                                    <td>{{analysisMemberMonthsFooter.year }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m01 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m02 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m03 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m04 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m05 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m06 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m07 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m08 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m09 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m10 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m11 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.m12 | setComma }}</td>
+                                    <td>{{analysisMemberMonthsFooter.cnt | setComma }}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

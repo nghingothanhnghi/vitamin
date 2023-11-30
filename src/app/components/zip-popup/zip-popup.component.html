@@ -1,0 +1,91 @@
+<div class="popup address-browsing" [ngClass]="showZip==true ? 'opened' : ''">
+  <div class="container default-container popup-content">
+    <div class="popup-header row">
+      <h2 class="col h-medium">{{'component.zipcode.001' | translate}}</h2>
+      <a href="javascript:;" class="col-auto close-popup-btn"
+        (click)="handleOnClickCloseZipPopup();">
+        <svg width="22" height="22" viewBox="0 0 22 22">
+          <path d="M1 1L21 21" />
+            <path d="M21 1L1 21" />
+            </svg>
+          </a>
+        </div>
+        <div class="popup-body">
+          <div class="searching-form">
+            <div class="container default-container">
+              <div class="row form-row">
+                <!-- Member Name -->
+                <div class="col col-sm info member-name row">
+                  <!-- <span class="col-sm-auto label"></span> -->
+                  <input class="col-sm" placeholder="" [(ngModel)]="value"
+                    (keydown.enter)="handleOnClickSearch()">
+                </div>
+                <div class="col-sm-auto submit-btn"
+                  (click)="handleOnClickSearch();">{{'component.zipcode.002' | translate}}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container default-container results">
+            <div class="table-container">
+              <table class="hr-table">
+                <thead>
+                  <tr>
+                    <th style="width: 45px;">{{'component.zipcode.003' | translate}}</th>
+                    <th style="width: 67px;">{{'component.zipcode.004' | translate}}</th>
+                    <th>{{'component.zipcode.005' | translate}}</th>
+                    <th>{{'component.zipcode.006' | translate}}</th>
+                  </tr>
+                </thead>
+                <tbody id="tableZipcode">
+                  <ng-container *ngIf="total>0">
+
+                    <tr *ngFor="let item of items  | paginate: config ;let i=index"  (click)="handleOnClickRow(item) ">
+                      <td style="text-align: center;">{{(i+1)+(page-1)*10}}</td>
+                      <td style="text-align: center;">{{ item.address }}</td>
+
+                      <td style="text-align: center;">{{ item.zipCode }}</td>
+                      <td style="text-align: center;">{{ item.jibun }}</td>
+                    </tr>
+                  </ng-container>
+                  <ng-container *ngIf="total==0">
+                    
+                  <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                  <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                  <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;<span
+                   class="empty-warning h-small">{{'component.zipcode.007' | translate}}</span></td><td>&nbsp;</td></tr>
+                   <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                   <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                  </ng-container>
+
+                  </tbody>
+             
+                      </table>
+            </div>
+            <div class="pagination row">
+              <div class="col-auto per-page row">
+                <div class="label col-auto"><span>{{'component.zipcode.008' | translate}}</span></div>
+                <select-dropdown
+                  class="dropdown-select col-auto row"
+                  [options]="options"
+                  [selected]="selected"
+                  (changeSelectedValue)="handleOnChangeSelected($event);"></select-dropdown>
+              </div>
+              <!-- Paging -->
+              <paging
+                class="col-auto row paging"
+                [len]="len"
+                [page]="page"
+                [totalItems]="total"
+                [config]="config"
+                (changePage)="handleOnChangePage($event);"></paging>
+              <!-- Total -->
+              <div class="col-auto total">
+                <span class="label">{{'component.zipcode.009' | translate}}</span>
+                <span class="value">{{ total }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

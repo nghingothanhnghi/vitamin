@@ -1,0 +1,13 @@
+<div id="order-mileage-inquiry" class="office-page">
+    <section class="section-content searching-result orderSearch">
+        <order-mileage-inquiry-filter [page]="page" [len]="len" [userid]="userid" [username]="username"
+            [reload]="reload" (openMemberPopup)="handleOnToggleMemberPopup($event);"></order-mileage-inquiry-filter>
+        <order-mileage-inquiry-grid [len]="len" [page]="page" (changeLen)="handleOnChangeLen($event)"
+            (changePage)="handleOnChangePage($event)"
+            (resetReload)="handleOnResetReload($event)"></order-mileage-inquiry-grid>
+    </section>
+    <section class="popups-container">
+        <member-popup [show]="showMemberPopup" (clickClosePopup)="handleOnToggleMemberPopup($event);"
+            (clickRowItem)="handleOnClickRowMemberPopup($event);"></member-popup>
+    </section>
+</div>

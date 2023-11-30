@@ -1,0 +1,173 @@
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .container.results {
+		margin-bottom: 60px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.searching-result .container.results {
+		margin-bottom: 70px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.searching-result .container.results {
+		margin-bottom: 80px;
+	}
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .searching-form .container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.searching-result .searching-form .date-time {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+
+	.searching-result .searching-form .submit {
+		width: 100%;
+		flex: 0 0 auto;
+		order: 3;
+	}
+	.searching-result .searching-form .mobile-date-time-filter {
+		flex: 0 0 auto;
+		width: 100%;
+	}	
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	.searching-result .searching-form .container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.searching-result .searching-form .date-time {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+
+	.searching-result .searching-form .submit {
+		flex: 0 0 auto;
+		order: 3;
+	}
+
+	.searching-result .searching-form .mobile-date-time-filter {
+		flex: 1 0 0%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 992px) {	
+	.searching-result .results {
+		padding-bottom: 0;
+	}
+}
+
+
+.searching-result .hr-table thead th:nth-child(2), 
+.searching-result .hr-table thead th:nth-child(3), 
+.searching-result .hr-table thead th:nth-child(4), 
+.searching-result .hr-table thead th:nth-child(5), 
+.searching-result .hr-table thead th:nth-child(6), 
+.searching-result .hr-table thead th:nth-child(7)  {
+	text-align: right;
+}
+
+
+
+
+.searching-result .hr-table tbody td:nth-child(2), 
+.searching-result .hr-table tbody td:nth-child(3), 
+.searching-result .hr-table tbody td:nth-child(4), 
+.searching-result .hr-table tbody td:nth-child(5), 
+.searching-result .hr-table tbody td:nth-child(6), 
+.searching-result .hr-table tbody td:nth-child(7) {
+	text-align: right;
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px){
+	#benefit-remittance-details .submit-btn-wrapper,
+	#witholding-tax .submit-btn-wrapper{
+		width: 100%;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {	
+	.searching-result .date-selects {
+		margin-bottom: 15px;
+	}
+	
+	.searching-result .date-selects .info-heading {
+		margin-bottom: 0;
+		margin-right: 15px;
+	}
+	.searching-result .date-from, 
+	.searching-result .date-to {
+		width: auto;
+	}    
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .submit-btn {
+		width: 100%;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.searching-result .submit-btn {
+		min-width: 100px;
+	}
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.searching-result .submit-btn {
+		min-width: 140px;
+	}
+}
+
+@media all and (min-width: 992px) {	
+	.searching-result .submit-btn {
+		min-width: 150px;
+	}
+}
+
+
+
+

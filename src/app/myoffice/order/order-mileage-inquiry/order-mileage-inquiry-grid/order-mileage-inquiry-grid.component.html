@@ -1,0 +1,111 @@
+<div class="container mobile-container results orderTab" id="grid">
+
+    <div class="office-block mobile-block last none">
+        <div class="pagination mobile-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ totalItems }}</span>
+            </div>
+        </div>
+
+        <div class="table-container row draggable-element">
+            <div class="col col_data draggable-items-wrapper" draggableWrapper>
+                <div class="table-wrapper">
+                    <table class="hr-table">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center; white-space: nowrap;">등록일자</th>
+                                <th style="text-align: center; white-space: nowrap;">구분</th>
+                                <th style="text-align: center; white-space: nowrap;">주문번호</th>
+                                <th style="text-align: center; white-space: nowrap;">적립/사용액</th>
+                                <th style="text-align: center; white-space: nowrap;">비고사항</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items | paginate: config">
+                                <td style="text-align: center;">{{ item.regDate }}</td>
+                                <td>{{ item.kindName }}</td>
+                                <td style="text-align: center;" (click)="handleOnClickOrderNo(item.ordNo)">{{ item.ordNo
+                                    }}
+                                </td>
+                                <td style="text-align: right;">{{ item.amt | setComma }}원</td>
+                                <td>{{ item.remark }}</td>
+                            </tr>
+                        </tbody>
+                        <ng-container *ngIf="totalRows < 5">
+                            <tbody>
+                                <tr *ngFor="let row of rows; index as i">
+                                    <ng-container *ngFor="let col of cols; index as j">
+                                        <td>
+                                            <span>&nbsp;</span>
+                                            <ng-container *ngIf="totalRows === 0 && i === 2 && j === 2">
+                                                <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                        <tfoot>
+                            <tr *ngIf="sum$ | async as item">
+                                <td colspan="3" style="text-align: center;">[합계]</td>
+                                <td style="text-align: right;">{{ item.amt | setComma }}원</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- table mobile-->
+        <table class="hr-mobile-table">
+            <tbody *ngFor="let item of items | paginate: config">
+                <tr>
+                    <td>등록일자</td>
+                    <td style="text-align: center;">{{ item.regDate }}</td>
+                </tr>
+                <tr>
+                    <td>구분</td>
+                    <td style="text-align: center;">{{ item.kindName }}</td>
+                </tr>
+                <tr>
+                    <td>주문번호</td>
+                    <td style="text-align: center;" (click)="handleOnClickOrderNo(item.ordNo)">{{ item.ordNo }}</td>
+                </tr>
+                <tr>
+                    <td>적립/사용액</td>
+                    <td style="text-align: center;">{{ item.amt | setComma }}원</td>
+                </tr>
+                <tr>
+                    <td>비고사항</td>
+                    <td style="text-align: center;">{{ item.remark }}원</td>
+                </tr>
+            </tbody>
+            <grid-no-data-mobile [items]="items"></grid-no-data-mobile>
+        </table>
+
+        <!-- pagination pc -->
+        <div class="pagination desktop-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems" [config]="config"
+                (changePage)="handleOnChangePage($event);"></paging>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ totalItems }}</span>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

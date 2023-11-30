@@ -1,0 +1,287 @@
+/* .main-body {
+	padding-top: 30px;
+}
+
+.heading {
+    margin-bottom: 20px;
+} */
+
+
+
+
+
+/* table notice */
+/* 
+#hall-of-fame .notice-grid {
+    margin-bottom: 35px; 
+}
+
+#hall-of-fame table.notices tr {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+#hall-of-fame table.notices tr:hover {
+    cursor: pointer;
+}
+
+#hall-of-fame table.notices tr th {
+    white-space: nowrap;
+}
+
+#hall-of-fame table.notices tr td,
+#hall-of-fame table.notices tr th {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+
+#hall-of-fame table.notices tr td {
+    position: relative;
+}
+
+
+
+@media all and (min-width: 992px) {
+    #hall-of-fame table.notices tr:hover td .post-icon::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        background: #F68E1E;
+        width: 5px;
+        height: 100%;
+        transition: all ease-in-out .3s;
+    
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    #hall-of-fame table.notices tr:hover td .post-icon::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: "";
+        background: #F68E1E;
+        width: 3px;
+        height: 100%;
+        transition: all ease-in-out .3s;
+    
+    }
+}
+
+
+
+#hall-of-fame table.notices tr td .post-title {
+    font-weight: 600;
+    color: #242529;
+	transition: all ease-in-out .3s;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+}
+
+
+
+#hall-of-fame table.notices tr td .post-title a {
+    color: #242529;
+}
+
+#hall-of-fame table.notices tr td .post-title {
+    text-align: left;
+}
+#hall-of-fame table.notices tr:hover td .post-title {
+    color: #FB9B51;
+}
+
+
+#hall-of-fame table.notices tr td .post-download path {
+    fill: #5F9FFF;
+    transition: all ease-in-out .3s;
+}
+
+#hall-of-fame table.notices tr:hover td .post-download path {
+    fill: #0148FF;
+}
+
+#hall-of-fame table.notices .post-date,
+#hall-of-fame table.notices .post-author {
+    white-space: nowrap;
+}
+
+
+
+@media all and (max-width: 575px) {
+	#hall-of-fame .notices .post-icon, 
+	#hall-of-fame .notices .post-title, 
+	#hall-of-fame .notices .post-download, 
+	#hall-of-fame .notices .post-author {
+		padding-right: 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#hall-of-fame .notices .post-icon,  
+	#hall-of-fame .notices .post-title,  
+	#hall-of-fame .notices .post-author,
+	#hall-of-fame .notices .post-download, 
+	#hall-of-fame .notices .post-number {
+		padding-right: 12.5px;
+	}
+} */
+
+
+
+
+
+
+/* đã cm */
+
+/* 
+.title a {
+    color: #2A2E46;
+    font-weight: 600;
+}
+
+.title a:hover {
+    color: #739E3C;
+}
+
+.content th {
+    font-weight: 700;
+    border-bottom: 1px solid #000;
+    padding: 10px 10px;
+}
+
+.content td {
+    border-bottom: 1px solid rgba(0,0,0,.1) ;
+    padding: 15px 10px;
+}
+
+.content td:first-child {
+    font-weight: 700;
+}
+
+.content table {
+    margin-bottom: 30px;
+} */
+
+/* .pagination {
+    justify-content: center;
+} */
+
+/* đã cm */
+
+
+
+
+
+
+/* @media all and (max-width: 575px) {
+    .title p {
+        width: 100%;
+    }
+    .title .h-medium {
+        text-align: left;
+    }
+}
+
+
+
+
+@media (max-width: 991px) {
+	.main-heading {
+		display: none;
+	}
+	.main-body {
+		padding: 30px 0;
+	}
+} */
+
+
+
+/* ------deatails------- */
+
+
+/* #hall-detail .content-row {
+    margin-top: 30px;
+}
+
+#hall-detail .media-meta {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, .5);
+}
+@media (min-width: 992px) {
+    #media-center .media-meta {
+    font-size: 14px;
+}
+}
+
+
+
+
+
+@media (min-width: 992px) {
+    .content-part {
+    margin-bottom: 50px;
+}
+}
+
+
+
+
+
+#hall-detail .post-foot {
+    display: flex;
+    justify-content: space-between;
+}
+
+#hall-detail .carret {
+    display: flex;
+    align-items: center;
+}
+
+#hall-detail .post-foot a {
+    display: flex;
+    color: #000;
+    align-items: center;
+}
+
+
+#hall-detail .carret.left {
+    margin-right: 10px;
+    transform: rotate(-180deg);
+}
+
+#hall-detail .carret.right {
+    margin-left: 10px;
+}
+
+@media all and (max-width:420px) {
+    #hall-detail .prev,
+    #hall-detail .next-post  {
+       width: 100%;
+       padding-bottom: 15px;
+    }
+    
+}
+
+
+
+@media (min-width: 992px) {
+	.hall-fame .main-container {
+    padding: 20px 0;
+}
+} */
+
+
+
+
+
+
+

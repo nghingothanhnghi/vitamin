@@ -1,0 +1,147 @@
+<div class="form-body form-card form-no-bankbook m-no-bankbook passless" data-method="4" [formGroup]="form">
+    <div id="pays04" class="payArea">
+        <div class="row">
+            <div class="col-md col_1">
+                <ng-container *ngIf="smWownetPg.settMPoint === 'Y'">
+                    <div id="redeem-point" style="margin-bottom: 25px;">
+                        <div class="row" style="margin-bottom: 25px;">
+                            <div class="col-sm-auto label">
+                            <span>사용가능 마일리지</span>
+                            </div>
+                            <div class="col row" >
+                            <input id="u-point" value="{{ totalPoint | setComma }}" type="text" class="col" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-auto label" style="margin-right: 49px;">
+                            <span>사용 마일리지</span>
+                            </div>
+                            <div class="col row">
+                            <input id="u-point-vbank" value="0" formControlName="usePointVBank" (keyup)="handleOnChangeUsePointVBank($event.target)" type="text" class="col">
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+
+                <div class="row info">
+                    <div class="col-auto label" style="margin-right: 45.5px;"><span>은행</span></div>
+                    <div class="col inputs-wrapper row">
+                        <select-dropdown class="dropdown-select" [selected]="vaccAdmitInfoSelected"
+                            [options]="vaccAdmitInfoOptions"
+                            (changeSelectedValue)="handleVaccAdmitInfoOnclick($event);">
+                        </select-dropdown>
+                    </div>
+                </div>
+
+                <div class="row info">
+                    <div class="col-auto label" style="margin-right: 45.5px;"><span>입금자명</span></div>
+                    <div class="col inputs-wrapper row">
+                        <input type="text" class="wd100" formControlName="vaccAdmitName" id="vaccAdmitName"
+                            maxlength="45">
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md col_2">
+                <div class="row info cash-receipt">
+                    <div class="col-auto label"><span>현금영수증</span></div>
+                    <div class="col inputs-wrapper row">
+                        <select-dropdown class="dropdown-select" [selected]="cashRcptYNSelected"
+                            [options]="cashRcptYNOptions" (changeSelectedValue)="handleReciptOnclick($event, 1);">
+                        </select-dropdown>
+                        <div class="row">
+
+                            <select-dropdown class="dropdown-select col-auto s1" id="cashRcptOpt1" style="display: none"
+                                [selected]="cashRcptOpt1Selected" [options]="cashRcptOpt1"
+                                (changeSelectedValue)="handleReciptOnclick($event, 2);">
+                            </select-dropdown>
+
+                            <select-dropdown id="cashRcptOpt2" class="dropdown-select col s2" style="display: none"
+                                [selected]="cashRcptOpt2Selected" [options]="cashRcptOpt2"
+                                (changeSelectedValue)="handleReciptOnclick($event, 3);">
+                            </select-dropdown>
+
+                            <input type="text" formControlName="cashRcptOpt3" id="cashRcptOpt3" style="display: none"
+                                value="" maxlength="64" placeholder="식별정보를 입력하세요.">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row info">
+                    <div class="col-auto label"><span>결제금액</span></div>
+                    <div class="col inputs-wrapper row">
+                        <ng-container *ngIf="orderInfo && orderInfo.ordAmt !== null && orderInfo.deliAmt !== null">
+                            <span class="col-auto">{{ +orderInfo.totalAmt - point | setComma }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!orderInfo || orderInfo.ordAmt === null ||  orderInfo.deliAmt=== null">
+                            <span class="col-auto">0</span>
+                        </ng-container>
+                        <span class="col-auto">원</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- <table>
+            <tbody>
+                <tr>
+                    <th>은행</th>
+                    <td>
+                        <select-dropdown class="dropdown-select" [selected]="vaccAdmitInfoSelected"
+                            [options]="vaccAdmitInfoOptions"
+                            (changeSelectedValue)="handleVaccAdmitInfoOnclick($event);">
+                        </select-dropdown>
+                    </td>
+                </tr>
+                <tr>
+                    <th>입금자명</th>
+                    <td>
+                        <input type="text" class="wd100" formControlName="vaccAdmitName" id="vaccAdmitName"
+                            maxlength="45">
+                    </td>
+                </tr>
+                <tr>
+                    <th>현금영수증</th>
+                    <td>
+                        <select-dropdown class="dropdown-select" [selected]="cashRcptYNSelected"
+                            [options]="cashRcptYNOptions"
+                            (changeSelectedValue)="handleReciptOnclick($event);"></select-dropdown>
+                        <select id="cashRcptOpt1" formControlName="cashRcptOpt1" class="wd100 pdr20"
+                            style="font-size:12px; display:none;">
+                            <option value="0">소득증빙용</option>
+                            <option value="1">지출증빙용</option>
+                        </select>
+                        <select id="cashRcptOpt2" formControlName="cashRcptOpt2" class="wd100 pdr20"
+                            style="font-size:12px; display:none;">
+                            <option value="1">현금영수증 카드번호</option>
+                            <option value="2">주민번호</option>
+                            <option value="3">사업자번호</option>
+                            <option value="4">휴대폰번호</option>
+                        </select>
+                        <input type="text" formControlName="cashRcptOpt3" id="cashRcptOpt3" value="" maxlength="64"
+                            style="width:300px; margin-top:10px; display:none;" placeholder="식별정보를 입력하세요.">
+                    </td>
+                </tr>
+                <tr>
+                    <th>결제금액</th>
+                    <td>
+                        <ng-container *ngIf="orderInfo && orderInfo.ordAmt !== null && orderInfo.deliAmt !== null">
+                            <span>{{ +orderInfo.totalAmt - point | setComma }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!orderInfo || orderInfo.ordAmt === null ||  orderInfo.deliAmt=== null">
+                            <span>0</span>
+                        </ng-container>
+                        <span>원</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
+    </div>
+</div>

@@ -1,0 +1,59 @@
+/**/
+
+
+
+.content-info .heading {		
+	text-align: center;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+    .label {
+        margin-bottom: 5px;
+    }
+}
+
+@media all and (min-width: 576px) {
+    .label {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 15px;
+        height: 44px;
+        align-items: center;
+    }
+    .label span {
+        width: 90px;
+    }    
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .group-btns a {
+        width: calc(50% - 5px);
+    }
+}
+
+@media all and (min-width: 576px) {
+    .group-btns a {
+        width: 160px;
+    }
+}
+
+.group-btns a {
+    height: 48px;
+}
+
+.group-btns a:first-child {
+    margin-right: 10px;
+}
+
+
+

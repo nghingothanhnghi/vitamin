@@ -1,0 +1,108 @@
+<div id="product-description">
+    <ng-container *ngFor="let key of keys">
+        <div class="introduction-products">
+            <div class="featured-slider product-gallery-slider" data-display="4,3,2,2" data-nav="on">
+                <div class="heading row">
+                    <h2 class="h-small col">
+                        <span>{{ mapCate.get(key) }}</span>
+                    </h2>
+                </div>
+                <div class="slider-content slider-ref">
+                    <div class="slider-wrapper row container products-wrapper">
+                        <ng-container *ngFor="let item of mapProduct.get(key)">
+                            <div class="slide item">
+                                <!-- <a class="product" href="javascript:;" (click)="handleOnClickProductDetail(item);"> -->
+                                <a class="product" [routerLink]="'/shopping-mall/product/' + item.pdtCD">
+                                    <div class="featured-wrapper">
+                                        <div class="img-wrapper" data-index="0">
+                                            <ng-container *ngIf="item.fileName === null || item.fileName === ''">
+                                                <img src="./assets/img/noImage.jpg">
+                                            </ng-container>
+                                            <ng-container *ngIf="item.fileName !== null && item.fileName !== ''">
+                                                <img [src]="urlWownet + item.filePath + item.fileName">
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <span class="name">{{ item.pdtName }}</span>
+                                        <div class="price">
+                                            <ng-container *ngIf="isLogined">
+                                                <div class="member">
+                                                    <span class="value">{{ item.amt | setComma }}</span>
+                                                    <span class="currency">원</span>
+                                                </div>
+                                                <div class="pv" *ngIf="isPv1">
+                                                    <span class="value">{{ item.pv1 | setComma }}</span>
+                                                    <span class="currency">{{ smWowWord.oPv1 }}</span>
+                                                </div>
+                                                <!-- <div class="pv" *ngIf="isPv2">
+                                                    <span class="value">{{ item.pv2 | setComma }}</span>
+                                                    <span class="currency">{{ smWowWord.oPv2 }}</span>
+                                                </div> -->
+                                                <!-- <div class="pv" *ngIf="isPv3">
+                                                    <span class="value">{{ item.pv3 | setComma }}</span>
+                                                    <span class="currency">{{ smWowWord.oPv3 }}</span>
+                                                </div> -->
+                                                <div class="pv" *ngIf="isPoint">
+                                                    <span class="value">{{ item.point | setComma }}</span>
+                                                    <span class="currency">{{ smWowWord.oMileage }}</span>
+                                                </div>
+                                            </ng-container>
+                                            <ng-container *ngIf="!isLogined">
+                                                <div class="regular" *ngIf="isRetailAmt">
+                                                    <span class="value">{{ item.retailAmt | setComma }}</span>
+                                                    <span class="currency">원</span>
+                                                </div>
+                                                <ng-container *ngIf="isAmt">
+                                                    <div class="type member">
+                                                        <span class="value">{{ item.amt | setComma }}</span>
+                                                        <span class="currency">원</span>
+                                                    </div>
+                                                    <div class="type pv" *ngIf="isPv1">
+                                                        <span class="value">{{ item.pv1 | setComma }}</span>
+                                                        <span class="currency">{{ smWowWord.oPv1 }}</span>
+                                                    </div>
+                                                    <!-- <div class="type pv" *ngIf="isPv2">
+                                                        <span class="value">{{ item.pv2 | setComma }}</span>
+                                                        <span class="currency">{{ smWowWord.oPv2 }}</span>
+                                                    </div> -->
+                                                    <!-- <div class="type pv" *ngIf="isPv3">
+                                                        <span class="value">{{ item.pv3 | setComma }}</span>
+                                                        <span class="currency">{{ smWowWord.oPv3 }}</span>
+                                                    </div> -->
+                                                </ng-container>
+                                                <div class="pv" *ngIf="isPoint">
+                                                    <span class="value">{{ item.retailPoint | setComma }}</span>
+                                                    <span class="currency">{{ smWowWord.oMileage }}</span>
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+
+
+    <div class="w-video">
+        <div (click)="onPlay();" *ngIf="showThum" class="thumbnail">
+            <div class="states">
+                <img class="state play" src="./assets/img/icons/ytb-play.svg">
+            </div>
+            <div class="img-wrapper">
+                <img src="./assets/img/home/about-us-video-thumbnail.jpg">
+            </div>
+        </div>
+        <video controls>
+            <source src="./assets/acumullit_sa_sample_pack_by_aplgo.mp4" type="video/mp4">
+            <source src="./assets/acumullit_sa_sample_pack_by_aplgo.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+</div>

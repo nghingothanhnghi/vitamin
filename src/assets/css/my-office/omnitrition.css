@@ -1,0 +1,1070 @@
+/*------- 1. Omnitrition Consumer Registration -------*/
+
+
+#omnitrition-consumer-registration .registration-form .recommender .w-btn {
+	width: 50px;
+	border-radius: 5px;
+}
+
+#omnitrition-consumer-registration .registration-form .recommender .w-btn .icon {
+	margin-left: 0;
+}
+
+
+#omnitrition-consumer-registration .registration-form .recommender .w-btn .icon svg path {
+	fill: #FFF;
+}
+
+
+
+#omnitrition-consumer-registration .registration-form .address-browse .w-btn {
+	height: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+
+#omnitrition-consumer-registration .registration-form .dropdown-select .selected {
+	padding: 0;
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#omnitrition-consumer-registration .searching-form .date-select {
+		width: 100%;
+	}
+
+}
+
+@media (min-width: 640px) and (max-width: 991px) {
+	#omnitrition-consumer-registration .office-page .searching-result .hr-mobile-table tbody {
+		width: 100%
+	}
+}
+
+
+
+
+
+
+#omnitrition-consumer-registration .registration-form .group-btns {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+
+#omnitrition-consumer-registration .registration-form .group-btns .w-btn {
+	border-radius: 5px;
+	/* min-width: 120px; */
+	margin-left: 10px;
+}
+
+/* #omnitrition-consumer-registration .registration-form .group-btns .w-btn:first-child {
+	margin-right: 10px;
+} */
+
+
+#omnitrition-consumer-registration .registration-form .label {
+	margin-bottom: 7.5px;
+	color: #000;
+	padding: 0;
+}
+
+#omnitrition-consumer-registration .registration-form .note {
+	display: flex;
+	margin-top: 7.5px;
+	opacity: .5;
+}
+
+
+
+@media all and (max-width: 575px) {
+	#omnitrition-consumer-registration .registration-form .info {
+		width: 100%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.phone .note {
+		display: none;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+
+	/*---- Row 1 ---*/
+	#omnitrition-consumer-registration .registration-form .info.recommender {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.registration-date {
+		width: 48.5%;
+	}
+
+
+	/*---- Row 2 ---*/
+	#omnitrition-consumer-registration .registration-form .info.consumer-number {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.consumer-name {
+		width: 48.5%;
+	}
+
+
+	/*---- Row 3 ---*/
+	#omnitrition-consumer-registration .registration-form .info.birthdate {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.phone {
+		width: 48.5%;
+	}
+
+
+	/*---- Row 4 ---*/
+	#omnitrition-consumer-registration .registration-form .info.email,
+	#omnitrition-consumer-registration .registration-form .info.address-browse {
+		width: 30.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.default-address {
+		width: 33%;
+	}
+
+
+	/*---- Row 5 ---*/
+	#omnitrition-consumer-registration .registration-form .info.detailed-address {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.remark {
+		width: 48.5%;
+	}
+
+}
+
+
+@media all and (min-width: 992px) {
+
+	/*---- Row 1 ---*/
+	#omnitrition-consumer-registration .registration-form .info.recommender,
+	#omnitrition-consumer-registration .registration-form .info.registration-date {
+		width: 32%;
+		margin-right: 2%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.consumer-number {
+		width: 32%;
+	}
+
+
+	/*---- Row 2 ---*/
+	#omnitrition-consumer-registration .registration-form .info.consumer-name,
+	#omnitrition-consumer-registration .registration-form .info.birthdate {
+		width: 32%;
+		margin-right: 2%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.phone {
+		width: 32%;
+	}
+
+
+	/*---- Row 3 ---*/
+	#omnitrition-consumer-registration .registration-form .info.email,
+	#omnitrition-consumer-registration .registration-form .info.address-browse {
+		width: 32%;
+		margin-right: 2%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.default-address {
+		width: 32%;
+	}
+
+
+	/*---- Row 4 ---*/
+	#omnitrition-consumer-registration .registration-form .info.detailed-address {
+		width: 49%;
+		margin-right: 2%;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info.remark {
+		width: 49%;
+	}
+}
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+	#omnitrition-consumer-registration .registration-form .info {
+		background: rgba(0, 0, 0, 0) !important;
+		box-shadow: none !important;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info input {
+		box-shadow: none;
+		border: none;
+		border-radius: 5px;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .05);
+		box-shadow: 0px 2.5px 5px rgb(0 0 0 / 5%);
+		border-radius: 5px;
+	}
+
+	#omnitrition-consumer-registration .office-page .section-content .container.results {
+		padding-bottom: 60px;
+	}
+}
+
+
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-consumer-registration .registration-form .info input {
+		border: none;
+		border-radius: 5px;
+		padding: 8px 15px;
+	}
+
+	#omnitrition-consumer-registration .registration-form .info .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .1);
+		border-radius: 5px;
+	}
+}
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#omnitrition-consumer-registration .registration-form .info {
+		margin-bottom: 15px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#omnitrition-consumer-registration .registration-form .info {
+		margin-bottom: 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#omnitrition-consumer-registration .registration-form .info {
+		margin-bottom: 17.5px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-consumer-registration .registration-form .info {
+		margin-bottom: 20px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------- 2. Omnitrition Consumer Inquiry -------*/
+
+#omnitrition-consumer-inquiry .searching-result .searching-form .submit-btn,
+#omnitrition-consumer-inquiry .searching-result .searching-form .clear-btn {
+	min-width: 100px;
+	border-radius: 5px;
+}
+
+#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper .submit-btn {
+	margin-right: 10px;
+}
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper .submit-btn,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper .clear-btn {
+		width: calc(50% - 5px);
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper .submit-btn,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper .clear-btn {
+		width: calc(50% - 5px);
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper .submit-btn,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper .clear-btn {
+		width: calc(50% - 5px);
+	}
+}
+
+
+
+
+@media all and (max-width: 991px) {
+	#omnitrition-consumer-inquiry .searching-result .searching-form .btns-wrapper {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+
+
+
+#omnitrition-consumer-inquiry .searching-result .searching-form .inputs-wrapper {
+	border-radius: 5px;
+}
+
+
+#omnitrition-consumer-inquiry .searching-result .searching-form .inputs-wrapper input {
+	border: none;
+}
+
+
+@media all and (max-width: 991px) {
+	#omnitrition-consumer-inquiry .registration-form .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .05);
+		background: #FFF;
+		box-shadow: 0px 2.5px 5px rgba(0, 0, 0, .05);
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-consumer-inquiry .searching-result .searching-form .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .1);
+	}
+}
+
+
+
+
+#omnitrition-consumer-inquiry .desktop-time-btns a {
+	width: auto;
+}
+
+#omnitrition-consumer-inquiry .desktop-time-btns a:not(:last-child) {
+	margin-right: 10px;
+}
+
+
+@media all and (max-width: 575px) {
+	#omnitrition-consumer-inquiry .time-btns a {
+		margin-bottom: 5px;
+	}
+}
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone {
+		margin-bottom: 10px;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .advanced-search-items .submit-btn-wrapper {
+		width: 100%;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender .label,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name .label,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone .label {
+		padding-right: 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender {
+		width: 48.5%;
+		margin-right: 3%;
+		margin-bottom: 12.5px;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name {
+		width: 48.5%;
+		margin-bottom: 12.5px;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .submit-btn-wrapper {
+		width: 48.5%;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender .label,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name .label,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone .label {
+		padding-right: 10px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender {
+		width: 48.5%;
+		margin-right: 3%;
+		margin-bottom: 15px;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name {
+		width: 48.5%;
+		margin-bottom: 15px;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .submit-btn-wrapper {
+		width: 48.5%;
+	}
+
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender .label,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name .label,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone .label {
+		padding-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone {
+		margin-right: 20px;
+	}
+}
+
+
+@media all and (min-width: 1200px) {
+
+	#omnitrition-consumer-inquiry .searching-result .searching-form .recommender,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-name,
+	#omnitrition-consumer-inquiry .searching-result .searching-form .member-phone {
+		margin-right: 25px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------- 3. Omnitrition Consumer Sales Registration (CSR)-------*/
+
+
+#omnitrition-csr .registration-form .inputs-wrapper {
+	border-radius: 5px;
+}
+
+#omnitrition-csr .searching-result .hr-table th {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	text-align: center;
+}
+
+#omnitrition-csr .searching-result .hr-table td {
+	text-align: center;
+}
+
+#omnitrition-csr .registration-form .inputs-wrapper input {
+	border: none;
+}
+
+#omnitrition-csr .registration-form .label {
+	padding: 0;
+}
+
+#omnitrition-csr .registration-form .dropdown-select .selected {
+	padding: 0;
+	box-shadow: none;
+}
+
+#omnitrition-csr .registration-form .dropdown-select {
+	box-shadow: 0px 2.5px 5px rgba(0, 0, 0, .05);
+}
+
+@media all and (max-width: 991px) {
+	#omnitrition-csr .registration-form .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .05);
+		background: #FFF;
+		box-shadow: 0px 2.5px 5px rgba(0, 0, 0, .05);
+	}
+
+}
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-csr .registration-form .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .1);
+	}
+
+	#omnitrition-csr .registration-form {
+		padding: 0px;
+	}
+
+	#omnitrition-csr .container {
+		padding-bottom: 50px;
+	}
+
+}
+
+
+
+
+#omnitrition-csr .registration-form .label {
+	display: flex;
+	margin-bottom: 7.5px;
+	color: #000;
+}
+
+
+#omnitrition-csr .registration-form .w-btn {
+	border-radius: 5px;
+}
+
+#omnitrition-csr .registration-form .w-btn:first-child {
+	margin-right: 10px;
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#omnitrition-csr .registration-form .info {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	#omnitrition-csr .registration-form .group-btns {
+		width: 100%;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	#omnitrition-csr .registration-form .group-btns .label {
+		display: none;
+		margin-bottom: 0;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	#omnitrition-csr .registration-form .recommender {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-csr .registration-form .consumer-name {
+		width: 48.5%;
+	}
+
+	#omnitrition-csr .registration-form .consumer-information {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-csr .registration-form .consumer-address {
+		width: 48.5%;
+	}
+
+	#omnitrition-csr .registration-form .remarks {
+		width: 48.5%;
+		margin-right: 3%;
+	}
+
+	#omnitrition-csr .registration-form .group-btns {
+		width: 48.5%;
+		margin-top: 0;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+
+	#omnitrition-csr .registration-form .recommender,
+	#omnitrition-csr .registration-form .consumer-name {
+		width: 32%;
+		margin-right: 2%;
+	}
+
+	#omnitrition-csr .registration-form .consumer-information {
+		width: 32%;
+		margin-bottom: 20px;
+	}
+
+
+	#omnitrition-csr .registration-form .consumer-address,
+	#omnitrition-csr .registration-form .remarks {
+		width: 32%;
+		margin-right: 2%;
+	}
+
+	#omnitrition-csr .registration-form .group-btns {
+		width: 32%;
+		margin-top: 0;
+	}
+
+
+	#omnitrition-csr .registration-form .dropdown-select {
+		border: 1px solid rgba(0, 0, 0, .1);
+	}
+
+
+	#omnitrition-csr .hr-mobile-table tr .column-2 {
+		width: 30%;
+		border-right: 1px solid rgba(0, 0, 0, .1);
+	}
+
+
+
+}
+
+
+
+
+
+@media all and (max-width: 991px) {
+
+	#omnitrition-csr .registration-form .dropdown-select,
+	#omnitrition-csr .registration-form .inputs-wrapper {
+		background: #FFF;
+		border: 1px solid rgba(0, 0, 0, .05);
+		box-shadow: 0px 2.5px 5px rgba(0, 0, 0, .05);
+	}
+
+	#omnitrition-csr .registration-form input {
+		border: none;
+	}
+
+
+	#omnitrition-csr .registration-form .info {
+		background: none !important;
+		box-shadow: none !important;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#omnitrition-csr .registration-form .info {
+		margin-bottom: 15px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#omnitrition-csr .registration-form .info {
+		margin-bottom: 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#omnitrition-csr .registration-form .info {
+		margin-bottom: 17.5px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-csr .registration-form .info {
+		margin-bottom: 20px;
+	}
+}
+
+
+
+
+
+
+
+/*------- 4. Omnitrition Unsold Product Inquiry (UPI)-------*/
+
+
+
+#omnitrition-upi .searching-result .searching-form .member-name .w-btn {
+	width: 50px;
+	border-radius: 5px;
+}
+
+#omnitrition-upi .searching-result .searching-form .member-name .w-btn .icon {
+	margin-left: 0;
+}
+
+
+#omnitrition-upi .searching-result .searching-form .member-name .w-btn .icon svg path {
+	fill: #FFF;
+}
+
+
+#omnitrition-upi .searching-result .searching-form .clear-btn {
+	border-radius: 5px;
+}
+
+
+
+
+#omnitrition-upi .searching-result .searching-form .inputs-wrapper {
+	border-radius: 5px;
+}
+
+
+#omnitrition-upi .searching-result .searching-form .inputs-wrapper input {
+	border: none;
+}
+
+@media (max-width: 575px) {
+
+	#omnitrition-upi.office-page .searching-result .searching-form .btns-wrapper .w-btn:first-child,
+	#omnitrition-csri.office-page .searching-result .searching-form .btns-wrapper .w-btn:first-child {
+		margin-right: 15px;
+	}
+}
+
+@media (min-width: 575px) {
+
+	#omnitrition-upi.office-page .searching-result .searching-form .btns-wrapper .w-btn:first-child,
+	#omnitrition-csri.office-page .searching-result .searching-form .btns-wrapper .w-btn:first-child {
+		margin-right: 15px;
+	}
+}
+
+
+@media all and (max-width: 991px) {
+	#omnitrition-upi .searching-result .searching-form .inputs-wrapper {
+		/* border: 1px solid rgba(0,0,0,.05); */
+		background: #FFF;
+		box-shadow: 0px 2.5px 5px rgba(0, 0, 0, .05);
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-upi .searching-result .searching-form .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#omnitrition-upi .searching-result .searching-form .member-name {
+		margin-bottom: 10px;
+	}
+
+	#omnitrition-upi .searching-result .searching-form .member-name .label {
+		padding-right: 10px;
+	}
+
+	#omnitrition-upi .searching-result .searching-form .clear-btn {
+		margin-right: 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#omnitrition-upi .searching-result .searching-form .member-name {
+		margin-bottom: 12.5px;
+	}
+
+	#omnitrition-upi .searching-result .searching-form .member-name .label {
+		padding-right: 12.5px;
+	}
+
+	#omnitrition-upi .searching-result .searching-form .clear-btn {
+		margin-right: 12.5px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#omnitrition-upi .searching-result .searching-form .member-name {
+		margin-bottom: 15px;
+	}
+
+	#omnitrition-upi .searching-result .searching-form .member-name .label {
+		padding-right: 15px;
+	}
+
+	#omnitrition-upi .searching-result .searching-form .clear-btn {
+		margin-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+
+	#omnitrition-upi .searching-result .searching-form .member-name,
+	#omnitrition-upi .searching-result .searching-form .clear-btn {
+		margin-right: 20px;
+	}
+}
+
+
+@media all and (min-width: 1200px) {
+
+	#omnitrition-upi .searching-result .searching-form .member-name,
+	#omnitrition-upi .searching-result .searching-form .clear-btn {
+		margin-right: 25px;
+	}
+}
+
+
+
+
+#omnitrition-upi .searching-result .hr-table th {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+#omnitrition-upi .searching-result .hr-table td {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------- 5. Omnitrition Consumer Sales Ratio Inquiry -------*/
+
+
+#omnitrition-csri .desktop-time-btns a {
+	width: auto;
+}
+
+#omnitrition-csri .desktop-time-btns a:not(:last-child) {
+	margin-right: 10px;
+}
+
+#omnitrition-csri .desktop-time-btns a:last-child {
+	margin-right: 0;
+}
+
+
+
+
+
+#omnitrition-csri .searching-result .searching-form .member-name .w-btn {
+	width: 50px;
+	border-radius: 5px;
+}
+
+#omnitrition-csri .searching-result .searching-form .member-name .w-btn .icon {
+	margin-left: 0;
+}
+
+
+#omnitrition-csri .searching-result .searching-form .member-name .w-btn .icon svg path {
+	fill: #FFF;
+}
+
+
+#omnitrition-csri .searching-result .searching-form .clear-btn {
+	border-radius: 5px;
+}
+
+
+
+
+#omnitrition-csri .searching-result .searching-form .inputs-wrapper {
+	border-radius: 5px;
+}
+
+
+#omnitrition-csri .searching-result .searching-form .inputs-wrapper input {
+	border: none;
+}
+
+
+@media all and (max-width: 991px) {
+	#omnitrition-csri .searching-result .searching-form .inputs-wrapper {
+		/* border: 1px solid rgba(0,0,0,.05);
+		background: #FFF;
+		box-shadow: 0px 2.5px 5px rgba(0,0,0,.05); */
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-csri .searching-result .searching-form .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .1);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#omnitrition-csri .searching-result .searching-form .member-name {
+		margin-bottom: 10px;
+	}
+
+	#omnitrition-csri .searching-result .searching-form .member-name .label {
+		padding-right: 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#omnitrition-csri .searching-result .searching-form .member-name {
+		margin-right: 12.5px;
+		margin-bottom: 12.5px;
+	}
+
+	#omnitrition-csri .searching-result .searching-form .member-name .label {
+		padding-right: 12.5px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#omnitrition-csri .searching-result .searching-form .member-name {
+		margin-right: 17.5px;
+		margin-bottom: 15px;
+	}
+
+	#omnitrition-csri .searching-result .searching-form .member-name .label {
+		padding-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+	#omnitrition-csri .searching-result .searching-form .member-name {
+		margin-right: 20px;
+	}
+}
+
+
+@media all and (min-width: 1200px) {
+	#omnitrition-csri .searching-result .searching-form .member-name {
+		margin-right: 25px;
+	}
+}
+
+
+
+
+
+#omnitrition-csri .searching-result .hr-table th {
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	#omnitrition-csri .searching-result .searching-form .btns-wrapper .w-btn {
+		min-width: 120px;
+	}
+}

@@ -1,0 +1,293 @@
+ /**/
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+	.order-history-2 {
+		margin-bottom: 50px;
+	}
+}
+
+
+
+
+
+@media all and (max-width: 767px) {
+	.searching-result .searching-form .date-selects {
+		margin-bottom: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#benefit-statement .results {
+	padding-bottom: 0;
+}
+
+@media all and (min-width: 992px) {
+	#benefit-statement .results .print-payment-statement,
+	#benefit-statement .results .office-block {
+		margin-bottom: 30px;
+	}
+
+	#benefit-statement .searching-form .form-row:not(.date-time) .dropdown-select {
+		border: none;
+	}
+	
+	#benefit-statement-popup .result-block p {
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+
+
+/*---- 4.1 Print Payment Statement ----*/
+
+
+
+@media all and (max-width: 575px) {
+	#benefit-statement .results .print-payment-statement .col-text {
+		margin-bottom: 10px;
+	}	
+}
+
+@media all and (min-width: 576px) {
+	#benefit-statement .results .print-payment-statement .col-text {
+		margin-right: 30px;
+	}	
+}
+
+
+
+/*---- 4.2 Allowance Statement ----*/
+
+
+@media all and (max-width: 575px) {
+	#benefit-statement .results .allowance-statement tbody td:last-child {
+		padding-left: 25px;
+		padding-right: 25px;
+	}	
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#benefit-statement .results .allowance-statement tbody td:last-child {
+		padding-left: 30px;
+		padding-right: 30px;
+	}	
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#benefit-statement .results .allowance-statement tbody td:last-child {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
+
+@media all and (max-width: 991px) {
+	#benefit-statement .results .allowance-statement tbody {
+		width: 100%;
+		margin-right: 0;
+	}	
+}
+
+
+
+
+/*---- 4.3 Allowance History ----*/
+
+#benefit-statement .results .allowance-history .hr-table {
+	position: relative;
+	text-align: center;
+}
+
+@media all and (max-width: 991px) {
+	#benefit-statement .results .allowance-history .hr-table {
+		border: 1px solid rgba(0,0,0,.1);
+	}	
+}
+
+
+
+@media all and (min-width: 992px) {
+	#benefit-statement .results .allowance-history {
+		margin-right: 30px;
+	}
+}
+
+
+
+
+
+
+/*---- 4.4 Profile ----*/
+
+
+@media all and (max-width: 575px) {
+	#benefit-statement .results .profile td:last-child {
+		padding-left: 25px;
+		padding-right: 25px;
+	}	
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#benefit-statement .results .profile td:last-child {
+		padding-left: 30px;
+		padding-right: 30px;
+	}	
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#benefit-statement .results .profile td:last-child {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
+@media all and (max-width: 991px) {
+	#benefit-statement .results .profile .vt-table {
+		border-left: 1px solid rgba(0,0,0,.1);
+		border-right: 1px solid rgba(0,0,0,.1);
+		border-bottom: 1px solid rgba(0,0,0,.1);
+	}	
+	
+	#benefit-statement .results .profile .vt-table td:first-child {
+		width: 35%;
+		text-align: center;
+		border-right: 1px solid rgba(0,0,0,.05);
+	}
+}
+
+
+
+
+/*---- 4.5 Order History 1 ----*/
+/*---- 4.6 Order History 2 ----*/
+
+
+
+
+#benefit-statement .searching-result
+.searching-form .submit-btn-wrapper .submit-btn {
+	height: 100%;
+}
+
+
+@media all and (min-width: 768px) {
+	#benefit-statement .searching-result
+	.searching-form .submit-btn-wrapper {
+		width: 15%;
+	}
+    #benefit-statement .searching-result
+	.searching-form .submit-btn {
+		width: 100%;
+	}
+}
+
+
+
+
+
+
+@media all and (min-width: 576px) {		
+	#benefit-statement .searching-result
+	.searching-form .date-selects .info-heading {
+	    margin-bottom: 0 ;
+	    margin-right: 15px;
+	}
+}
+
+@media all and (max-width: 767px) {
+	#benefit-statement .searching-result
+	.searching-form .date-selects .date-select {
+	    margin-bottom: 0;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {	
+	#benefit-statement .searching-result
+	.searching-form .date-selects {
+	    margin-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) {
+	#benefit-statement .searching-result
+	.searching-form .date-selects {
+	   	margin-right: 2%;
+	    padding-right: 2%;
+	    border-right: 1px dashed rgba(0,0,0,.1);
+	}
+}
+
+
+
+
+
+
+
+
+#benefit-statement .searching-result
+.searching-form .desktop-time-btns {
+	display: flex;
+}
+
+
+
+
+@media all and (min-width: 768px) {
+	#benefit-statement .searching-result
+	.searching-form .desktop-time-btns {
+	   	margin-right: 2%;
+	}
+}
+
+
+
+#benefit-statement .desktop-time-btns a:last-child {
+	margin-right: 0;
+}
+
+
+
+
+#benefit-statement  .searching-result .hr-table thead th:nth-child(4), 
+#benefit-statement  .searching-result .hr-table thead th:nth-child(5),
+#benefit-statement  .searching-result .hr-table thead th:nth-child(6) {
+	text-align: right;
+}
+
+
+#benefit-statement  .searching-result .hr-table tbody td:nth-child(4), 
+#benefit-statement  .searching-result .hr-table tbody td:nth-child(5), 
+#benefit-statement  .searching-result .hr-table tbody td:nth-child(6) {
+	text-align: right;
+}
+

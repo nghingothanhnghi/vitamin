@@ -1,0 +1,102 @@
+<div id="shipping-information" class="office-section">
+    <div class="office-heading">
+        <h2 class="h-small">배송지 정보</h2>
+        <span>상품을 받으실 분의 정보를 정확하게 입력해주세요.</span>
+    </div>
+
+    <div class="office-form">
+        <div class="form-header">
+            <div class="inputs-col row shipping-address-type radios-group">
+                <div class="col-6 radio col-md-auto">
+                    <input id="shippingRadioOption1" type="radio" name="shippingRadio" value="1"
+                        (click)="handleOnClickShippingType(shippingTypeBuyer);">
+                    <label for="shippingRadioOption1">구매자와 동일합니다</label>
+                </div>
+                <div class="col-6 radio col-md-auto">
+                    <input id="shippingRadioOption2" type="radio" name="shippingRadio" value="2" checked
+                        (click)="handleOnClickShippingType(shippingTypeNew);">
+                    <label for="shippingRadioOption2">신규 입력</label>
+                </div>
+                <div class="col-6 radio col-md-auto">
+                    <input id="shippingRadioOption3" type="radio" name="shippingRadio" value="3"
+                        (click)="handleOnClickShippingType(shippingTypeCenter);">
+                    <label for="shippingRadioOption3">센터배송지</label>
+                </div>
+
+                <div class="col-6 radio col-md-auto open-popup-btn" data-popup="recent-address-browsing">
+                    <input id="shippingRadioOption4" type="radio" name="shippingRadio" value="4"
+                        (click)="handleOnClickShippingType(shippingTypeHistory);">
+                    <label for="shippingRadioOption4">최근배송지</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-body" [formGroup]="form">
+            <div class="infos-row row row_1 shipping-contact">
+                <div class="col-lg col-6 row info recipient-name">
+                    <div class="col-auto label"><span>받는사람</span></div>
+                    <div class="col inputs-wrapper">
+                        <input value="" id="rName" formControlName="rName"
+                            [attr.disabled]="isDisableShippingType ? true : null" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-lg col-6 row info recipient-mobile">
+                    <div class="col-auto label"><span>핸드폰 번호</span></div>
+                    <div class="col inputs-wrapper">
+                        <input value="" id="rMobile" formControlName="rMobile" autocomplete="off"
+                            [attr.disabled]="isDisableShippingType ? true : null">
+                    </div>
+                </div>
+                <div class="col-lg row info recipient-email">
+                    <div class="col-auto label"><span>이메일주소</span></div>
+                    <div class="col inputs-wrapper">
+                        <input value="" id="rEmail1" formControlName="rEmail"
+                            [attr.disabled]="isDisableShippingType ? true : null" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <div class="infos-row row row_2 shipping-address">
+                <div class="col-lg col-6 row info address-browse">
+                    <div class="col-auto label"><span>주소</span></div>
+                    <div class="col inputs-wrapper row">
+                        <div class="col">
+                            <input value="" id="rPost" formControlName="rPost"
+                                [attr.disabled]="isDisableShippingType ? true : null" autocomplete="off">
+                        </div>
+                        <div class="col-auto w-btn dark-btn open-popup-btn" data-popup="address-browsing"
+                            (click)="handleOnClickToggleZipPopup(true);">
+                            <span>우편번호 검색</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg col-6 row info address-1">
+                    <div class="col inputs-wrapper">
+                        <input value="" id="rAddr1" formControlName="rAddr1"
+                            [attr.disabled]="isDisableShippingType ? true : null" autocomplete="off">
+                    </div>
+                </div>
+                <div class="col-lg row info address-2">
+                    <div class="col-auto label"></div>
+                    <div class="col inputs-wrapper">
+                        <input value="" id="rAddr2" formControlName="rAddr2"
+                            [attr.disabled]="isDisableShippingType ? true : null" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="infos-row shipping-memo">
+                <div class="row info memo">
+                    <div class="col-auto label"><span>배송메모</span></div>
+                    <div class="col inputs-wrapper">
+                        <input value="" id="rMemo" formControlName="rMemo" autocomplete="off">
+                    </div>
+                </div>
+                <div class="row info">
+                    <div class="col-auto label"></div>
+                    <div class="col inputs-wrapper">
+                        <p class="guide">배송 관련 요청 사항을 50자 이내로 기재해주세요. ex) 부재 시 경비실에 맡겨주세요. 휴대폰으로 연락주세요</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

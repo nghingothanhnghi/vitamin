@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+.bg-warning{
+    background-color: #F9971A !important;
+}
+.bg-light-orange{
+    background-color: #FFFAF4 !important;
+}
+.bg-light-blue{
+    background-color: #F3F8FE !important;
+}
+.rounded-lg{
+    border-radius: 16px;
+}
+.thumb-icon-sm{
+    width: 100px;
+}
+.thumb-icon-sm-svg{
+    width: 80px;
+}
+.hero-header{
+    padding: 100px 0;
+    min-height: 600px;
+}
+.hero-header:before{
+    content:"";
+    position: absolute; 
+    background-image: url(./assets/img/narrow.png); 
+    background-repeat: no-repeat; 
+    background-size: contain; 
+    width: 60px;
+    height: 25px;
+    bottom: 20px;
+    left:50%;
+    margin-left: -30px;
+}
+.img-bg-64x64{
+    width: 221px;
+    height:114px
+}
+.img-bg-200x200{
+    width: 200px;
+    height:200px
+}
+.end-20{
+    right: 20% !important;
+}
+@media (min-width: 576px) {
+    .row-5col .col-sm-2{
+        width: 17.967%;
+    }
+    .row.gap-5 .col-sm-4{
+        width:29.333%;
+    }
+    .step-payment > li::before{
+        top: 50% !important;
+        bottom: auto !important;
+        margin-top: -41px !important;
+        right: -54px !important;
+        left:auto !important;
+        transform: none !important;
+    }
+
+}
+#navbarNav > ul >li{ margin-left: 20px;}
+#navbarNav .nav-link{ font-weight: 600; color: #000;}
+.list-hover-icon > li:last-child .card-image img{ height: 75px;}
+.card-hover:hover, .nav-link.card-hover.active{ background-color:#F9971A ; color:#fff}
+.card-hover:hover svg g path, .nav-link.card-hover.active svg g path{fill: #fff !important;}
+.card-image {min-height: 100px; padding: 20px; position: relative;}
+.card-image img{ width: auto; max-height: 100px; position: absolute; left:50%; top:50%; object-fit: contain;margin-left: -30px;margin-top: -30px;}
+.section-relative-top,.section-relative-below{position: relative;}
+.section-relative-top{z-index: 1;}
+.section-relative-below{margin-bottom: -90px;margin-top: -90px;}
+.section-relative-below-content{ padding-top: 80px;padding-bottom: 100px;}
+.step-payment > li{position: relative;}
+.step-payment > li::before{-webkit-transform: rotate(90deg); bottom: -25px;left: 50%; margin-left: -33px; content: ""; position: absolute; background-image: url(./assets/img/narrow-right.png); background-repeat: no-repeat; background-size: contain; width: 60px;height: 25px;z-index: 1;}
+.step-payment > li:last-child:before{ background-image: none;}
+.rotate-360{transform-origin: center; -webkit-animation:spin 4s linear infinite;-moz-animation:spin 4s linear infinite;animation:spin 4s linear infinite;}
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+ 0%{
+    transform: rotate(0deg);
+   }
+100%{
+    transform: rotate(360deg);
+   }
+}

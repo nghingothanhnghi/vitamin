@@ -1,0 +1,269 @@
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { CodeModel } from '@app/models/system/code.model';
+import { MonthlyOrderCountState } from '@app/selectors/myoffice/order/monthly-order-count.selector';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { CodeState, getCodesO, getCodesY } from '@app/selectors/system/code.selector';
+import { loadCodesO, loadCodesY, loadCodesYSuccess } from '@app/actions/system/code.action';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { CheckUseridConstant } from '@app/common/constant/check-userid.constant';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { countOrderMonthly, searchOrderMonthly, sumOrderMonthly } from '@app/actions/myoffice/order/monthly-order-count.action';
+import { environment } from 'src/environments/environment';
+import { SmPayHeaderModel } from '@app/models/system/sm-pay-header.model';
+import { WownetWordModel } from '@app/models/system/wownet-word.model';
+import { getFindPayHeader, getSmWownetPg, getWowWord, SmWownetState } from '@app/selectors/system/sm-wownet.selector';
+import { SmWownetPgModel } from '@app/models/system/sm-wownet-pg.model';
+
+declare const getYnPayHeader: any;
+declare const modifyBackToCloseModal: any;
+
+@Component({
+  selector: 'monthly-order-count-filter',
+  templateUrl: './monthly-order-count-filter.component.html',
+  styleUrls: ['./monthly-order-count-filter.component.css']
+})
+export class MonthlyOrderCountFilterComponent implements OnInit, OnChanges {
+
+  @Input()
+  reload: boolean = false;
+
+  @Input()
+  page: number = 0;
+
+  @Input()
+  len: number = 10;
+
+  @Input()
+  userid: string = "";
+
+  @Input()
+  username: string = "";
+
+  @Output()
+  openMemberPopup = new EventEmitter<boolean>();
+
+  @Output()
+  search = new EventEmitter<any>();
+
+  now = new Date();
+
+  codesY$ = new Observable<CodeModel[]>;
+  codesO$ = new Observable<CodeModel[]>;
+
+  yearOptions: SelectDropdownModel[] = [];
+  kindOptions: SelectDropdownModel[] = [];
+  checkUseridOptions: SelectDropdownModel[] = CheckUseridConstant.listCheckUserid;
+  typeOptions: SelectDropdownModel[] = [
+    { label: "금액", value: "1" },
+    { label: "PV", value: "2" },
+  ];
+
+  kindSelected: SelectDropdownModel = new SelectDropdownModel();
+  yearSelected: SelectDropdownModel = new SelectDropdownModel();
+  checkUseridSelected: SelectDropdownModel = new SelectDropdownModel();
+  typeSelected: SelectDropdownModel = new SelectDropdownModel();
+
+  smPayHeader$ = new Observable<SmPayHeaderModel>();
+  smWowWord$ = new Observable<WownetWordModel>();
+  smWowWord: any = {} as WownetWordModel;
+
+  smWownetPg$ = new Observable<SmWownetPgModel>();
+
+  isPv1: boolean = false;
+  isPv2: boolean = false;
+  isPv3: boolean = false;
+  isPoint: boolean = false;
+
+  showUnit: boolean = true;
+
+  constructor(
+    private _codeStore: Store<CodeState>,
+    private _smWownetStateStore: Store<SmWownetState>,
+    private _monthlyOrderCountStore: Store<MonthlyOrderCountState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState>
+  ) { 
+    this.smPayHeader$ = this._smWownetStateStore.select(getFindPayHeader);
+    this.smWowWord$ = this._smWownetStateStore.select(getWowWord);
+    this.codesY$ = this._codeStore.select(getCodesY);
+    this.codesO$ = this._codeStore.select(getCodesO);
+    this.smWownetPg$ = this._smWownetStateStore.select(getSmWownetPg);
+  }
+
+  ngOnInit(): void {
+    this._codeStore.dispatch(loadCodesYSuccess({codes: [] } ));
+    this._codeStore.dispatch(loadCodesY());
+    this._codeStore.dispatch(loadCodesO());
+
+    const defaultSelected = { label: "전체 유형", value: "" };
+
+    this.smWowWord$.subscribe(res => {
+      this.smWowWord = res;
+      this.typeOptions = [
+        { label: "금액", value: "1" },
+        { label: ConvertUtil.convertToSring(res.oPv1), value: "2" },
+        { label: ConvertUtil.convertToSring(res.oPv2), value: "3" },
+        { label: ConvertUtil.convertToSring(res.oPv3), value: "4" },
+        { label: ConvertUtil.convertToSring(res.oMileage), value: "5" },
+      ];
+      this.typeSelected = this.typeOptions[0];
+      setTimeout(() => this.initTypeOptions(), 500);
+    });
+    
+    this.smPayHeader$.subscribe(res => {
+      this.isPv1 = getYnPayHeader(res, "pv1");
+      this.isPv2 = getYnPayHeader(res, "pv2");
+      this.isPv3 = getYnPayHeader(res, "pv3");
+      setTimeout(() => this.initTypeOptions(), 500);
+    });
+
+    this.smWownetPg$.subscribe(res => {
+      this.isPoint = res.settMPoint === "Y";
+      setTimeout(() => this.initTypeOptions(), 500);
+    });
+
+    this.codesY$.subscribe(res => {
+      if(res){
+        this.yearOptions = [];
+        res.forEach((item) => {
+          this.yearOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) });
+          if (item.codeS1 == ConvertUtil.convertToSring(this.now.getFullYear())) {
+            this.yearSelected = { label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) };
+          }
+        });
+      }
+    });
+
+    this.codesO$.subscribe(res => {
+      this.kindOptions = [];
+      this.kindOptions.push(defaultSelected);
+      res.forEach((item) => this.kindOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeCd) }));
+      this.kindSelected = this.kindOptions[0];
+    });
+
+    if (ValidationUtil.isNotNullAndNotEmpty(this.checkUseridOptions)) {
+      this.checkUseridSelected = this.checkUseridOptions[0];
+    }
+
+    if (ValidationUtil.isNotNullAndNotEmpty(this.typeOptions)) {
+      this.typeSelected = this.typeOptions[0];
+    }
+    let intv =  setInterval(() => {
+      if(ValidationUtil.isNotNullAndNotEmpty(this.yearOptions)){
+        this.handleOnSearch();
+        clearInterval(intv)
+      }
+    }, 100);
+
+    setTimeout(() => {
+      this.checkUseridOptions = CheckUseridConstant.getListCheckUserid();
+      this.checkUseridSelected = this.checkUseridOptions[0];
+    }, 500);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.page < 0) return;
+
+    let pageChangeEvent = changes["page"];
+    let lenChangeEvent = changes["len"];
+    let reloadChangeEvent = changes["reload"];
+
+    if ((ValidationUtil.isNotNullAndNotEmpty(reloadChangeEvent) && this.reload) || ValidationUtil.isNotNullAndNotEmpty(lenChangeEvent)) {
+      this.handleOnSearch();
+    } else if (ValidationUtil.isNotNullAndNotEmpty(pageChangeEvent)) {
+      this.handleChangePage();
+    }
+  }
+
+  handleOnChangeYearSelectedValue(selected: SelectDropdownModel): void {
+    this.yearSelected = selected;
+    // this.handleOnSearch();
+    this.search.emit();
+  }
+
+  hanldeOnChangeKindSelectedValue(selected: SelectDropdownModel): void {
+    this.kindSelected = selected;
+  }
+
+  hanldeOnChangeCheckUseridSelectedValue(selected: SelectDropdownModel): void {
+    this.checkUseridSelected = selected;
+  }
+
+  hanldeOnChangeTypeSelectedValue(selected: SelectDropdownModel): void {
+    this.typeSelected = selected;
+    if (selected.value === "1") {
+      this.showUnit = true;
+    } else {
+      this.showUnit = false;
+    }
+  }
+
+  getParams(): any {
+    let params = {
+      comId: environment.comId,
+      lang: environment.default_lang,
+      date: this.yearSelected.value,
+      userId: this.userid,
+      chkUserId: this.checkUseridSelected.value,
+      kind: this.kindSelected.value,
+      chkKind: this.typeSelected.value,
+      chkOrder: "1",
+      areaCd: "",
+      cntCd: "",
+      ctrCd: "",
+      page: this.page - 1,
+      len: this.len,
+    }
+
+    return params;
+  }
+
+  handleOnSearch(): void {
+    let params = this.getParams();
+    
+    if (!this.isValidParams(params)) return;
+
+    this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+
+    this._monthlyOrderCountStore.dispatch(searchOrderMonthly({ params: params }));
+    this._monthlyOrderCountStore.dispatch(countOrderMonthly({ params: params }));
+    this._monthlyOrderCountStore.dispatch(sumOrderMonthly({ params: params }));
+  }
+
+  handleChangePage(): void {
+    let params = this.getParams();
+
+    if (!this.isValidParams(params)) return;
+
+    this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+
+    this._monthlyOrderCountStore.dispatch(searchOrderMonthly({ params: params }));
+  }
+
+  isValidParams(params: any): boolean {
+    if (params.page < 0 || ValidationUtil.isNullOrEmpty(params.date)) return false;
+    return true; 
+  }
+
+  handleOpenMemberPopup(): void {
+    modifyBackToCloseModal();
+    this.openMemberPopup.emit(true);
+  }
+
+  initTypeOptions(): void {
+    const types = [];
+    for (const options of this.typeOptions) {
+      if (options.value === "2" && !this.isPv1) continue;
+      if (options.value === "3" && !this.isPv2) continue;
+      if (options.value === "4" && !this.isPv3) continue;
+      if (options.value === "5" && !this.isPoint) continue;
+      types.push(options);
+    }
+    this.typeOptions = types;
+    this.typeSelected = this.typeOptions[0];
+  }
+}

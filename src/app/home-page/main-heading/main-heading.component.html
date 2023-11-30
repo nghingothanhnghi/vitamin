@@ -1,0 +1,12 @@
+<h2 class="h-small col">
+  <ng-container *ngIf="parent && child">
+    <span>{{ parent.prgName }}</span>
+    <div class="carret right">
+      <img src="./assets/img/icons/carret-right.svg">
+    </div>
+    <span class="current">{{ child.prgName }}</span>
+  </ng-container>
+  <ng-container *ngIf="parent && !child">
+    <span class="current">{{ parent.prgName }}</span>
+  </ng-container>
+</h2>

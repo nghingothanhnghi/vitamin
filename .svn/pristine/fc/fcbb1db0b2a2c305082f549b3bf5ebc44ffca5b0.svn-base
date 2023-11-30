@@ -1,0 +1,185 @@
+
+
+
+
+/*------- 1. LIVE Broadcasting -------*/
+/*------- 2. Last Broadcast -------*/
+/*------- 3. Zoom LIVE broadcast -------*/
+/*------- 4. Now Apielgo -------*/
+
+
+
+
+
+/*------- 2. Last Broadcast -------*/
+
+
+
+
+
+#media-center .w-youtube-video .states {
+    opacity: 0;
+    transition: all ease-in-out .3s;
+}
+
+#media-center .w-youtube-video:hover .states {
+    opacity: 1;  
+}
+
+
+@media all and (max-width: 575px) {
+	#media-center .item {
+		padding: 0 5px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#media-center .item {
+		padding: 0 7.5px;
+	}
+}
+
+
+@media all and (max-width: 991px) {
+	#media-center .item{
+		padding: 0 10px;        
+		width: 46%;		
+		margin-bottom: 30px;
+		transition: all ease-in-out .3s;
+	}
+	#media-center .item:hover {
+		transform: translateY(-15px);
+	}
+	#media-center .item:not(:nth-child(2)) {
+		margin-right: 3.5%;
+	}
+
+}
+
+
+
+@media all and (min-width: 992px) {
+	#media-center .item {
+		width: 31%;		
+		margin-bottom: 40px;
+		transition: all ease-in-out .3s;
+	}
+	#media-center .item:hover {
+		transform: translateY(-20px);
+	}
+	#media-center .item:not(:nth-child(3n)) {
+		margin-right: 3.5%;
+	}	
+}
+
+
+
+#media-center .item a {
+	display: block;
+	overflow: hidden;
+    color: #000;
+}
+
+
+
+
+#media-center .media-meta {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, .5);
+}
+
+
+#media-center .w-video {
+	display: block;
+	overflow: hidden;
+}
+
+
+
+@media all and (min-width: 992px) {
+   
+    
+    
+    #media-center .media-meta {
+        font-size: 14px;
+    }
+
+    #media-center .heading {
+       margin-top: 20px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    
+    
+    
+    #media-center .media-meta {
+        font-size: 13px;
+    }
+
+    #media-center .heading {
+       margin-top: 15px;
+    }
+}
+
+@media all and (max-width: 767px) {
+   
+    
+    
+    #media-center .media-meta {
+        font-size: 12px;
+    }
+
+    
+}
+
+
+#media-center .item .heading h4 {
+    margin-bottom: 5px;
+}
+
+
+#media-center .content-part .w-video {
+    margin-top: 30px;
+}
+
+
+/*------- 4. Now Apielgo -------*/
+
+#media-center .post-foot {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#media-center .post-foot a {
+    display: flex;
+    color: #000;
+    align-items: center;
+}
+
+#media-center .post-foot a:hover {
+    opacity: .8;
+}
+
+
+#media-center .carret {
+	display: flex;
+	align-items: center;
+}
+
+#media-center .carret.left {    
+    margin-right: 10px;
+    transform: rotate(-180deg);
+}
+
+#media-center .carret.right {    
+    margin-left: 10px;
+}
+
+
+
+

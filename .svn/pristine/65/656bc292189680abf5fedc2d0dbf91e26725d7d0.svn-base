@@ -1,0 +1,119 @@
+<div id="box-lineage" class="office-page">
+
+    <!-- Main Content -->
+    <main>
+        <div style="display: none;">
+            <input id="current-rank-cd" type="hidden" value="" />
+            <input id="sel-id" type="hidden" value="" />
+        </div>
+        <section class="section-content searching-result">
+
+            <div class="searching-form">
+                <div class="container default-container">
+                    <div class="row form-row">
+                        <div class="row col-lg row info standard-member-name">
+                            <span class="label col-sm-auto">회원명</span>
+                            <div class="inputs-wrapper col row">
+                                <input class="col" value="{{userName}}" id="sel-name" disabled="">
+                                <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+                                    (click)="handleOnClickShowMemPopup();">
+                                    <svg width="16" height="16" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"
+                                            fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg info display-stage">
+                            <span class="label col-auto">표시단계</span>
+                            <div class="col row info">
+                                <input class="value col" id="lv" [(ngModel)]="lv" type="number"/>
+                                <div class="up-btn col-auto" (click)="increaseLv();">
+                                    <svg width="20" height="20" viewBox="0 0 40 40">
+                                        <path d="M20.5 13L33 25.5L32 26.4L20.5 14.8L9 26.4L8 25.5L20.5 13Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                                <div class="down-btn col-auto" (click)="decreaseLv()">
+                                    <svg width="20" height="20" viewBox="0 0 40 40">
+                                        <path d="M20 26.7L7.5 14.2L8.5 13.3L20 24.9L31.5 13.3L32.5 14.2L20 26.7Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md info sub-order-division memCheck info-radio"
+                        *ngIf="mUsePId == 'Y'">
+                            <div class="label col-auto">
+                                <span>계보도</span>
+                            </div>
+                            <div class="radios-group row col">
+                                <div class="col-auto radio">
+                                    <input id="typeMemberOption1" (change)="onChangeTypeMember($event)" type="radio"
+                                        name="typeMemberRadio" value="P" [checked]="true"> <label
+                                        for="typeMemberOption1">후원인</label>
+                                </div>
+                                <div class="col-auto radio">
+                                    <input id="typeMemberOption2" (change)="onChangeTypeMember($event)" type="radio"
+                                        name="typeMemberRadio" value="R"> <label for="typeMemberOption2">추천인</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row col-lg-auto btns-wrapper submit-btn-wrapper">
+                            <!-- <div class="col-6 w-btn dark-btn has-icon top-line-btn" id="top-line-btn"
+                                (click)="onSearchTopLine();">
+                                <span class="col" style="margin-left: 3px;">상위라인 검색</span>
+                                <svg width="17" height="10" viewBox="0 0 17 10" fill="none" style="margin-left: 0px;">
+                                    <path d="M16 9.1L8.4 1.4L0.799999 9.1L0 8.3L8.4 0L16.8 8.3L16 9.1Z" fill="white">
+                                    </path>
+                                </svg>
+                            </div> -->
+
+                            <div class="col-6 w-btn submit-btn has-icon advanced" id="search-btn" (click)="onSearch();">
+                                <span>검색</span>
+                                <div class="icon"> <img src="../../../../assets/img/icons/search-ncc.svg"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Searching Results -->
+            <div id="chart-module-box" class="chart-module container default-container">
+                <div class="zoom-btn" (click)="onZoom()">
+                    <div id="box-icon" class="icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M8.72642 0.937317C8.72642 3.31342 8.72642 5.68483 8.72642 8.06093C8.72642 8.24839 8.68893 8.45929 8.53427 8.58114C8.39367 8.71236 8.19215 8.72173 8.01406 8.72642C5.67077 8.72642 3.32748 8.72642 0.984183 8.72642C0.763913 8.72173 0.534271 8.74985 0.323374 8.67018C0.154657 8.59988 0.0609256 8.43585 0 8.27651V7.04862C0.0328061 6.89397 0.0984183 6.73931 0.229643 6.65026C0.365554 6.54716 0.538957 6.54247 0.702988 6.54247C2.64792 6.54716 4.59754 6.54247 6.54716 6.54716C6.54247 4.60223 6.54716 2.65261 6.54247 0.707674C6.54716 0.54833 6.54716 0.37024 6.65026 0.234329C6.73931 0.0984183 6.89865 0.0374927 7.04862 0.00468658H8.27651C8.43585 0.0656122 8.60457 0.159344 8.67487 0.328061C8.74985 0.520211 8.72173 0.735794 8.72642 0.937317ZM23.7376 6.63152C23.5501 6.51435 23.3158 6.54716 23.1049 6.54247C21.2209 6.54716 19.3368 6.54247 17.4482 6.54247C17.4528 4.59754 17.4482 2.64792 17.4528 0.702988C17.4482 0.543644 17.4435 0.365554 17.3451 0.229643C17.2607 0.112478 17.1248 0.0468658 16.9936 0H15.7188C15.5595 0.0609256 15.3907 0.154657 15.3251 0.323374C15.2501 0.520211 15.2736 0.731107 15.2689 0.937317C15.2689 3.31342 15.2689 5.68483 15.2689 8.06093C15.2689 8.23902 15.297 8.43117 15.4329 8.5577C15.5595 8.69361 15.7563 8.72173 15.9344 8.72173C18.4042 8.72173 20.8694 8.72173 23.3392 8.72173C23.4845 8.71705 23.6438 8.70767 23.761 8.61863C23.8781 8.53427 23.9438 8.40305 23.9953 8.27182V7.04862C23.9625 6.88928 23.8875 6.72056 23.7376 6.63152ZM8.56239 15.4329C8.43585 15.297 8.23902 15.2689 8.06093 15.2689C5.5911 15.2689 3.12127 15.2689 0.656122 15.2689C0.510838 15.2736 0.35618 15.283 0.234329 15.3767C0.112478 15.4564 0.0515524 15.5923 0 15.7235V16.9514C0.0328061 17.1013 0.0984183 17.2607 0.229643 17.3497C0.365554 17.4528 0.538957 17.4575 0.702988 17.4575C2.64792 17.4528 4.59754 17.4575 6.54247 17.4528C6.53779 19.4025 6.54247 21.3474 6.53779 23.297C6.54247 23.4564 6.54247 23.6344 6.64558 23.7704C6.73462 23.9063 6.89397 23.9672 7.04394 24H8.27182C8.53896 23.9203 8.74517 23.6766 8.72173 23.3907C8.72642 20.9209 8.72173 18.4511 8.72173 15.9859C8.73111 15.7891 8.71236 15.5735 8.56239 15.4329ZM23.3861 15.2689C20.9162 15.2642 18.4464 15.2689 15.9766 15.2642C15.7844 15.2642 15.5688 15.283 15.4282 15.4329C15.2923 15.5595 15.2642 15.7563 15.2642 15.9344C15.2642 18.4042 15.2642 20.8694 15.2642 23.3392C15.2689 23.4845 15.2783 23.6391 15.3673 23.761C15.4517 23.8781 15.5829 23.9438 15.7141 23.9953H16.9889C17.1201 23.9438 17.256 23.8828 17.3404 23.7657C17.4435 23.6298 17.4482 23.4564 17.4482 23.2923C17.4435 21.3474 17.4482 19.3978 17.4435 17.4482C19.3884 17.4528 21.338 17.4482 23.283 17.4528C23.4423 17.4482 23.6204 17.4482 23.7563 17.3451C23.8922 17.256 23.9531 17.0967 23.9859 16.9467V15.7188C23.9156 15.4517 23.6766 15.2455 23.3861 15.2689Z"
+                                fill="#787985" />
+                        </svg>
+
+                    </div>
+                </div>
+                <div id="chart-container" class="chart-container " [attr.mode]="memberType == 'R'?'non-smooth':''"
+                    draggableWrapperBoxChart>
+                    <div id='chart-wrapper-box' class="chart-wrapper">
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="container default-container results">
+
+                <div class="table-container row draggable-element">
+                    <div class="col col_data draggable-items-wrapper" draggableWrapper>
+                        <div id="lineage-chart" class="wowChart" #lineage_chart></div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+
+        <section class="popups-member-container">
+            <member-popup [show]="showMemberPopup" (clickClosePopup)="handleOnClickToggleMemberPopup($event);"
+                (clickRowItem)="handleOnClickRowMemberPopup($event);"></member-popup>
+        </section>
+    </main>
+
+</div>

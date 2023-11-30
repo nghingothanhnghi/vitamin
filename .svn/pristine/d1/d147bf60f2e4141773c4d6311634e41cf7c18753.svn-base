@@ -1,0 +1,54 @@
+<div id="login-find-member" class="login-page">
+        <div class="container">
+            <div class="heading">
+                <h2 class="h-medium">판매원 조회</h2>
+                <p class="description">
+                    회원명과 생년월일을 입력하시면<br>
+                    아인셀 회원임을 확인하실 수 있습니다.
+                </p>
+            </div>
+            
+            <div class="main-functions">
+                <div class="field-wrapper">
+                    <span class="label">회원명</span>
+                    <input type="text" id="username" [(ngModel)]="username">
+                </div>
+
+                <div class="field-wrapper">
+                    <span class="label" >생년월일</span>
+                    <span class="row date-selects-row">
+                    <select-dropdown 
+                        class="dropdown-select col-auto row date-select"
+                        [options]="yearOptions"
+                        [selected]="fromYear"
+                        (changeSelectedValue)="handleOnChangeYearSeletedValue($event);"
+                    ></select-dropdown>
+
+                    <select-dropdown 
+                        class="dropdown-select col-auto row date-select"
+                        [options]="monthOptions"
+                        [selected]="fromMonth"
+                        (changeSelectedValue)="handleOnChangeMonthSeletedValue($event);"
+                    ></select-dropdown>
+
+                    <select-dropdown 
+                        class="dropdown-select col-auto row date-select"
+                        [options]="dateOptions"
+                        [selected]="fromDate"
+                        (changeSelectedValue)="handleOnChangeDateSeletedValue($event);"
+                    ></select-dropdown>
+                </span>
+                </div>
+
+                <div class="field-wrapper btns">
+                    <a class="w-btn large-btn primary-btn" id="find-id" (click)="findMember()">확인</a>
+                </div>
+            </div>
+
+            <div class="information">
+                <p>가입여부가 확인이 안되거나 사실과 다를 경우<br>
+                고객센터로 문의 바랍니다.</p>
+            </div>
+
+        </div>
+</div>

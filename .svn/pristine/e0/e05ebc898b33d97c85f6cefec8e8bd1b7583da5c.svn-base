@@ -1,0 +1,203 @@
+<div class="container mobile-container results orderTab office-block">
+    <div class="mobile-block last none">
+        <div class="pagination mobile-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ orderTotalItems$ | async }}</span>
+            </div>
+        </div>
+    
+        <p class="text-primary">※ 매월 직급은 "임시 마감과 마감 확정" 다를 수 있습니다.</p>
+    
+        <!-- table pc -->
+        <div class="table-container row draggable-element">
+            <div class="col col_data draggable-items-wrapper" draggableWrapper>
+                <div class="table-wrapper">
+                    <table class="hr-table">
+                        <thead>
+                            <tr>
+                                <th style="white-space: nowrap; text-align: center;">구분</th>
+                                <!-- <th style="white-space: nowrap; text-align: center;">공제번호</th> -->
+                                <th style="white-space: nowrap; text-align: center;">주문번호</th>
+                                <th style="white-space: nowrap; text-align: center;">주문일자</th>
+                                <th style="white-space: nowrap; text-align: center;">승인일자</th>
+                                <th style="white-space: nowrap; text-align: center;">주문유형</th>
+                                <th style="white-space: nowrap; text-align: center;">센터</th>
+                                <th style="white-space: nowrap; text-align: center;">회원번호</th>
+                                <th style="white-space: nowrap; text-align: center;">회원명</th>
+                                <th style="white-space: nowrap; text-align: center;">금액</th>
+                                <th style="white-space: nowrap; text-align: center;" *ngIf="isPv1">{{ smWowWord.oPv1 }}</th>
+                                <!-- <th style="white-space: nowrap; text-align: center;" *ngIf="isPv2">{{ smWowWord.oPv2 }}</th> -->
+                                <!-- <th style="white-space: nowrap; text-align: center;" *ngIf="isPv3">{{ smWowWord.oPv3 }}</th> -->
+                                <th style="white-space: nowrap; text-align: center;" *ngIf="isPoint">{{ smWowWord.oMileage
+                                    }}</th>
+                                <th style="white-space: nowrap; text-align: center;">배송구분</th>
+                                <th style="white-space: nowrap; text-align: center;">출고상태</th>
+                                <th style="white-space: nowrap; text-align: center;">미결제액</th>
+                                <th style="white-space: nowrap; text-align: center;">결제여부</th>
+                                <!-- <th style="white-space: nowrap; text-align: center;">인쇄하기</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of collection | paginate: config">
+                                <td style="text-align: center;">{{ item.status }}</td>
+                                <!-- <td style="text-align: center;">{{ item.licenseNO }}</td> -->
+                                <td style="text-align: center; cursor: pointer;" (click)="handleOnClickOrderNo(item.ordNo)">
+                                    {{ item.ordNo }}</td>
+                                <td style="text-align: center;">{{ item.ordDate2 }}</td>
+                                <td style="text-align: center;">{{ item.accDate2 }}</td>
+                                <td>{{ item.kindName }}</td>
+                                <td>{{ item.cntNameOrd }}</td>
+                                <td style="text-align: center;">{{ item.userid }}</td>
+                                <td>{{ item.username }}</td>
+                                <td style="text-align: right;">{{ item.ordAmt | setComma }}원</td>
+                                <td style="text-align: right;" *ngIf="isPv1">{{ item.ordPv1 | setComma }}</td>
+                                <!-- <td style="text-align: right;" *ngIf="isPv2">{{ item.ordPv2 | setComma }}</td> -->
+                                <!-- <td style="text-align: right;" *ngIf="isPv3">{{ item.ordPv3 | setComma }}</td> -->
+                                <td style="text-align: right;" *ngIf="isPoint">{{ item.ordPoint | setComma }}</td>
+                                <td>{{ item.deliKindName }}</td>
+                                <td style="text-align: center;">{{ item.deliStatus }}</td>
+                                <td style="text-align: right;">{{ item.rcptRemain | setComma }}</td>
+                                <td style="text-align: center;">{{ item.rcptYN }}</td>
+                                <!-- <td><a href="javascript:;" (click)="handleOnClickPrint(item);">인쇄하기</a></td> -->
+                            </tr>
+                        </tbody>
+                        <ng-container *ngIf="totalRows < 5">
+                            <tbody>
+                                <tr *ngFor="let row of rows; index as i">
+                                    <ng-container *ngFor="let col of cols; index as j">
+                                        <td style="width: 100%;">
+                                            <span>&nbsp;</span>
+                                            <ng-container *ngIf="totalRows === 0 && i === 2 && j === 8">
+                                                <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                        <tfoot>
+                            <tr *ngIf="orderSumItem$ | async as item">
+                                <td colspan="8" style="text-align: center;">[합계]</td>
+                                <td style="text-align: right;">{{ item.ordAmt | setComma }}원</td>
+                                <td style="text-align: right;" *ngIf="isPv1">{{ item.ordPv1 | setComma }}</td>
+                                <!-- <td style="text-align: right;" *ngIf="isPv2">{{ item.ordPv2 | setComma }}</td> -->
+                                <!-- <td style="text-align: right;" *ngIf="isPv3">{{ item.ordPv3 | setComma }}</td> -->
+                                <td style="text-align: right;" *ngIf="isPoint">{{ item.ordPoint | setComma }}</td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align: right;">{{ item.rcptRemain | setComma }}</td>
+                                <td></td>
+                                <!-- <td></td> -->
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <!-- table mobile-->
+        <table class="hr-mobile-table">
+            <tbody *ngFor="let item of collection | paginate: config">
+                <tr>
+                    <td>구분</td>
+                    <td style="text-align: center;">{{ item.status }}</td>
+                </tr>
+                <!-- <tr>
+                    <td>공제번호</td>
+                    <td style="text-align: center;">{{ item.licenseNO }}</td>
+                </tr> -->
+                <tr>
+                    <td>주문번호</td>
+                    <td style="text-align: center;" (click)="handleOnClickOrderNo(item.ordNo)">{{ item.ordNo }}</td>
+                </tr>
+                <tr>
+                    <td>주문일자</td>
+                    <td style="text-align: center;">{{ item.ordDate2 }}</td>
+                </tr>
+                <tr>
+                    <td>승인일자</td>
+                    <td style="text-align: center;">{{ item.accDate2 }}</td>
+                </tr>
+                <tr>
+                    <td>주문유형</td>
+                    <td style="text-align: center;">{{ item.kindName }}</td>
+                </tr>
+                <tr>
+                    <td>센터</td>
+                    <td style="text-align: center;">{{ item.cntNameOrd }}</td>
+                </tr>
+                <tr>
+                    <td>회원번호</td>
+                    <td style="text-align: center;">{{ item.userid }}</td>
+                </tr>
+                <tr>
+                    <td>회원명</td>
+                    <td style="text-align: center;">{{ item.username }}</td>
+                </tr>
+                <tr>
+                    <td>금액</td>
+                    <td style="text-align: center;">{{ item.ordAmt | setComma }}원</td>
+                </tr>
+                <tr *ngIf="isPv1">
+                    <td>{{ smWowWord.oPv1 }}</td>
+                    <td style="text-align: center;">{{ item.ordPv1 | setComma }}</td>
+                </tr>
+                <!-- <tr *ngIf="isPv2">
+                    <td>{{ smWowWord.oPv2 }}</td>
+                    <td style="text-align: center;">{{ item.ordPv2 | setComma }}</td>
+                </tr> -->
+                <!-- <tr *ngIf="isPv3">
+                    <td>{{ smWowWord.oPv3 }}</td>
+                    <td style="text-align: center;">{{ item.ordPv3 | setComma }}</td>
+                </tr> -->
+                <tr *ngIf="isPoint">
+                    <td>{{ smWowWord.oMileage }}</td>
+                    <td style="text-align: center;">{{ item.ordPoint | setComma }}</td>
+                </tr>
+                <tr>
+                    <td>배송구분</td>
+                    <td style="text-align: center;">{{ item.deliKindName }}</td>
+                </tr>
+                <tr>
+                    <td>출고상태</td>
+                    <td style="text-align: center;">{{ item.deliStatus }}</td>
+                </tr>
+                <tr>
+                    <td>미결제액</td>
+                    <td style="text-align: center;">{{ item.rcptRemain | setComma }}</td>
+                </tr>
+                <tr>
+                    <td>결제여부</td>
+                    <td style="text-align: center;">{{ item.rcptYN }}</td>
+                </tr>
+                <!-- <tr>
+                    <td>인쇄하기</td>
+                    <td style="text-align: center;"><a href="javascript:;" (click)="handleOnClickPrint(item);">인쇄하기</a></td>
+                </tr> -->
+            </tbody>
+            <grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+        </table>
+    
+        <!-- pagination pc -->
+        <div class="pagination desktop-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems" [config]="config"
+                (changePage)="handleOnChangePage($event);"></paging>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ orderTotalItems$ | async }}</span>
+            </div>
+        </div>
+    </div>
+    
+</div>

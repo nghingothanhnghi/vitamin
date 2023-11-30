@@ -1,0 +1,48 @@
+/**/
+
+
+
+
+
+
+
+
+
+
+
+.detail-info ul {
+    margin: 0;
+}
+
+
+@media all and (max-width: 991px) {
+	.detail-info ul {
+        display: flex;
+        padding: 0;
+    }
+}
+
+
+
+@media all and (max-width: 991px) {
+	.copy-url-btn {
+        padding-left: 10px;
+        padding-right: 10px; 
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	.copy-url-btn {
+        margin-top: 10px;
+        margin-bottom: 10px;   
+    }
+}
+
+
+
+
+
+
+
+

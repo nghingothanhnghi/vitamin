@@ -1,0 +1,38 @@
+<div class="close-board" [id]="items.length>0?'pop-boards':''" (click)="handleOnClickClosePopup($event)">
+        <div class="featured-slider pop-boards-slider" data-display="1,1,1,1" data-dot="on" data-nav="on" data-autoplay="on" data-interval="5000">
+            <div class="slider-content slider-ref">
+                <div class="slider-wrapper row container">
+                    <div class="slide" *ngFor="let item of items; index as i" >
+                        <div class="content pop-board" id="pop-board-{{item.boardNo}}" [ngClass]="isCloseWCookie(item.boardNo)?'display-none':''">
+                            <div class="view">
+                                <div class="footer-board">
+                                    <div class="row">
+                                        <div class="col" style="text-align: left;">
+                                            <span class="hidden-pop-board" style="cursor: pointer; color:#ccc;"
+                                                [attr.board-no]=item.boardNo >오늘 하루 이 창을 열지
+                                                않음</span>
+                                        </div>
+            
+                                        <div class="col-auto">
+                                            <span class="temporarily-hidden" style="cursor: pointer; color:#ccc;" href="javascript:"
+                                            [attr.board-no]=item.boardNo (click)="closePopUp(item.boardNo, $event)"><b>닫기</b></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="content" (click)="openLink(item.popUrl)">
+                                    <ng-container *ngIf="item.popKind == 'P' || item.popKind == 'L'; else elseTextImg">
+                                        <img [src]="(urlWownet + item.filePath + '/' + item.fileName) | replaceStr: strRplImg1:strRplImg2">
+                                    </ng-container>
+                                    <ng-template #elseTextImg>
+                                        <div [innerHTML]="item.contents | replaceStr: strRplText1:strRplText2 | renderHtml"></div>
+                                    </ng-template>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

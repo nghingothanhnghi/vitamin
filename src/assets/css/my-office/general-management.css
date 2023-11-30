@@ -1,0 +1,417 @@
+
+
+
+
+
+/*------ General Management ------
+		1. Headquarter Member Search
+---------------------------------*/
+
+#hq-member-search .section-content .hr-table, 
+#hq-member-search .section-content .hr-mobile-table {
+	text-align: center;
+}
+
+
+#hq-member-search .searching-result .form-row:nth-child(2) .label {
+	margin-bottom: 5px;
+}
+
+
+
+#hq-member-search .searching-result .submit-btn {
+	margin-right: 0;
+	margin-left: auto;
+	min-width: 80px;
+}
+
+#hq-member-search .searching-result .radios-group li {
+	margin-bottom: 0;
+	margin-right: 20px;
+}
+
+#hq-member-search .searching-result .radios-group li:last-child {
+	margin-right: 0;
+}
+
+
+@media (max-width: 575px) {
+	#hq-member-search .searching-result .rank {
+		padding-left: 10px;
+	}
+	#hq-member-search .searching-result .standard-member-name,
+	#hq-member-search .searching-result .rank	{
+		margin-bottom: 10px;
+	}	
+	#hq-member-search .searching-result .inquiry-classification {
+		margin-bottom: 15px;
+	}
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#hq-member-search .searching-result .rank {
+		padding-left: 15px;
+	}
+	#hq-member-search .searching-result .standard-member-name,
+	#hq-member-search .searching-result .rank	{
+		margin-bottom: 15px;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#hq-member-search .searching-result .standard-member-name {
+		padding-right: 15px;
+	}
+	#hq-member-search .searching-result .rank, 
+	#hq-member-search .searching-result .inquiry-classification {
+		margin-right: 15px;
+	}
+	#hq-member-search .searching-result .inquiry-classification .radios-group {
+		padding-top: 7.5px;
+		padding-bottom: 7.5px;
+	}
+}
+
+
+@media (min-width: 992px) {
+	#hq-member-search .searching-result .standard-member-name {
+		padding-right: 20px;
+	}
+	#hq-member-search .searching-result .rank {
+		margin-right: 20px;
+		
+	}
+	#hq-member-search .searching-result .inquiry-classification {
+		margin-right: 20px;
+	}	
+	#hq-member-search .searching-result .inquiry-classification .radios-group {
+		padding-top: 7.5px;
+		padding-bottom: 7.5px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*------ General Management ------
+		2. Headquarter Order Search
+---------------------------------*/
+
+#hq-order-search .section-content .hr-table, 
+#hq-order-search .section-content .hr-mobile-table {
+	text-align: center;
+}
+
+
+
+
+#hq-order-search .section-content .hr-table th, 
+#hq-order-search .section-content .hr-table td {	
+	white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 575px) {
+	#hq-order-search .searching-result .standard-member-name .label, 
+	#hq-order-search .searching-result .rank .label {
+		margin-bottom: 5px;
+	}
+	#hq-order-search .searching-result .inquiry-classification .label, 
+	#hq-order-search .searching-result .criteria-classification .label {
+		margin-right: 20px;
+		width: 50px;
+	}
+	
+	#hq-order-search .searching-result .radios-group label {
+		padding-top: 2px;
+	}
+}
+
+
+@media (min-width: 576px) {
+	#hq-order-search .searching-result .form-row:nth-child(2) .label {
+		margin-bottom: 5px;
+	}
+}
+
+
+
+
+
+
+
+#hq-order-search .searching-result .submit-btn {
+	margin-right: 0;
+	margin-left: auto;
+	min-width: 80px;
+}
+
+#hq-order-search .searching-result .radios-group li {
+	margin-bottom: 0;
+	margin-right: 20px;
+}
+
+#hq-order-search .searching-result .radios-group li:last-child {
+	margin-right: 0;
+}
+
+
+#hq-order-search .searching-result .criteria-classification {
+	max-width: 180px;
+}
+
+#hq-order-search .searching-result .inquiry-classification {
+	max-width: 200px;
+}
+
+
+
+
+
+@media (max-width: 575px) {
+	
+	#hq-order-search .searching-result .rank {
+		padding-left: 10px;
+	}
+	
+	#hq-order-search .searching-result .standard-member-name,
+	#hq-order-search .searching-result .rank {
+		margin-bottom: 15px;
+	}
+	
+	#hq-order-search .searching-result .criteria-classification	{
+		width: calc(50% - 5px);
+		margin-right: 10px;
+		margin-bottom: 10px;
+	}
+	
+	#hq-order-search .searching-result .inquiry-classification 	{
+		width: calc(50% - 5px);
+		margin-bottom: 10px;
+	}
+	
+	#hq-order-search .searching-result .submit-btn {
+		margin-top: 5px;
+	}
+}
+
+
+@media (min-width: 576px) and (max-width: 991px) {
+	#hq-order-search .searching-result .rank {
+		padding-right: 15px;
+	}
+	
+	#hq-order-search .searching-result .standard-member-name,
+	#hq-order-search .searching-result .rank {
+		margin-bottom: 15px;
+	}
+	
+	#hq-order-search .searching-result .criteria-classification,
+	#hq-order-search .searching-result .inquiry-classification 	{
+		max-width: 200px;
+	}
+}
+
+
+
+
+
+@media (min-width: 992px) {
+	#hq-order-search .searching-result .standard-member-name {
+		padding-right: 20px;
+	}
+	
+	#hq-order-search .searching-result .rank {
+		margin-right: 20px;
+	}	
+	
+	#hq-order-search .searching-result .criteria-classification,
+	#hq-order-search .searching-result .inquiry-classification 	{
+		margin-right: 20px;
+	}
+	
+	
+	#hq-order-search .searching-result .radios-group {
+		padding-top: 7.5px;
+		padding-bottom: 7.5px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------ General Management ------
+		3. Headquarter Maintenance
+---------------------------------*/
+
+#hq-maintenance .section-content .hr-table, 
+#hq-maintenance .section-content .hr-mobile-table {
+	text-align: center;
+}
+
+
+#hq-maintenance .searching-result .form-row:nth-child(2) .label {
+	margin-bottom: 5px;
+}
+
+#hq-maintenance .searching-result .submit-btn {
+	margin-right: 0;
+	margin-left: auto;
+	min-width: 80px;
+}
+
+
+@media (max-width: 575px) {	
+	#hq-maintenance .searching-result .rank {
+		padding-left: 10px;
+	}
+	#hq-maintenance .searching-result .standard-member-name,
+	#hq-maintenance .searching-result .rank {
+		margin-bottom: 15px;
+	}
+	#hq-maintenance .searching-result .submit-btn {
+		margin-top: 5px;
+	}
+	
+	#hq-maintenance .searching-result .radios-group li {
+		margin-bottom: 5px;
+		margin-right: 15px;
+	}
+	#hq-maintenance .searching-result .radios-group li:last-child {
+		margin-right: 0;
+	}
+}
+
+
+
+
+@media (min-width: 576px) and (max-width: 991px) {
+	#hq-maintenance .searching-result .rank {
+		padding-left: 15px;
+	}
+	
+	#hq-maintenance .searching-result .standard-member-name,
+	#hq-maintenance .searching-result .rank {
+		margin-bottom: 15px;
+	}
+	#hq-maintenance .searching-result .radios-group li {
+		margin-bottom: 0;
+		margin-right: 20px;
+	}
+	#hq-maintenance .searching-result .radios-group li:last-child {
+		margin-right: 0;
+	}
+}
+
+
+
+
+@media (min-width: 992px) {
+	#hq-maintenance .searching-result .standard-member-name {
+		padding-right: 20px;
+	}
+	
+	#hq-maintenance .searching-result .rank, 
+	#hq-maintenance .searching-result .freestyle-classification {
+		margin-right: 20px;
+	}	
+	
+	#hq-maintenance .searching-result .radios-group {
+		padding-top: 7.5px;
+		padding-bottom: 7.5px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

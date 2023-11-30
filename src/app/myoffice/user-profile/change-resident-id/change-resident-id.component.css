@@ -1,0 +1,230 @@
+.pointer-event {
+    pointer-events: none;
+}
+
+
+
+
+
+.content-info .hr-table thead {
+    background: #F6F9FE;
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .content-info .member-form {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .content-info .member-form {
+        margin-bottom: 25px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .content-info .member-form {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .content-info .member-form {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .label {
+        margin-bottom: 5px;
+    }
+}
+
+@media all and (min-width: 576px) {
+    .label {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 15px;
+        height: 44px;
+        align-items: center;
+    }
+}
+
+
+
+
+.verify-btn {
+    height: 44px;
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .group-btns a {
+        width: calc(50% - 5px);
+    }
+}
+
+@media all and (min-width: 576px) {
+    .group-btns a {
+        width: 160px;
+    }
+}
+
+.group-btns a {
+    height: 48px;
+}
+
+.group-btns a:first-child {
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------- Change Resident Id -------*/
+
+.conditions h2 {
+    margin-bottom: .5em;
+}
+
+.content-info .result-block h2 {
+    text-align: left;
+}
+
+.content-info .hr-table {
+    text-align: center;
+}
+
+
+.content-info .hr-table tbody tr:last-child td {
+    border-right: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+.result-block h2 {
+    font-weight: bold;
+}
+
+
+
+@media all and (max-width: 575px) {
+    .content-info .hr-table {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .content-info .hr-table {
+        margin-bottom: 25px;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+    .content-info .hr-table {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.resident-id .input span {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .resident-id {
+        margin-bottom: 25px !important;
+    }
+    .resident-id .label,
+    .resident-id .input,
+    .resident-id .extra {
+        width: 100%;
+    }
+
+    .resident-id .input {
+        margin-bottom: 10px;
+    }
+
+    .resident-id .extra .verify-btn {
+        width: 100%;
+    }
+}
+
+
+
+@media (min-width: 576px) {
+    .resident-id .input {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .member-form .verify-btn {
+        margin-top: 0;
+        min-width: 120px;
+    }
+}
+
+
+
+
+.conditions .hr-table td:nth-child(2) {
+    width: 23%;
+}
+
+.conditions .hr-table span {
+    font-size: 14px;
+}
+
+.conditions .hr-table td {
+    font-size: 14px;
+}

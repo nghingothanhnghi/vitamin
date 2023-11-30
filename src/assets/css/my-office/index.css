@@ -1,0 +1,503 @@
+
+
+
+
+body 
+#my-office{
+	background: #F3F4FB !important;
+}
+
+
+#my-office #intro .container {
+	padding: 0;
+}
+
+
+
+
+
+@media (max-width: 575px) {
+	#my-office #intro .container {
+		min-height: 240px;
+		position: relative;
+		overflow: hidden;
+	}
+	#my-office #intro .container img {
+		position: absolute;
+		height: 100%;
+		width: auto;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+#my-office main li {
+	display: block;
+}
+
+
+
+
+
+
+
+
+#my-office #section-1 .heading {
+	text-align: center;	
+}
+
+
+
+@media (max-width: 575px) {
+	#my-office #section-1 .heading {
+		margin-bottom: 30px;
+	}
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#my-office #section-1 .heading {
+		margin-bottom: 40px;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#my-office #section-1 .heading {
+		margin-bottom: 50px;
+	}	
+}
+
+@media (min-width: 992px) {
+	#my-office #section-1 .heading {
+		margin-bottom: 60px;
+	}
+}
+
+
+
+
+
+#my-office #section-1 .heading span {
+	display: block;
+	font-weight: 700;
+	color: #739E3C;
+	margin-bottom: 10px;
+}
+
+#my-office #section-1 .heading h2 {
+	margin-bottom: 20px;
+	font-weight: 700;
+}
+
+#my-office #section-1 .heading p {
+	margin-bottom: 0;
+	color: rgba(0,0,0,.5);
+}
+
+
+
+
+
+
+
+
+#my-office #section-1 .content li {
+	text-align: center;
+}
+
+
+
+/* Image */
+
+#my-office #section-1 .content li .thumbnail {	
+	display: block;
+	background: #000;
+}
+
+
+
+
+#my-office #section-1 .content li .thumbnail img {
+	width: 100%;
+	display: block;
+	margin: auto;
+	transition: all ease-in-out .3s;
+}
+
+#my-office #section-1 .content li:hover .thumbnail img {
+	opacity: .4;	
+}
+
+
+
+
+@media (max-width: 991px) {
+	#my-office #section-1 .content li .thumbnail {
+		margin-bottom: 30px;
+	}
+}
+
+@media (min-width: 992px) {
+	#my-office #section-1 .content li .thumbnail {
+		margin-bottom: 35px;
+	}
+}
+
+
+
+
+
+/* English Title */
+
+#my-office #section-1 .content li .en-title {
+	color: #2B2937;
+	opacity: .5;
+	margin-bottom: 5px;
+	display: block;
+}
+
+
+@media (max-width: 575px) {
+	#my-office #section-1 .content li .en-title {
+		font-size: 14px;
+	}
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#my-office #section-1 .content li .en-title {
+		font-size: 15px;
+	}
+}
+
+
+@media (min-width: 768px) {
+	#my-office #section-1 .content li .en-title {
+		font-size: 16px;
+	}
+}
+
+
+
+
+
+
+
+
+/* Title */
+
+#my-office #section-1 .content li h4 {
+	font-weight: 700;
+	color: #2B2937;
+}
+
+
+
+
+
+
+@media (max-width: 991px) {
+	#my-office #section-1 .content li h4 {
+		margin-bottom: 20px;
+	}
+}
+
+@media (min-width: 992px) {
+	#my-office #section-1 .content li h4 {
+		margin-bottom: 25px;
+	}
+}
+
+
+
+
+/* Description */
+
+#my-office #section-1 .content p {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	color: rgba(0,0,0,.5);
+}
+
+
+@media (max-width: 575px) {
+	#my-office #section-1 .content .column {
+		margin-bottom: 40px;
+	}
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+	#my-office #section-1 .content .column {
+		margin-bottom: 50px;
+	}
+}
+
+
+
+@media (min-width: 768px) {
+	#my-office #section-1 .content .column {
+		width: 30%;
+		margin-right: 5%;
+		padding-bottom: 40px;
+		background: #fff;
+		transition: all ease-in-out .3s;
+	}
+	#my-office #section-1 .content .column:hover {
+		box-shadow: 0px 5px 20px rgba(0,0,0,.1);
+	}
+	#my-office #section-1 .content .column:last-child {
+		margin-right: 0;
+	}
+}
+
+
+
+
+
+
+
+
+/*---------- Redirect Button -------------*/
+
+.rd-btn {
+	display: flex;
+	align-items: center;	
+	transition: all ease-in-out .5s;
+}
+
+
+
+.rd-btn span {
+	margin-right: 10px;
+	transition: all ease-in-out .5s;
+}
+
+
+
+
+
+
+
+
+
+/*---------- Redirect Button -------------*/
+
+#my-office #section-1 .content li .rd-btn {	
+	justify-content: center;	
+	width: 80%;
+	max-width: 240px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	background: #FFF;
+	border-radius: 5px;
+	border: 1px solid #2B2937;		
+	transition: all ease-in-out .5s;
+}
+
+
+#my-office #section-1 .content li .rd-btn {
+	margin-bottom: 20px;
+}
+
+
+
+#my-office #section-1 .content li .rd-btn span {
+	color: #2B2937;
+}
+
+#my-office #section-1 .content li .rd-btn .chevron-right path {
+	fill: #2B2937;
+	transition: all ease-in-out .5s;
+}
+
+
+
+#my-office #section-1 .content li .rd-btn:hover {
+	background: #739E3C;
+	border: 1px solid #739E3C;	
+}
+
+
+#my-office #section-1 .content li .rd-btn:hover span {
+	color: #FFF;
+}
+
+#my-office #section-1 .content li .rd-btn:hover .chevron-right path {
+	fill: #FFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------- Section 2 -----------*/
+
+#my-office #section-2 .container {
+	padding: 0;
+}
+
+#my-office #section-2 .container .content {
+	margin-bottom: 0;
+}
+
+
+
+
+#my-office #section-2 .function {
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+
+@media (max-width: 575px) {
+	#my-office #section-2 .function  {
+		text-align: center;
+	}
+	#my-office #section-2 .function img  {
+		margin-bottom: 10px;
+	}
+	#my-office #section-2 .function .rd-btn {
+		justify-content: center;
+	}
+	#my-office #section-2 .function .rd-btn span {
+		margin-right: 0;
+	}
+	#my-office #section-2 .function .rd-btn svg {
+		display: none;
+	}
+}
+
+
+
+
+@media (min-width: 576px) {
+	#my-office #section-2 .content .function img {
+		margin-right: 15px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+	#my-office #section-2 .content li {
+		padding: 10px 0;
+		margin-bottom: 20px;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+	#my-office #section-2 .content li {
+		padding: 15px 0;
+		margin-bottom: 25px;
+	}
+}
+
+
+@media (min-width: 992px) {
+	#my-office #section-2 .content li {
+		padding: 20px 0;
+		margin-bottom: 30px;
+	}
+}
+
+#my-office #section-2 .content li:last-child {
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+#my-office #section-2 .content .function img {
+	width: auto;
+	max-width: 100%;
+}
+
+
+#my-office #section-2 .content .function h4 {
+	font-weight: 700;
+	color: #2B2937;
+	transition: all ease-in-out .3s;
+}
+
+#my-office #section-2 .content .function:hover h4 {
+	color: #739E3C;
+}
+
+#my-office #section-2 .function .rd-btn span {
+	color: #2B2937;	
+	opacity: .5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<div class="main-body" id='media-center'>
+	<div class="content-part">									
+		<div class="heading">
+			<h4 class="h-small">Super Friday 이현정</h4>
+			<div class="media-meta">
+				<span class="time">2022-08-01 13:50:29</span>
+			</div>
+		</div>
+		
+		<div class="w-video">
+			<div class="thumbnail" (click)="onPlay();" *ngIf="showThum">
+				<div class="states">
+					<img class="state play" src="../../../../assets/img/icons/play.svg">
+				</div>
+				<div class="img-wrapper">
+					<img src="../../../../assets/img/home/media-center/about-us-video-thumbnail.jpg">
+				</div>
+			</div>
+			<video controls #videoBroadcast>
+				<source src="../../../../assets/videos/media-center/acumullit_sa_sample_pack_by_aplgo.mp4" type="video/mp4">
+				<source src="../../../../assets/videos/media-center/acumullit_sa_sample_pack_by_aplgo.ogg" type="video/ogg">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+
+	</div>
+
+</div>

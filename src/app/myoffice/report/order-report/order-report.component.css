@@ -1,0 +1,236 @@
+.print-page {
+  width: 90%;
+  padding: 20px 5%;
+  margin: 0 auto;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.TopCont {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.TopCont h2 {
+  float: left;
+  font-size: 30px;
+  color: #232323;
+  line-height: 60px;
+  text-align: center;
+}
+
+.TopContR {
+  float: right;
+  width: 35%;
+  height: 60px;
+}
+
+.tbTwo,
+.tbTwo th,
+.tbTwo td {
+  border: 0;
+  font-size: 12px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.tbTwo {
+  clear: both;
+  width: 100%;
+  border-bottom: 1px solid #3e4347;
+  border-right: 1px solid #3e4347;
+  border-top: 1px solid #3e4347;
+  border-collapse: collapse;
+}
+
+.tbTwo caption {
+  display: none
+}
+
+.tbTwo thead th {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #555;
+  border-top: none;
+  background: #fafafa;
+}
+
+.tbTwo tbody th {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #555;
+  font-weight: bold;
+  border-top: none;
+  background: #fafafa;
+}
+
+.tbTwo td {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #777;
+  border-top: none;
+  border-right: none
+}
+
+.tbThree,
+.tbThree th,
+.tbThree td {
+  border: 0;
+  font-size: 10px;
+  line-height: 9px;
+  background: #fff;
+}
+
+.tbThree {
+  clear: both;
+  width: 100%;
+  border-bottom: 1px solid #3e4347;
+  border-right: 1px solid #3e4347;
+  border-top: 1px solid #3e4347;
+  border-collapse: collapse;
+}
+
+.tbThree caption {
+  display: none
+}
+
+.tbThree thead th {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #555;
+  border-top: none;
+  background: #fafafa;
+}
+
+.tbThree tbody th {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #555;
+  font-weight: bold;
+  border-top: none;
+  background: #fafafa;
+}
+
+.tbThree tbody .TxtR {
+  width: 40%;
+  float: right;
+  padding-top: 5px;
+}
+
+.tbThree td {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #777;
+  border-top: none;
+  border-right: 1px solid #3e4347;
+}
+
+
+.tbSign,
+.tbSign th,
+.tbSign td {
+  border: 0;
+  font-size: 10px;
+  color: #ff0000;
+  background: #fff;
+}
+
+.tbSign {
+  clear: both;
+  width: 79px;
+  border-bottom: 3px solid #ff0000;
+  border-right: 3px solid #ff0000;
+  border-left: 3px solid #ff0000;
+  border-top: 3px solid #ff0000;
+  border-collapse: collapse;
+}
+
+.tbSign caption {
+  display: none
+}
+
+.tbSign thead th {
+  border: 3px solid #ff0000;
+  color: #ff0000;
+  border-top: none;
+}
+
+.tbSign tbody th {
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  font-weight: bold;
+  border-top: none;
+  background: #fff;
+}
+
+.tbSign td {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #777;
+  border-top: none;
+  border-right: none;
+}
+
+.EndYmdBody {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.EndYmdBody .EndYmd {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.EndYmdBody .EndSign {
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 3px;
+}
+
+.BottomSign {
+  width: 100%;
+  height: 75px;
+  margin: 20px 0;
+}
+
+.BottomSign h2 {
+  float: left;
+  width: 85%;
+  text-align: center;
+}
+
+.BottomSign h2 img {
+  height: 75px;
+  width: auto;
+}
+
+.BottomSign .BottomSignR {
+  float: right;
+  width: 15%;
+  height: 75px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.comp-name {
+  /* align-items: center; */
+  margin-top: 10px;
+  font-size: 11px;
+}
+.comp-name .logo-comp {
+  margin-right: 25px;
+  margin-top: 10px;
+}
+.comp-name img {
+  width: 70px;
+}
+

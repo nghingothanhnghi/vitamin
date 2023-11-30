@@ -1,0 +1,106 @@
+/**/
+
+
+
+
+
+.content-info .heading {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.content-info .member-form {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+
+
+
+
+@media all and (max-width: 639px) {
+    .label {
+        margin-bottom: 5px;
+    }
+}
+
+
+
+@media all and (min-width: 640px) {
+    .label {
+        height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .step-content .input {
+        width: 330px;
+    }
+
+    .verify-btn {
+        margin-top: 0;
+        margin-left: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+
+
+
+@media all and (max-width: 639px) {
+    .group-btns a {
+        width: calc(50% - 5px);
+    }
+}
+
+@media all and (min-width: 640px) {
+    .group-btns a {
+        width: 160px;
+    }
+}
+
+.group-btns a {
+    height: 48px;
+}
+
+.group-btns a:first-child {
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.address .row_1 {
+    margin-bottom: 5px;
+}
+
+.address .row_2 input:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+
+.address .w-btn {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+
+
+.receiving .checkbox:not(:last-child) {
+    margin-right: 30px;
+}
+

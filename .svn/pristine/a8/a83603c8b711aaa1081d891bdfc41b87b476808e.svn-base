@@ -1,0 +1,298 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { countWitholdingTax, searchWitholdingTax, sumWitholdingTax } from '@app/actions/myoffice/benefit/witholding-tax.action';
+import { loadCodesY } from '@app/actions/system/code.action';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { DateFilterModel } from '@app/models/components/date-filter.model';
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { WitholdingTaxModel } from '@app/models/myoffice/benefit/witholding-tax.module';
+import { CodeModel } from '@app/models/system/code.model';
+import { getWitholdingTaxSearchItems, getWitholdingTaxSumItem, getWitholdingTaxTotalItems, WitholdingTaxSearchState } from '@app/selectors/myoffice/benefit/witholding-tax.selector';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { CodeState, getCodesY } from '@app/selectors/system/code.selector';
+import { Store } from '@ngrx/store';
+import { PaginationInstance } from 'ngx-pagination';
+import { Observable } from 'rxjs';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { AuthUtil } from '@app/common/util/auth.util';
+import { environment } from '@enviroments/environment';
+import { LenConstant } from '@app/common/constant/len.constant';
+import { ReportUtil } from '@app/common/util/report.util';
+import { Company } from '@app/models/system/company.model';
+import { CompanyState, getCompany } from '@app/selectors/system/company.selector';
+import { loadCompany } from '@app/actions/system/company.actions';
+import { WAlertState } from '@app/selectors/w-alert.selector';
+import { setWAlert } from '@app/actions/w-alert.action';
+import { WAlertConstant } from '@app/common/constant/w-alert-icon.constant';
+import { SmWownetModel } from '@app/models/system/sm-wownet.model';
+import { getSmWownet, SmWownetState } from '@app/selectors/system/sm-wownet.selector';
+
+@Component({
+  selector: 'app-witholding-tax',
+  templateUrl: './witholding-tax.component.html',
+  styleUrls: ['./witholding-tax.component.css',
+              './../../../../../assets/css/my-office/benefit-management.css']
+})
+export class WitholdingTaxComponent implements OnInit, OnDestroy {
+
+  //Start Information UserLogin
+
+  userId: String = '';
+  userName: String = "";
+  labelDate : String = "지급일자";
+  
+//End Information UserLogin
+
+  // Start Data of select date
+  codesY$ = new Observable<CodeModel[]>;
+
+  yearOptions: SelectDropdownModel[] = [];
+  dateFilterSelected: DateFilterModel = new DateFilterModel();
+
+  // End Data of select date
+  
+ // Start Paging
+  page: number = 1;
+
+  len: number = 10;
+
+  totalItems: number = 0;
+
+  config: PaginationInstance = {
+    id: 'benefit-accounting-inquiry',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+  options: SelectDropdownModel[] = [];
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+  // End Paging
+
+  witholdingTaxSearchItems$ = new Observable<WitholdingTaxModel[]>;
+  witholdingTaxSumItem$ = new Observable<WitholdingTaxModel>;
+  witholdingTaxTotalItems$ = new Observable<Number>;
+  collection: WitholdingTaxModel[] = [];
+  collectionSum: any = {} as WitholdingTaxModel ;
+  
+  rows: number[] = [];
+  cols: number[] = new Array(16);
+  totalCols: number = 8;
+  totalRows: number = 0;
+
+  company$ = new Observable<Company>();
+  company: any = {} as Company;
+
+  smWownet$ = new Observable<SmWownetModel>;
+  urlWownet : String = "";
+
+  constructor(
+    private _codeStore: Store<CodeState>,
+    private _witholdingTaxSearchtore: Store<WitholdingTaxSearchState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState>,
+    private _companyStore: Store<CompanyState>,
+    private _wAlertStore: Store<WAlertState>,
+    private _smWownetStateStore: Store<SmWownetState>
+  ) { 
+    this.codesY$ = this._codeStore.select(getCodesY);
+    this.witholdingTaxSearchItems$ = this._witholdingTaxSearchtore.select(getWitholdingTaxSearchItems);
+    this.witholdingTaxTotalItems$ = this._witholdingTaxSearchtore.select(getWitholdingTaxTotalItems);
+    this.witholdingTaxSumItem$ = this._witholdingTaxSearchtore.select(getWitholdingTaxSumItem);
+
+    this.company$ = this._companyStore.select(getCompany);
+    this.smWownet$ = this._smWownetStateStore.select(getSmWownet);
+
+  }
+
+  ngOnInit(): void {
+    
+    this.smWownet$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.urlWownet = res.urlWownet;
+      }
+    });
+
+    this._companyStore.dispatch(loadCompany());
+
+    this.company$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.company = res;
+      }
+    });
+
+    let member = AuthUtil.getLoginedInfo();
+    if (member) {
+      this.userId = ConvertUtil.convertToSring(member.userid);
+      this.userName = ConvertUtil.convertToSring(member.username);
+    }
+
+     // Start load code of year
+     this._codeStore.dispatch(loadCodesY());
+     this.codesY$.subscribe(res => {
+       this.yearOptions = [];
+       res.forEach((item) => this.yearOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) }));
+     });
+     // End load code of year
+
+      //Data of Paging
+      this.options = LenConstant.listLen;
+      this.selectedValue = this.options[0];
+  }
+
+  ngOnDestroy() {
+    localStorage.removeItem("witholdingTax");
+  }
+
+  handleOnChangeDateFilter(dateFilter: DateFilterModel): void {
+    this.dateFilterSelected = dateFilter;
+    this.onSearch();
+  }
+
+  //Start Paging
+  handleOnChangeSelectedValue(selected: SelectDropdownModel): void {
+    if(ValidationUtil.isNotNullAndNotEmpty(selected.value)) {
+      this.len = Number(selected.value);
+      this.page = 1;
+      this.onSearch();
+    }
+  }
+
+  handleOnChangePage(page: number): void {
+    this.page = page;
+    this.onSearch();
+  }
+  //End Paging
+
+  getParams(): any {
+    let fromDate = this.dateFilterSelected.fromDate.year.value + "-" 
+                  + this.dateFilterSelected.fromDate.month.value + "-" 
+                  + this.dateFilterSelected.fromDate.date.value;
+
+    let toDate = this.dateFilterSelected.toDate.year.value + "-" 
+                + this.dateFilterSelected.toDate.month.value + "-" 
+                + this.dateFilterSelected.toDate.date.value;
+
+
+    let params = {
+      comId : environment.comId,
+      lang: environment.default_lang,
+      sDate: fromDate,
+      eDate: toDate,
+      userId: this.userId,
+      
+      page: Number(this.page) - 1,
+      len: this.len
+    }
+
+    return params;
+  }
+
+  onSearch(): void {
+
+    setTimeout(() => {
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    }, 1);
+
+    let params = this.getParams();
+
+    this._witholdingTaxSearchtore.dispatch(searchWitholdingTax({ params: params }));
+    this._witholdingTaxSearchtore.dispatch(countWitholdingTax({ params: params }));
+    this._witholdingTaxSearchtore.dispatch(sumWitholdingTax({ params: params }));
+
+    // Render Body
+    this.witholdingTaxSearchItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collection = res;
+        
+        if (this.collection.length < 5) {
+          this.rows = new Array(5 - this.collection.length);
+        }
+      } else {
+        this.collection = [];
+        this.rows = new Array(5);
+      }
+
+      setTimeout(() => {
+        this.setBlankRow();
+        this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+      }, 250);
+    });
+
+     // Total Items Of data
+     this.witholdingTaxSumItem$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collectionSum = res;
+      } else {
+        let item = {
+          totalAmt : "",
+          taxIncome : "",
+          taxResident : "",
+          trueAmt: ""
+        }
+        this.collectionSum = item;
+      }
+    })
+
+    // Total Items Of data
+    this.witholdingTaxTotalItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    })
+  }
+
+  setBlankRow() {
+    this.totalRows = this.collection.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+
+    this.cols = new Array(this.totalCols);
+  }
+
+  search() {
+    this.page = 1;
+    this.onSearch();
+  }
+
+  handleOnClickReport(): void {
+    let params = this.getParamsForReport();
+    if (ValidationUtil.isNotNullAndNotEmpty(params.userId) && this.collection.length > 0) {
+      localStorage.setItem('witholdingTax', JSON.stringify(params));
+      ReportUtil.openWitholdingTax();
+    } else {
+      this._wAlertStore.dispatch(setWAlert({ wAlert: { icon: WAlertConstant.warning, message: "데이터가 존재하지 않습니다."}}));
+    }
+  }
+
+  getParamsForReport() {
+    let fromDate = this.dateFilterSelected.fromDate.year.value + "-" 
+                 + this.dateFilterSelected.fromDate.month.value + "-" 
+                 + this.dateFilterSelected.fromDate.date.value;
+
+    let toDate = this.dateFilterSelected.toDate.year.value + "-" 
+               + this.dateFilterSelected.toDate.month.value + "-" 
+               + this.dateFilterSelected.toDate.date.value;
+
+    let pathImg = "";
+
+    if(ValidationUtil.isNotNullAndNotEmpty(this.company) && ValidationUtil.isNotNullAndNotEmpty(this.company.stampPath)) {
+      pathImg = this.urlWownet + '/' + this.company.stampPath;
+    }
+
+    let params = {
+      userId: this.userId,
+      company : this.company,
+      sDate: fromDate,
+      eDate: toDate,
+      pathImg : pathImg
+    }
+
+    return params;
+  }
+
+}

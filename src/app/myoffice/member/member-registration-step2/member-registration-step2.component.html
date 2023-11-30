@@ -1,0 +1,97 @@
+<div id="member-registration-2" class="member-registration">
+    <div class="container">
+        <div class="registration-steps row">
+            <ul class="row w-ul s-font">
+                <li class="col done"><span>1</span><span> 단계 약관동의</span></li>
+                <li class="col current"><span>2</span><span> 단계 본인인증</span></li>
+                <li class="col"><span>3</span><span> 단계 회원정보입력</span></li>
+                <li class="col"><span>4</span><span> 단계 회원가입완료</span></li>
+            </ul>
+        </div>
+
+        <div class="step-content authentication">
+            <div class="registration-form">
+                <p class="notice">본인 인증 중 타인의 신상정보를 허락 없이 임의 사용하여 회원 등록시킬 경우 법률(형법)위반으로 처벌 받을 수 있습니다.<br />
+                    관련 규정을 위반한 사람은 당사 윤리강령 규정에 의거하여 엄중한 제재 조치를 받을 수 있습니다.<br />
+                    회원 등록시 계약 동의 및 유의 사항을 반드시 숙지하여 직접 신청 바랍니다.
+                </p>
+
+                <div class="form-row row country">
+                    <div class="label">국가<span class='required-field'>*</span></div>
+                    <div class="input">
+                        <div class="dropdown-select row">
+                            <div [ngClass]="{'pointer-none': isDropDownReadonly}">
+                                <select-dropdown class="dropdown-select col row" [options]="countryOptions"
+                                    [selected]="countrySelected"
+                                    (changeSelectedValue)="hanldeOnChangeCountrySelectedValue($event)">
+                                </select-dropdown>
+                            </div>
+
+                            <input type="hidden" id="ctrCd" value="KR">
+                            <input type="hidden" id="ctrName" value="대한민국,Korea,韓国">
+                        </div>
+                    </div>
+                    <div class="extra"></div>
+                </div>
+
+                <div class="form-row row name">
+                    <div class="label">이름(한글실명)<span class='required-field'>*</span></div>
+                    <div class="input"><input [readonly]="isDepositorReadonly" type="text" id="depositor"
+                            [(ngModel)]="username"></div>
+                    <div class="extra"></div>
+                </div>
+
+                <div class="form-row row birthdate">
+                    <div class="label">생년월일(8자리)<span class='required-field'>*</span></div>
+                    <div class="input">
+                        <input type="text" [readonly]="isBirthdayReadonly" placeholder="예를 들어 : 19881005" id="birthday"
+                            [(ngModel)]="birthday" maxlength="8"
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                    </div>
+                    <div class="extra"></div>
+                </div>
+
+                <div class="form-row row bank-name">
+                    <div class="label">은행<span class='required-field'>*</span></div>
+                    <div class="input">
+                        <div class="dropdown-select row">
+                            <div [ngClass]="{'pointer-none': isDropDownReadonly}">
+                                <select-dropdown class="dropdown-select col row" [options]="bankOptions"
+                                    [selected]="bankSelected"
+                                    (changeSelectedValue)="hanldeOnChangeBankSelectedValue($event)">
+                                </select-dropdown>
+                            </div>
+
+                            <input type='hidden' id="bankCd" />
+                            <input type="hidden" id="valueLi">
+
+                        </div>
+                    </div>
+                    <div class="extra "></div>
+                </div>
+
+                <div class="form-row row bank-number">
+                    <div class="label">계좌번호<span class='required-field'>*</span></div>
+                    <div class="input">
+                        <div class="inputs-wrapper row">
+                            <input type="text" [readonly]="isAccNoReadonly" id="accNo" [(ngModel)]="accNo">
+                        </div>
+                    </div>
+                    <div class="extra"><a class="w-btn green-btn verify-btn" (click)="verifyBank();">계좌인증</a>
+                    </div>
+                </div>
+
+                <div class="row group-btns">
+                    <a routerLink="{{urlStep1}}" class="w-btn dark-btn medium-btn">
+                        <span>이전</span>
+                    </a>
+                    <a class="w-btn alt-btn medium-btn primary-btn" (click)="goPage();">
+                        <span>확인</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

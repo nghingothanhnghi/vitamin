@@ -1,0 +1,296 @@
+import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
+
+import * as memPositionSelecttor from '@app/selectors/myoffice/member/member-position.selector';
+import { getMemberRId, countMemberRId, getRankMember, getRankMemberSuccess } from '@app/actions/myoffice/member/member-inquiry-position.action';
+import { DateFilterModel } from '@app/models/components/date-filter.model';
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { Observable, Subscription } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { environment } from 'src/environments/environment';
+import { PaginationInstance } from 'ngx-pagination';
+import { Rank } from '@models/system/rank.model'
+import { Member } from '@models/myoffice/member/member.model'
+import { loadCodesY} from '@app/actions/system/code.action';
+import { CodeModel } from '@app/models/system/code.model';
+import { CodeState, getCodesY } from '@app/selectors/system/code.selector';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { AuthUtil } from '@app/common/util/auth.util';
+import { MemberConstants } from '@app/common/constant/member.constant';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { LenConstant } from '@app/common/constant/len.constant';
+import { CheckUseridConstant } from '@app/common/constant/check-userid.constant';
+import { loadSmWownetConfig } from '@app/actions/system/sm-wownet.action';
+import { getSmWownetConfig, SmWownetState } from '@app/selectors/system/sm-wownet.selector';
+import { SmWownetConfigModel } from '@app/models/system/sm-wownet-config.model';
+
+declare const modifyBackToCloseModal: any;
+
+@Component({
+  selector: 'app-member-position',
+  templateUrl: './member-position.component.html',
+  styleUrls: ['./member-position.component.css']
+})
+export class MemberPositionComponent implements OnInit, AfterViewChecked, OnDestroy {
+
+  page: number = 1;
+
+  len: number = 10;
+
+  totalCols: number = 6;
+  totalRows: number = 0;
+  rows: number[] = [];
+  cols: number[] = [];
+
+  totalRankMemberCd: number = 0
+  userId: string = ''
+  userName: string = ''
+  rankCd: string = ''
+  showMemberPopup: boolean = false;
+  dateFilterSelected: DateFilterModel = new DateFilterModel();
+  codesY$ = new Observable<CodeModel[]>;
+  yearOptions: SelectDropdownModel[] = [];
+
+  userKindOptions: SelectDropdownModel[] = CheckUseridConstant.listCheckUseridMember;
+  userKindSelected: SelectDropdownModel = new SelectDropdownModel();
+
+  valueUserKind: string = 'R'
+  rankMembers$ = new Observable<Rank[]>;
+  rankMembers:Rank[] = [];
+  memberRId$ = new Observable<Member[]>;
+  totalmemberRId$ = new Observable<Number>;
+  collection: Member[] = [];
+  subRankMember = {} as Subscription
+  //pagination
+  totalItems: number = 0;
+  config: PaginationInstance = {
+    id: 'tableRId',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+  options: SelectDropdownModel[] = [];
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+  //end pagination
+  smWownetConfig$ = new Observable<SmWownetConfigModel>;
+  smWownetConfig: SmWownetConfigModel = {} as SmWownetConfigModel;
+
+  constructor(
+    private _smWownetStore: Store<SmWownetState>,
+    private _codeStore: Store<CodeState>,
+    private _memPositionStore: Store<memPositionSelecttor.MemberPositionState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState>) {
+    this.codesY$ = this._codeStore.select(getCodesY);
+    this.rankMembers$ = this._memPositionStore.select(memPositionSelecttor.getRankMember);
+    this.memberRId$ = this._memPositionStore.select(memPositionSelecttor.getMemberRId);
+    this.totalmemberRId$ = this._memPositionStore.select(memPositionSelecttor.countMemberRId);
+    this.smWownetConfig$ = this._smWownetStore.select(getSmWownetConfig);
+  }
+  ngOnDestroy(): void {
+    let hasValue = this.subRankMember.closed != undefined
+    if(this.subRankMember && hasValue){
+      this.subRankMember.unsubscribe()
+    }
+    this._memPositionStore.dispatch(getRankMemberSuccess({ranks: []}));
+  }
+  ngAfterViewChecked() {
+    this.setColorRankMember(this.rankCd)
+  }
+  ngOnInit(): void {
+    this._smWownetStore.dispatch(loadSmWownetConfig());
+    this.smWownetConfig$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.smWownetConfig = res;
+        // if(res.reqParent === 'Y'){
+        //   this.userKindOptions = CheckUseridConstant.getListCheckUseridMemberPosition();
+        // }
+      }
+    });
+    this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    let member = AuthUtil.getLoginedInfo();
+    if (member) {
+      this.userId = ConvertUtil.convertToSring(member.userid);
+      this.userName = ConvertUtil.convertToSring(member.username);
+    }
+    this._codeStore.dispatch(loadCodesY());
+    this.codesY$.subscribe(res => {
+      this.yearOptions = [];
+      res.forEach((item) => this.yearOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) }));
+    });
+    this.options = LenConstant.listLen;
+    this.selectedValue = this.options[0];
+
+    this.userKindSelected = this.userKindOptions[0]
+
+    this.subRankMember = this.rankMembers$.subscribe(res => {
+      this.totalRankMemberCd = 0
+      if (res) {
+        this.rankMembers = res ;
+        this.rankMembers.forEach((item) => {
+          this.totalRankMemberCd += Number(item.rankCnt);
+        });
+        if (res.length>0) {
+          this.rankCd = res[0].rankCd
+          let params = this.getParams();
+          this._memPositionStore.dispatch(getMemberRId({ params: params }));
+          this._memPositionStore.dispatch(countMemberRId({ params: params }));
+        }
+      }
+    })
+    this.memberRId$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collection = res;
+      } else {
+        this.collection = [];
+      }
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+      this.setBlankRow();
+    });
+
+
+    this.totalmemberRId$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    })
+
+    setTimeout(() => {
+      this.userKindOptions = CheckUseridConstant.getlistCheckUseridMember();
+      this.userKindSelected = this.userKindOptions[0];
+    }, 500);
+  }
+
+  getParamsRankMember(): any {
+    let startDate = this.dateFilterSelected.fromDate.year.value + "-"
+      + this.dateFilterSelected.fromDate.month.value + "-"
+      + this.dateFilterSelected.fromDate.date.value;
+    let endDate = this.dateFilterSelected.toDate.year.value + "-"
+      + this.dateFilterSelected.toDate.month.value + "-"
+      + this.dateFilterSelected.toDate.date.value;
+
+    let params = {
+      comId: environment.comId,
+      lang: environment.default_lang,
+      chkUser: this.userKindSelected.value,
+      strDate: startDate,
+      endDate: endDate,
+      userid: this.userId,
+    }
+    return params;
+  }
+
+  onSearch(): void {
+    if(this.userKindSelected.value  === '2' || this.userKindSelected.value  === '3'){
+      this.valueUserKind = 'P'
+    }
+    if(this.userKindSelected.value  === '5' || this.userKindSelected.value  === '6'){
+      this.valueUserKind = 'R'
+    }
+    setTimeout(() => {
+      this._overlayLoadingStore.dispatch( setShowOverlayLoading({loading: true }));
+    }, 1);
+    let paramRankMembers = this.getParamsRankMember();
+    this._memPositionStore.dispatch(getRankMember({ params: paramRankMembers }));
+  }
+  handleOnSearch(): void {
+    this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    let params = this.getParams();
+    this._memPositionStore.dispatch(getMemberRId({ params: params }));
+    this._memPositionStore.dispatch(countMemberRId({ params: params }));
+  }
+
+  getParams(): any {
+    let startDate = this.dateFilterSelected.fromDate.year.value + "-"
+      + this.dateFilterSelected.fromDate.month.value + "-"
+      + this.dateFilterSelected.fromDate.date.value;
+    let endDate = this.dateFilterSelected.toDate.year.value + "-"
+      + this.dateFilterSelected.toDate.month.value + "-"
+      + this.dateFilterSelected.toDate.date.value;
+
+    let params = {
+      comId: environment.comId,
+      lang: environment.default_lang,
+      userid: this.userId,
+      strDate: startDate,
+      endDate: endDate,
+      chkUser: this.userKindSelected.value,
+      rankCd: this.rankCd,
+      page: Number(this.page) -1,
+      len: this.len,
+    }
+
+    return params;
+  }
+
+
+  handleOnChangeDateFilter(dateFilter: DateFilterModel): void {
+    this.dateFilterSelected = dateFilter;
+    this.onSearch()
+  }
+
+
+  hanldeOnChangeUserKindSelectedValue(selected: SelectDropdownModel): void {
+    this.userKindSelected = selected;
+  }
+  runSearch(value: string): void {
+    this.rankCd = value
+    this.handleOnSearch()
+  }
+  setColorRankMember(value: string): void {
+    const eles = Array.from(document.getElementsByClassName('rank-member-cd') as HTMLCollectionOf<HTMLElement>)
+    eles.forEach((element) => {
+      element.style.backgroundColor = '#fff';
+    });
+    if ((!value || value == "") && eles && eles.length > 0) {
+      eles[0].style.backgroundColor = "yellow"
+    }
+    const clickedEle = document.getElementById(`rank_${value}`)
+    if (clickedEle) {
+      clickedEle.style.backgroundColor = "yellow"
+    }
+
+  }
+
+  onChangeLen(selected: SelectDropdownModel): void {
+    //this.changeLen.emit(selected);
+    this.page = 1;
+    this.len = Number(selected.value);
+    this.handleOnSearch()
+  }
+
+  onChangePage(page: number): void {
+    //this.changePage.emit(page);
+    this.page = Number(page);
+    this.handleOnSearch()
+  }
+  setBlankRow() {
+    this.totalRows = this.collection.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+
+    this.cols = new Array(this.totalCols);
+  }
+
+  handleOnClickToggleMemberPopup(show: boolean): void {
+    this.showMemberPopup = show;
+  }
+  handleOnClickRowMemberPopup(member: Member): void {
+    this.userId = member.userid
+    this.userName = member.username
+    this.onSearch()
+  }
+  handleOnClickShowMemPopup(): void {
+    modifyBackToCloseModal();
+    this.showMemberPopup = true
+  }
+  handleOnClickRow(item:Member)  {
+    window.open(MemberConstants.URL_MEMBER_INQUIRY+"?userid=" + item.userid,"_blank")
+  }
+}

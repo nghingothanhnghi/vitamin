@@ -1,0 +1,167 @@
+<div id="change-resident-id" class="user-profile office-page">
+    <div class="container mobile-container">
+        <div class="row">
+            <app-user-profile class="col-lg-auto profile-info office-block mobile-block">
+            </app-user-profile>
+
+            <div class="col-lg content-info mobile-block last none">
+
+                <div class="office-block member-form">
+                    <div class="form-row row resident-id">
+                        <div class="label col-auto">주민등록번호</div>
+                        <div class="input col row">
+                            <div class="row ai-center">
+                                <input class="col" value="{{jumin1}}" id="v-jumin1" readonly>
+                                <span class="col-auto">-</span>
+                                <input class="col" value="{{jumin2}}" id="v-jumin2" readonly>
+                            </div>
+                            <span class="warning">실명 인증 ※ 실명인증 버튼을 클릭해주시기바랍니다.</span>
+                        </div>
+                        <div class="extra col-auto " [ngClass]="clickEvent===true ? 'pointer-event' : ''"
+                            (click)="handleOnClickOpenPopup()">
+                            <a class="w-btn green-btn verify-btn open-popup-btn" data-popup="resident-id-checking">실명인증
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="office-block conditions">
+                    <h2 class="h-small">개인정보 수집·이용</h2>
+                    <p>개인정보 수집·이용에 대한 동의, 고유식별 정보 수집/이용 동의</p>
+                    <table class="hr-table" style="display: table">
+                        <thead>
+                            <tr>
+                                <th>수탁업체</th>
+                                <th>제공 항목</th>
+                                <th>보유 및 이용기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="block">방문판매 등에 관한 법률을 포함한 관련법령에 의거하여</span>
+                                    <span class="block">회사에 부과되는 법적 행정적 의무의 이행</span>
+                                    <span class="block">(방문판매 등에 관한 법률 시행규칙 제 15조)</span>
+                                </td>
+                                <td>
+                                    <span class="block">주민번호 등록</span>
+                                    <span class="block">(혹은 외국인등록 번호)</span>
+                                </td>
+                                <td rowspan="2">
+                                    <span class="block">회원 탈퇴 또는 개인정보 유효기간</span>
+                                    <br> ※ 도래 후 2년<br>
+                                    <span class="block">(규정 준수여부 모니터링 목적)</span>
+                                    <span class="block">※ 유효기간이라 함은 일정기간(12개월)</span>
+                                    <span class="block">서비스를 이용하지 않은 경우로써</span>
+                                    <span class="block"> 탈퇴 등의 조치가 적용됩니다.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="block">소득세, 주민세 등 각종 세금의 신고/납부</span>
+                                    <span class="block">(국세기본법 시행령 제68조 소득세법 제145조,</span>
+                                    <span class="block">부가가치세법 제16조)</span>
+
+                                </td>
+                                <td>
+                                    <span class="block">주민번호 등록</span>
+                                    <span class="block">(혹은 외국인등록 번호)</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="form-row row">
+                        <div class="checkbox">
+                            <input class="col-auto" type="checkbox" id="accept" [(ngModel)]="checked" name="">
+                            <label class="col" for="accept">이용약관에 동의합니다.</label>
+                        </div>
+                    </div>
+
+                    <div class="row group-btns">
+
+                        <a href="javascript:history.back()" class="w-btn dark-btn"
+                            id="changeJumin">이전</a>
+                        <a (click)="saveJuminNo()" [ngClass]="clickEvent===true ? 'pointer-event' : ''"
+                            class="w-btn primary-btn">변경</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="popups-container" style="z-index: 9;">
+        <div class="popup resident-id-checking" [ngClass]="showPopup==true ? 'opened' : ''">
+            <div class="container popup-content">
+                <div class="popup-header row">
+                    <h2 class="col">실명 인증</h2>
+                    <a class="col-auto close-popup-btn" (click)="handleOnClickClosePopup();">
+                        <img src="./assets/img/icons/escape.svg">
+                    </a>
+                </div>
+                <div class="popup-body">
+                    <ul>
+                        <li>당 사미트는 회원 여러분의 개인정보보호를 위해 최선을 다하고 있습니다.</li>
+                        <li>당 사이트에서는 원활한 서비스 이용과 익명 사용자로 인한 명예훼손 등의 피해를 방지하기 위하여 회원 가입 실명제를 원칙으로 하고 있습니다.</li>
+                        <li>관련 법률에 따라 다른 사람의 주민등록번호를 도용하며 인터넷 서비스에 가입하는 경우는 명백한 범죄행위로 3년 이하의 징역 또는 1천만원 이하의 벌금에
+                            처해지므로 반드시 본인 실명으로만 가입해 주시기 바랍니다.
+                            <div class="checking-form">
+                                <div class="row">
+                                    <div class="col-md-6 resident-id">
+                                        <div class="row form-row">
+                                            <span class="label">주민등록번호 </span>
+                                            <div class="inputs-wrapper row">
+                                                <input class="col input-6-digits" type="text" name="jumin1Dis"
+                                                    [(ngModel)]="jumin1Dis" (keydown)="onKeydownJumin1()" maxlength="6">
+                                                <!-- 														<input class="col input-6-digits" type="number" id="jumin1"> -->
+                                                <span class="col-auto">-</span>
+                                                <input class="col input-6-digits" type="text" id="jumin2Dis"
+                                                    [(ngModel)]="jumin2Dis" (keydown)="onKeydownJumin2()" maxlength="7">
+                                                <!-- 														<input class="col input-6-digits" type="number" id="jumin2"> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 real-name">
+                                        <div class="row form-row">
+                                            <span class="label">이름(한글실명)</span>
+                                            <div class="inputs-wrapper row">
+                                                <input type="text" value="{{userName}}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 verification">
+                                        <span class="label">제출하다</span>
+                                        <a (click)="handleVerifyJumin()" class="grad-btn">실명확인</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>당 사이트의 실명확인은 나이스신용평가정보(주)의 실명확인 서비스를 통해 이루어 집니다.</li>
+                    </ul>
+                    <ul class="credit-information">
+                        <li>실명확인 시 입력되는 주민등록번호는 고객의 실명확인을 위한 이름과 주민등록번호의 일치여부 확인에만 이용되며 당 사이트에는 주민등록번호를 저장하지 않습니다.
+                        </li>
+                        <li>실명확인에 대한 문의가 있으신 분은 나이스신용평가정보(주)의 실명확인 콜 센터에 문의 주시 기 바랍니다.</li>
+                    </ul>
+                    <div class="row popup-footer">
+                        <div class="col-4 col_left">
+                            <img src="./assets/img/namecheck-logo.png">
+                        </div>
+                        <div class="col-8 col_right">
+                            <div class="info email row">
+                                <span class="col">callcenter@kisinfo.com</span>
+                                <span class="col-auto">Email</span>
+                            </div>
+                            <div class="info fax row">
+                                <span class="col">02-3771-4818</span>
+                                <span class="col-auto">팩스</span>
+                            </div>
+                            <div class="info tel row">
+                                <span class="col">1600-1522</span>
+                                <span class="col-auto">전화</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

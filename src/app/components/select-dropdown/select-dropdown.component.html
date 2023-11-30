@@ -1,0 +1,15 @@
+<div class="select-dropdown">
+  <div class="selected col-auto row" (click)="handleOnClickSelectDropdown();">
+    <span class="col-auto" style="min-height: 24px;">{{(selected)?selected.label:'' }} </span>
+    <div class="btn-open-sub col-auto">
+      <svg width="20" height="20" viewBox="0 0 40 40">
+        <path d="M20 26.7L7.5 14.2L8.5 13.3L20 24.9L31.5 13.3L32.5 14.2L20 26.7Z" fill="black"></path>
+      </svg>
+    </div>
+  </div>
+  <ul class="options" [ngClass]="showOptions ? 'open-dropdown-select' : 'close-dropdown-select'">
+    <ng-template ngFor let-item [ngForOf]="options">
+      <li class="option" value="{{item.value}}" (click)="handleOnClickOption(item);">{{ item.label }}</li>
+    </ng-template>
+  </ul>
+</div>

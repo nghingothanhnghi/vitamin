@@ -1,0 +1,169 @@
+/**/
+
+
+
+
+
+
+.sub-nav {
+    padding: 20px 0;
+}
+
+@media all and (min-width: 768px) {
+	.sub-nav {
+        margin-top: 10px;
+    }
+}
+
+
+.sub-nav ul {
+    justify-content: center;
+    margin: 0;
+}
+
+.sub-nav ul li {
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.sub-nav ul li.active, 
+.sub-nav ul li:hover {
+    color: #f0875a;
+}
+
+
+
+@media all and (max-width: 575px) {
+	.sub-nav ul li {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.sub-nav ul li {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+	.sub-nav ul li {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+
+.sub-nav ul li:first-child {
+    padding-left: 0;
+}
+
+.sub-nav ul li:last-child {
+    padding-right: 0;
+}
+
+.sub-nav ul li:not(:last-child) {
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.container {
+        padding-bottom: 80px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.container {
+        padding-bottom: 100px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.container {
+        padding-bottom: 120px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	.container {
+        min-height: 600px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.result {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result ul {
+    padding: 0;
+}
+
+
+.result ul li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.result ul li a {
+    padding: 10px;
+    background: rgba(0,0,0,.02);
+    color: #000;
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.result ul li a {
+        padding: 10px;
+    }    
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.result ul li a {
+        padding: 10px 15px;
+    }
+}
+
+@media all and (min-width: 768px) {
+	.result ul li a {
+        padding: 10px 20px;
+    }
+}
+
+
+

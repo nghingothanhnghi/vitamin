@@ -1,0 +1,13 @@
+<div id="zoom-live">
+	<div class="heading">
+		<h2 class="h-small" style="margin-bottom: 1em">아인셀 줌 LIVE방송입니다.</h2>
+	</div>
+	
+	<div class="w-zoom">
+		<a href="https://zoom.us/j/9558677620?pwd=VzhvNURvWTBLTSt6VDUzb2M1NEVMQT09" target="_blank">
+			<img src="../../../../assets/img/home/media-center/aplgo-zoom.svg">		
+		</a>		
+	</div>
+	<div class="text-center">아인셀 줌 교육</div>
+
+</div>

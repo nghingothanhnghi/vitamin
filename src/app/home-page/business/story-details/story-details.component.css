@@ -1,0 +1,474 @@
+/**/
+
+
+
+
+
+@media all and (max-width: 991px) {
+	.main-body {
+        padding: 30px 4%;
+    }
+}
+
+@media all and (min-width: 992px) {
+	.main-body {
+        padding-top: 20px;
+    }
+}
+
+
+
+
+
+
+
+/*----- 1. Heading ---------------
+        2. Intro Content
+        3. Extended Content
+        4. Story Part
+------------------------------*/
+
+
+
+
+
+/*----- 1. Heading -----*/
+
+.heading h2 {
+    margin-bottom: .5em;
+}
+
+.heading p {
+    margin-bottom: 0;
+}
+
+
+
+@media all and (max-width: 575px) {
+	.heading {
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.heading {
+        margin-bottom: 25px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.heading {
+        margin-bottom: 30px;
+    }
+}
+
+@media all and (min-width: 992px) {
+	.heading {
+        margin-bottom: 35px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*----- 2. Intro Content -----*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+	.intro-content.extended {
+        margin-bottom: 40px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.intro-content.extended {
+        margin-bottom: 50px;
+    }
+}
+
+@media all and (min-width: 992px) {
+	.intro-content.extended {
+        margin-bottom: 60px;
+    }    
+}
+
+
+
+
+
+
+
+
+
+
+/*----- 2.1 Intro Image -----*/
+
+.intro-content .img-wrapper .portrait {
+    box-shadow: 0px 25px 30px rgba(0,0,0,.2);
+}
+
+
+
+@media all and (max-width: 767px) {
+	.intro-content .col-img {
+        display: none;
+    } 
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.intro-content .col-img .img-wrapper .portrait {
+        border-top-right-radius: 60px;
+        border-bottom-left-radius: 60px;
+    } 
+    .intro-content .col-img {   
+        width: 30%;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	.intro-content .col-img .img-wrapper .portrait {
+        border-top-right-radius: 90px;
+        border-bottom-left-radius: 90px;
+    }    
+    .intro-content .col-img {   
+        max-width: 360px;
+    }    
+}
+
+
+
+
+
+
+.intro-content .col-img .img-wrapper {
+    position: relative;    
+}
+
+.intro-content .elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.intro-content .elements .element {
+    position: absolute;    
+}
+
+.intro-content .elements .hr-dots {
+    width: 40%;
+    height: auto;
+    left: -5%;
+    bottom: -40px;
+}
+
+
+.intro-content .elements .vt-dots {
+    height: 50%;
+    width: auto;
+    right: -20px;
+    bottom: -30%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 2.2 Intro Description -----*/
+
+.intro-content .col-dscr .img-wrapper {
+    position: relative;
+} 
+
+
+@media all and (max-width: 575px) {
+	.intro-content .col-dscr .img-wrapper {
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+    } 
+	.intro-content .col-dscr .short-info .img-wrapper {
+        width: 100px;
+        height: 100%;
+    }
+    .intro-content .col-dscr .short-info .img-wrapper:after {
+        content: "";
+        display: block;
+        padding-top: 100%;
+    }
+    .intro-content .col-dscr .short-info .img-wrapper img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .intro-content .col-dscr .img-wrapper img {
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        box-shadow: 0px 15px 20px rgba(0,0,0,.2);
+    } 
+    
+    .intro-content .col-dscr .short-info .title {
+        padding-top: 10px;
+        padding-left: 6%;
+    }
+    .intro-content .col-dscr .short-info {
+        margin-bottom: 25px;
+    }
+    .intro-content .col-dscr .title span {
+        font-size: 12px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.intro-content .col-dscr .img-wrapper img {
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 40px;
+        box-shadow: 0px 15px 20px rgba(0,0,0,.2);
+    } 
+	.intro-content .col-dscr .short-info .img-wrapper {
+        width: 110px;
+    }
+    .intro-content .col-dscr .short-info .title {
+        padding-top: 20px;
+        padding-left: 6%;
+    }
+    .intro-content .col-dscr .short-info {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+@media all and (min-width: 768px) {
+	.intro-content .col-dscr {
+        padding-top: 10px;
+        margin-left: 6%;
+    }
+    .intro-content .col-dscr .short-info .img-wrapper {
+        display: none;
+    }
+}
+
+
+
+.intro-content .col-dscr .title {
+    margin-bottom: 20px;
+}
+
+.intro-content .col-dscr .title h4 {
+    font-weight: bold;
+}
+
+.intro-content .col-dscr .title span {   
+    letter-spacing: 5px; 
+    opacity: .5;
+}
+
+.intro-content .col-dscr .story-part {
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 2.3 Extend Btn -----*/
+
+.extend-btn {
+    display: inline-flex;
+}
+.extend-btn svg {
+    transition: all ease-in-out .3s;
+    transform-origin: center center;
+}
+
+.extend-btn.extended svg {
+    transform: rotate(45deg);
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.extend-btn span {
+        font-size: 14px;
+    }
+    .extend-btn svg {
+        width: 13px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.extend-btn span {
+        font-size: 15px;
+    }
+    .extend-btn svg {
+        width: 14px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.extend-btn span {
+        font-size: 16px;
+    }
+    .extend-btn svg {
+        width: 15px;
+    }
+}
+
+@media all and (min-width: 992px) {
+	.extend-btn span {
+        font-size: 17px;
+    }
+    .extend-btn svg {
+        width: 16px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 3. Extended Content -----*/
+
+.extended-content {
+    display: none;
+}
+
+
+@media all and (max-width: 575px) {
+	.extended-content .story-part:not(:last-child) {
+        margin-bottom: 30px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.extended-content .story-part:not(:last-child) {
+        margin-bottom: 35px;
+    }
+}
+
+@media all and (min-width: 768px) {
+	.extended-content .story-part:not(:last-child) {
+        margin-bottom: 40px;
+    }
+}
+
+
+
+@media all and (max-width: 575px) {
+	.extended-content .story-part.part-3 img {
+        margin-bottom: 30px;
+    }
+    .extended-content .story-part.part-5 .col-sm:first-child {
+        order: 2;
+    }
+    .extended-content .story-part.part-5 .col-sm:last-child {
+        order: 1;
+    }
+}
+
+
+
+
+
+/*----- 4. Story Part -----*/
+
+.story-part h4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.story-part .col-6.img-wrapper {
+    width: 48%;
+}
+
+.story-part .col-6.img-wrapper:first-child {
+    margin-right: 4%;
+}
+
+.story-row {
+    margin-bottom: 30px;
+}
+
+.story-part img {
+    box-shadow: 0px 15px 25px rgba(0,0,0,.1);
+}
+
+
+
+
+
+@media all and (min-width: 576px) {
+	.story-part .col-sm {
+        width: 48%;
+    }
+    .story-part .col-sm:first-child {
+        margin-right: 4%;
+    }
+}
+
+
+
+
+
+

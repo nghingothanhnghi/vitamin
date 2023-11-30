@@ -1,0 +1,109 @@
+<h2 class="h-small" th:utext="#{order.detail.lbl.026}">결제정보</h2>
+<div class="table-container row draggable-element">
+  <div class="col col_data draggable-items-wrapper" draggableWrapper>
+    <div class="table-wrapper">
+      <table class="hr-table">
+        <thead>
+          <tr>
+            <th style="white-space: nowrap; text-align: center;">주문금액</th>
+            <th style="white-space: nowrap; text-align: center;" *ngIf="isPv1">주문{{ smWowWord.oPv1 }} </th>
+            <!-- <th style="white-space: nowrap; text-align: center;" *ngIf="isPv2">주문{{ smWowWord.oPv2 }} </th> -->
+            <!-- <th style="white-space: nowrap; text-align: center;" *ngIf="isPv3">주문{{ smWowWord.oPv3 }} </th> -->
+            <th style="white-space: nowrap; text-align: center;" *ngIf="isPoint">주문{{ smWowWord.oMileage }} </th>
+            <th style="white-space: nowrap; text-align: center;">현금</th>
+            <th style="white-space: nowrap; text-align: center;">카드</th>
+            <th style="white-space: nowrap; text-align: center;">무통장</th>
+            <th style="white-space: nowrap; text-align: center;">기타</th>
+            <th style="white-space: nowrap; text-align: center;">배송비</th>
+            <th style="white-space: nowrap; text-align: center;">합계금액</th>
+            <th style="white-space: nowrap; text-align: center;">미결금액</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td style="text-align: right;">{{ item.ordAmt | setComma }}원</td>
+            <td style="text-align: right;" *ngIf="isPv1">{{ item.ordPv1 | setComma }}</td>
+            <!-- <td style="text-align: right;" *ngIf="isPv2">{{ item.ordPv2 | setComma }}</td> -->
+            <!-- <td style="text-align: right;" *ngIf="isPv3">{{ item.ordPv3 | setComma }}</td> -->
+            <td style="text-align: right;" *ngIf="isPoint">{{ item.ordPoint | setComma }}</td>
+            <td style="text-align: right;">{{ item.rcptCash | setComma }}원</td>
+            <td style="text-align: right;">{{ item.rcptCard | setComma }}원</td>
+            <td style="text-align: right;">{{ item.rcptBank | setComma }}원</td>
+            <td style="text-align: right;">{{ item.rcptEtc | setComma }}원</td>
+            <td style="text-align: right;">{{ item.deliAmt | setComma }}원</td>
+            <td style="text-align: right;">{{ item.rcptTotal | setComma }}원</td>
+            <td style="text-align: right;">{{ item.rcptRemain | setComma }}원</td>
+          </tr>
+        </tbody>
+        <ng-container *ngIf="totalRows < 5">
+          <tbody>
+            <tr *ngFor="let row of rows; index as i">
+              <ng-container *ngFor="let col of cols; index as j">
+                <td>
+                  <span>&nbsp;</span>
+                  <ng-container *ngIf="totalRows === 0 && i === 2 && j === 4">
+                    <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                  </ng-container>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+        </ng-container>
+      </table>
+    </div>
+  </div>
+</div>
+
+<table class="hr-mobile-table">
+  <tbody *ngFor="let item of items">
+    <tr>
+      <td style="text-align: center;">주문금액</td>
+      <td>{{ item.ordAmt | setComma }}원</td>
+    </tr>
+    <tr *ngIf="isPv1">
+      <td style="text-align: center;">주문{{ smWowWord.oPv1 }}</td>
+      <td>{{ item.ordPv1 | setComma }}</td>
+    </tr>
+    <!-- <tr *ngIf="isPv2">
+      <td style="text-align: center;">주문{{ smWowWord.oPv2 }}</td>
+      <td>{{ item.ordPv2 | setComma }}</td>
+    </tr> -->
+    <!-- <tr *ngIf="isPv3">
+      <td style="text-align: center;">주문{{ smWowWord.oPv3 }}</td>
+      <td>{{ item.ordPv3 | setComma }}</td>
+    </tr> -->
+    <tr *ngIf="isPoint">
+      <td style="text-align: center;">주문{{ smWowWord.oMileage }}</td>
+      <td>{{ item.ordPoint | setComma }}</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">현금</td>
+      <td>{{ item.rcptCash | setComma }}원</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">카드</td>
+      <td>{{ item.rcptCard | setComma }}원</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">무통장</td>
+      <td>{{ item.rcptBank | setComma }}원</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">기타</td>
+      <td>{{ item.rcptEtc | setComma }}원</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">배송비</td>
+      <td>{{ item.deliAmt | setComma }}원</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">합계금액</td>
+      <td>{{ item.rcptTotal | setComma }}원</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">미결금액</td>
+      <td>{{ item.rcptRemain | setComma }}원</td>
+    </tr>
+  </tbody>
+  <grid-no-data-mobile [items]="items"></grid-no-data-mobile>
+</table>

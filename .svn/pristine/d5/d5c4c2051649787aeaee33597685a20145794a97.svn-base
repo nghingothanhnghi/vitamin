@@ -1,0 +1,93 @@
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { OrderMonthlyModel } from '@app/models/myoffice/order/order-monthly.model';
+import { getOrderCalendarSumItems, OrderCalendarState } from '@app/selectors/myoffice/order/order-calendar.selector';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { SmPayHeaderModel } from '@app/models/system/sm-pay-header.model';
+import { WownetWordModel } from '@app/models/system/wownet-word.model';
+import { getFindPayHeader, getSmWownetPg, getWowWord, SmWownetState } from '@app/selectors/system/sm-wownet.selector';
+import { SmWownetPgModel } from '@app/models/system/sm-wownet-pg.model';
+
+declare const getYnPayHeader: any;
+
+@Component({
+  selector: 'order-calendar-sum',
+  templateUrl: './order-calendar-sum.component.html',
+  styleUrls: ['./order-calendar-sum.component.css']
+})
+export class OrderCalendarSumComponent implements OnInit, OnChanges {
+
+  @Input()
+  year: string = "";
+
+  @Input()
+  month: string = "";
+
+  now = new Date();
+  isCurentYear: boolean = false;
+  currentMonth: string = "";
+
+  sumItems$ = new Observable<OrderMonthlyModel[]>;
+
+  sumByReple: OrderMonthlyModel = {} as OrderMonthlyModel;
+  sumByFuture: OrderMonthlyModel = {} as OrderMonthlyModel;
+  sumByVita: OrderMonthlyModel = {} as OrderMonthlyModel;
+  sumBySum: OrderMonthlyModel = {} as OrderMonthlyModel;
+
+  smPayHeader$ = new Observable<SmPayHeaderModel>();
+  smWowWord$ = new Observable<WownetWordModel>();
+  smWowWord: any = {} as WownetWordModel;
+
+  smWownetPg$ = new Observable<SmWownetPgModel>();
+
+  isPv1: boolean = false;
+  isPv2: boolean = false;
+  isPv3: boolean = false;
+  isPoint: boolean = false;
+
+  constructor(
+    private _smWownetStateStore: Store<SmWownetState>,
+    private _orderCalendarStore: Store<OrderCalendarState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState> 
+  ) { 
+    this.smPayHeader$ = this._smWownetStateStore.select(getFindPayHeader);
+    this.smWowWord$ = this._smWownetStateStore.select(getWowWord);
+    this.sumItems$ = this._orderCalendarStore.select(getOrderCalendarSumItems);
+    this.smWownetPg$ = this._smWownetStateStore.select(getSmWownetPg);
+  }
+
+  ngOnInit(): void {
+    this.smWowWord$.subscribe(res => this.smWowWord = res);
+    
+    this.smPayHeader$.subscribe(res => {
+      this.isPv1 = getYnPayHeader(res, "pv1");
+      this.isPv2 = getYnPayHeader(res, "pv2");
+      this.isPv3 = getYnPayHeader(res, "pv3");
+    });
+
+    this.smWownetPg$.subscribe(res => {
+      this.isPoint = res.settMPoint === "Y";
+    });
+    
+    this.sumItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res) && res.length >= 4) {
+        this.sumByReple = res[0];
+        this.sumByFuture = res[1];
+        this.sumByVita = res[2];
+        this.sumBySum = res[3];
+      }
+
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.isCurentYear = ConvertUtil.convertToSring(this.now.getFullYear()) === this.year;
+    this.currentMonth = ConvertUtil.convertToZeroDecimal(this.now.getMonth() + 1);
+  }
+}

@@ -1,0 +1,173 @@
+/**/
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.container {
+        padding-top: 70px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.container {
+        padding-top: 90px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.container {
+        padding-top: 110px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	.container {
+        padding-top: 160px;
+    }
+}
+
+
+
+.col_1 img {
+    max-width: 450px;
+    display: block;
+    margin: auto;
+}
+
+
+
+@media all and (max-width: 767px) {
+	.col_1 {
+        padding-left: 4%;
+        padding-right: 8%;        
+    }
+    
+    .col_2 {
+        text-align: center;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+	.col_1 {
+        width: 50%;
+        padding-right: 6%;
+    }
+    
+    .col_2 {
+        width: 50%;     
+        padding-top: 10px;   
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.e-img {
+    width: auto;
+    position: absolute;
+    right: 0;
+}
+
+
+@media all and (max-width: 575px) {
+	.e-img {
+        height: 110px;
+        top: -40px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.e-img {
+        height: 140px;
+        top: -50px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.e-img {
+        height: 170px;
+        top: -55px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	.e-img {
+        height: 200px;
+        top: -60px;
+    }
+}
+
+
+
+
+
+
+.col_2 h2 span {
+    display: block;
+    font-weight: 300;
+}
+
+
+
+@media all and (max-width: 575px) {
+	.col_2 h2 span:first-child {
+        font-size: 24px;
+    }
+    .col_2 h2 span:last-child {
+        font-size: 40px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.col_2 h2 span:first-child {
+        font-size: 26px;
+    }
+    .col_2 h2 span:last-child {
+        font-size: 45px;
+    }  
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.col_2 h2 span:first-child {
+        font-size: 28px;
+    }
+    .col_2 h2 span:last-child {
+        font-size: 50px;
+    }  
+}
+
+
+@media all and (min-width: 992px) {
+	.col_2 h2 span:first-child {
+        font-size: 30px;
+    }    
+    .col_2 h2 span:last-child {
+        font-size: 55px;
+    }    
+}
+
+
+
+
+
+.col_2 p {
+    margin-bottom: 30px;
+}

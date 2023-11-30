@@ -1,0 +1,21 @@
+
+.hr-table {
+    border-top: none;
+}
+
+.hr-table thead th {
+    font-weight: 600;
+}
+
+
+
+
+th:first-child,
+td:first-child {
+    border-left: none !important;
+}
+
+th:last-child,
+td:last-child {
+    border-right: none !important;
+}

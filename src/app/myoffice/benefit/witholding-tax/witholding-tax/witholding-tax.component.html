@@ -1,0 +1,190 @@
+<div id="witholding-tax" class="office-page">
+	<!-- Main Header -->
+	<div th:replace="fragments/inc-header" id="inc-header"></div>
+	<!-- End Header -->
+
+	<!-- Main Content -->
+	<div>
+		<div class="section-content searching-result benSearch">
+
+
+			<div class="searching-form">
+				<div class="container">
+
+					<date-time-filter class="row form-row date-time" [yearOptions]="yearOptions" [hiddenDate]="false"
+						[labelDate]="labelDate" (changeDateTimeFilter)="handleOnChangeDateFilter($event);">
+					</date-time-filter>
+
+					<div class="row form-row last-row submit">
+						<div class="col-md-auto submit-btn-wrapper">
+							<div class="w-btn submit-btn advanced" id="search" (click)="search();">
+								<span th:text="#{common.btn.001}">검색</span>
+								<div class="icon ms-2"><img src="./assets/img/icons/search-ncc.svg"></div>
+							</div>
+						</div>
+					</div>
+
+					<date-time-filter-mobile class="mobile-date-time-filter">
+					</date-time-filter-mobile>
+				</div>
+			</div>
+			<div class="container results" id="grid">
+
+				<div class="row print-payment-statement mobile-block light marginBottom30">
+                    <div class="col-sm col-text">
+                        <span>※ 원천징수내역은 지급일자 기준입니다.</span><br>
+						<span class="text-primary"> ※ 주민등록번호 정보가 없는 경우, 발생된 수당이 지급되지 않을 수 있습니다.</span>
+                    </div>
+                    <div class="col-sm-auto col-btn">
+                        <a class="w-btn dark-btn medium-btn">
+                            <span (click)="handleOnClickReport();">원천징수영수증</span>
+                        </a>
+                    </div>
+                </div>
+
+
+				<div class="office-block">
+
+					<!-- pagination mobile -->
+          <paging
+              [len]="len"
+              [page]="page"
+              [config]="config"
+              [totalItems]="totalItems"
+              (changePage)="onChangePage($event)"
+              (changeLen)="onChangeLen($event)"
+              [turnOnLenOptions]="true"
+              [turnOnPagination]="false"
+              [turnOnTotalItem]="true"
+              [isMobile]="true"
+          ></paging>
+
+					<div class="table-container row draggable-element">
+						<div class="col col_data draggable-items-wrapper">
+							<div class="table-wrapper">
+								<table class="hr-table">
+									<thead>
+										<th class="label-table">지급일자</th>
+										<th class="label-table">합계금액</th>
+										<th class="label-table">부가세</th>
+										<th class="label-table">소득세</th>
+										<th class="label-table">주민세</th>
+										<th class="label-table">유보금</th>
+										<th class="label-table">실지급</th>
+										<th class="label-table">주소</th>
+									</thead>
+									<tbody>
+										<tr *ngFor="let item of collection | paginate: config">
+											<td>{{ item.paymentdate }}</td>
+											<td class="textRight">{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.taxVat ? (item.taxVat | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.taxIncome ? (item.taxIncome | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.taxResident ? (item.taxResident | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.amtLoanA ? (item.amtLoanA | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.trueAmt ? (item.trueAmt | setComma) + '원' : "0원"}}</td>
+											<td class="textLeft">{{item.address}}</td>
+										</tr>
+									</tbody>
+
+									<ng-container *ngIf="totalRows < 5">
+										<tbody>
+											<tr *ngFor="let row of rows; index as i">
+												<ng-container *ngFor="let col of cols; index as j">
+													<td>
+														<span>&nbsp;</span>
+														<ng-container
+															*ngIf="totalRows === 0 && i === 2 && j === totalCols / 2">
+															<span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+														</ng-container>
+													</td>
+												</ng-container>
+											</tr>
+										</tbody>
+									</ng-container>
+
+									<tfoot>
+										<tr *ngIf="collectionSum as item">
+											<td class="label-table">&lt;합계금액&gt;</td>
+											<td class="textRight">{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.taxVat ? (item.taxVat | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.taxIncome ? (item.taxIncome | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.taxResident ? (item.taxResident | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.amtLoanA ? (item.amtLoanA | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.trueAmt ? (item.trueAmt | setComma) + '원' : "0원"}}</td>
+											<td>{{ item.address}}</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<table class="hr-mobile-table">
+						<tbody *ngFor="let item of collection | paginate: config">
+							<tr>
+								<td>지급일자</td>
+								<td>{{ item.paymentDate }}</td>
+							</tr>
+
+							<tr>
+								<td>합계금액</td>
+								<td>{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+							</tr>
+
+							<tr>
+								<td>부가세</td>
+								<td>{{ item.taxVat ? (item.taxVat | setComma) + '원' : "0원"}}</td>
+							</tr>
+
+							<tr>
+								<td>소득세</td>
+								<td>{{ item.taxIncome ? (item.taxIncome | setComma) + '원' : "0원"}}</td>
+							</tr>
+
+							<tr>
+								<td>주민세</td>
+								<td>{{ item.taxResident ? (item.taxResident | setComma) + '원' : "0원"}}</td>
+							</tr>
+
+							<tr>
+								<td>유보금</td>
+								<td>{{ item.amtLoanA ? (item.amtLoanA | setComma) + '원' : "0원"}}</td>
+							</tr>
+
+							<tr>
+								<td>실지급</td>
+								<td>{{ item.trueAmt ? (item.trueAmt | setComma) + '원' : "0원"}}</td>
+							</tr>
+
+							<tr>
+								<td>주소</td>
+								<td>{{ item.address}}</td>
+							</tr>
+
+						</tbody>
+						<grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+					</table>
+
+					<!-- pagination desktop -->
+          <paging
+              [len]="len"
+              [page]="page"
+              [config]="config"
+              [totalItems]="totalItems"
+              (changePage)="onChangePage($event)"
+              (changeLen)="onChangeLen($event)"
+              [turnOnLenOptions]="true"
+              [turnOnPagination]="true"
+              [turnOnTotalItem]="true"
+              [isMobile]="false"
+          ></paging>
+
+
+				</div>
+			</div>
+		</div>
+
+		<!------------- Footer ------------->
+		<div th:replace="fragments/inc-footer" id="inc-footer"></div>
+		<!--------------------------------->
+	</div>

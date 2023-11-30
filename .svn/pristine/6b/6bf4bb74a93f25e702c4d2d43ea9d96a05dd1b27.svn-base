@@ -1,0 +1,7 @@
+.open-dropdown-select {
+  display: block;
+}
+
+.close-dropdown-select {
+  display: none;
+}

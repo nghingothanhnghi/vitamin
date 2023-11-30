@@ -1,0 +1,208 @@
+<div id="payment-information" class="office-section">
+    <div class="heading">
+        <h2 class="h-small">장바구니</h2>
+        <span>장바구니 합계 전체 주문 상품 금액입니다.</span>
+    </div>
+
+    <table class="hr-mobile-table">
+        <tbody>
+            <tr>
+                <td class="th-hr-mobile">총 주문금액</td>
+                <td id="amtMobile">
+                    <ng-container *ngIf="cartInfo && cartInfo.ordAmt !== null">
+                        <span>{{ cartInfo.ordAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="th-hr-mobile">총 PV</td>
+                <td id="pv1Mobile">
+                    <div class="value" *ngIf="isPv1">
+                        <ng-container *ngIf="cartInfo && cartInfo.ordPv1 !== null">
+                            <span>{{ cartInfo.ordPv1 | setComma }}</span>
+                            <span>{{ smWowWord.oPv1 }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!cartInfo || cartInfo.ordPv1 === null">
+                            <span>0</span>
+                            <span>{{ smWowWord.oPv1 }}</span>
+                        </ng-container>
+                    </div>
+
+                    <!-- <div class="value" *ngIf="isPv2">
+                        <ng-container *ngIf="cartInfo && cartInfo.ordPv2 !== null">
+                            <span>{{ cartInfo.ordPv2 | setComma }}</span>
+                            <span>{{ smWowWord.oPv2 }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!cartInfo || cartInfo.ordPv2 === null">
+                            <span>0</span>
+                            <span>{{ smWowWord.oPv3 }}</span>
+                        </ng-container>
+                    </div> -->
+
+                    <!-- <div class="value" *ngIf="isPv3">
+                        <ng-container *ngIf="cartInfo && cartInfo.ordPv3 !== null">
+                            <span>{{ cartInfo.ordPv3 | setComma }}</span>
+                            <span>{{ smWowWord.oPv3 }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!cartInfo || cartInfo.ordPv3 === null">
+                            <span>0</span>
+                            <span>{{ smWowWord.oPv3 }}</span>
+                        </ng-container>
+                    </div> -->
+                </td>
+            </tr>
+            <tr *ngIf="isPoint">
+                <td class="th-hr-mobile">총{{ smWowWord.oMileage }}</td>
+                <td>
+                    <ng-container *ngIf="cartInfo && cartInfo.ordPoint !== null">
+                        <span>{{ cartInfo.ordPoint | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordPoint === null">
+                        <span>0</span>
+                    </ng-container>
+                </td>
+            </tr>
+            <tr>
+                <td class="th-hr-mobile">상품합계금액</td>
+                <td id="totalMobile">
+                    <ng-container *ngIf="cartInfo && cartInfo.ordAmt !== null">
+                        <span>{{ cartInfo.ordAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="th-hr-mobile">상품합계금액</td>
+                <td id="totalMobile">
+                    <ng-container *ngIf="cartInfo && cartInfo.ordAmt !== null">
+                        <span>{{ cartInfo.ordAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="th-hr-mobile">총 결제금액</td>
+                <td id="totalAmtMobile">
+                    <ng-container *ngIf="cartInfo && cartInfo.ordAmt !== null && cartInfo.deliAmt!== null">
+                        <span>{{ +cartInfo.ordAmt + +cartInfo.deliAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordAmt === null || cartInfo.deliAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="hr-table">
+        <thead>
+            <tr>
+                <th>총 주문금액</th>
+                <th>총PV</th>
+                <th *ngIf="isPoint">총{{ smWowWord.oMileage }}</th>
+                <th>상품합계금액</th>
+                <th>배송비</th>
+                <th>총 결제금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="amt">
+                    <ng-container *ngIf="cartInfo && cartInfo.ordAmt !== null">
+                        <span>{{ cartInfo.ordAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+                <td id="pv1">
+                    <div *ngIf="isPv1">
+                        <ng-container *ngIf="cartInfo && cartInfo.ordPv1 !== null">
+                            <span>{{ cartInfo.ordPv1 | setComma }}</span>
+                            <span>{{ smWowWord.oPv1 }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!cartInfo || cartInfo.ordPv1 === null">
+                            <span>0</span>
+                            <span>{{ smWowWord.oPv1 }}</span>
+                        </ng-container>
+                    </div>
+
+                    <!-- <div *ngIf="isPv2">
+                        <ng-container *ngIf="cartInfo && cartInfo.ordPv2 !== null">
+                            <span>{{ cartInfo.ordPv2 | setComma }}</span>
+                            <span>{{ smWowWord.oPv2 }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!cartInfo || cartInfo.ordPv2 === null">
+                            <span>0</span>
+                            <span>{{ smWowWord.oPv2 }}</span>
+                        </ng-container>
+                    </div> -->
+
+                    <!-- <div *ngIf="isPv3">
+                        <ng-container *ngIf="cartInfo && cartInfo.ordPv3 !== null">
+                            <span>{{ cartInfo.ordPv3 | setComma }}</span>
+                            <span>{{ smWowWord.oPv3 }}</span>
+                        </ng-container>
+                        <ng-container *ngIf="!cartInfo || cartInfo.ordPv3 === null">
+                            <span>0</span>
+                            <span>{{ smWowWord.oPv3 }}</span>
+                        </ng-container>
+                    </div> -->
+                </td>
+                <td *ngIf="isPoint">
+                    <ng-container *ngIf="cartInfo && cartInfo.ordPoint !== null">
+                        <span>{{ cartInfo.ordPoint | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordPoint === null">
+                        <span>0</span>
+                    </ng-container>
+                </td>
+                <td id="total">
+                    <ng-container *ngIf="cartInfo && cartInfo.ordAmt !== null">
+                        <span>{{ cartInfo.ordAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.ordAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+                <td id="deliAmt">
+                    <ng-container *ngIf="cartInfo && cartInfo.deliAmt !== null">
+                        <span>{{ cartInfo.deliAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.deliAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+                <td id="totalAmt">
+                    <ng-container *ngIf="cartInfo && cartInfo.totalAmt !== null">
+                        <span>{{ cartInfo.totalAmt | setComma }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!cartInfo || cartInfo.totalAmt === null">
+                        <span>0</span>
+                    </ng-container>
+                    <span>원</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row group-btns">
+        <a href="javascript:history.back();" class="col-auto w-btn medium-btn dark-btn">이전</a>
+        <a href="javascript:;" (click)="handleOnClickCancelOrder();"
+            class="col-auto w-btn medium-btn dark-btn">주문취소</a>
+        <a href="javascript:;" (click)="handleOnClickCheckout();" class="col-auto w-btn medium-btn primary-btn">결제</a>
+    </div>
+</div>

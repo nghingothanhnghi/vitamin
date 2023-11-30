@@ -1,0 +1,218 @@
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .container.results {
+		margin-bottom: 60px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.searching-result .container.results {
+		margin-bottom: 70px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.searching-result .container.results {
+		margin-bottom: 80px;
+	}
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .searching-form .submit {
+		width: 100%;
+	}
+	.searching-result .searching-form .submit .submit-btn-wrapper {
+		width: 100%;
+	}
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .searching-form .container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.searching-result .searching-form .date-time {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+
+	.searching-result .searching-form .submit {
+		width: 100%;
+		flex: 0 0 auto;
+		order: 3;
+	}
+	.searching-result .searching-form .mobile-date-time-filter {
+		flex: 0 0 auto;
+		width: 100%;
+	}	
+}
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	.searching-result .searching-form .date-time {
+		margin-bottom: 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	.searching-result .searching-form .container {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.searching-result .searching-form .date-time {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+
+	.searching-result .searching-form .submit {
+		flex: 0 0 auto;		
+		order: 3;
+	}
+
+	.searching-result .searching-form .mobile-date-time-filter {
+		flex: 1 0 0%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 576px) {		
+	#benefit-sponsorship-details .searching-result
+	.searching-form .date-selects .info-heading {
+	    margin-bottom: 0 ;
+	    margin-right: 15px;
+	}
+}
+
+@media all and (max-width: 767px) {		
+	#benefit-sponsorship-details .searching-result
+	.searching-form .date-selects {
+	    margin-bottom: 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {	
+	#benefit-sponsorship-details .searching-result
+	.searching-form .date-selects {
+	    margin-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) {
+	#benefit-sponsorship-details .searching-result
+	.searching-form .date-selects {
+	   	margin-right: 2%;
+	    padding-right: 2%;
+	}
+}
+
+
+
+
+
+
+
+
+#benefit-sponsorship-details .searching-result
+.searching-form .desktop-time-btns {
+	display: flex;
+} 
+
+
+@media all and (max-width: 767px) {	
+	#benefit-sponsorship-details .searching-result
+	.searching-form .desktop-time-btns {
+	    margin-right: 10px;
+	}	
+}
+
+
+@media all and (min-width: 768px) {
+	#benefit-sponsorship-details .searching-result
+	.searching-form .desktop-time-btns {
+	   	margin-right: 2%;
+	}
+}
+
+
+
+
+
+
+
+#benefit-sponsorship-details .desktop-time-btns a:last-child {
+	margin-right: 0;
+}
+
+
+
+
+#benefit-sponsorship-details  .searching-result .hr-table thead th:nth-child(2), 
+#benefit-sponsorship-details  .searching-result .hr-table thead th:nth-child(3),
+#benefit-sponsorship-details  .searching-result .hr-table thead th:nth-child(4),
+#benefit-sponsorship-details  .searching-result .hr-table thead th:nth-child(5), 
+#benefit-sponsorship-details  .searching-result .hr-table thead th:nth-child(6) {
+	text-align: right;
+}
+
+
+#benefit-sponsorship-details  .searching-result .hr-table tbody td:nth-child(2), 
+#benefit-sponsorship-details  .searching-result .hr-table tbody td:nth-child(3), 
+#benefit-sponsorship-details  .searching-result .hr-table tbody td:nth-child(4), 
+#benefit-sponsorship-details  .searching-result .hr-table tbody td:nth-child(5),  
+#benefit-sponsorship-details  .searching-result .hr-table tbody td:nth-child(6) {
+	text-align: right;
+}
+
+
+
+
+
+
+@media (max-width: 991px) {
+	#benefit-sponsorship-details .searching-result .searching-form .desktop-time-btns {
+   		 display: none;
+}
+
+	#benefit-sponsorship-details .searching-form .form-row:last-child {
+		justify-content: end;
+	}
+}
+
+
+
+
+
+

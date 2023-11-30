@@ -1,0 +1,145 @@
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { PaginationInstance } from 'ngx-pagination';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { OrderMonthlyModel } from '@app/models/myoffice/order/order-monthly.model';
+import { getMonthlyOrderSearchItems, getMonthlyOrderSumItem, getMonthlyOrderTotalItem, MonthlyOrderCountState } from '@app/selectors/myoffice/order/monthly-order-count.selector';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { LenConstant } from '@app/common/constant/len.constant';
+import { SmPayHeaderModel } from '@app/models/system/sm-pay-header.model';
+import { WownetWordModel } from '@app/models/system/wownet-word.model';
+
+@Component({
+  selector: 'monthly-order-count-grid',
+  templateUrl: './monthly-order-count-grid.component.html',
+  styleUrls: ['./monthly-order-count-grid.component.css']
+})
+export class MonthlyOrderCountGridComponent implements OnInit, OnChanges {
+
+  @Input()
+  page: number = 0;
+
+  @Input()
+  len: number = 10;
+
+  @Output()
+  changeLen = new EventEmitter<SelectDropdownModel>();
+  
+  @Output()
+  changePage = new EventEmitter<number>();
+
+  @Output()
+  resetReload = new EventEmitter<boolean>();
+
+  totalItems: number = 0;
+
+  items$ = new Observable<OrderMonthlyModel[]>;
+  total$ = new Observable<Number>;
+  sum$ = new Observable<OrderMonthlyModel>;
+
+  items: OrderMonthlyModel[] = [];
+  options: SelectDropdownModel[] = LenConstant.listLen;
+
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+
+  totalCols: number = 17;
+  totalRows: number = 0;
+  rows: number[] = [];
+  cols: number[] = [];
+
+  smPayHeader$ = new Observable<SmPayHeaderModel>();
+  smWowWord$ = new Observable<WownetWordModel>();
+  smWowWord: any = {} as WownetWordModel;
+
+  isPv1: boolean = false;
+  isPv2: boolean = false;
+  isPv3: boolean = false;
+
+  showUnit: boolean = true;
+
+  config: PaginationInstance = {
+    id: 'order-monthly-grid',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+
+  constructor(
+    private _monthlyOrderCountStore: Store<MonthlyOrderCountState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState>
+  ) {
+    this.items$ = this._monthlyOrderCountStore.select(getMonthlyOrderSearchItems);
+    this.total$ = this._monthlyOrderCountStore.select(getMonthlyOrderTotalItem);
+    this.sum$ = this._monthlyOrderCountStore.select(getMonthlyOrderSumItem);
+  }
+
+  ngOnInit(): void {
+    this.selectedValue = this.options[0];
+
+    this.items$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.setShowUnit();
+        this.items = res;
+      } else {
+        this.items = [];
+      }
+
+      this.setBlankRow();
+      this.resetReload.emit(false);
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+    });
+
+    this.total$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    });
+    
+    this.setBlankRow();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.config.itemsPerPage = this.len;
+    this.config.currentPage = this.page;
+  }
+
+  handleOnChangeSelectedValue(selected: SelectDropdownModel): void {
+    this.changeLen.emit(selected);
+  }
+
+  handleOnChangePage(page: number): void {
+    this.changePage.emit(page);
+  }
+
+  setBlankRow() {
+    this.totalRows = this.items.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+
+    this.cols = new Array(this.totalCols);
+  }
+
+  setShowUnit(): void {
+    let _input = document.getElementById("showUnit");
+    if (_input) {
+      let _value = _input.getAttribute("value");
+      if (_value === "true") {
+        this.showUnit = true;
+      } else {
+        this.showUnit = false;
+      }
+    } else {
+      this.showUnit = true;
+    }
+  }
+}

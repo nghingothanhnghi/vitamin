@@ -1,0 +1,223 @@
+<div id="index" [ngClass]="isLogined ? 'not-logged' : ''">
+    <!-- <hp-slider [urlWownet]="urlWownet"></hp-slider>
+    <hp-features [urlWownet]="urlWownet" [lshowPdtYn] = "lshowPdtYn"></hp-features> -->
+    <!-- <hp-about></hp-about> -->
+    <!-- <hp-products></hp-products> -->
+    <!-- <hp-media [urlWownet]="urlWownet"></hp-media> -->
+    <!-- <hp-notice [urlWownet]="urlWownet"></hp-notice> -->
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="text-center py-5">
+                        <h1>Section 1</h1>
+                        <p class="lead text-muted">4wrtwewre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="text-center py-5">
+                        <h2>Section 2</h2>
+                        <p class="lead text-muted">4wrtwewre</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="text-center py-5">
+                        <p class="lead text-muted">4wrtwewre</p>
+                        <h2>fwefewfw</h2>      
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-sm-4">
+                    <div class="card rounded">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </section>
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="text-center py-5">
+                        <h2>Section 3</h2> 
+                        <p class="lead text-muted">4wrtwewre</p>       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="text-center">
+                        <h4>ffwefwefewef</h4>
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-sm-4">
+                    <div class="card rounded">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </section>
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="text-center py-5">
+                        <p class="lead text-muted">4wrtwewre</p>
+                        <h2>Section 4</h2>       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-5col g-sm-5">
+                <div class="col-sm-2">
+                    <div class="card rounded">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-sm-2">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-sm-2">
+                    <div class="card">
+                        <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <div class="position-relative bg-below-orange">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 offset-sm-2">
+                        <div class="text-center py-5">     
+                            <h4>Section 4</h4>   
+                            <p class="lead text-muted">4wrtwewre</p>
+                            <p class="lead text-muted">4wrtwewre</p>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2">
+                    <div class="text-center py-5">
+                        <h2>Section 1</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <img src="https://placehold.co/600x400" class="card-img-top" alt="...">
+                </div>
+                <div class="col-sm-5">
+                    <h3>Sub Title</h3>
+                    <p class="lead text-muted">4wrtwewre</p> 
+                    <p class="lead text-muted">4wrtwewre</p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <board-popup></board-popup>
+</div>

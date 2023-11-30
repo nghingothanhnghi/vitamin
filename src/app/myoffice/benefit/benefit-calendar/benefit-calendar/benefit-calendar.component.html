@@ -1,0 +1,12 @@
+<div id="benefit-calendar" class="office-page">
+
+  <section class="section-content section-calendar" >
+    <div class="container mobile-container">
+      <benefit-calendar-table 
+      [year]="year"
+      [month]="month"
+      (clickCalendarButton)="hanleOnClickCalendarButton($event);">
+    </benefit-calendar-table>
+  </div>
+</section>
+</div>

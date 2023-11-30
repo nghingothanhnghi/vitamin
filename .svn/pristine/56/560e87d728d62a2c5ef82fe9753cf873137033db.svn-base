@@ -1,0 +1,285 @@
+/**/
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .products-wrapper {
+        padding-bottom: 40px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .products-wrapper {
+        padding-bottom: 50px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .products-wrapper {
+        padding-bottom: 60px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .products-wrapper {
+        padding-bottom: 100px;
+    }
+    
+}
+
+
+
+
+
+
+.product:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.product {
+    padding: 40px 1.5%;
+}
+
+@media all and (max-width: 575px) {}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {}
+
+
+@media all and (min-width: 992px) {}
+
+
+
+
+
+
+.col_2 img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    border: 1px solid #eee;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+    .col_1 {
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        padding-bottom: 20px;
+    }
+    .col_2 {
+        height: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    .col_2 {
+        height: 340px;
+        margin-bottom: 20px;
+    }
+
+    .col_1 {
+        width: 50%;
+        padding-right: 3%;
+    }
+
+    .col_3 {
+        width: 50%;
+        padding-left: 3%;
+    }
+}
+
+
+@media all and (max-width: 991px) {
+    .col_2 {
+        order: 1;
+    }
+
+    .col_1 {
+        order: 2;
+    }
+
+    .col_3 {
+        order: 3;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .col_1 {
+        padding-top: 40px;
+        margin-right: 3%;
+    }
+
+    .col_2 {
+        height:230px;
+    }
+
+    .col_3 {
+        padding-top: 0px;
+        margin-left: 3%;
+    }
+}
+
+
+
+
+
+
+
+
+.product-name {
+    font-weight: 700;
+}
+
+
+
+@media all and (max-width: 575px) {
+    .product-name {
+        margin-bottom: 11px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .product-name {
+        margin-bottom: 14px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .product-name {
+        margin-bottom: 17px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .product-name {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+.product-dscr {
+    margin-bottom: 20px;
+}
+
+.product-dscr p {
+    margin-bottom: 10px;
+}
+
+.product-dscr p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+.basic-infos {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+.basic-infos td:first-child {
+    width: 80px;
+}
+
+
+
+
+
+.quantity {
+    padding: 10px 0;
+}
+
+
+.quantity td {
+    padding: 3px 0;
+}
+
+.quantity td:first-child {
+    width: 80px;
+}
+
+
+
+
+
+
+
+.quantity-input .cal-btn {
+    background: #8A91A6;
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-input .cal-btn img {
+    width: 50%;
+}
+
+
+.quantity-input .value {
+    width: 30px;
+    text-align: center;
+}
+
+
+.quantity-input {
+    background: #FFF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .05);
+    display: inline-flex;
+}
+
+
+
+
+.group-b a:not(:last-child) {
+    margin-right: 10px;
+}
+
+.group-b a {
+    padding: 8px 15px;
+}
+
+
+
+
+
+

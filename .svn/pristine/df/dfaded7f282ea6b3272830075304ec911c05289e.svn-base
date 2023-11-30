@@ -1,0 +1,12 @@
+<div id="order-calendar" class="office-page">
+    <section class="section-content section-calendar">
+        <div class="container">
+            <div class="row">
+                <order-calendar-table class="calendar mobile-block col-lg" [year]="year" [month]="month"
+                    (clickCalendarButton)="hanleOnClickCalendarButton($event);"></order-calendar-table>
+                <order-calendar-sum class="calendar-detail mobile-block last none col-lg-auto" [year]="year" [month]="month">
+                </order-calendar-sum>
+            </div>
+        </div>
+    </section>
+</div>

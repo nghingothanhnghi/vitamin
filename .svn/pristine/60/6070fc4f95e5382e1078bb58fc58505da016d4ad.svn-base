@@ -1,0 +1,112 @@
+<div class="block-heading">
+  <h2 class="h-small">등록 상품 정보</h2>
+  <a href="javascript:;" class="w-btn confirm-btn" (click)="hanleOnClickOpenProducPopup();" [ngClass]="haveAdo ? '' : 'disable'">상품등록</a>
+</div>
+
+<div id="cart">
+  <div id="cart-details">
+    <div class="table-wrapper">
+      <table id="cart-details-table">
+        <thead>
+          <tr>
+            <th class="col_1">이미지</th>
+            <th class="col_2" style="text-align: center;">상품명</th>
+            <th class="col_3">가격</th>
+            <th class="col_4" *ngIf="isPv1">{{ smWowWord.oPv1 }}</th>
+            <!-- <th class="col_5" *ngIf="isPv2">{{ smWowWord.oPv2 }}</th>
+            <th class="col_6" *ngIf="isPv3">{{ smWowWord.oPv3 }}</th> -->
+            <th class="col_6" *ngIf="isPoint">{{ smWowWord.oMileage }}</th>
+            <th class="col_7">수량</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items;">
+            <td class="col_1 thumbnail">
+              <div class="featured-wrapper">
+                <div class="img-wrapper">
+                  <ng-container *ngIf="item.fileName">
+                    <img [src]="smWownet.urlWownet + item.filePath + item.fileName">
+                  </ng-container>
+                  <ng-container *ngIf="!item.fileName">
+                    <img src="./assets/img/noImage.jpg">
+                  </ng-container>
+                </div>
+              </div>
+            </td>
+            <td class="col_2 basic-info">
+              <div class="row">
+                <div class="meta col-lg-12 col">
+                  <h4 class="h-false name">{{ item.pdtName }}</h4>
+                  <span class="id">{{ item.pdtCd }}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="btn-remove">
+                    <svg viewBox="0 0 30 30">
+                      <path [attr.d]="'cart-detail-remove' | getPathSvg: 'solid'"></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="col_3 pv">
+              <div class="value">
+                <span>{{ item.amt | setComma }}</span>
+                <span>원</span>
+              </div>
+            </td>
+            <td class="col_4 pv" *ngIf="isPv1">
+              <div class="value">
+                <span>{{ item.pv1 | setComma }}</span>
+                <span>{{ smWowWord.oPv1 }}</span>
+              </div>
+            </td>
+            <!-- <td class="col_5 pv" *ngIf="isPv2">
+              <div class="value">
+                <span>{{ item.pv2 | setComma }}</span>
+                <span>{{ smWowWord.oPv2 }}</span>
+              </div>
+            </td>
+            <td class="col_6 pv" *ngIf="isPv3">
+              <div class="value">
+                <span>{{ item.pv3 | setComma }}</span>
+                <span>{{ smWowWord.oPv3 }}</span>
+              </div>
+            </td> -->
+            <td class="col_6 pv" *ngIf="isPoint">
+              <div class="value">
+                <span>{{ item.point | setComma }}</span>
+              </div>
+            </td>
+            <td class="col_7 quantity">
+              <div class="row quantity-wrapper">
+                <div class="col-auto btn-minus" (click)="handleOnChangeQuanity(item, minus);">
+                  <svg viewBox="0 0 30 30">
+                    <path [attr.d]="'cart-detail-minus' | getPathSvg: 'solid'"></path>
+                  </svg>
+                </div>
+                <div class="col-auto input-quantity">
+                  <span class="quantity-value">{{ item.qty | setComma }}</span>
+                </div>
+                <div class="col-auto btn-plus" (click)="handleOnChangeQuanity(item, plus);">
+                  <svg viewBox="0 0 30 30">
+                    <path [attr.d]="'cart-detail-plus' | getPathSvg: 'solid'"></path>
+                  </svg>
+                </div>
+                <div class="col-auto btn-remove" (click)="handleOnClickRemoveItem(item.pdtCd);">
+                  <svg viewBox="0 0 30 30">
+                    <path [attr.d]="'cart-detail-remove' | getPathSvg: 'solid'"></path>
+                  </svg>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="!items || items.length === 0">
+          <tr>
+            <td [colSpan]="totalCol">상품 정보가 없습니다.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

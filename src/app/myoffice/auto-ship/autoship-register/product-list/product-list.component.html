@@ -1,0 +1,125 @@
+<section id="products-showcase" class="product-category">
+    <div class="container mobile-container">
+        <div class="office-block result-block mobile-block">
+            <div class="main-heading row">
+                <h2 class="h-small col title">
+                    <ng-container *ngIf="keySearch.length > 0">
+                        <span>"{{ keySearch }}"</span> 검색어에 대한 약 {{ total }}개 결과                        
+                    </ng-container>
+                    <span>전체 상품</span>
+                </h2>
+
+                <div class="view-modes col-sm-auto" [formGroup]="searchForm">
+                    <div class="col-auto opened search-product" location="local">
+                        <div class="wrapper">
+                            <div class="input-wrapper">
+                                <input type="text" placeholder="검색어를 입력하세요." formControlName="key"
+                                    (keydown.enter)="handleOnSearch();">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mode grid active">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                            <path d="M0 0H6V6H0V0ZM9 0V6H15V0H9ZM0 15H6V9H0V15ZM9 15H15V9H9V15Z" />
+                        </svg>
+                    </div>
+                    <div class="mode list">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                            <path
+                                d="M15 0V3H5V0H15ZM0 3H3V0H0V3ZM5 15H15V12H5V15ZM0 15H3V12H0V15ZM5 9H15V6H5V9ZM0 9H3V6H0V9Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <ul class="products-wrapper grid-wrapper nhvl row">
+                    <ng-container *ngFor="let item of products | paginate: config; index as i">
+                        <li class="product">
+                            <div class="content-layer">
+                                <a href="#" class="featured-wrapper">
+                                    <div class="img-wrapper">
+                                        <ng-container
+                                            *ngIf="item.fileName === null || item.fileName === '' || !smWownet.urlWownet">
+                                            <img src="./assets/img/noImage.jpg">
+                                        </ng-container>
+                                        <ng-container *ngIf="item.fileName !== null && item.fileName !== ''">
+                                            <img [src]="smWownet.urlWownet + item.filePath + item.fileName">
+                                        </ng-container>
+                                    </div>
+                                </a>
+                                <div class="product-content">
+                                    <a href="#" class="name">
+                                        <h4 class="h-false">{{ item.pdtName }}</h4>
+                                        <!-- <div class="tags">
+                      <div class="tag">24%</div>
+                    </div> -->
+                                    </a>
+                                    <div class="price">
+                                        <div class="type member">
+                                            <span class="value">{{ item.amt | setComma }}</span>
+                                            <span class="currency">원</span>
+                                        </div>
+                                        <div class="type pv" *ngIf="isPv1">
+                                            <span class="value">{{ item.pv1 | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oPv1 }}</span>
+                                        </div>
+                                        <!-- <div class="type pv" *ngIf="isPv2">
+                                            <span class="value">{{ item.pv2 | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oPv2 }}</span>
+                                        </div>
+                                        <div class="type pv" *ngIf="isPv3">
+                                            <span class="value">{{ item.pv3 | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oPv3 }}</span>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="quantity-wrapper">
+                                    <div class="quantity row">
+                                        <div class="quantity-input col-auto row">
+                                            <div class="cal-btn minus col-auto" (click)="handleOnChangeQuanity(item, minus);">
+                                                <img src="./assets/img/icons/quantity-minus.svg">
+                                            </div>
+                                            <div class="value col-auto">
+                                                <span id="qty">{{ quantityMap.get(item.pdtCd) | setComma }}</span>
+                                            </div>
+                                            <div class="cal-btn plus col-auto" (click)="handleOnChangeQuanity(item, plus);">
+                                                <img src="./assets/img/icons/quantity-plus.svg">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- old -->
+                                <!-- <div class="product-quantity">
+                                    <div class="row contain-row">
+                                        <div class="quantity-input">
+                                            <div class="row">
+                                                <div class="col-auto btn-minus"
+                                                    (click)="handleOnChangeQuanity(item, minus);">
+                                                    <img src="../assets/img/icons/quan-minus.svg">
+                                                </div>
+                                                <div class="col-auto input-quantity">
+                                                    <input [value]="quantityMap.get(item.pdtCd) | setComma" disabled>
+                                                </div>
+                                                <div class="col-auto btn-plus"
+                                                    (click)="handleOnChangeQuanity(item, plus);">
+                                                    <img src="../assets/img/icons/quan-plus.svg">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!--  -->
+                            </div>
+                        </li>
+                    </ng-container>
+                </ul>
+
+                <div class="pagination row">
+                    <paging class="col-auto row paging" [len]="len" [page]="page" [config]="config" [totalItems]="total"
+                        (changePage)="handleOnChangePage($event);" (totalPage) = handleOnTotalPage($event)></paging>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,63 @@
+<h2 class="h-false">배송지 정보</h2>
+
+<table class="vt-table" [formGroup]="form">
+  <tbody>
+    <tr>
+      <td>받는사람</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="recipient" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>전화번호</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>핸드폰</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="mobile" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>E-Mail</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="eMail" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>주소</td>
+      <td>
+        <div class="input">
+          <div class="inputs-wrapper row">
+            <input style="width: 50%;" formControlName="post" autocomplete="off">
+            <div class="col-auto w-btn primary-btn verify-btn open-popup-btn" data-popup="address-browsing" (click)="handleOnOpenZipPopup();" [ngClass]="haveAdo ? '' : 'disable'">
+              <span>우편번호 검색</span>
+            </div>
+          </div>
+          <div class="inputs-wrapper row">
+            <input formControlName="addr1" autocomplete="off">
+            <input formControlName="addr2" autocomplete="off">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>메모</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="rMemo" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

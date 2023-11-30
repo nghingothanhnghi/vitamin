@@ -1,0 +1,140 @@
+<div class="print-page">
+  <div class="clearfix">
+    <h2>
+      청약 철회·계약 해제 통보서
+      <img class="float-right" style="width: 120px !important;" height="50px;" alt="로고" src="./assets/img/Logo.svg">
+    </h2>
+  </div>
+  <div>공제번호 : <a id="licenseNo">{{ ordMst.licenseNO }}</a></div>
+  <div>
+    <!-- 수신자 인적사항 및 연락처 -->
+    <div class="">
+      <table class="tbTwo">
+        <colgroup>
+          <col width="100px">
+          <col width="250px">
+          <col width="100px">
+          <col width="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th colspan="4">수신자 인적사항 및 연락처</th>
+          </tr>
+          <tr>
+            <th>성 명</th>
+            <td id="comNameOrg">{{ company.comNameOrg }}</td>
+            <th>연락처</th>
+            <td id="tel">{{ company.tel }}</td>
+          </tr>
+          <tr>
+            <th>주 소</th>
+            <td colspan="3" id="addressCompany">{{ company.addr }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- //수신자 인적사항 및 연락처 -->
+    <!-- 발신자 인적사항 및 연락처 -->
+    <div class="">
+      <table class="tbTwo">
+        <colgroup>
+          <col width="100px">
+          <col width="250px">
+          <col width="100px">
+          <col width="">
+        </colgroup>
+        <tbody>
+          <tr>
+            <th colspan="4">발신자 인적사항 및 연락처</th>
+          </tr>
+          <tr>
+            <th>성 명</th>
+            <td><span id="rName">{{ ordMst.rname }}</span></td>
+            <th>연락처</th>
+            <td><span id="rTel">{{ ordMst.rTel | mobile: 'kr' }}</span></td>
+          </tr>
+          <tr>
+            <th>주 소</th>
+            <td colspan="3"><span id="address">{{ ordMst.rAddr1 }} {{ ordMst.rAddr2 }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- //발신자 인적사항 및 연락처 -->
+    <!-- 계약 관련 사항 -->
+    <table id="table01" class="tbTwo">
+      <colgroup>
+        <col width="200px">
+        <col width="100px">
+        <col width="100px">
+        <col width="100px">
+        <col width="100px">
+        <col width="">
+      </colgroup>
+      <tbody>
+        <tr>
+          <th colspan="6">계약 관련 사항</th>
+        </tr>
+        <tr>
+          <th>계약 년 월 일</th>
+          <td>&nbsp;</td>
+          <th colspan="3">계약서를 받은날</th>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <th>상품·서비스를 제공받은 날</th>
+          <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>상품·서비스명</th>
+          <th>주문번호</th>
+          <th>상품수량</th>
+          <th>계약금액</th>
+          <th>지급한 금액</th>
+          <th width="150px">비고</th>
+        </tr>
+        <tr *ngFor="let item of listOrdPdt">
+          <td>{{ item.pdtName }}</td>
+          <td style="text-align: center;">{{ item.pdtCd }}</td>
+          <td style="text-align: right;">{{ item.qty }}</td>
+          <td style="text-align: right;">{{ item.amt }}</td>
+          <td></td>
+          <td>{{ item.remark }}</td>
+        </tr>
+        <tr>
+          <th>합 계</th>
+          <td>&nbsp;</td>
+          <td class="tcntr" id="sumQty" style="text-align: right">{{ sumOrdPdt.qty }}</td>
+          <td class="txtrgt" id="sumAmt" style="text-align: right">{{ sumOrdPdt.amt }}</td>
+          <td class="txtrgt"></td>
+          <td class="txtrgt"></td>
+        </tr>
+        <tr>
+          <th>계약 경위 및 사항</th>
+          <td>&nbsp;</td>
+          <th colspan="2">청약철회 및 계약 해제 사유</th>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <th>제품의 현재 상태</th>
+          <td>&nbsp;</td>
+          <th colspan="2">기타</th>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="6">「방문판매 등의 관한 법률」 제8조, 제17조 및 제 29조제3조항에 따라 위와 같이 청약을 철회하거나 계약을 해제함을
+            알립니다.
+            <br>
+            <span style="float: right;"><span id="currDate">{{ yyyymmdd | stringDate: 'kr' : '' }}</span>
+            <span> {{ ordMst.rname}}</span><span> (서명 또는 인)</span></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table1 lst_info">
+      <ul>
+        <li> 반품은 판매원 본인이 직접 방문처리 하셔야 하며 대리하여 처리할 수 없습니다. (예외규정은 회사 규정에 따름)</li>
+        <li> 본 신청서는 법령이 요구하는 최소한의 내용만을 기재하였으며, 그 밖의 계약조건은 방문판매등에관한법령과 {{ company.comName }}의 규정에 따른다.</li>
+      </ul>
+    </div>
+  </div>
+</div>

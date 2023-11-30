@@ -1,0 +1,241 @@
+
+
+
+/*------- 1. Benefit Details Inquiry -------*/
+/*------- 2. Benefit Accounting Inquiry -------*/
+/*------- 3. Benefit Sponsorship Details -------*/
+/*------- 4. Benefit Statement -------*/
+/*------- 5. Benefit Remittance Details -------*/
+/*------- 6. Witholding Tax -------*/
+/*------- 7. Benefit Calendar -------*/
+/*------- 8. Benefit Analysis -------*/
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#benefit-details-inquiry .submit-btn {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    #benefit-accounting-inquiry .submit-btn-wrapper {
+        margin-left: 10px;
+    }
+	#benefit-accounting-inquiry .submit-btn {
+        min-width: 100px !important;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#benefit-accounting-inquiry .submit-btn-wrapper {
+        margin-left: 20px;
+    }
+	#benefit-accounting-inquiry .submit-btn {
+        min-width: 110px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#benefit-accounting-inquiry .submit-btn-wrapper {
+        margin-left: 20px;
+    }
+	#benefit-accounting-inquiry .submit-btn {
+        min-width: 120px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	#benefit-accounting-inquiry .submit-btn {
+        min-width: 140px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#benefit-sponsorship-details .submit-btn {
+        width: 100%;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#benefit-sponsorship-details .submit-btn {
+        min-width: 100px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#benefit-sponsorship-details .submit-btn {
+        min-width: 120px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	#benefit-sponsorship-details .submit-btn {
+        min-width: 140px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#benefit-statement .desktop-time-btns {
+        flex: 1 0 0%;
+        width: 70%;
+        margin-right: 5px;
+        border: none;
+    }
+    #benefit-statement .submit-btn-wrapper {
+        flex: 0 0 auto;
+        width: calc(30% - 5px);
+    }
+    #benefit-statement .submit-btn-wrapper .submit-btn {
+        width: 100%;
+    }
+
+    #benefit-statement .desktop-time-btns a {
+        border: 1px solid rgba(0,0,0,.1) !important;
+    }
+
+    #benefit-statement .desktop-time-btns a:not(:last-child) {
+        margin-right: 5px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    #benefit-statement .searching-result .date-selects .label {
+        width: 50px;
+    }
+	#benefit-statement .desktop-time-btns {
+        margin-left: 65px;
+        flex: 1 0 0%;
+        width: calc(70% - 65px);
+        margin-right: 10px;
+        border: none;
+    }
+    #benefit-statement .submit-btn-wrapper {
+        flex: 0 0 auto;
+        width: calc(30% - 10px);
+    }
+    #benefit-statement .submit-btn-wrapper .submit-btn {
+        width: 100%;
+    }
+
+    #benefit-statement .desktop-time-btns a {
+        border: 1px solid rgba(0,0,0,.1) !important;
+    }
+
+    #benefit-statement .desktop-time-btns a:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#benefit-accounting-inquiry 
+.searching-form .date-select .years-select {
+	width: 50%;
+}
+
+#benefit-accounting-inquiry 
+.searching-form .date-select .months-select {
+	width: 50%;
+}
+
+#benefit-accounting-inquiry 
+.searching-form .date-select .months-select:after {
+	height: 0;
+	width: 0;
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	#benefit-calendar .calendar {
+		margin-right: 30px;
+	}
+	#benefit-calendar .calendar-detail {
+		width: 40%;
+	}
+	
+}
+
+
+
+
+

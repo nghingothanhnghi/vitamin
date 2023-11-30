@@ -1,0 +1,192 @@
+.page-404 .st-content .container {
+  display: flex;
+  min-height: 90vh;
+  align-items: center;
+}
+
+
+
+
+
+.page-404 .st-content .svg {
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+
+@media (max-width: 575px) {
+  .page-404 .st-content .svg {
+    margin-bottom: 45px;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .page-404 .st-content .svg {
+    margin-bottom: 50px;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .page-404 .st-content .svg {
+    margin-bottom: 55px;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .page-404 .st-content .svg {
+    margin-bottom: 60px;
+  }
+}
+
+
+
+
+
+.page-404 .st-content .content-row {
+  width: 100%;
+}
+
+.page-404 .st-content .content-text {
+  text-align: center;
+  justify-content: center;
+}
+
+
+
+.page-404 .st-content .content-text h4 {
+  font-weight: 600;
+  color: #2F1829;
+  margin-bottom: 10px;
+}
+
+.page-404 .st-content .content-text p {
+  color: #2F1829;
+}
+
+
+.page-404 .st-content .content-text a {
+  display: block;
+  color: #FFF;
+  background: #5FC57B;
+  padding: .75em 2.75em;
+  border-radius: 5px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, .1);
+  transition: all ease-in-out .3s;
+}
+
+
+.page-404 .st-content .content-text a:hover {
+  background: #41B562;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, .15);
+}
+
+
+
+
+
+@media (max-width: 575px) {
+  .page-404 .st-content .content-text p {
+    margin-bottom: 30px;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .page-404 .st-content .content-text p {
+    margin-bottom: 35px;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .page-404 .st-content .content-text p {
+    margin-bottom: 40px;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .page-404 .st-content .content-text p {
+    margin-bottom: 45px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+body {
+	background-color:#141019;
+	background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
+} 
+*/
+
+
+
+
+#handboy {
+  animation: swing ease-in-out 1.3s infinite alternate;
+  transform-origin: 98% 98%;
+  transform-box: fill-box;
+
+}
+
+
+#girllight {
+  animation: swing ease-in-out 1.3s infinite alternate;
+  transform-origin: 0% 97%;
+  transform-box: fill-box;
+}
+
+#hairgirl {
+  animation: swinghair ease-in-out 1.3s infinite alternate;
+  transform-origin: 60% 0%;
+  transform-box: fill-box;
+
+}
+
+#zero {
+  transform-origin: bottom;
+  transform-box: fill-box;
+
+}
+
+/*************swing************/
+
+@keyframes swing {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+
+/*************swing hair************/
+
+@keyframes swinghair {
+  0% {
+    transform: rotate(6deg);
+  }
+
+  100% {
+    transform: rotate(-6deg);
+  }
+}

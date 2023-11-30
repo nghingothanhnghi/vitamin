@@ -1,0 +1,122 @@
+<div class="office-block">
+    <table class="calendar-detail-table hr-table" style="display: table;">
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>{{ sumByAmount.title }}</th>
+                <th *ngIf="isPv1">{{ smWowWord.oPv1 }}</th>
+                <!-- <th *ngIf="isPv2">{{ smWowWord.oPv2 }}</th> -->
+                <!-- <th *ngIf="isPv3">{{ smWowWord.oPv3 }}</th> -->
+                <th *ngIf="isPoint">{{ smWowWord.oMileage }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="isCurentYear && currentMonth == '01' ? 'current-month' : ''">
+                <td>1월</td>
+                <td>{{ sumByAmount.mon1 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon1 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon1 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon1 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon1 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '02' ? 'current-month' : ''">
+                <td>2월</td>
+                <td>{{ sumByAmount.mon2 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon2 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon2 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon2 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon2 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '03' ? 'current-month' : ''">
+                <td>3월</td>
+                <td>{{ sumByAmount.mon3 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon3 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon3 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon3 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon3 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '04' ? 'current-month' : ''">
+                <td>4월</td>
+                <td>{{ sumByAmount.mon4 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon4 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon4 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon4 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon4 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '05' ? 'current-month' : ''">
+                <td>5월</td>
+                <td>{{ sumByAmount.mon5 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon5 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon5 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon5 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon5 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '06' ? 'current-month' : ''">
+                <td>6월</td>
+                <td>{{ sumByAmount.mon6 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon6 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon6 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon6 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon6 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '07' ? 'current-month' : ''">
+                <td>7월</td>
+                <td>{{ sumByAmount.mon7 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon7 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon7 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon7 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon7 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '08' ? 'current-month' : ''">
+                <td>8월</td>
+                <td>{{ sumByAmount.mon8 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon8 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon8 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon8 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon8 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '09' ? 'current-month' : ''">
+                <td>9월</td>
+                <td>{{ sumByAmount.mon9 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon9 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon9 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon9 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon9 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '10' ? 'current-month' : ''">
+                <td>10월</td>
+                <td>{{ sumByAmount.mon10 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon10 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon10 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon10 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon10 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '11' ? 'current-month' : ''">
+                <td>11월</td>
+                <td>{{ sumByAmount.mon11 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon11 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon11 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon11 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon11 | setComma }}</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '12' ? 'current-month' : ''">
+                <td>12월</td>
+                <td>{{ sumByAmount.mon12 | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.mon12 | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.mon12 | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.mon12 | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.mon12 | setComma }}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>[합계]</td>
+                <td>{{ sumByAmount.total | setComma }}월</td>
+                <td *ngIf="isPv1">{{ sumByPv.total | setComma }}</td>
+                <!-- <td *ngIf="isPv2">{{ sumByPv2.total | setComma }}</td> -->
+                <!-- <td *ngIf="isPv3">{{ sumByPv3.total | setComma }}</td> -->
+                <td *ngIf="isPoint">{{ sumByPoint.total | setComma }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,87 @@
+<div id="product-related" class="related-products">
+    <div class="heading row">
+        <h2 class="h-small col">연관 상품</h2>
+        <div class="w-btn col-auto" >
+            <span [routerLink]="'/shopping-mall/category/' + cateCd">모두보기</span>
+        </div>
+    </div>
+    <div class="featured-slider product-gallery-slider" data-display="4,3,2,2" data-nav="on">
+        <div class="slider-content slider-ref ">
+            <div class="slider-wrapper row container products-wrapper">
+                <ng-container *ngFor="let item of relatedPdtInfo$| async">
+                    <div class="slide item">
+                        <a class="product" [routerLink]="'/shopping-mall/product/' + item.pdtCd">
+                            <div class="featured-wrapper">
+                                <div class="img-wrapper" [attr.data-index]="0">
+                                    <ng-container *ngIf="item.fileName !== null && item.fileName !== ''; else elseImg">
+                                        <img [src]="urlWownet + item.filePath + item.fileName">
+                                    </ng-container>
+                                    <ng-template #elseImg>
+                                        <img src="./assets/img/noImage.jpg">
+                                    </ng-template>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <span class="name">{{ item.pdtName }}</span>
+                                <div class="price">
+                                    <ng-container *ngIf="isLogined">
+                                        <div class="type member">
+                                            <span class="value">{{ item.amt | setComma }}</span>
+                                            <span class="currency">원</span>
+                                        </div>
+                                        <div class="type pv" *ngIf="isPv1">
+                                            <span class="value">{{ item.pv1 | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oPv1 }}</span>
+                                        </div>
+                                        <!-- <div class="type pv" *ngIf="isPv2">
+                                            <span class="value">{{ item.pv2 | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oPv2 }}</span>
+                                        </div>
+                                        <div class=" type pv" *ngIf="isPv3">
+                                            <span class="value">{{ item.pv3 | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oPv3 }}</span>
+                                        </div> -->
+                                        <div class="type pv" *ngIf="isPoint">
+                                            <span class="value">{{ item.point | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oMileage }}</span>
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="!isLogined">
+                                        <div class="regular" *ngIf="isRetailAmt">
+                                            <span class="value">{{ item.retailAmt | setComma }}</span>
+                                            <span class="currency">원</span>
+                                        </div>
+                                        <ng-container *ngIf="isAmt">
+                                            <div class="type member">
+                                                <span class="value">{{ item.amt | setComma }}</span>
+                                                <span class="currency">원</span>
+                                            </div>
+                                            <div class="type pv" *ngIf="isPv1">
+                                                <span class="value">{{ item.pv1 | setComma }}</span>
+                                                <span class="currency">{{ smWowWord.oPv1 }}</span>
+                                            </div>
+                                            <!-- <div class="type pv" *ngIf="isPv2">
+                                                <span class="value">{{ item.pv2 | setComma }}</span>
+                                                <span class="currency">{{ smWowWord.oPv2 }}</span>
+                                            </div>
+                                            <div class=" type pv" *ngIf="isPv3">
+                                                <span class="value">{{ item.pv3 | setComma }}</span>
+                                                <span class="currency">{{ smWowWord.oPv3 }}</span>
+                                            </div> -->
+                                        </ng-container>
+                                        <div class=" type pv" *ngIf="isPoint">
+                                            <span class="value">{{ item.retailPoint | setComma }}</span>
+                                            <span class="currency">{{ smWowWord.oMileage }}</span>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ng-container>
+    
+            </div>
+        </div>
+        
+    </div>
+</div>

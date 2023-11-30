@@ -1,0 +1,381 @@
+/**/
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .container {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        padding-top: 55px;
+        padding-bottom: 55px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .container {
+        padding-top: 60px;
+        padding-bottom: 120px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .notice {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #EBEAEA;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .notice {
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+        border-bottom: 1px solid #EBEAEA;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+    .notice {
+        width: 50%;
+        padding-right: 2%;
+    }
+
+    .service {
+        width: 50%;
+        padding-left: 2%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    h2 {
+        margin-bottom: 11px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    h2 {
+        margin-bottom: 14px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    h2 {
+        margin-bottom: 17px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    h2 {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.notice ul {
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.notice ul li a {
+    background: #fafafa;
+    align-items: center;
+    color: #2E2A26;
+    transition: all ease-in-out .3s;
+}
+
+
+.notice ul li:first-child a {
+    background: #F2F2F2;
+}
+
+.notice ul li a:hover {
+    background: #F2F2F2;
+}
+
+
+@media all and (max-width: 575px) {
+    .notice ul li a {
+        padding: 9px 11px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .notice ul li a {
+        padding: 9px 14px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .notice ul li a {
+        padding: 9px 17px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .notice ul li a {
+        padding: 9px 20px;
+    }
+}
+
+
+
+
+
+
+
+.notice ul li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+
+
+.notice ul li a h4 {
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-top: 2px;
+
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+
+.more-btn {
+    margin-right: 0;
+    margin-left: auto;
+    width: auto;
+}
+
+
+
+
+
+
+
+
+
+
+.service ul {
+    padding: 0;
+    margin: 0;
+}
+
+.service ul li {
+    background: #FAFAFA;
+    transition: all ease-in-out .3s;
+}
+
+.service ul li:first-child {
+    background: #f2f2f2;
+}
+
+.service ul li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .service ul li {
+        padding: 20px 15px;
+    }
+}
+
+@media all and (min-width: 576px) {
+    .service ul li {
+        padding: 20px;
+    }
+}
+
+
+
+
+
+.service ul li img {
+    margin-right: 20px;
+}
+
+
+.service ul li p {
+    margin-top: 5px;
+}
+
+
+
+
+
+
+.service ul li .row {
+    justify-content: space-between;
+}
+
+.service ul li a,
+.service ul li span {
+    flex: 0 0 auto;
+}
+
+
+.service ul li a {
+    color: #2E2A26;
+    transition: all ease-in-out .3s;
+}
+
+.service ul li a:hover {
+    color: #f0875a;
+}
+
+
+
+@media all and (max-width: 575px) {
+    .service ul li a {
+        margin-bottom: 5px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .service ul li a,
+    .service ul li span {
+        width: auto;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .service ul li a {
+        margin-bottom: 5px;
+    }
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+    .service ul li a {
+        margin-bottom: 5px;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .service ul li a,
+    .service ul li span {
+        width: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.e-img {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: auto;
+}
+
+
+
+@media all and (max-width: 575px) {
+    .e-img {
+        height: 110px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .e-img {
+        height: 140px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .e-img {
+        height: 170px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .e-img {
+        height: 200px;
+    }
+}

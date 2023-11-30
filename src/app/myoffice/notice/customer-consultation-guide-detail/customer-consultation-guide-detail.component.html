@@ -1,0 +1,73 @@
+<div class="single-post notice-post">
+    <section class="section-content">
+        <div class="container">
+            <div class="post-header">
+                <!-- <h2 class="h-small">stest2</h2> -->
+                <div class="post-meta row">
+                    <div class="info questioner col-auto">
+                        <span class="label">질문자 :</span>
+                        <span class="value">{{qnaDetail.insUserQ}}</span>
+                    </div>
+                    <div class="info question-date col-auto">
+                        <span class="label">질문일자 :</span>
+                        <span class="value">{{qnaDetail.insDateQ}}</span>
+                    </div>							
+                    <div class="info registrant col-auto">
+                        <span class="label">답변자 : </span>
+                        <span class="value">{{qnaDetail.insUserA}}</span>
+                    </div>						
+                    <div class="info registration-date col-auto">
+                        <span class="label">답변일자 :</span>
+                        <span class="value">{{qnaDetail.insDateA}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="post-body">
+                <div class="row qna-detail">
+                     <h4 class="h-small col-auto title">제목</h4>
+                    <div class="col" >
+                        <div class="post-body-Q" >{{qnaDetail.titleCustomer}}</div>
+                    </div>
+                </div>
+                <div class="row qna-detail">
+                     <h4 class="h-small col-auto title">본문</h4>
+                    <div class="col" id="postBodyQ">
+                        <div class="post-body-Q" [innerHTML]="qnaDetail.contentsQ ?  (qnaDetail.contentsQ | renderHtml) : ''"></div>
+                    </div>
+                </div>
+               
+                <div class="row qna-detail">
+                    <h4 class="h-small col-auto title">답변</h4>
+                   <div class="col" id="postBodyA"><div class="post-body-A"  [innerHTML]="qnaDetail.contentsA ? (qnaDetail.contentsA | renderHtml) : ''"></div>
+                   </div>
+               </div>
+            </div> -->
+            
+             <div class="">
+                <table class="vt-table">
+                    <tbody>
+                        <tr>
+                            <td>제목</td>
+                            <td ><div>{{qnaDetail.titleCustomer}}</div></td>
+                        </tr>
+                        <tr>
+                            <td>본문</td>
+                            <td id="postBodyQ"><div class="post-body-Q" [innerHTML]="qnaDetail.contentsQ ?  (qnaDetail.contentsQ | renderHtml) : ''"></div></td>
+                        </tr>
+                        <tr>
+                            <td>답변</td>
+                            <td id="postBodyA"><div class="post-body-A"  [innerHTML]="qnaDetail.contentsA ? (qnaDetail.contentsA | renderHtml) : ''"></div></td>
+                        </tr>
+                    </tbody>
+                </table>						
+            </div> 
+
+
+            <div class="row btns">
+                <a routerLink="/serviceCenter/qna" class="w-btn small-btn primary-btn col-auto">목록</a>
+                <!-- <a (click)="confirmDelete()" class="w-btn small-btn btn-danger col-auto">삭제</a> -->
+        </div>
+        </div>
+    </section>
+</div>

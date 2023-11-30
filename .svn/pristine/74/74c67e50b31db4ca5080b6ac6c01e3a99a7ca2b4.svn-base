@@ -1,0 +1,99 @@
+<section id="product-list">
+    <div class="container mobile-container">
+        <div class="office-block result-block mobile-block">
+            <div class="block-heading">
+                <h2 class="h-small">오토십 등록 상품 목록</h2>
+            </div>
+            <div class="table-wrapper">
+                <table class="hr-table">
+                    <thead>
+                        <tr>
+                            <th>상품명</th>
+                            <th>가격</th>
+                            <th *ngIf="isPv1">{{ smWowWord.oPv1 }}</th>
+                            <!-- <th *ngIf="isPv2">{{ smWowWord.oPv2 }}</th>
+                            <th *ngIf="isPv3">{{ smWowWord.oPv3 }}</th> -->
+                            <th *ngIf="isPoint">{{ smWowWord.oMileage }}</th>
+                            <th>수량</th>
+                            <th>삭제</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items;">
+                            <td>{{ item.pdtName }}</td>
+                            <td>{{ item.amt | setComma }}</td>
+                            <td *ngIf="isPv1">{{ item.pv1 | setComma }}</td>
+                            <!-- <td *ngIf="isPv2">{{ item.pv2 | setComma }}</td>
+                            <td *ngIf="isPv3">{{ item.pv3 | setComma }}</td> -->
+                            <td *ngIf="isPoint">{{ item.point | setComma }}</td>
+                            <td>{{ item.qty }}</td>
+                            <td>
+                                <a href="javascript:;" class="w-btn dark-btn btn-remove"
+                                    (click)="handleOnClickRemoveItem(item.pdtCd);">
+                                    <span>삭제</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr *ngIf="items.length === 0">
+                            <td [colSpan]="totalCol">선택한 상품이 없습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <table class="vt-table mobile">
+                <tbody *ngFor="let item of items;">
+                    <tr>
+                        <td>상품명</td>
+                        <td>{{ item.pdtName }}</td>
+                    </tr>
+                    <tr>
+                        <td>가격</td>
+                        <td>{{ item.amt | setComma }}</td>
+                    </tr>
+                    <tr *ngIf="isPv1">
+                        <td>{{ smWowWord.oPv1 }}</td>
+                        <td>{{ item.pv1 | setComma }}</td>
+                    </tr>
+                    <!-- <tr *ngIf="isPv2">
+                        <td>{{ smWowWord.oPv2 }}</td>
+                        <td>{{ item.pv2 | setComma }}</td>
+                    </tr>
+                    <tr *ngIf="isPv3">
+                        <td>{{ smWowWord.oPv3 }}</td>
+                        <td>{{ item.pv3 | setComma }}</td>
+                    </tr> -->
+                    <tr>
+                        <td>수량</td>
+                        <td>{{ item.qty }}</td>
+                    </tr>
+                    <tr>
+                        <td>삭제</td>
+                        <td>
+                            <a href="javascript:;" class="w-btn dark-btn btn-remove"
+                                (click)="handleOnClickRemoveItem(item.pdtCd);">
+                                <span>삭제</span>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody class="empty-tbody" *ngIf="items.length === 0">
+                    <tr>
+                      <td style="width: 100%;"><span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                      <td style="width: 100%;"><span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                      <td style="width: 100%;"><span>&nbsp;</span><span class="empty-warning h-small">선택한 상품이 없습니다.</span></td>
+                    </tr>
+                    <tr>
+                      <td style="width: 100%;"><span>&nbsp;</span></td>
+                    </tr>
+                    <tr>
+                      <td style="width: 100%;"><span>&nbsp;</span></td>
+                    </tr>
+                  </tbody>
+            </table>
+        </div>
+    </div>
+</section>

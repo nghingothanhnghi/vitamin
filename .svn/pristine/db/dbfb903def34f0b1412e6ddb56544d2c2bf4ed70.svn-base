@@ -1,0 +1,7 @@
+<div id="single-product">
+    <product-meta></product-meta>
+    <!-- <product-meta id="product-meta"></product-meta> -->
+    <!-- <product-related></product-related> -->
+    <!-- <product-related id="product-related"></product-related> -->
+    <product-content></product-content>
+</div>

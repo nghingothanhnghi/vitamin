@@ -1,0 +1,43 @@
+<div id="cart-details" class="office-section">
+    <div class="office-heading">
+        <h2 class="h-small">주문상품</h2>
+        <span>주문하실 상품을 확인하실 수 있습니다.</span>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="hr-table">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">번호</th>
+                    <th>상품명</th>
+                    <th style="text-align: center;">가격</th>
+                    <th style="text-align: center;">PV</th>
+                    <th style="text-align: center;" *ngIf="isPoint">{{ smWowWord.oMileage }}</th>
+                    <th style="text-align: center;">수량</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartItems; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.pdtName }}</td>
+                    <td style="text-align: center;">
+                        <div style="text-align: center;"><span>{{ +item.qty * +item.amt | setComma }}</span><span class="currency">원</span></div>
+                        <div class="mobile-product-pv" *ngIf="isPv1">{{ (+item.qty * +item.pv1) | setComma}}<span>{{ smWowWord.oPv1
+                                }}</span></div>
+                        <!-- <div class="mobile-product-pv" *ngIf="isPv2">{{ (+item.qty * +item.pv2) | setComma}}<span>{{ smWowWord.oPv2
+                                }}</span></div>
+                        <div class="mobile-product-pv" *ngIf="isPv3">{{ (+item.qty * +item.pv3) | setComma}}<span>{{ smWowWord.oPv3
+                                }}</span></div> -->
+                    </td>
+                    <td>
+                        <div *ngIf="isPv1">{{ (+item.qty * +item.pv1) | setComma }}<span>{{ smWowWord.oPv1 }}</span></div>
+                        <!-- <div *ngIf="isPv2">{{ (+item.qty * +item.pv2) | setComma }}<span>{{ smWowWord.oPv2 }}</span></div> -->
+                        <!-- <div *ngIf="isPv3">{{ (+item.qty * +item.pv3) | setComma }}<span>{{ smWowWord.oPv3 }}</span></div> -->
+                    </td>
+                    <td *ngIf="isPoint">{{ item.point | setComma }}</td>
+                    <td>{{ item.qty | setComma }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

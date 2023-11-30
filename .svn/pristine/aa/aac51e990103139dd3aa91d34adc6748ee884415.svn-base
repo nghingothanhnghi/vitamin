@@ -1,0 +1,9 @@
+
+
+
+@media all and (max-width: 575px) {
+	.form-body {
+        margin-top: 15px;
+        border-top: 1px solid rgba(0,0,0,.1);
+    }
+}

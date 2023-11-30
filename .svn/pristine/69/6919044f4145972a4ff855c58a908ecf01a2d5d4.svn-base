@@ -1,0 +1,1053 @@
+.memnberTab .pagination .per-page .dropdown-select {
+    background: transparent;
+    width: 70px;
+}
+
+.memnberTab .pagination .per-page .label {
+    padding-right: 0;
+}
+
+.memnberTab .dropdown-select .selected span {
+    padding: 0;
+}
+
+
+
+
+/*------ Order Management ------
+		1. Order Search
+---------------------------------*/
+
+
+
+@media all and (max-width: 575px) {
+	#order-search .submit-btn {
+        width: 100%;
+    }
+}
+
+
+@media all and (min-width: 576px) {
+    #order-search .submit-btn {
+        min-width: 140px;
+    }
+}
+
+
+
+
+@media all and (min-width: 992px) {
+
+    #order-search .searching-result .date-selects .label,
+    #order-search .searching-result .standard-member-name .label,
+    #order-search .searching-result .criteria-classification .label {
+        width: 65px;
+        margin-right: 10px;
+    }
+}
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+
+    #order-search .searching-result .standard-member-name,
+    #order-search .searching-result .order-type {
+        margin-bottom: 10px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #order-search .searching-result .order-type {
+        margin-right: 10px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #order-search .searching-result .order-type {
+        margin-right: 10px;
+    }
+}
+
+
+
+@media all and (max-width: 991px) {
+    #order-search .searching-result .criteria-classification {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+    #order-search .searching-result .searching-form .label {
+        width: 75px;
+    }
+
+    #order-search .searching-result .searching-form .criteria-classification {
+        margin-bottom: 12.5px;
+    }
+}
+
+
+
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #order-search .searching-result .searching-form .criteria-classification {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+
+    #order-search .searching-result .standard-member-name,
+    #order-search .searching-result .order-type {
+        width: calc(50% - 5px);
+    }
+
+
+    #order-search .searching-result .standard-member-name {
+        margin-right: 10px;
+    }
+
+    #order-search .searching-result .hr-mobile-table tbody {
+        width: 100%;
+    }
+}
+
+
+
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+    #order-search .searching-result .rank .dropdown-select {
+        min-width: 120px;
+    }
+
+    #order-search .searching-result .standard-member-name input {
+        width: 120px;
+    }
+}
+
+
+
+@media all and (max-width: 911px) {
+    #order-search .searching-result .radios-group li {
+        margin-right: 20px;
+    }
+}
+
+@media all and (max-width: 575px) {
+
+    #order-search .searching-result .standard-member-name,
+    #order-search .searching-result .order-type,
+    #order-search .searching-result .order-path {
+        margin-bottom: 10px;
+    }
+
+    #order-search .searching-result .criteria-classification {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    #order-search .searching-result .criteria-classification .label {
+        margin-bottom: 0 !important;
+        margin-right: 20px;
+    }
+
+}
+
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+
+    #order-search .searching-result .standard-member-name,
+    #order-search .searching-result .order-type {
+        margin-right: 20px;
+    }
+
+}
+
+
+@media all and (min-width: 1200px) {
+
+    #order-search .searching-result .standard-member-name,
+    #order-search .searching-result .order-type {
+        margin-right: 25px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Order Management ------
+		2. Sub-order Search
+---------------------------------*/
+
+@media all and (min-width: 576px) {
+    #sub-order-search .submit-btn {
+        min-width: 140px;
+    }
+}
+
+#sub-order-search .searching-result .hr-table {
+    text-align: center;
+}
+
+@media all and (min-width: 992px) {
+    #sub-order-search .searching-result .date-selects .label,
+    #sub-order-search .searching-result .standard-member-name .label,
+    #sub-order-search .searching-result .center .label {
+        width: 65px;
+        margin-right: 10px;
+    }
+}
+
+
+
+
+@media all and (max-width: 575px) {
+    #sub-order-search .searching-result .searching-form .center {
+        margin-bottom: 12.5px;
+    }
+    #sub-order-search .searching-result .criteria-classification {
+        margin-bottom: 12.5px;
+    }
+}
+
+
+@media all and (max-width: 991px) {
+    #sub-order-search .searching-result .searching-form .label {
+        width: 75px;
+    }
+
+    #sub-order-search .searching-result .searching-form .standard-member-name,
+    #sub-order-search .searching-result .searching-form .inquiry-classification,
+    #sub-order-search .searching-result .searching-form .order-type,
+    #sub-order-search .searching-result .searching-form .order-path {
+        margin-bottom: 12.5px;
+    }
+}
+
+
+
+
+
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+
+    #sub-order-search .searching-result .searching-form .standard-member-name,
+    #sub-order-search .searching-result .searching-form .inquiry-classification,
+    #sub-order-search .searching-result .searching-form .order-type,
+    #sub-order-search .searching-result .searching-form .order-path {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    #sub-order-search .searching-result .row_2 {
+        margin-bottom: 0;
+    }
+    #sub-order-search .searching-result .standard-member-name,
+    #sub-order-search .searching-result .inquiry-classification,
+    #sub-order-search .searching-result .order-type,
+    #sub-order-search .searching-result .order-path {
+        width: calc(50% - 5px);
+    }
+
+    #sub-order-search .searching-result .standard-member-name,
+    #sub-order-search .searching-result .order-type {
+        margin-right: 10px;
+    }
+
+    #sub-order-search .searching-result .hr-mobile-table tbody {
+        width: 100%;
+    }   
+}
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+	#sub-order-search .searching-result .submit-btn-wrapper, 
+    #sub-order-search .searching-result .submit-btn {
+        width: 100%;
+    }
+}
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#sub-order-search .searching-result .center {
+        width: calc(50% - 5px);
+        margin-right: 10px;
+        margin-bottom: 12.5px;
+    }
+    #sub-order-search .searching-result .criteria-classification {
+        width: calc(50% - 5px);
+        margin-bottom: 12.5px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#sub-order-search .searching-result .center {
+        width: calc(33% - 5px);
+        margin-right: 10px;
+    }
+    #sub-order-search .searching-result .center {
+        width: calc(33% - 5px);
+        margin-right: 10px;
+    }
+    #sub-order-search .searching-result .submit-btn-wrapper {
+        margin-right: 0;
+        margin-left: auto;
+    }
+}
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+    #sub-order-search .searching-result .radios-group .radio {
+        margin-right: 20px;
+    }
+
+    #sub-order-search .searching-result .radios-group .radio:last-child {
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+@media all and (min-width: 992px) {
+    #sub-order-search .searching-result .standard-member-name,
+    #sub-order-search .searching-result .inquiry-classification,
+    #sub-order-search .searching-result .order-type {
+        margin-right: 20px;
+    }
+    #sub-order-search .searching-result .center {
+        width: 210px;
+        margin-right: 20px;
+    }
+}
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+    #sub-order-search .date-time .dropdown-select .selected {
+        border: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Order Management ------
+		3. Order Product Search
+---------------------------------*/
+
+@media all and (min-width: 576px) {
+    #order-product-search .submit-btn {
+        width: 80px;
+    }
+}
+
+
+#order-product-search .searching-result .hr-table {
+    text-align: center;
+}
+
+
+@media all and (min-width: 992px) {
+    #order-product-search .searching-result .date-selects .label,
+    #order-product-search .searching-result .standard-member-name .label {
+        width: 65px;
+        margin-right: 10px;
+    }
+}
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+    #order-product-search .searching-result .searching-form .label {
+        width: 75px;
+    }
+}
+
+
+
+@media all and (max-width: 991px) {
+    #order-product-search .searching-result .advanced-search-items .submit-btn-wrapper, 
+    #order-product-search .searching-result .advanced-search-items .submit-btn {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+
+    #order-product-search .searching-result .standard-member-name,
+    #order-product-search .searching-result .product-name,
+    #order-product-search .searching-result .center,
+    #order-product-search .searching-result .inquiry-classification {
+        width: calc(50% - 5px);
+    }
+
+    #order-product-search .searching-result .standard-member-name,
+    #order-product-search .searching-result .center {
+        margin-right: 10px;
+    }
+
+    #order-product-search .searching-result .hr-mobile-table tbody {
+        width: 100%;
+    }
+}
+
+
+
+
+@media all and (min-width: 992px) {
+    #order-product-search .searching-result .standard-member-name,
+    #order-product-search .searching-result .product-name,
+    #order-product-search .searching-result .center,
+    #order-product-search .searching-result .inquiry-classification {
+        margin-right: 20px;
+    }
+}
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+
+    #order-product-search .searching-result .product-name,
+    #order-product-search .searching-result .inquiry-classification {
+        padding-left: 15px;
+    }
+
+    #order-product-search .date-time .dropdown-select .selected {
+        border: none;
+    }
+
+    #order-product-search .searching-result .standard-member-name {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+
+    #order-product-search .searching-result .standard-member-name,
+    #order-product-search .searching-result .product-name,
+    #order-product-search .searching-result .center,
+    #order-product-search .searching-result .inquiry-classification {
+        margin-bottom: 12.5px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+
+    #order-product-search .searching-result .standard-member-name,
+    #order-product-search .searching-result .product-name,
+    #order-product-search .searching-result .center,
+    #order-product-search .searching-result .inquiry-classification {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Order Management ------
+		4. Order Detail Inquiry
+---------------------------------*/
+
+
+
+
+#order-details-inquiry .section-content .vt-table input {
+    border: 1px solid rgba(0, 0, 0, .1);
+    background: #F4F3FD;
+}
+
+
+#order-details-inquiry .section-content .order-number .col {
+    width: calc(50% - 5px);
+    border: none;
+}
+
+#order-details-inquiry .section-content .order-number .col:last-child {
+    margin-right: 0;
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+#order-details-inquiry .delivery-order {
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+#order-details-inquiry .delivery-order:last-child {
+    margin-bottom: 0;
+}
+
+
+#order-details-inquiry .delivery-order .col {
+    width: calc(50% - 5px);
+
+}
+
+#order-details-inquiry .delivery-order .col:last-child {
+    margin-right: 0;
+}
+
+
+
+
+
+
+
+#order-details-inquiry .section-content .hr-table {
+    text-align: center;
+}
+
+#order-details-inquiry .orderNum {
+    margin-bottom: 30px;
+}
+
+#order-details-inquiry .order-number {
+    display: flex;
+    align-items: center;
+}
+
+#order-details-inquiry .order-number span {
+    color: #999;
+    padding-right: 15px;
+}
+
+
+#order-details-inquiry .tabAfter {
+    margin-top: 20px;
+}
+
+
+
+
+#order-details-inquiry .section-content .vt-table td:first-child {
+    background: #F7F9FE;
+    padding: 7.5px 10px;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    text-align: center;
+}
+
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+    #order-details-inquiry .shipping-information .row.btns {
+        margin-top: 20px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #order-details-inquiry .shipping-information .row.btns {
+        margin-top: 25px;
+    }
+
+}
+
+
+@media all and (min-width: 992px) {
+    #order-details-inquiry .shipping-information .row.btns {
+        margin-top: 30px;
+        justify-content: end;
+    }
+
+    #order-details-inquiry .section-content .order-information {
+        width: 49%;
+        margin-right: 2%;
+    }
+
+    #order-details-inquiry .section-content .shipping-information {
+        width: 49%;
+    }
+
+    #order-details-inquiry .result-block:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+    #order-details-inquiry .order-information .order-number .grad-btn.dark {
+        padding: 8px 10px;
+    }
+}
+
+
+@media all and (max-width: 991px) {
+    #order-details-inquiry .shipping-information .buyer {
+        margin-bottom: 0;
+    }
+
+    #order-details-inquiry .hr-mobile-table tbody tr:first-child {
+        background: white;
+    }
+
+    #order-details-inquiry .section-content .hr-mobile-table td {
+        padding: 7.5px 10px;
+        text-align: center;
+    }
+
+    #order-details-inquiry .section-content .vt-table td {
+        text-align: center;
+        padding: 7.5px 10px;
+    }
+
+    #order-details-inquiry .section-content .hr-mobile-table td:first-child {
+        background: #F7F9FE;
+
+        border-right: 1px solid rgba(0, 0, 0, .1);
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+@media all and (min-width: 992px) {
+
+    #order-details-inquiry .order-information,
+    #order-details-inquiry .shipping-information {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Order Management ------
+		5. Order Calendar
+---------------------------------*/
+
+
+
+
+@media all and (min-width: 992px) {
+    #order-calendar .calendar {
+        margin-right: 30px;
+    }
+
+    #order-calendar.calendar-detail {
+        width: 40%;
+    }
+}
+
+
+
+
+#order-calendar .section-content .hr-table {
+    text-align: center;
+}
+
+#order-calendar .memnberTab {
+    margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*----------- Monthly Order Count -------------*/
+
+
+@media all and (max-width: 991px) {
+    #monthly-order-count .searching-result .searching-form .label {
+        width: 75px;
+    }
+
+    #monthly-order-count .searching-result .standard-member-name,
+    #monthly-order-count .searching-result .order-type,
+    #monthly-order-count .searching-result .inquiry-classification,
+    #monthly-order-count .searching-result .display-item {
+        margin-bottom: 12.5px;
+    }
+}
+
+
+
+@media all and (max-width: 991px) {
+    #monthly-order-count .searching-result .advanced-search-items .submit-btn-wrapper {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+
+    #monthly-order-count .standard-member-name,
+    #monthly-order-count .searching-result .order-type,
+    #monthly-order-count .searching-result .inquiry-classification,
+    #monthly-order-count .searching-result .display-item {
+        width: calc(50% - 5px);
+    }
+
+    #monthly-order-count .standard-member-name,
+    #monthly-order-count .searching-result .inquiry-classification {
+        margin-right: 10px;
+    }
+
+    #monthly-order-count .searching-form .form-row.date-time .date-from {
+        width: 100%;
+    }
+}
+
+
+
+
+@media all and (max-width: 575px) {
+
+    #monthly-order-count .searching-result .standard-member-name,
+    #monthly-order-count .searching-result .order-type,
+    #monthly-order-count .searching-result .inquiry-classification,
+    #monthly-order-count .searching-result .display-item {
+        margin-bottom: 10px;
+    }
+
+    #monthly-order-count .searching-form .form-row.date-time .date-selects {
+        margin-bottom: 0;
+    }
+}
+
+
+
+@media all and (min-width: 992px) {
+    #monthly-order-count .searching-result .standard-member-name,
+    #monthly-order-count .searching-result .order-type,
+    #monthly-order-count .searching-result .inquiry-classification,
+    #monthly-order-count .searching-result .display-item {
+        margin-right: 20px;
+    }
+
+    #monthly-order-count .searching-result .date-select {
+        width: 90px;
+    }
+
+    #monthly-order-count .searching-result .display-item .dropdown-select {
+        width: 90px;
+    }
+}
+
+
+
+#monthly-order-count .searching-form .date-select .years-select:after {
+    width: 0;
+}
+
+
+
+@media all and (min-width: 992px) {
+    #monthly-order-count .searching-form .date-select .years-select {
+        width: 100%;
+    }
+}
+
+
+#monthly-order-count .searching-result .searching-form .form-row.date-time .date-selects {
+    border-right: none;
+    padding-right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+    #monthly-order-count .searching-result .searching-form .form-row .dropdown-select {
+        border: 1px solid rgba(0, 0, 0, .1);
+    }
+    #monthly-order-count .searching-form .date-from {
+        border: none;
+    }
+}
+
+
+@media all and (min-width: 575px) and (max-width: 767px) {
+    #monthly-order-count .searching-result .searching-form .form-row.date-time .date-selects {
+        margin-bottom: 15px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #monthly-order-count .searching-result .searching-form .form-row.date-time .date-selects {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+
+@media all and (max-width: 991px) {
+    #monthly-order-count .searching-result .searching-form .date-selects .years-select {
+        width: 100%;
+    }
+}
+
+
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+
+    #monthly-order-count .searching-result .searching-form .date-selects,
+    #monthly-order-count .searching-result .searching-form .standard-member-name,
+    #monthly-order-count .searching-result .searching-form .order-type {
+        width: calc(33.33333% - 13.333333px);
+        margin-bottom: 15px;
+    }
+
+    #monthly-order-count .searching-result .searching-form .date-selects,
+    #monthly-order-count .searching-result .searching-form .standard-member-name {
+        margin-right: 20px;
+    }
+
+    #monthly-order-count .searching-result .searching-form .order-type {
+        margin-right: 0px;
+    }
+
+
+    #monthly-order-count .searching-result .searching-form .inquiry-classification,
+    #monthly-order-count .searching-result .searching-form .display-item,
+    #monthly-order-count .searching-result .searching-form .submit-btn-wrapper {
+        width: calc(33.33333% - 13.333333px);
+    }
+
+    #monthly-order-count .searching-result .searching-form .inquiry-classification,
+    #monthly-order-count .searching-result .searching-form .display-item {
+        margin-right: 20px;
+    }
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+    #monthly-order-count .searching-result .searching-form .submit-btn {
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    #monthly-order-count .searching-result .searching-form .submit-btn-wrapper {
+        text-align: right;
+    }
+    #monthly-order-count .searching-result .searching-form .submit-btn {
+        width: calc(50% - 5px);
+    }
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+    #monthly-order-count .searching-result .searching-form .submit-btn {
+        width: 100%;
+    }
+}
+
+
+@media all and (min-width: 1200px)  {
+    #monthly-order-count .searching-result .searching-form .submit-btn {
+        width: 80px;
+    }
+}
+
+
+
+
+
+
+/*----------- Monthly Order Count -------------*/
+
+
+#phase-balance-inquiry .section-content .container.orderTab {
+    margin-top: 0;
+}
+
+#phase-balance-inquiry .heightTab {
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+	#order-mileage-inquiry .searching-result .standard-member-name,
+    #order-mileage-inquiry .searching-result .order-type, 
+    #order-mileage-inquiry .searching-result .submit-btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #order-mileage-inquiry .searching-result .standard-member-name .label,
+    #order-mileage-inquiry .searching-result .order-type .label {
+        padding-right: 10px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#order-mileage-inquiry .searching-result .standard-member-name,
+    #order-mileage-inquiry .searching-result .order-type {
+        margin-right: 10px;
+    }
+
+    #order-mileage-inquiry .searching-result .submit-btn {
+        width: 100%;
+    }
+
+    #order-mileage-inquiry .searching-result .form-row {
+        margin-bottom: 10px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    #order-mileage-inquiry .searching-result .date-selects .label,
+    #order-mileage-inquiry .searching-result .standard-member-name .label {
+        width: 65px;
+    }
+
+
+	#order-mileage-inquiry .searching-result .standard-member-name,
+    #order-mileage-inquiry .searching-result .order-type {
+        margin-right: 20px;
+    }
+
+    #order-mileage-inquiry .searching-result .submit-btn {
+        width: 100%;
+    }
+}
+

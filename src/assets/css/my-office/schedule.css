@@ -1,0 +1,26 @@
+
+
+
+
+/*------- Schedule -------*/
+
+
+@media all and (min-width: 992px) {	
+	/* #schedule .section-content .container {
+		padding-top: 30px;
+	} */
+}
+
+
+
+
+@media all and (min-width: 992px) {
+	#schedule .calendar {
+		margin-right: 30px;
+	}
+	#schedule .calendar-detail {
+		width: 40%;
+	}
+}
+
+

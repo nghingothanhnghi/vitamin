@@ -1,0 +1,344 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
+import { DateFilterModel } from '@app/models/components/date-filter.model';
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { Observable, Subscription, timeout } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { environment } from 'src/environments/environment';
+import { RankState } from '@app/selectors/system/rank.selector';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+
+import * as memLineSelector from '@app/selectors/myoffice/member/member-line.selector';
+import { findLine, countLine, findTopLineMember, findTopLineMemberSuccess } from '@app/actions/myoffice/member/member-line.action';
+import { Rank } from '@app/models/system/rank.model';
+import { Member } from '@models/myoffice/member/member.model'
+import { loadAllRank } from '@selectors/system/rank.selector';
+import { loadRank } from '@app/actions/system/rank.action';
+import { loadCodesY} from '@app/actions/system/code.action';
+import { CodeModel } from '@app/models/system/code.model';
+import { CodeState, getCodesY } from '@app/selectors/system/code.selector';
+import { PaginationInstance } from 'ngx-pagination';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { AuthUtil } from '@app/common/util/auth.util';
+import { MemberConstants } from '@app/common/constant/member.constant';
+import { LenConstant } from '@app/common/constant/len.constant';
+import { SmWownetConfigModel } from '@app/models/system/sm-wownet-config.model';
+import { getSmWownet, getSmWownetConfig, SmWownetState } from '@app/selectors/system/sm-wownet.selector';
+import { loadSmWownet, loadSmWownetConfig } from '@app/actions/system/sm-wownet.action';
+import { getWAlertStatus, WAlertState } from '@app/selectors/w-alert.selector';
+import { WAlertStatus } from '@app/models/components/w-alert-stauts.model';
+import { setWAlert } from '@app/actions/w-alert.action';
+import { WAlertConstant } from '@app/common/constant/w-alert-icon.constant';
+import { MessageConstant } from '@app/common/constant/message.constant';
+import { SmWownetModel } from '@app/models/system/sm-wownet.model';
+
+declare const modifyBackToCloseModal: any;
+
+@Component({
+  selector: 'app-member-line',
+  templateUrl: './member-line.component.html',
+  styleUrls: ['./member-line.component.css']
+})
+export class MemberLineComponent implements OnInit, OnDestroy {
+
+  page: number = 1;
+
+  len: number = 10;
+
+  totalCols: number = 6;
+  totalRows: number = 0;
+  rows: number[] = [];
+  cols: number[] = [];
+
+  divisionRadioDisable:boolean = true
+
+  userId: string = ''
+  userName: string = ''
+  logid: string = '' 
+  showMemberPopup: boolean = false;
+
+  isMember:boolean = true
+
+  lv: number = 5
+  dateKind: string = "2"
+  memberType: string = "P"
+  divisionRadioValue: number = 1
+
+  mUsePId: string = 'N';
+
+  dateFilterSelected: DateFilterModel = new DateFilterModel();
+  codesY$ = new Observable<CodeModel[]>;
+  yearOptions: SelectDropdownModel[] = [];
+
+  line$ = new Observable<Member[]>;
+  topLine$ = new Observable<Member>;
+  topLine ={} as Member;
+  total$ = new Observable<Number>;
+  ranks$ = new Observable<Rank[]>;
+  collection: Member[] = [];
+  subTopLine = {} as Subscription
+  totalItems: number = 0;
+  config: PaginationInstance = {
+    id: 'line-lineage-grid',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+  options: SelectDropdownModel[] = [];
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+
+  rankSelected: SelectDropdownModel = new SelectDropdownModel();
+  rankOptions: SelectDropdownModel[] = [];
+
+  smWownetConfig$ = new Observable<SmWownetConfigModel>;
+  smWownetConfig: SmWownetConfigModel = {} as SmWownetConfigModel;
+  smWownet$ = new Observable<SmWownetModel>;
+
+  wAlertStatus$ = new Observable<WAlertStatus>();
+  constructor(
+    private _smWownetStore: Store<SmWownetState>,
+    private _codeStore: Store<CodeState>,
+    private _rankStore: Store<RankState>,
+    private _smWownetStateStore: Store<SmWownetState>,
+    private _memLineStore: Store<memLineSelector.MemberLineState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState>,
+    private _wAlertStore: Store<WAlertState>,
+    ) {
+      this.codesY$ = this._codeStore.select(getCodesY);
+      this.ranks$ = this._rankStore.select(loadAllRank);
+      this.line$ = this._memLineStore.select(memLineSelector.findLine);
+      this.total$ = this._memLineStore.select(memLineSelector.countLine);
+      this.topLine$ = this._memLineStore.select(memLineSelector.findTopLineMember);
+      this.smWownetConfig$ = this._smWownetStore.select(getSmWownetConfig);
+      this.wAlertStatus$ = this._wAlertStore.select(getWAlertStatus); 
+      this.smWownet$ = this._smWownetStateStore.select(getSmWownet);
+    }
+  ngOnDestroy(): void {
+    let hasValueTop = this.subTopLine.closed != undefined
+    if(this.subTopLine && hasValueTop){
+      this.subTopLine.unsubscribe()
+    }
+    this.userId = this.logid
+  }
+
+  ngOnInit(): void {
+    let member = AuthUtil.getLoginedInfo();
+    if (member) {
+      this.logid = ConvertUtil.convertToSring(member.userid);
+      this.userId = ConvertUtil.convertToSring(member.userid);
+      this.userName = ConvertUtil.convertToSring(member.username);
+      let userKind = ConvertUtil.convertToSring(member.userKind);
+
+      this.isMember = !userKind.endsWith("U00")
+    }
+
+    this.smWownet$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.mUsePId = res.musePId;
+        if(res.musePId === 'Y'){
+          this.memberType = 'P'
+        }else if(res.musePId !== undefined){
+          this.memberType = 'R'
+        }
+      }
+    });
+
+    this._smWownetStore.dispatch(loadSmWownetConfig());
+    this.smWownetConfig$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        if(ValidationUtil.isNotNullAndNotEmpty(res.mBoxMyoffice)){
+          this.lv = Number(res.mBoxMyoffice)
+        }
+        this.smWownetConfig = res;
+      }
+    });
+    this.disableDivisionBtn()
+    this.options = LenConstant.listLen;
+    this.selectedValue = this.options[0];
+
+    this.total$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    })
+
+    this._codeStore.dispatch(loadCodesY());
+    this.codesY$.subscribe(res => {
+      this.yearOptions = [];
+      res.forEach((item) => this.yearOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) }));
+    });
+
+    this._rankStore.dispatch(loadRank());
+    const defaultRankSelected = { label: "전체", value: "" };
+    this.ranks$.subscribe(res => {
+      this.rankOptions = [];
+      this.rankOptions.push(defaultRankSelected);
+      res.forEach((item) => {
+        if(item.rankCd !== '0100'){
+          this.rankOptions.push({ label: item.rankName, value: ConvertUtil.convertToSring(item.rankCd) })
+        }
+      });
+      this.rankSelected = this.rankOptions[0];
+    });
+
+    this.line$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collection = res;
+      } else {
+        this.collection = [];
+      }
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+      this.setBlankRow();
+    });
+
+    this.subTopLine = this.topLine$.subscribe(res => {
+      this.topLine = res
+      if(ValidationUtil.isNotNullAndNotEmpty(res)){
+        if(res.userid && res.userid != ""){
+          this.userId = res.userid
+          this.userName = res.username
+          this.onSearchLine()
+        }
+      }else{
+        this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+      }
+    });
+  }
+
+  onClickSearch(){
+    this.page = 1;
+    this.onSearchLine()
+  }
+  
+  onSearchLine(){
+    let params = this.getParams();
+    setTimeout(() => {
+      this._overlayLoadingStore.dispatch( setShowOverlayLoading({loading: true }));
+    }, 1);
+    this._memLineStore.dispatch(findLine({ params: params }));
+    this._memLineStore.dispatch(countLine({ params: params }));
+  }
+
+  onSearchTopLine(){
+    if(this.userId == this.logid){
+      this._wAlertStore.dispatch(setWAlert({ wAlert: { icon: WAlertConstant.warning, message: MessageConstant.topResult}}));
+      return;
+    }
+    this._memLineStore.dispatch((findTopLineMemberSuccess({topLineMembers:{} as Member})));
+    this._overlayLoadingStore.dispatch( setShowOverlayLoading({loading: true }));
+    this._memLineStore.dispatch((findTopLineMember(this.userId, this.logid, this.memberType)));
+    // setTimeout(() => {
+    //   if(ValidationUtil.isNullOrEmpty(this.topLine)|| ValidationUtil.isNullOrEmpty(this.topLine!.userid)){
+    //     this._wAlertStore.dispatch(setWAlert({ wAlert: { icon: WAlertConstant.warning, message: MessageConstant.topResult}}));
+    //   }
+    // }, 400); 
+  }
+
+  getParams(): any {
+    if(this.lv <= 1){
+      this.lv = 1
+    }
+    let startDate = String(this.dateFilterSelected.fromDate.year.value) 
+        + String(this.dateFilterSelected.fromDate.month.value)
+        + String(this.dateFilterSelected.fromDate.date.value);
+    let endDate = String(this.dateFilterSelected.toDate.year.value) 
+      + String(this.dateFilterSelected.toDate.month.value)
+      + String(this.dateFilterSelected.toDate.date.value);
+
+    let params = {
+      comId: environment.comId,
+      lang: environment.default_lang,
+      rUserid: this.userId,
+      rLv: this.lv,
+      dateKind:  this.dateKind,
+      rStartDate: startDate,
+      rEndDate: endDate,
+      rRankCd: this.rankSelected.value.substr(2, 3),
+      page: Number(this.page)-1,
+      len: this.len,
+      kind: this.memberType,
+    }
+
+    return params;
+  }
+  handleOnChangeDateFilter(dateFilter: DateFilterModel): void {
+    this.dateFilterSelected = dateFilter;
+    this.page = 1;
+    this.onSearchLine()
+  }
+  hanldeOnChangeRankSelectedValue(selected: SelectDropdownModel): void {
+    this.rankSelected = selected;
+  }
+  onChangeDateKind(event:any): void {
+    this.dateKind = event.target.value;
+  }
+  onChangeTypeMember(event:any): void {
+    this.memberType = event.target.value;
+    this.onSearchLine();
+  }
+ 
+  increaseLv(){
+    if(this.divisionRadioValue == 2){
+      this.divisionRadioValue = 1
+    }
+    this.lv ++;
+    this.disableDivisionBtn()
+  }
+  decreaseLv(){
+    if(this.lv <= 1){
+      return
+    }
+    if(this.divisionRadioValue == 2){
+      this.divisionRadioValue = 1;
+    }
+    this.lv --;
+    this.disableDivisionBtn()
+  }
+  disableDivisionBtn(){
+    if(this.divisionRadioValue == 2 && this.lv != 1){
+      this.divisionRadioValue =1
+    }
+   return  (this.lv == 1) ? false: true
+  }
+  handleOnChangeSelectedValue(selected: SelectDropdownModel): void {
+    this.page = 1
+    this.len= Number(selected.value);
+    this.onSearchLine()
+  }
+
+  handleOnChangePage(page: number): void {
+    this.page = page
+    this.onSearchLine()
+  }
+  setBlankRow() {
+    this.totalRows = this.collection.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+
+    this.cols = new Array(this.totalCols);
+  }
+
+  handleOnClickToggleMemberPopup(show: boolean): void {
+    this.showMemberPopup = show;
+  }
+  handleOnClickRowMemberPopup(member: Member): void {
+    this.userId = member.userid
+    this.userName = member.username
+    this.onSearchLine()
+  }
+  handleOnClickShowMemPopup(): void {
+    modifyBackToCloseModal();
+    this.showMemberPopup = true
+  }
+  handleOnClickRow(item:Member)  {
+    window.open(MemberConstants.URL_MEMBER_INQUIRY+"?userid=" + item.userid,"_blank")
+  }
+}

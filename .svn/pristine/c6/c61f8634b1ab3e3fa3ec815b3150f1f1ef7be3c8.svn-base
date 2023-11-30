@@ -1,0 +1,35 @@
+
+
+
+@media all and (max-width: 991px) {
+    #order-calendar .container {
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 992px) {
+    #order-calendar .calendar-detail {
+        min-width: 360px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

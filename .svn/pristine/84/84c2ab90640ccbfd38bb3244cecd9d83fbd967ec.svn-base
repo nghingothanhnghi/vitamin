@@ -1,0 +1,58 @@
+<div class="single-post notice-post">
+<section class="">
+    <div class="container">						
+        <div class="post-header">
+            <h2 class="h-small">{{board.title}}</h2>
+            <!-- <div class="post-meta row">
+                <div class="info author col-auto">
+                    <img src="/assets/img/icons/post-author.svg">
+                    <span>{{board.insUser}}</span>
+                </div>
+                <div class="info date col-auto">
+                    <img src="/assets/img/icons/post-date.svg">
+                    <span>{{board.insDate}}</span>
+                </div>							
+                <div class="info view col-auto">
+                    <img src="/assets/img/icons/post-view.svg">
+                    <span>{{board.readCnt}}</span>
+                </div>		
+            </div> -->
+            <div *ngIf="board.filePath != null && board.fileName != null" class="post-meta post-info row">
+                <a class="info download col-auto" id="down-btn" th:attr="value=${board.regNo}" href="javascript:;" (click)="downFile()">
+                    <container-element [ngSwitch]="board.type">
+                        <img *ngSwitchCase="'zip'" src="/assets/img/icons/zip.svg">
+                        <img *ngSwitchCase="'doc'" src="/assets/img/icons/doc.svg">
+                        <img *ngSwitchCase="'xlsx'" src="/assets/img/icons/xlsx.svg">
+                        <img *ngSwitchCase="'image'" src="/assets/img/icons/file.svg">
+                        <img *ngSwitchDefault src="/assets/img/icons/file.svg">
+                    </container-element>
+                    <span>{{board.fileName}}</span>
+                </a>
+            </div>
+        </div>
+        <div class="post-body" id="postBody">
+            <div [innerHTML]="contents ? (contents | renderHtml) : ''"></div>
+        </div>
+        <div class="row post-foot">
+            <div class="prev col">
+                <a  *ngIf="board.preNo != null && board.preNo != '0' && board.preTitle != null " (click)="onClickEvents(board.preNo)" class="prev col-sm">
+                    <div class="carret left">
+                        <img src="./assets/img/icons/carret-right.svg">
+                    </div>
+                    <span>{{board.preTitle}}</span>
+                </a>
+                <!-- <a *ngIf="board.preNo == null || board.preNo == '0' || board.preTitle == null " class="prev col-sm"></a> -->
+                </div>
+                <div class="next-post col-auto">
+                <a *ngIf="board.nextNo != null && board.nextNo != '0' && board.nextTitle != null " (click)="onClickEvents(board.nextNo)" class="next col-sm">
+                    <span>{{board.preTitle}}</span>
+                    <div class="carret right">
+                        <img src="./assets/img/icons/carret-right.svg">
+                    </div>
+                </a>
+                <!-- <a *ngIf="board.nextNo == null || board.nextNo == '0' || board.nextTitle == null" class="next col-sm"></a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

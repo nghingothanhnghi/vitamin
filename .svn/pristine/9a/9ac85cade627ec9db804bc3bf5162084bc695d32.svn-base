@@ -1,0 +1,38 @@
+<div id="member-registration-4" class="member-registration">
+    <div class="container">
+        <div class="registration-steps row">
+            <ul class="row w-ul s-font">
+                <li class="col done"><span>1</span><span> 단계 약관동의</span></li>
+                <li class="col done"><span>2</span><span> 단계 본인인증</span></li>
+                <li class="col done"><span>3</span><span> 단계 회원정보입력</span></li>
+                <li class="col current"><span>4</span><span> 단계 회원가입완료</span></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="step-content col">
+
+                <div class="step-content row">
+                    <h2 class="h-large">축하합니다!!</h2>
+                    <p class="notice">AINCELL 회원가입이 완료되었습니다.<br>
+                    <div class="recommender-info row">
+                        <div class="col-sm-6 recommender-name">[회원명] <span id="accName">{{username}}</span>
+                        </div>
+                        <div class="col-sm-6 recommender-id">[ID] <span id="userid">{{userid}}</span></div>
+                    </div>
+
+                    <div class="row group-btns">
+                        <a class="col-auto w-btn primary-btn large-btn" (click)="redirectPage();">
+                            <span>확인</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

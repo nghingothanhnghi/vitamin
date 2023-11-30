@@ -1,0 +1,48 @@
+<div id="now-aplgo">
+	<div class="heading">
+		<h2 class="h-small col">아인셀 각종 행사 갤러리입니다.</h2>
+		<div class="search col-auto">
+			<input id="search-key" name="key" type="text" placeholder="검색어를 입력하세요." [(ngModel)]="searchKey"
+				(keydown.enter)="onSearch()">
+			<div class="w-btn btn-search-open" (click)="onSearch()">
+				<svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+					<path
+						d="M19.5 19.5L24 24M21.4286 13.7143C21.4286 17.9748 17.9748 21.4286 13.7143 21.4286C9.4538 21.4286 6 17.9748 6 13.7143C6 9.4538 9.4538 6 13.7143 6C17.9748 6 21.4286 9.4538 21.4286 13.7143Z"
+						stroke="#2A2E46" stroke-width="1.6" stroke-linecap="round">
+					</path>
+				</svg>
+			</div>
+		</div>
+	</div>
+
+	<div class="row media-center">
+		<div class="col-auto item" *ngFor="let item of collection | paginate: config;">
+			<a (click)="handleOnClickBoardNo(item.boardNo)">
+				<div class="thumbnail">
+					<div class="img-wrapper">
+						<img src="{{item.pathImg}}">
+					</div>
+				</div>
+				<h4 class="h-false post-name">{{item.title}}</h4>
+				<div class="post-meta">
+					<span class="time">{{item.insDate}}</span>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="pagination row">
+		<div class="col-auto per-page row">
+			<div class="label col-auto"><span>페이지표시</span></div>
+			<select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+				(changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+		</div>
+		<paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems" [config]="config"
+			(changePage)="handleOnChangePage($event);"></paging>
+		<div class="col-auto total">
+			<span class="label">Total</span>
+			<span class="value">{{ boardListTotalItems$ | async }}</span>
+		</div>
+	</div>
+
+</div>

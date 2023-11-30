@@ -1,0 +1,260 @@
+.print-page {
+  width: 700px;
+  padding: 20px;
+  color: #000;
+  ;
+  margin: 0 auto;
+  font-size: 12px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.clearfix {
+  clear: both;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.benefit-left {
+  width: calc(40% - 10px);
+  margin-right: 10px;
+}
+
+.benefit-right {
+  width: calc(60% - 10px);
+  margin-left: 10px;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.width100 {
+  width: 100%;
+}
+
+
+
+
+.TopCont {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.TopCont h2 {
+  float: left;
+  font-size: 30px;
+  color: #232323;
+  line-height: 60px;
+  text-align: center;
+}
+
+.TopContR {
+  float: right;
+  width: 35%;
+  height: 60px;
+}
+
+.tbTwo,
+.tbTwo th,
+.tbTwo td {
+  border: 0;
+  font-size: 12px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.tbTwo {
+  clear: both;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+.tbTwo caption {
+  display: none
+}
+
+.tbTwo th {
+  padding: 3px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+  border-top: none;
+  background: #efefef;
+  white-space: nowrap;
+}
+
+.tbTwo tbody th {
+  max-width: 300px;
+}
+
+.tbTwo td {
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-right: none
+}
+
+.tbThree,
+.tbThree th,
+.tbThree td {
+  border: 0;
+  font-size: 10px;
+  line-height: 9px;
+  background: #fff;
+}
+
+.tbThree {
+  clear: both;
+  width: 100%;
+  border-bottom: 1px solid #3e4347;
+  border-right: 1px solid #3e4347;
+  border-top: 1px solid #3e4347;
+  border-collapse: collapse;
+}
+
+.tbThree caption {
+  display: none
+}
+
+.tbThree thead th {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #555;
+  border-top: none;
+  background: #fafafa;
+}
+
+.tbThree tbody th {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  color: #555;
+  font-weight: bold;
+  border-top: none;
+  background: #fafafa;
+}
+
+.tbThree tbody .TxtR {
+  width: 40%;
+  float: right;
+  padding-top: 5px;
+}
+
+.tbThree td {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  border-top: none;
+  border-right: 1px solid #3e4347;
+}
+
+
+.tbSign,
+.tbSign th,
+.tbSign td {
+  border: 0;
+  font-size: 10px;
+  color: #ff0000;
+  background: #fff;
+}
+
+.tbSign {
+  clear: both;
+  width: 79px;
+  border-bottom: 3px solid #ff0000;
+  border-right: 3px solid #ff0000;
+  border-left: 3px solid #ff0000;
+  border-top: 3px solid #ff0000;
+  border-collapse: collapse;
+}
+
+.tbSign caption {
+  display: none
+}
+
+.tbSign thead th {
+  border: 3px solid #ff0000;
+  color: #ff0000;
+  border-top: none;
+}
+
+.tbSign tbody th {
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  font-weight: bold;
+  border-top: none;
+  background: #fff;
+}
+
+.tbSign td {
+  padding: 3px;
+  border: 1px solid #3e4347;
+  border-top: none;
+  border-right: none;
+}
+
+.EndYmdBody {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.EndYmdBody .EndYmd {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.EndYmdBody .EndSign {
+  text-align: right;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 3px;
+}
+
+.BottomSign {
+  width: 100%;
+  height: 75px;
+  margin: 20px 0;
+}
+
+.BottomSign h2 {
+  float: left;
+  width: 85%;
+  text-align: center;
+}
+
+.BottomSign h2 img {
+  height: 75px;
+}
+
+.BottomSign .BottomSignR {
+  float: right;
+  width: 15%;
+  height: 75px;
+}
+
+.footer-print {
+  border-top: 1px solid #555;
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+
+th {
+  text-align: center;
+}

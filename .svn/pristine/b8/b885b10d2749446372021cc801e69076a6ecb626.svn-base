@@ -1,0 +1,266 @@
+<div id="member-information-inquiry" class="office-page">
+
+    <section class="section-content searching-result">
+        <input type="hidden" id="userSearch" value="">
+        <div class="searching-form">
+            <div class="container">
+                <div class="row form-row hr-row">
+                    <div class="row info standard-member-name">
+                        <span class="label-name col-auto">회원명</span>
+                        <div class="col inputs-wrapper row">
+                            <input class="col" value="{{userName}}" disabled="" id="userName">
+                            <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+                                ng-click="myFunc()" (click)="handleOnClickShowMemPopup();">
+                                <svg width="16" height="16" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"
+                                        fill="white" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container results mobile-container">
+            <div class="row overall resultsTab">
+                <div class="col-lg column mobile-block">
+                    <div class="office-block profile">
+                        <div class="block-heading">
+                            <h2 class="h-small">회원정보</h2>
+                            <!-- <a class="w-btn confirm-btn" (click)="handleOnClickMemberReport();">회원등록 확인서</a> -->
+                        </div>
+
+                        <!--  <table class="vt-table"> -->
+                        <table class="vt-table" *ngIf="memInfo$ | async as mem">
+                            <tbody>
+                                <tr>
+                                    <td>가입일자</td>
+                                    <td id="regDate">{{mem.regDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td>회원명</td>
+                                    <td id="userId">{{mem.username}}({{mem.userid}})</td>
+                                </tr>
+                                <tr>
+                                    <td>주민번호 수집일 </td>
+                                    <td id="juminDate">{{mem.juminDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td>생년월일</td>
+                                    <td id="birthDay">{{mem.birthday | encode: "DATE" }}</td>
+                                </tr>
+                                <tr>
+                                    <td>소속본부/센터 </td>
+                                    <td id="center">{{mem.cntName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>직급</td>
+                                    <td id="rankName">{{mem.rankName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>후원인</td>
+                                    <td id="pName">{{mem.pname}}</td>
+                                </tr>
+                                <tr>
+                                    <td>추천인</td>
+                                    <td id="rName">{{mem.rname}}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>전화번호</td>
+                                    <td id="tel">{{mem.tel | encode: "PHONE"}}</td>
+                                </tr> -->
+                                <tr>
+                                    <td>핸드폰번호</td>
+                                    <td id="mobile">{{mem.mobile | encode: "PHONE" }}</td>
+                                </tr>
+                                <tr>
+                                    <td>이메일주소</td>
+                                    <td id="email">{{mem.email | encode: "EMAIL" }}</td>
+                                </tr>
+                                <tr>
+                                    <td>주소</td>
+                                    <td id="addr">{{mem.addr1}}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>부부사업자</td>
+                                    <td id="bbName"></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+
+                        <!-- <a href="javascript:report()" class="w-btn small-btn col light-btn confirm-btn" th:text="#{member.info.btn.001}">회원등록 확인서</a> -->
+                    </div>
+                </div>
+
+
+                <div class="col-lg column">
+                    <div class="office-block promotion-date mobile-block">
+                        <h2 class="h-small">직급승급일자</h2>
+                        <table class="hr-table" style="display: table">
+                            <thead>
+                                <tr>
+                                    <th>직급명</th>
+                                    <th>승급일자</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="rankTbl">
+                                <tr *ngFor="let item of rankHistories$ | async">
+                                    <td>{{item.rankName}}</td>
+                                    <td>{{item.payDate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="office-block affiliated-members mobile-block">
+                        <h2 class="h-small">산하회원인수</h2>
+                        <table class="hr-table" style="display: table">
+                            <thead>
+                                <tr>
+                                    <th>본인그룹인수</th>
+                                    <th>직추천활동회원수</th>
+                                    <th>직추천탈퇴회원수</th>
+                                </tr>
+
+                            </thead>
+                            <tbody id="affiliatedMemberTbl">
+                                <tr *ngIf="affiliatedMember$ | async as aff">
+                                    <td>{{aff.grpCnt}}</td>
+                                    <td>{{aff.lv1ActCnt}}</td>
+                                    <td>{{aff.lv1TermCnt}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row office-block content-row mobile-block last none" id="tableMem">
+                <div class="recommended-genealogy-list">
+                    <h2 class="h-small" >추천 계보도</h2>
+                    <div class="pagination mobile-pagination row">
+                        <div class="col-auto per-page row">
+                            <div class="label col-auto"><span>페이지표시</span></div>
+                            <select-dropdown class="dropdown-select col row" [options]="options"
+                                [selected]="selectedValue"
+                                (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+                        </div>
+                        <div class="col-auto total">
+                            <span class="label">Total</span>
+                            <span class="value">{{countTreeInfos$ | async}}</span>
+                        </div>
+                    </div>
+                    <div class="table-container row draggable-element">
+                        <div class="col col_data draggable-items-wrapper" draggableWrapper>
+                            <div class="table-wrapper">
+                                <table class="hr-table">
+                                    <thead>
+                                        <tr>
+                                            <th th:text="#{member.info.lbl.025}">단계</th>
+                                            <th th:text="#{member.info.lbl.026}">계보</th>
+                                            <th th:text="#{member.info.lbl.027}">성명</th>
+                                            <th th:text="#{member.info.lbl.028}">가입일자</th>
+                                            <th th:text="#{member.info.lbl.029}">본부/센터</th>
+                                            <th th:text="#{member.info.lbl.030}">직급</th>
+                                            <th th:text="#{member.info.lbl.031}">승급일자</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of collection | paginate: config"
+                                            [ngClass]="item.status == '0'?'red-line':''">
+                                            <td>{{item.lv}}</td>
+                                            <td style="cursor: pointer;" (click)="handleOnClickRow(item);">
+                                                {{item.keihuTxt}}</td>
+                                            <td style="cursor: pointer;" (click)="handleOnClickRow(item);">
+                                                {{item.username}}</td>
+                                            <td>{{item.regDate}}</td>
+                                            <td>{{item.cntName}}</td>
+                                            <td>{{item.rankName}}</td>
+                                            <td>{{item.rankMaxDate}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <ng-container *ngIf="totalRows < 5">
+                                        <tbody>
+                                            <tr *ngFor="let row of rows; index as i">
+                                                <ng-container *ngFor="let col of cols; index as j">
+                                                    <td>
+                                                        <span>&nbsp;</span>
+                                                        <ng-container *ngIf="totalRows === 0 && i === 2 && j == 3">
+                                                            <span class='h-small empty-warning'>조회된 데이타가
+                                                                없습니다.</span>
+                                                        </ng-container>
+                                                    </td>
+                                                </ng-container>
+                                            </tr>
+                                        </tbody>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="hr-mobile-table">
+                        <tbody *ngFor="let item of collection | paginate: config" (click)="handleOnClickRow(item);"
+                            [ngClass]="item.status == '0'?'red-line':''">
+                            <tr>
+                                <td>단계</td>
+                                <td style="text-align: center;">{{ item.lv }}</td>
+                            </tr>
+                            <tr>
+                                <td>계보</td>
+                                <td style="text-align: center;">{{ item.keihuTxt }}</td>
+                            </tr>
+                            <tr>
+                                <td>성명</td>
+                                <td style="text-align: center;">{{ item.username }}</td>
+                            </tr>
+                            <tr>
+                                <td>가입일자</td>
+                                <td style="text-align: center;">{{ item.regDate }}</td>
+                            </tr>
+                            <tr>
+                                <td>본부/센터</td>
+                                <td style="text-align: center;">{{ item.cntName }}</td>
+                            </tr>
+                            <tr>
+                                <td>직급</td>
+                                <td style="text-align: center;">{{ item.rankName }}</td>
+                            </tr>
+                            <tr>
+                                <td>승급일자</td>
+                                <td style="text-align: center;">{{ item.rankMaxDate }}</td>
+                            </tr>
+                        </tbody>
+                        <grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+                    </table>
+                </div>
+
+                <div class="pagination desktop-pagination row">
+                    <div class="col-auto per-page row">
+                        <div class="label col-auto"><span>페이지표시</span></div>
+                        <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                            (changeSelectedValue)="handleOnChangeSelectedValue($event);">
+                        </select-dropdown>
+                    </div>
+                    <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems"
+                        [config]="config" (changePage)="handleOnChangePage($event);"></paging>
+                    <div class="col-auto total">
+                        <span class="label">Total</span>
+                        <span class="value">{{countTreeInfos$ | async}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="popups-member-container">
+        <member-popup [show]="showMemberPopup" (clickClosePopup)="handleOnClickToggleMemberPopup($event);"
+            (clickRowItem)="handleOnClickRowMemberPopup($event);"></member-popup>
+    </section>
+
+</div>

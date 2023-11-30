@@ -1,0 +1,34 @@
+<section id="features-slider">
+  dsadasdsa
+  <!-- <div class="featured-slider" data-display="1,1,1,1" data-dot="on" data-nav="on" data-number="on" data-autoplay="on"
+        data-interval="5000">
+        <div class="slider-content">
+            <div class="slider-wrapper row container">
+                <ng-container *ngFor="let item of contentsBanner;">
+                    <div class="col-12 slide item">
+                        <div class="slide-text row">
+                            <div class="text s-font">
+                                <h2>
+                                    <span>{{ item.contents }}</span>
+                                    <span class="s-font">{{ item.content1 }}</span>
+                                </h2>
+                                <p class="h-medium">{{ item.content2 }}</p>
+                                <a class="w-btn light-rounded-btn medium-btn" routerLink="{{ item.linkInfo }}" *ngIf="item.linkInfo&&item.linkInfo!=''">
+                                    <span>More</span>
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                        <path
+                                            d="M0 6.00008L5.99996 6.00008M5.99996 6.00008L12 6.00008M5.99996 6.00008V0M5.99996 6.00008V12"
+                                            stroke="white" stroke-width="1" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="slide-img">
+                            <img src="{{ urlWownet + item.filePath + item.fileName }}" alt="{{ item.fileName }}" />
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div> -->
+</section>

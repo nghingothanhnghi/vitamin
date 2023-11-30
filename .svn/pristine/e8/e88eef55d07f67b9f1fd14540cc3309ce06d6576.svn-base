@@ -1,0 +1,766 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.1;
+}
+
+li {
+    list-style: none;
+}
+
+ul,
+h1,
+h2,
+h3,
+p,
+li,
+dt,
+dd,
+table,
+th,
+dt,
+dd,
+dl,
+ol {
+    padding: 0;
+    margin: 0;
+}
+
+caption {
+    display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+dl,
+dt,
+dd,
+ul,
+li,
+ol,
+th,
+td,
+p,
+blockquote,
+form,
+fieldset,
+legend,
+div,
+body {
+    -webkit-print-color-adjust: exact;
+}
+
+.clr:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.printWrap {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 12px;
+    font-family: "Nanum Barun Gothic", 'Alef', dotum, arial, sans-serif;
+    line-height: 1.1;
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.printWrap input[type="checkbox"] {
+    margin: 0;
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #141414;
+}
+
+.breakhere {
+    page-break-before: always;
+}
+
+.dataArea {
+    display: inline-block;
+    height: 1em;
+    font-weight: normal;
+    position: relative;
+    min-width: 120px;
+    padding: 0 3px;
+    box-sizing: border-box;
+}
+
+.dataArea:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #333;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.t_l {
+    text-align: left;
+}
+
+.t_c {
+    text-align: center;
+}
+
+.t_r {
+    text-align: right !important;
+}
+
+.pd10 {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.blueTxt {
+    color: #1761fd;
+}
+
+.redTxt {
+    color: #f32f5e;
+}
+
+.mgt10 {
+    margin-top: 10px;
+}
+
+.mgb0 {
+    margin-bottom: 0 !important;
+}
+
+/* 회원등록확인서 */
+.printWrap h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3652;
+}
+
+.bdWrap {
+    border: 1px solid #e3ebf6;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.printWrap table {
+    width: 100%;
+    border: 1px solid #eaf0f7;
+    margin-bottom: 10px
+}
+
+.printWrap td {
+    padding: 10px 10px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #303e67;
+    border-right: 1px solid #eaf0f7;
+    border-bottom: 1px solid #eaf0f7;
+}
+
+.printWrap td:last-child,
+.bdr0 {
+    border-right: 0 !important;
+}
+
+.printWrap tr:last-child td,
+.bdb0 {
+    border-bottom: 0 !important;
+}
+
+.grayBg {
+    color: #303e67 !important;
+    font-weight: 700 !important;
+    background: #f1f5fa;
+}
+
+.bdWrap dl {
+    display: table;
+    width: 100%;
+}
+
+.bdWrap dt {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 14px;
+    text-indent: -14px;
+    line-height: 1.3;
+}
+
+.bdWrap dd {
+    display: table-cell;
+    vertical-align: middle;
+    width: 120px;
+    text-align: right;
+}
+
+.bdWrap dd input {
+    margin-left: 5px !important;
+}
+
+.frontLi li {
+    line-height: 1.3;
+    padding-left: 10px;
+    text-indent: -10px;
+    margin-bottom: 3px;
+}
+
+.bdWrap p {
+    padding-left: 14px;
+    text-indent: -14px;
+    margin-bottom: 5px;
+    letter-spacing: -0.3px;
+}
+
+.frontBtm {
+    margin-top: 20px;
+}
+
+.frontBtm h3 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.frontBtm h3 img {
+    width: 50px;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+.frontBtm ul {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #eaf0f7;
+    padding-top: 10px;
+}
+
+.frontBtm li {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.frontBtm li:last-child {
+    margin-right: 0;
+}
+
+.btmTxt {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 10px;
+    color: #939aa2;
+}
+
+.columnWrap {
+    border: 1px solid #eaf0f7;
+    margin-bottom: 10px;
+    width: 100%;
+    display: table;
+    box-sizing: border-box;
+}
+
+.column {
+    width: 50%;
+    display: table-cell;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+.column:last-child {
+    border-left: 1px solid #eaf0f7;
+}
+
+.column dl {
+    margin-bottom: 5px;
+}
+
+.column dt {
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.column dd {
+    letter-spacing: -0.5px;
+}
+
+.memInfo {
+    padding: 0px 0px;
+}
+
+.memInfo ul {
+    display: table;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eaf0f7;
+}
+
+.memInfo ul:last-child {
+    border-bottom: 0;
+}
+
+.memInfo li {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px 0;
+    font-weight: 700;
+}
+
+.memInfo li span {
+    display: inline-block;
+}
+
+.memInfo .t_c {
+    font-size: 16px;
+}
+
+.li3 li {
+    width: 33.33%;
+}
+
+.li2 li {
+    width: 50%;
+}
+
+.backBtm {
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+/* 주문거래명세서 */
+.printWrap h2 span {
+    font-weight: normal;
+    font-size: 20px;
+}
+
+
+.printWrap th {
+    padding: 5px 5px;
+    background: #f1f5fa;
+    color: #303e67;
+    font-size: 12px;
+    font-weight: 700;
+    border-right: 1px solid #eaf0f7;
+    border-bottom: 1px solid #eaf0f7;
+    text-align: center;
+}
+
+.printWrap thead th {
+    padding: 7px 10px;
+    background: #879fbd;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    border-right: 1px solid #eaf0f7;
+    border-bottom: 1px solid #eaf0f7;
+    text-align: center;
+}
+
+.comInfo {
+    background: #879fbd;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.infoTxt {
+    display: table;
+    width: 100%;
+}
+
+.infoTxt dt {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.infoTxt dt img {
+    margin-right: 10px;
+}
+
+.infoTxt dd {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* 청약철회 */
+.cancleBtm {
+    line-height: 2;
+    margin-bottom: 30px;
+    font-size: 11px;
+}
+
+.boxTxt {
+    font-size: 10px;
+    padding: 10px;
+    background: #f1f5fa;
+    border: 1px solid #eaf0f7;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* 수당명세서 */
+.filterWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    box-sizing: border-box;
+    border: 1px solid #e3ebf6;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+.filterWrap .flex {
+    flex-grow: 1;
+    margin: 10px;
+}
+
+.filterWrap .flex.btns {
+    margin-top: 0;
+}
+
+.filterWrap .flex.wd100 dd {
+    display: flex;
+}
+
+.filterWrap .flex2 {
+    flex-grow: 2;
+    margin: 10px;
+}
+
+.filterWrap dt {
+    font-size: 13px;
+    color: #656d9a;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.filterWrap dd {
+    display: flex;
+    height: 26px;
+}
+
+.filterWrap dd select.mgl20 {
+    margin-left: 10px;
+}
+
+.filterWrap dd select {
+    height: 26px;
+    font-size: 10px;
+}
+
+.filterWrap .periodBtn {
+    display: inline-flex;
+    flex-basis: 33%;
+    border: 1px solid #e3ebf6;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.filterWrap .periodBtn li {
+    float: left;
+    width: 50%;
+    text-align: center;
+    border-right: 1px solid #e3ebf6;
+}
+
+.filterWrap .periodBtn li:last-child {
+    border-right: 0;
+}
+
+.filterWrap .periodBtn li a {
+    display: block;
+    color: #656d9a;
+    font-size: 10px;
+    line-height: 26px;
+    transition: all 0.3s;
+}
+
+.filterWrap .periodBtn li a:hover,
+.periodBtn li a.on {
+    color: #fff;
+    background: #1761fd
+}
+
+.officeWrap .btns a {
+    display: inline-block;
+    min-width: 100px;
+    height: 26px;
+    line-height: 26px;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 10px;
+    margin-right: 7px;
+    transition: all 0.3s;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.officeWrap .btns a:last-child {
+    margin-right: 0;
+}
+
+.officeWrap .btns span {
+    font-size: 13px;
+    padding-right: 5px;
+}
+
+.officeInfo {
+    background: #f1f5fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 10px;
+}
+
+.officeCont {
+    border: 1px solid #e3ebf6;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.officeCont.wd50 {
+    width: calc(50% - 5px) !important;
+}
+
+.officeCont .officeHead {
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e3ebf6;
+    position: relative;
+}
+
+.officeCont .officeHead h2 {
+    color: #2c3652;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.officeCont .officeHead p {
+    margin-top: 5px;
+    color: #a4abc5;
+    font-size: 8px;
+    line-height: 1;
+}
+
+.officeCont .officeBody {
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.tbl-office-th {
+    margin-bottom: 0 !important;
+}
+
+.tbl-office-th tr,
+.tbl-office tr,
+.tbl-office-3left tr,
+.tbl-office-center tr {
+    height: 0;
+}
+
+.tbl-office-th td,
+.titTd {
+    padding: 5px;
+    background: #f1f5fa;
+    color: #303e67;
+    font-size: 10px;
+    font-weight: 700;
+    border-right: 1px solid #eaf0f7;
+    border-bottom: 1px solid #eaf0f7;
+    text-align: center;
+}
+
+.tbl-office td,
+.tbl-office-3left td,
+.tbl-office-center td {
+    font-size: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+.printWrap #contents>.clr.mgt20 {
+    margin-top: 10px;
+}
+
+.printWrap #contents table {
+    margin-bottom: 0;
+}
+
+.printWrap #contents .officeCont.mgt20 {
+    margin-top: 10px;
+}
+
+.officeBody#grid3 {
+    padding-bottom: 0;
+}
+
+.print-box-name {
+    margin-top: 20px;
+    color: #2c3652;
+    border-bottom: 1px solid #eaf0f7;
+    padding-bottom: 10px;
+}
+
+.print-box-name ul {
+    display: table;
+    width: 100%;
+}
+
+.print-box-name li {
+    display: table-cell;
+    width: 50%;
+    font-size: 14px;
+}
+
+/* 회원등록증 */
+.idCardWrap {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 100%;
+    height: 100%;
+    font-family: "Nanum Barun Gothic", 'Alef', dotum, arial, sans-serif;
+    color: #333;
+}
+
+.idCardWrap>div {
+    width: 100%;
+    padding: 0 50px;
+    box-sizing: border-box;
+    height: 33.33%;
+}
+
+.idCardWrap .printTop {
+    display: table;
+/*     background: url(../../images/os/contents/leafletbgTop.jpg) no-repeat;  //TODO */
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.idCardWrap .printTop .topLogo {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 50%;
+}
+
+.idCardWrap .printTop .topLogo img {
+    width: 60%;
+}
+
+.idCardWrap .printTop .memCard {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.idCardWrap .printTop dl {
+    width: 90%;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #a79d94;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.idCardWrap .printTop dl dt {
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #786b60;
+}
+
+.idCardWrap .printTop dl dd {
+    font-size: 12px;
+    text-indent: -55px;
+    margin-left: 55px;
+    word-break: keep-all;
+}
+
+.idCardWrap .printTop .memImg {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 70px;
+    height: 90px;
+    margin-left: 0;
+    text-indent: 0;
+/*     background: url(../../images/os/contents/noMemImg.jpg) #eee no-repeat; //TODO */
+    background-size: 100%;
+    background-position: center center;
+    border: 1px solid #ddd;
+}
+
+.idCardWrap .printTop dl dd .itemName {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #786b60;
+    width: 49px;
+    display: block;
+}
+
+.idCardWrap .printCont {
+    padding: 50px;
+    word-break: keep-all;
+}
+
+.idCardWrap h1 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #776d62;
+}
+
+.idCardWrap .printCont p {
+    color: #333;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.idCardWrap .printCont p img {
+    width: 50px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.idCardWrap .printBt {
+ /*    background: url(../../images/os/contents/leafletbgBt.jpg) no-repeat; //TODO */
+    background-size: cover;
+    display: block;
+    position: relative;
+}
+
+.idCardWrap .printBt img {
+    width: 26%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

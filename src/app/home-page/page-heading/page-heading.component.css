@@ -1,0 +1,36 @@
+/**/
+
+
+.page-menu {
+    background: #FFF;
+    box-shadow: 0px 5px 15px rgba(0,0,0,.1); 
+}
+
+ul {
+    margin: 0;
+}
+
+ul li a {
+    color: rgba(var(--bs-secondary-rgb),var(--bs-text-opacity));
+    display: block;
+    padding: 15px 0;
+    transition: all ease-in-out .3s;
+}
+
+ul li a:hover,
+ul li.active a {
+    color: #f8971b;
+}
+
+ul li:not(:last-child) a {
+    margin-right: 30px;
+}
+@media (max-width:575px){
+    ul{ margin-top: 15px;margin-bottom: 15px;}
+    ul li a {
+        padding-top: 5px; padding-bottom: 5px;
+    }
+}
+
+
+

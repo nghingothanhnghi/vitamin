@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+.position-chart .hr-chart {
+    padding-top: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.position-chart h2 {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.position-chart h2 {
+        margin-bottom: 35px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.position-chart h2 {
+        margin-bottom: 40px;
+    }
+}
+
+
+
+
+
+
+
+@media all and (min-width: 992px)  {
+	.position-chart, 
+    .age-combination {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

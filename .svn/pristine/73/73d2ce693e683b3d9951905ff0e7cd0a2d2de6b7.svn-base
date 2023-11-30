@@ -1,0 +1,294 @@
+<div id="benefit-accounting-inquiry" class="office-page">
+
+	<!-- Main Header -->
+	<div th:replace="fragments/inc-header" id="inc-header"></div>
+	<!-- End Header -->
+
+
+	<!-- Main Content -->
+	<main>
+		<input id="sel-id" type="hidden" value="" />
+
+		<section class="section-content searching-result benSearch">
+
+
+			<div class="searching-form">
+				<div class="container">
+					<!-- date row -->
+					<date-time-filter 
+					class="row form-row date-time"
+					[yearOptions]="yearOptions"
+					[hiddenDate]="true"
+					[labelDate]="labelDate"
+					[hiddenImageSvg] = "false"
+					(changeDateTimeFilter)="handleOnChangeDateFilter($event);">
+					</date-time-filter>
+
+
+					<div class="row form-row last-row submit">
+
+						<!-- Inquiry Classification -->
+
+						<div class="col col-md-auto row info inquiry-classification non-background">
+							<div class="col-auto label">
+								<span th:text="#{benefit.accounting.inquiry.lbl.001}">조회구분</span>
+							</div>
+							<div class="col radios-group row">
+								<div class="col-auto radio">
+									<input type="radio" id="inlineRadio1" name="cancel_associated_session"
+									[(ngModel)]="isChkDate" [value]="1" />
+									<label for="inlineRadio1" th:text="#{benefit.accounting.inquiry.lbl.002}">월별</label>
+								</div>
+								<div class="col-auto radio">
+									<input type="radio" id="inlineRadio2" name="cancel_associated_session"
+									[(ngModel)]="isChkDate" [value]="2" />
+									<label for="inlineRadio2"th:text="#{benefit.accounting.inquiry.lbl.003}">연간</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- Submit Btn -->
+						<div class="col-auto submit-btn-wrapper">
+							<div class="w-btn submit-btn has-icon advanced" id="search" (click)="search();">
+								<span th:text="#{common.btn.001}">검색</span>
+								<div class="icon"><img src="./assets/img/icons/search-ncc.svg"></div>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- btns mobile -->
+					<date-time-filter-mobile class="mobile-date-time-filter"></date-time-filter-mobile>
+
+				</div>
+			</div>
+
+
+
+
+
+
+			<div class="container results memnberTab" id="list-pc">
+				<!---->
+				<p class="text-primary">※
+					주민등록번호 정보가 없는 경우, 발생된 수당이 지급되지 않을 수 있습니다.</p>
+
+				<div class="office-block">
+
+					<!-- pagination moblie -->
+					<div class="pagination mobile-pagination row">
+						<div class="col-auto per-page row">
+						<div class="label col-auto"><span>페이지표시</span></div>
+							<select-dropdown 
+								class="dropdown-select col row"
+								[options]="options"
+								[selected]="selectedValue"
+								(changeSelectedValue)="handleOnChangeSelectedValue($event);" ></select-dropdown>
+						</div>
+						<div class="col-auto total">
+						<span class="label">Total</span>
+						<span class="value">{{ benefitAcountingTotalItems$ | async }}</span>
+						</div>
+					</div>
+
+
+					<div class="table-container row draggable-element">
+						<div class="col col_data draggable-items-wrapper">
+							<div class="table-wrapper">
+								<table class="hr-table">
+									<thead>
+										<tr>
+											<td *ngFor="let items of tiltePayNew" class="label-table">{{items.payName}}</td>
+										</tr>
+									</thead>
+									<tbody>
+                                        <tr *ngFor="let item of collection | paginate: config">
+											<td>{{ item.paydate ? (item.paydate.length  === 4 ? item.paydate + "년" : item.paydate.length === 6 ? item.paydate.substring(0,4) + "년 " + item.paydate.substring(4) + "월" :  item.paydate ): "" }}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 1">{{ item.amt1 ? (item.amt1 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 2">{{ item.amt2 ? (item.amt2 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 3">{{ item.amt3 ? (item.amt3 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 4">{{ item.amt4 ? (item.amt4 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 5">{{ item.amt5 ? (item.amt5 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 6">{{ item.amt6 ? (item.amt6 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 7">{{ item.amt7 ? (item.amt7 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 8">{{ item.amt8 ? (item.amt8 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 9">{{ item.amt9 ? (item.amt9 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 10">{{ item.amt10 ? (item.amt10 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 11">{{ item.amt11 ? (item.amt11 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 12">{{ item.amt12 ? (item.amt12 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 13">{{ item.amt13 ? (item.amt13 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 14">{{ item.amt14 ? (item.amt14 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 15">{{ item.amt15 ? (item.amt15 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+										</tr>
+                                    </tbody>
+
+									<ng-container *ngIf="totalRows < 5">
+										<tbody>
+										  <tr *ngFor="let row of rows; index as i">
+											<ng-container *ngFor="let col of cols; index as j">
+											  <td>
+												<span>&nbsp;</span>
+												<ng-container *ngIf="totalRows === 0 && i === 2 && j === floorTotalCols">
+												  <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+												</ng-container>
+											  </td>
+											</ng-container>
+										  </tr>
+										</tbody>
+									  </ng-container>
+
+									<tfoot>
+										<tr *ngIf="benefitAcountingSumItem$ | async as item">
+											<td class="label-table">[합계]</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 1">{{ item.amt1 ? (item.amt1 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 2">{{ item.amt2 ? (item.amt2 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 3">{{ item.amt3 ? (item.amt3 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 4">{{ item.amt4 ? (item.amt4 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 5">{{ item.amt5 ? (item.amt5 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 6">{{ item.amt6 ? (item.amt6 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 7">{{ item.amt7 ? (item.amt7 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 8">{{ item.amt8 ? (item.amt8 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 9">{{ item.amt9 ? (item.amt9 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 10">{{ item.amt10 ? (item.amt10 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 11">{{ item.amt11 ? (item.amt11 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 12">{{ item.amt12 ? (item.amt12 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 13">{{ item.amt13 ? (item.amt13 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 14">{{ item.amt14 ? (item.amt14 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight" *ngIf="lengthTitleResult >= 15">{{ item.amt15 ? (item.amt15 | setComma) + '원' : "0원"}}</td>
+											<td class="textRight">{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+
+
+				<!-- mobile-->
+				<table class="hr-mobile-table">
+					<tbody *ngFor="let item of collection">
+						<tr>
+						  <td>{{tiltePayNew[0].payName}}</td>
+						  <td>{{ item.paydate ? (item.paydate.length  === 4 ? item.paydate + "년" : item.paydate.length === 6 ? item.paydate.substring(0,4) + "년 " + item.paydate.substring(4) + "월" :  item.paydate ): "" }}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 1">
+							<td>{{tiltePayNew[1].payName}}</td>
+							<td>{{ item.amt1 ? (item.amt1 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 2">
+							<td>{{tiltePayNew[2].payName}}</td>
+							<td>{{ item.amt2 ? (item.amt2 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 3">
+							<td>{{tiltePayNew[3].payName}}</td>
+							<td>{{ item.amt3 ? (item.amt3 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 4">
+							<td>{{tiltePayNew[4].payName}}</td>
+							<td>{{ item.amt4 ? (item.amt4 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 5">
+							<td>{{tiltePayNew[5].payName}}</td>
+							<td>{{ item.amt5 ? (item.amt5 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 6">
+							<td>{{tiltePayNew[6].payName}}</td>
+							<td>{{ item.amt6 ? (item.amt6 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 7">
+							<td>{{tiltePayNew[7].payName}}</td>
+							<td>{{ item.amt7 ? (item.amt7 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 8">
+							<td>{{tiltePayNew[8].payName}}</td>
+							<td>{{ item.amt8 ? (item.amt8 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 9">
+							<td>{{tiltePayNew[9].payName}}</td>
+							<td>{{ item.amt9 ? (item.amt9 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 10">
+							<td>{{tiltePayNew[10].payName}}</td>
+							<td>{{ item.amt10 ? (item.amt10 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 11">
+							<td>{{tiltePayNew[11].payName}}</td>
+							<td>{{ item.amt11 ? (item.amt11 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 12">
+							<td>{{tiltePayNew[12].payName}}</td>
+							<td>{{ item.amt12 ? (item.amt12 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 13">
+							<td>{{tiltePayNew[13].payName}}</td>
+							<td>{{ item.amt13 ? (item.amt13 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 14">
+							<td>{{tiltePayNew[14].payName}}</td>
+							<td>{{ item.amt14 ? (item.amt14 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr *ngIf="lengthTitleResult >= 15">
+							<td>{{tiltePayNew[15].payName}}</td>
+							<td>{{ item.amt15 ? (item.amt15 | setComma) + '원' : "0원"}}</td>
+						</tr>
+
+						<tr>
+							<td>{{tiltePayNew[tiltePayNew.length -1].payName}}</td>
+							<td>{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+						  </tr>
+					
+					  </tbody>
+					  <grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+				</table>
+
+					<!-- pagination pc -->
+					<div class="pagination desktop-pagination row">
+						<div class="col-auto per-page row">
+						<div class="label col-auto"><span>페이지표시</span></div>
+						<select-dropdown 
+							class="dropdown-select col row"
+							[options]="options"
+							[selected]="selectedValue"
+							(changeSelectedValue)="handleOnChangeSelectedValue($event);"
+						></select-dropdown>
+						</div>
+						<paging 
+						class="col-auto row paging"
+						[len]="len"
+						[page]="page"
+						[totalItems]="totalItems"
+						[config]="config"
+						(changePage)="handleOnChangePage($event);"></paging>
+						<div class="col-auto total">
+						<span class="label">Total</span>
+						<span class="value">{{ benefitAcountingTotalItems$ | async }}</span>
+						</div>
+					</div>
+
+					
+				</div>
+			</div>
+		</section>
+	</main>
+
+
+	<!------------- Footer ------------->
+	<div th:replace="fragments/inc-footer" id="inc-footer"></div>
+	<!--------------------------------->
+</div>

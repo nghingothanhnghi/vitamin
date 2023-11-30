@@ -1,0 +1,198 @@
+/**/
+
+
+
+.searching-result .searching-form .label-name {
+	display: flex;
+	align-items: center;
+	padding-right: 15px;
+	position: relative;
+}
+
+.searching-result .searching-form .label-name::after {
+	content: "";
+	position: absolute;
+	width: 0.4px;
+	height: 75%;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(0, 0, 0, .1);
+}
+
+@media all and (min-width: 992px) {
+	.searching-result .searching-form .label-name:after {
+		opacity: 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 992px) {	
+	.profile, 
+	.promotion-date,
+	.affiliated-members	{
+		margin-bottom: 30px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section-content .container.results {
+	padding-bottom: 0;
+}
+
+.hr-table,
+.vt-table {
+	text-align: center;
+	border-top: 1px solid rgb(31 29 41 / 9%);
+	box-shadow: none;
+}
+
+.monthly-performance .hr-chart ul li {
+	display: block;
+	width: calc(100%/12);
+}
+
+
+.searching-result .searching-form .standard-member-name input {
+	border: none;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .searching-form .standard-member-name .label {
+		margin-right: 10px;
+	}
+
+	.searching-result .searching-form .submit-btn {
+		min-width: 80px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.searching-result .searching-form .submit-btn {
+		min-width: 100px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.searching-result .searching-form .standard-member-name .inputs-wrapper {
+		border: 1px solid rgba(0, 0, 0, .1);
+	}
+
+	.searching-result .searching-form .label {
+		content: "";
+		position: absolute;
+		width: 0.4px;
+		height: 75%;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(0, 0, 0, .1);
+	}
+
+	.profile {
+		margin-right: 30px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Recommended Genealogy --------*/
+
+
+@media all and (max-width: 575px) {
+	.profile td:first-child {
+		width: 45%;
+		background: #f5f5f5;
+	}
+
+	.searching-form input {
+		padding: 9px 12.5px;
+	}
+
+	.memInfor .searching-form .name-browsing-btn {
+		right: 27px;
+	}
+
+	.profile .confirm-btn {
+		float: right;
+
+	}
+
+
+	.section-content .container.results {
+		padding-top: 20px;
+	}
+
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.profile td:first-child {
+		width: 40%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.profile td:first-child {
+		width: 40%;
+	}
+}
+
+
+
+@media all and (max-width: 991px) {
+
+	.recommended-genealogy-list,
+	.recommended-genealogy-list table {
+		margin-bottom: 0;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.profile td:first-child {
+		width: 35%;
+	}
+}
+
+
+
+.profile td:first-child {
+	background: #F6F9FE;
+	border-right: 1px solid rgba(0, 0, 0, .07);
+}

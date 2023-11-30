@@ -1,0 +1,16 @@
+<!-- <div class="sidebar-heading">
+  <h2 class="h-small">{{ parent.prgName }}</h2>
+</div> -->
+<div class="nav">
+  <ul class="menu no-sub">
+    <!-- <li *ngFor="let item of children" class="menu-item" [ngClass]="pathname == item.data.linkInfo ? 'active' : ''">
+      <ng-container *ngIf="!item.data.helpUrl">
+        <a [routerLink]="item.data.linkInfo" class="level-1">{{ item.data.prgName }}</a>
+      </ng-container>
+      <ng-container *ngIf="item.data.helpUrl">
+        <a [href]="item.data.helpUrl" target="_blank" class="level-1">{{ item.data.prgName }}</a>
+      </ng-container>
+    </li> -->
+    
+  </ul>
+</div>

@@ -1,0 +1,79 @@
+<div id="autoship" class="office-page" [formGroup]="adoForm">
+    <div class="section-content searching-result">
+        <ado-search-content (toggleShowAdoPopup)="handleOnToggleShowAdoPopup($event);"></ado-search-content>
+    </div>
+    <div class="container mobile-container">
+        <div class="row office-block mobile-block autoship-information">
+            <ado-common-info  [haveAdo]="haveAdo" (cancelAdo)="handleOnClickCancelAdo();"></ado-common-info>
+        </div>
+        <div class="row row-2">
+            <div class="col-lg col-left office-block mobile-block shipping-information-1">
+                <ado-shipping [haveAdo]="haveAdo" (toggleZipPopup)="handleOnClickToggleZipPopup($event);"></ado-shipping>
+            </div>
+            <div class="col-lg office-block mobile-block shipping-information-2">
+                <ado-card [haveAdo]="haveAdo"></ado-card>
+            </div>
+        </div>
+        <div class="row row-3 office-block mobile-block registered-product-information">
+            <ado-cart
+                [items]="cartItems"
+                [isPv1]="isPv1" 
+                [isPv2]="isPv2" 
+                [isPv3]="isPv3" 
+                [isPoint]="isPoint" 
+                [smWownet]="smWownet"
+                [smWowWord]="smWowWord"
+                [haveAdo]="haveAdo"
+                (openProductPopup)="handleOnToggleProductPopup($event);"
+                (removeItem)="handleOnRemoveItem($event);"
+                (addToCart)="handleOnAddToCart($event);"
+            ></ado-cart>
+        </div>
+        <div class="row row-4 office-block total-information mobile-block last">
+            <ado-paymemnt
+                [items]="cartItems"
+                [isPv1]="isPv1" 
+                [isPv2]="isPv2" 
+                [isPv3]="isPv3" 
+                [isPoint]="isPoint" 
+                [smWowWord]="smWowWord"
+                [items]="cartItems"
+                (patchPaymentAmount)="handleOnPatchPaymentAmount($event);"
+            ></ado-paymemnt>
+        </div>
+        <div class="col-auto change-info-btn" (click)="handleOnClickUpdate();">
+            <a class="postcode-btn w-btn primary-btn open-popup-btn" [ngClass]="haveAdo ? '' : 'disable'" *ngIf="status === 'ACTIVE'">오토십 수정</a>
+        </div>
+    </div>
+</div>
+
+<section class="popups-container">
+    <div>
+        <ado-list-popup
+            [show]="showAdoPopup"
+            (closePopup)="handleOnToggleShowAdoPopup($event);"
+            (clickRow)="handleOnClickRowAdoPopup($event);"
+        ></ado-list-popup>
+    </div>
+    <div>
+        <zip-popup 
+            [showZip]="showZipPopup" 
+            [post]="searchPost" 
+            (clickCloseZipPopup)="handleOnClickToggleZipPopup($event);"
+            (onclickRowZipPopup)="handleOnClickRowZipPopup($event);"
+        ></zip-popup>
+    </div>
+    <div>
+        <ado-products-popup
+            [show]="showProductPopup"
+            [isPv1]="isPv1" 
+            [isPv2]="isPv2" 
+            [isPv3]="isPv3" 
+            [isPoint]="isPoint" 
+            [smWownet]="smWownet"
+            [smWowWord]="smWowWord"
+            (closePopup)="handleOnToggleProductPopup($event);"
+            (clickRow)="handleOnClickRowProductPopup($event);"
+        ></ado-products-popup>
+    </div>
+</section>

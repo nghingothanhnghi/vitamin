@@ -1,0 +1,371 @@
+<div id="omnitrition-csr" class="office-page">
+	<main>
+		<input id="sel-id" type="hidden" value="" />
+		<input id="current-csmId" type="hidden" value="" />
+		<section class="section-content searching-result">
+
+			<div class="searching-form registration-form">
+				<div class="container">
+					
+					<div class="row">
+						<div class="col-auto row info recommender">
+							<span class="label">추천인</span>
+							<div class="inputs-wrapper row">
+								<input class="col" value="{{userName}}" disabled="" id="sel-name">
+								<div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+								>
+									<svg width="16" height="16" viewBox="0 0 16 16">
+											<path d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"></path>
+										</svg>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto row info consumer-name">
+							<span class="label">소비자명</span>
+							<select-dropdown
+							class="dropdown-select col row"
+							[options]="consumerOptions"
+							[selected]="consumerSelected"
+							(changeSelectedValue)="hanldeOnChangeKindSelectedValue($event)"></select-dropdown>
+						</div>
+
+						<div class="col-auto row info consumer-information">
+							<span class="label">소비자정보</span>
+							<div class="inputs-wrapper">
+								<input  id="infoConsumer" readonly  [(ngModel)]="infoConsumerVal">
+							</div>
+						</div>
+
+						<div class="col-auto row info consumer-address">
+							<span class="label">소비자주소</span>
+							<div class="inputs-wrapper">
+								<input class="col" readonly id="ConsumerAddr" [(ngModel)]="consumerAddr">
+							</div>
+						</div>
+
+						<div class="col-auto row info remarks">
+							<span class="label">비고사항</span>
+							<div class="inputs-wrapper">
+								<input class="col"  id="remark" maxlength="300" [(ngModel)]="remark">
+							</div>
+						</div>
+						
+						<div class="col-auto group-btns">
+							<span class="label">&nbsp;</span>
+							<div class="row">
+								<div class="col w-btn submit-btn advanced" id="savebtn" (click) = "onSave();">
+									<span>저장</span>
+									<div class="icon" ><img src="./assets/img/icons/save.svg"></div>
+								</div>						
+	
+								<div class="col w-btn clear-btn dark-btn advanced" onclick="window.location.reload();">
+									<span>초기화</span>
+									<div class="icon"><img src="./assets/img/icons/reload.svg"></div>
+								</div>						
+							</div>
+							
+						</div>
+
+							
+							
+					</div>
+
+					
+
+				</div>
+			</div>
+
+			<div class="container results memnberTab" id="grid-1">
+				<div class="office-block">
+					<div class="pagination mobile-pagination row">
+						<div class="col-auto per-page row">
+							<div class="label col-auto"><span>페이지표시</span></div>
+							<select-dropdown
+								class="dropdown-select col row"
+								[options]="options"
+								[selected]="selectedValue"
+								(changeSelectedValue)="handleOnChangeSelectedValue1($event);"></select-dropdown>
+						</div> 
+						<!-- <paging
+							class="col-auto row paging"
+							[len]="len1"
+							[page]="page1"
+							[totalItems]="countProduct"
+							[config]="config1"
+							(changePage)="handleOnChangePage1($event);"></paging> -->
+						<div class="col-auto total">
+							<span class="label">Total</span>
+							<span class="value">{{ countProduct}}</span>
+						</div>
+					</div>
+
+					<div class="table-container row draggable-element">
+						<div class="col col_data draggable-items-wrapper">
+							<div class="table-wrapper">
+								<table class="hr-table" id="grid-1-tb">
+									<thead>
+										<tr>
+											<th colspan="2">주문정보</th>
+											<th rowspan="2">상품명</th>
+											<th colspan="2">보유내역</th>
+											<th colspan="2">판매내역</th>
+										</tr>
+										<tr>
+											<th>주문번호</th>
+											<th>주문일자</th>
+											<th>수량</th>
+											<th>금액</th>
+											<th>수량</th>
+											<th>금액</th>
+										</tr>
+									</thead>
+									<tbody>
+										<ng-container *ngIf="countProduct>0">
+											<tr *ngFor="let item of listProduct | paginate: config1 ;let j=index" row="0">
+												<td cell="0" row="0">&nbsp; {{item.ordNo}}</td>
+												<td cell="1" row="0">&nbsp; {{item.ordDate}}</td>
+												<td cell="2" row="0" class="textLeft">&nbsp; {{item.pdtName}}</td>
+												<td cell="3" row="0">&nbsp; {{item.unsoldQty}}</td>
+												<td cell="4" row="0" class="textRight">&nbsp; {{item.unsoldAmt| number}}원</td>
+												<td cell="5" row="0">
+													<input class ='input-qty' type="number" id="{{item.ordNo}}" 
+													[(ngModel)] ="limitSales[j]"   (keyup)="loadPrice($event,item.unsoldAmt,j,item.unsoldQty)"  (dblclick)="editable(item.ordNo)" readonly = true /></td>
+												<td cell="6" row="0" class="textRight">&nbsp; {{sale[j]|number}}원</td>
+											</tr>
+										</ng-container>
+										<ng-container *ngIf="countProduct<5">
+											<tr *ngFor="let i of [].constructor(5-countProduct); let r= index">
+												<td cell="0" row="0">&nbsp;</td>
+												<td cell="1" row="0">&nbsp;</td>
+												<td *ngIf="r==2 && countProduct===0" cell="2" row="0">&nbsp;
+													<span class="empty-warning h-small">조회된 데이타가 없습니다.</span>
+												</td>
+												<td *ngIf="r!=2 || countProduct!=0" cell="2" row="0">
+													&nbsp;
+												</td>
+												<td cell="3" row="0">&nbsp;</td>
+												<td cell="4" row="0">&nbsp;</td>
+												<td cell="5" row="0">&nbsp;</td>
+												<td cell="6" row="0">&nbsp;</td>
+											</tr>
+
+										</ng-container>
+									</tbody>
+									<tfoot></tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<table class="hr-mobile-table">
+
+						<tbody *ngFor="let item of listProduct | paginate: config1; let j=index">
+							<tr><td>주문번호</td><td cell="0" row="0">&nbsp; {{item.ordNo}}</td></tr>
+							<tr><td>주문일자</td><td cell="0" row="0">&nbsp; {{item.ordDate}}</td></tr>
+							<tr><td>상품명</td><td cell="0" row="0" class="textLeft">&nbsp; {{item.pdtName}}</td></tr>
+							<tr><td>수량</td><td cell="0" row="0">&nbsp; {{item.unsoldQty}}</td></tr>
+							<tr><td>금액</td><td cell="0" row="0" class="textRight">&nbsp; {{item.unsoldAmt| number}}원</td></tr>
+							<tr><td>수량</td><td cell="0" row="0">&nbsp; <input class ='input-qty' type="number" id="{{item.ordNo}}" 
+								[(ngModel)] ="limitSales[j]"   (keyup)="loadPrice($event,item.unsoldAmt,j,item.unsoldQty)"  (dblclick)="editable(item.ordNo)" readonly = true /></td></tr>
+							<tr><td>금액</td><td cell="0" row="0" class="textRight">&nbsp; {{sale[j]|number}}원</td></tr>
+						</tbody>
+
+						<grid-no-data-mobile [items]="listProduct"></grid-no-data-mobile>
+					</table>
+
+					<div class="pagination desktop-pagination row">
+						<div class="col-auto per-page row">
+							<div class="label col-auto"><span>페이지표시</span></div>
+							<select-dropdown
+								class="dropdown-select col row"
+								[options]="options"
+								[selected]="selectedValue"
+								(changeSelectedValue)="handleOnChangeSelectedValue1($event);"></select-dropdown>
+						</div> 
+						<paging
+							class="col-auto row paging"
+							[len]="len1"
+							[page]="page1"
+							[totalItems]="countProduct"
+							[config]="config1"
+							(changePage)="handleOnChangePage1($event);"></paging>
+						<div class="col-auto total">
+							<span class="label">Total</span>
+							<span class="value">{{ countProduct}}</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- <div class="container results memnberTab">
+				<div class="office-block">
+					<div class="table-container row draggable-element">
+						<div class="col col_data draggable-items-wrapper">
+							<div class="table-wrapper">
+								<table class="hr-table">
+									<thead>
+										<tr>
+											<th>주문금액</th>
+											<th>판매금액</th>
+											<th>미판매금액</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="ordAmt">{{consumerSales.ordAmt|number}} 원</td>
+											<td id="salePrice">{{consumerSales.salePrice|number}} 원</td>
+											<td id="unsoldAmt">{{consumerSales.unsoldAmt |number}} 원</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td>판매비율(%)</td>
+											<td id="salePriceRate">{{consumerSales.salePriceRate}} %</td>
+											<td id="unsoldAmtRate">{{consumerSales.unsoldAmtRate}} %</td>
+										</tr>
+									</tfoot>
+								</table>
+								<table class="hr-mobile-table order-amount">
+									<tbody>
+										<tr>
+											<td>주문금액</td>
+											<td id="ordAmtMobile" class="column-2">{{consumerSales.ordAmt|number}} 원</td>
+											<td>판매비율(%)</td>
+										</tr>
+										
+										<tr>
+											<td>판매금액</td>
+											<td id="salePriceMobile" class="column-2">{{consumerSales.salePrice|number}} 원</td>
+											<td id="salePriceRateMobile">{{consumerSales.salePriceRate}} %</td>
+										</tr>
+										
+										<tr>
+											<td>미판매금액</td>
+											<td id="unsoldAmtMobile" class="column-2">{{consumerSales.unsoldAmt |number}} 원</td>
+											<td id="unsoldAmtRateMobile">{{consumerSales.unsoldAmtRate}} %</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+
+			<!-- <div class="container results memnberTab" id="grid-2">
+				<div class="office-block">
+					<div class="pagination mobile-pagination row">
+						<div class="col-auto per-page row">
+							<div class="label col-auto"><span>페이지표시</span></div>
+							<select-dropdown
+								class="dropdown-select col row"
+								[options]="options"
+								[selected]="selectedValue"
+								(changeSelectedValue)="handleOnChangeSelectedValue2($event);"></select-dropdown>
+						</div> 
+						
+						<div class="col-auto total">
+							<span class="label">Total</span>
+							<span class="value">{{ countSales }}</span>
+						</div>
+					</div>
+
+					<div class="table-container row draggable-element">
+						<div class="col col_data draggable-items-wrapper">
+							<div class="table-wrapper">
+								<table class="hr-table">
+									<thead>
+										<tr>
+											<th style="white-space: nowrap; text-align: center;"
+												class="" sort-by="">년<span></span>
+											</th>
+											<th style="white-space:
+												nowrap; text-align: center;" class="" sort-by="">월<span></span></th><th
+												style="white-space: nowrap; text-align: center;" class=""
+												sort-by="">주문금액<span></span></th><th style="white-space: nowrap;
+												text-align: center;" class="" sort-by="">판매금액<span></span></th></tr></thead>
+									<tbody>
+										<ng-container *ngIf="countSales>0">
+											<tr *ngFor="let item of listSales | paginate: config2"
+												id="grid-grid-2-pc-row_0" row="0">
+												<td cell="0" row="0">&nbsp; {{item.year}}</td>
+												<td
+													cell="1" row="0">&nbsp;{{item.month}} </td>
+												<td cell="2" row="0">&nbsp;{{item.ordAmt}} </td>
+												<td
+													cell="3" row="0">&nbsp;{{item.saleAmt}} </td>
+											</tr>
+										</ng-container>
+										<ng-container *ngIf="countSales==0">
+											<tr *ngFor="let i of [].constructor(5); let r= index">
+												<td cell="0" row="0">&nbsp;</td>
+												<td cell="1" row="0">&nbsp;</td>
+												<td *ngIf="r==2 && countSales===0" cell="2" row="0">&nbsp;
+													<span class="empty-warning h-small">조회된 데이타가 없습니다.</span>
+												</td>
+												<td *ngIf="r!=2 || countSales!=0" cell="2" row="0">
+													&nbsp;
+												</td>
+												<td cell="3" row="0">&nbsp;</td>
+											</tr>
+										</ng-container>
+
+									</tbody>
+									<tfoot></tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+
+					<table class="hr-mobile-table">
+
+
+						<tbody *ngFor="let item of listSales | paginate: config2">
+							<tr><td>년</td><td cell="0" row="0">&nbsp; {{item.year}}</td></tr>
+							<tr><td>월</td><td cell="0" row="0">&nbsp; {{item.month}}</td></tr>
+							<tr><td>주문금액</td><td cell="0" row="0">&nbsp; {{item.ordAmt}}</td></tr>
+							<tr><td>판매금액</td><td cell="0" row="0">&nbsp; {{item.saleAmt}}</td></tr>
+						</tbody>
+
+						<tbody *ngIf="countSales==0" class="empty-tbody" style="width:
+							100%; margin: 0" row="0">
+							<tr row="0"
+								cell="0"><td style="width: 100%;">&nbsp;<span class="h-small">조회된 데이타가
+										없습니다.</span></td></tr><tr row="0" cell="1"><td style="width: 100%;">&nbsp;</td></tr><tr
+								row="0" cell="2"><td style="width: 100%;">&nbsp;</td></tr><tr row="0"
+								cell="3"><td style="width: 100%;">&nbsp;</td></tr><tr row="0" cell="4"><td
+									style="width: 100%;">&nbsp;</td></tr></tbody>
+							</table>
+
+					      <div class="pagination desktop-pagination row">
+					  	<div class="col-auto per-page row">
+							<div class="label col-auto"><span>페이지표시</span></div>
+							<select-dropdown
+								class="dropdown-select col row"
+								[options]="options"
+								[selected]="selectedValue"
+								(changeSelectedValue)="handleOnChangeSelectedValue2($event);"></select-dropdown>
+						</div>
+						<paging
+							class="col-auto row paging"
+							[len]="len2"
+							[page]="page2"
+							[totalItems]="countSales"
+							[config]="config2"
+							(changePage)="handleOnChangePage2($event);">
+						</paging>
+						<div class="col-auto total">
+							<span class="label">Total</span>
+							<span class="value">{{countSales}}</span>
+						</div>
+					</div>
+
+				</div>
+			</div> -->
+		</section>
+
+	</main>
+
+</div>

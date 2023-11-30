@@ -1,0 +1,71 @@
+<div class="single-post notice-post">
+    <section class="">
+        <div class="container">		
+            <div class="post-header">
+                <h2 class="h-medium">{{noticeDetail.title}}</h2>			
+                 <div class="post-meta row">
+                        <div class="post-info info col-auto" *ngIf="listFile != null && listFile.length > 0">
+                            <div *ngFor="let items of listFile ">
+                                <a class="info author col-auto" (click)="downloadFile(items)">
+                                <container-element [ngSwitch]="items.type">
+                                    <img *ngSwitchCase="'zip'" src="/assets//img/icons/zip.svg">
+                                    <img *ngSwitchCase="'doc'" src="/assets//img/icons/doc.svg">
+                                    <img *ngSwitchCase="'xlsx'" src="/assets//img/icons/xlsx.svg">
+                                    <img *ngSwitchCase="'image'" src="/assets//img/icons/file.svg">
+                                    <img **ngSwitchDefault src="/assets/img/icons/file.svg">
+                                </container-element>
+                                <span th:text="${file.fileName}">{{items.fileName}}</span>
+                                </a>
+                            </div>
+                        </div>
+                 </div>
+            </div>
+            <div class="post-body" id="postBody">
+                <div [innerHTML]="contents ? (contents | renderHtml) : ''"></div>
+            </div>
+
+
+
+            <div class="row post-foot">
+                <div class="prev col">
+                    <a *ngIf="noticeDetail.preNo != null && noticeDetail.preNo != '0' && noticeDetail.preTitle != null" (click)="onClickPrevNext(noticeDetail.preNo)">
+                        <div class="carret left">
+                            <img src="./assets/img/icons/carret-right.svg">
+                        </div>
+                        <span>{{ noticeDetail.preTitle }}</span>
+                    </a>
+                </div>
+                <div class="next-post col-auto">
+                    <a *ngIf="noticeDetail.nextNo != null && noticeDetail.nextNo != '0' && noticeDetail.nextTitle != null" (click)="onClickPrevNext(noticeDetail.nextNo)">
+                        <span>{{ noticeDetail.nextTitle }}</span>
+                        <div class="carret right">
+                            <img src="./assets/img/icons/carret-right.svg">
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <!-- <div class="post-footer">
+                <div class="related-posts row">
+                        <a *ngIf="noticeDetail.preNo != null && noticeDetail.preNo != '0' && noticeDetail.preTitle != null" style="cursor: pointer;"
+                            (click)="onClickPrevNext(noticeDetail.preNo)" class="prev col-sm">
+                            <div class="icon"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M15.25 5L10.25 10L15.25 15M9 5L4 10L9 15"/></svg></div>
+                            <h4>{{noticeDetail.preTitle}}</h4>
+                        </a>
+
+                        <a class="prev col-sm" *ngIf="noticeDetail.preNo == null || noticeDetail.preNo == '0' || noticeDetail.preTitle == null"></a>
+
+                        <a *ngIf="noticeDetail.nextNo != null && noticeDetail.nextNo != '0' && noticeDetail.nextTitle != null" style="cursor: pointer;"
+                            (click)="onClickPrevNext(noticeDetail.nextNo)" class="next col-sm">
+                            <h4>{{noticeDetail.nextTitle}}</h4>
+                            <div class="icon"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 15L9 10L4 5M10.25 15L15.25 10L10.25 5"/></svg></div>
+                        </a>
+
+                        <a class="next col-sm" *ngIf="noticeDetail.nextNo == null || noticeDetail.nextNo == '0' || noticeDetail.nextTitle == null"></a>
+
+                </div>
+            </div> -->
+        </div>
+    </section>
+</div>

@@ -1,0 +1,29 @@
+<div>
+  <products [products]="products" [config]="config" [urlWownet]="urlWownet" (itemProduct)="getItemOfProduct($event);"></products>
+  <div class="pagination row">
+    <div class="col-auto row">
+      <!-- <div class="label col-auto">
+        <span>페이지표시</span>
+      </div>
+      <select-dropdown 
+        class="dropdown-select col row" 
+        [options]="lenOptions" 
+        [selected]="lenSelected"
+        (changeSelectedValue)="handleOnChangeLenSelected($event);"
+      ></select-dropdown> -->
+    </div>
+  <paging 
+      class="col-auto row paging" 
+      [len]="len" 
+      [page]="page" 
+      [config]="config" 
+      [totalItems]="total"
+      (totalPage) = handleOnTotalPage($event)
+      (changePage)="handleOnChangePage($event);"
+    ></paging>
+    <div class="col-auto total">
+      <!-- <div class="label">Total</div>
+      <div class="value">{{ total }}</div> -->
+    </div>
+  </div>
+</div>

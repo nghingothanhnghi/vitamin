@@ -1,0 +1,51 @@
+<div id="product-facility">
+    <div class="content">
+        <h2 class="h-large" style="margin-bottom: .5em">제조시설</h2>
+        <p class="p-span">어큐뮬릿 에스에이(Acumullit SA) 시리즈는 몰도바의 수도 키시나우에 있는 자체 제조 시설에서 생산됩니다.</p>
+
+        <div class="w-video">
+            <div (click)="onPlay();" *ngIf="showThum" class="thumbnail">
+                <div class="states">
+                    <img class="state play" src="./assets/img/icons/ytb-play.svg">
+                </div>
+                <div class="img-wrapper">
+                    <img src="./assets/img/home/facility-video-thumbnail.jpg">
+                </div>
+            </div>
+            <video controls #videoPlayer>
+                <source src="./assets/product-introduction-facility.mp4" type="video/mp4">
+                <source src="./assets/product-introduction-facility.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <p class="p-span">어큐뮬릿 에스에이(Acumullit SA) 시리즈는 몰도바의 수도 키시나우에 자체 제조 시설에서 생산됩니다. <br>
+            공장, 사무실 제조 라인 및 품질 관리 실험실은 48,400 평방피트 이상의 면적을 차지합니다.
+        </p>
+
+        <p class="p-span">레시피 작성부터 배송까지 제품을 만드는 전 과정이 이곳에서 이루어집니다.
+        </p>
+
+        <p class="p-span">모든 성분과 매커니즘은 국제 품질 및 안전 표준을 충족합니다. <br>
+            우리는 북미에서 제품을 배송 및 판매하기 위해 FDA에 등록되었으며 유럽연합 및 동유럽에 판매 인증을 획득했습니다.
+        </p>
+    </div>
+
+    <table class="info-table">
+        <tr>
+            <th>위치</th>
+            <td>키시나우, 몰도바</td>
+        </tr>
+        <tr>
+            <th>크기</th>
+            <td>48,400제곱피트
+            </td>
+        </tr>
+        <tr>
+            <th>생산력</th>
+            <td>25만박스,50만박스</td>
+        </tr>
+    </table>  
+
+
+</div>

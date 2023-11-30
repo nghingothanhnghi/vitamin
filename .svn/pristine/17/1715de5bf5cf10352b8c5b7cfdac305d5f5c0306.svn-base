@@ -1,0 +1,126 @@
+/**/
+
+
+
+
+@media all and (min-width: 992px) {
+	.container {
+		padding: 40px 0;
+	}
+}
+
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	.member-type {
+		box-shadow: 0px 5px 15px rgba(0,0,0,.1);
+	}
+}
+
+
+
+
+
+.member-type {
+	display: flex;
+	flex-wrap: wrap;
+	background: #fff;
+}
+
+
+.member-type {
+	padding-bottom: 30px;
+	padding-top: 40px;
+	justify-content: center;
+}
+
+
+
+@media all and (min-width: 992px) {	
+	.member-type:first-child {
+		margin-right: 20px;		
+	}
+}
+
+
+
+
+/*--- 1. Member Type H4 ----*/
+
+#choose-member-type .member-type h4 {
+	font-weight: 400;
+	text-align: center;
+	margin-bottom: 0;
+	width: 100%;
+}
+
+
+
+
+
+/*--- 2. Member Type P ----*/
+
+#choose-member-type .member-type .title {
+
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+
+#choose-member-type .member-type .title img {
+	width: auto;
+	padding-bottom: 20px;
+}
+
+#choose-member-type .member-type p {	
+	text-align: center;
+	font-size: 14px;
+	margin-bottom: 0;	
+}
+
+
+
+
+
+
+
+
+
+/*--- 3. Member Type Description ----*/
+
+#choose-member-type .member-type .description {
+	width: 100%;
+	font-size: 14px;	
+	border-top: 1px solid rgba(0,0,0,.1);	
+	margin: 0 20px;	
+}
+
+@media all and (max-width: 575px) {
+	#choose-member-type .member-type .description {
+		padding: 20px 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#choose-member-type .member-type .description {
+		padding: 25px;
+	}
+
+}
+
+
+@media all and (min-width: 768px) {
+	#choose-member-type .member-type .description {
+		padding: 30px 10px;
+	}
+}
+
+
+
+
+

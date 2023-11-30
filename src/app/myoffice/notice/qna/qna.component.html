@@ -1,0 +1,85 @@
+<div class="results searching-result" id="qna">
+
+  <div class="heading row">
+      <div class="board-category col row">
+          <div class="label col-auto">게시판 카테고리</div>
+          <div class="dropdown-module col-auto">
+              <select-dropdown class="dropdown-select col row" [options]="boardCateOptions"
+                  [selected]="boardCateSelected" (changeSelectedValue)="hanldeOnChangeUserKindSelectedValue($event)">
+              </select-dropdown>
+          </div>
+      </div>
+      <div class="board-create col-auto">
+          <a class="w-btn secondary-btn" id="btn-create"
+              routerLink="/serviceCenter/customer-consultation-guide-composing">
+              <span>등록</span>
+              <div class="icon">
+                  <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M8 0V8M8 8V16M8 8L16 8M8 8L0 8" stroke="white" />
+                  </svg>
+              </div>
+          </a>
+      </div>
+  </div>
+
+  <div class="notice-grid">
+      <table class="notices-table">
+          <thead>
+              <tr>
+                  <th>번호</th>
+                  <th class="textCenter">제목</th>
+                  <th>질문자</th>
+                  <th>질문일자</th>
+                  <th>답변자</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of collection | paginate: config">
+                  <td>{{ item.seq }}</td>
+                  <td style="cursor: pointer" (click)="handleOnClickTitle(item.boardNo)">
+                      <div>{{ item.title }}</div>
+                      <div class="mobile-info">
+                          <span>{{ item.insUser }}</span>
+                          <span>{{ item.insDate }}</span>
+                          <span>{{ item.insUserA }}</span>
+                      </div>
+                  </td>
+                  <td class="textCenter">{{ item.insUser }}</td>
+                  <td class="textCenter">{{ item.insDate }}</td>
+                  <td class="textCenter">{{ item.insUserA }}</td>
+              </tr>
+          </tbody>
+          <ng-container *ngIf="totalRows < 5">
+              <tbody>
+                  <tr *ngFor="let row of rows; index as i">
+                      <ng-container *ngFor="let col of cols; index as j">
+                          <td>
+                              <span>&nbsp;</span>
+                              <ng-container *ngIf="totalRows === 0 && i === 2 && j === totalCols % 3">
+                                  <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                              </ng-container>
+                          </td>
+                      </ng-container>
+                  </tr>
+              </tbody>
+          </ng-container>
+      </table>      
+  </div>  
+  
+  <div class="pagination row">
+      <div class="col-auto per-page row">
+          <div class="label col-auto"><span>페이지표시</span></div>
+          <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+              (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+      </div>
+
+      <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems" [config]="config"
+          (changePage)="handleOnChangePage($event);"></paging>
+
+      <div class="col-auto total">
+          <span class="label">Total</span>
+          <span class="value">{{ qnaTotalItems$ | async }}</span>
+      </div>
+  </div>
+
+</div>

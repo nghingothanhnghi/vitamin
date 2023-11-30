@@ -1,0 +1,425 @@
+
+
+#before-business-cooperate .container.results .hr-table {
+	text-align: center;
+}
+
+#before-business-cooperate .container.results 
+.hr-table th:nth-child(2) {
+	width: 30%;
+}
+
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+
+}
+
+
+
+@media all and (max-width: 767px) {
+	#before-business-cooperate 
+	.searching-result .form-row:nth-child(2) .label {
+		margin-bottom: 5px;
+	}
+	#before-business-cooperate 
+	.searching-result .search-word {
+		padding-right: 5px;
+		margin-bottom: 10px;
+	}
+	#before-business-cooperate 
+	.searching-result .processing-status {
+		padding-left: 5px;
+		margin-bottom: 10px;
+	}
+	#before-business-cooperate 
+	.searching-result .submit-btn {
+		width: 100%;
+	}
+}
+
+
+
+@media all and (min-width: 768px) {
+	#before-business-cooperate 
+	.searching-result .form-row:nth-child(2) .label {
+		margin-right: 10px;
+	}	
+	
+	#before-business-cooperate 
+	.searching-result .search-word {
+		margin-right: 20px;
+	}
+	
+	#before-business-cooperate 
+	.searching-result .processing-status {
+		margin-right: 20px;
+	}
+	
+	#before-business-cooperate 
+	.searching-result .processing-status .dropdown-select {
+		min-width: 120px;
+	}
+	
+	#before-business-cooperate 
+	.searching-result .submit-btn {
+		min-width: 80px;
+	}
+}
+
+
+
+
+
+@media all and (max-width: 991px) {
+	#before-business-cooperate 
+	.searching-result .container.results {
+		width: 100%;
+	}
+	#before-business-cooperate 
+	.searching-result .container.results 
+	.block-heading {
+		padding-left: 4%;
+		padding-right: 4%;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		padding-bottom: 20px;
+		margin-bottom: 0;
+	}
+	#before-business-cooperate 
+	.mobile-articles .article {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+	
+	#before-business-cooperate 
+	.searching-result .pagination {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*---- Customer Consultation Guide ----*/
+
+
+#customer-consultation-guide .articles-table {
+	text-align: center;
+}
+
+
+@media all and (max-width: 991px) {
+	#customer-consultation-guide
+	.searching-result .container.results {
+		width: 100%;
+	}
+	#customer-consultation-guide
+	.searching-result .container.results 
+	.block-heading {
+		padding-left: 4%;
+		padding-right: 4%;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		padding-bottom: 20px;
+		margin-bottom: 0;
+	}
+	#customer-consultation-guide 
+	.mobile-articles .article {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+	
+	#customer-consultation-guide
+	.searching-result .pagination {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Before Business Cooperation Composing -----*/
+
+#before-business-cooperate-composing .composer {
+	padding-bottom: 0;
+}
+
+@media all and (max-width: 575px) {
+	#before-business-cooperate-composing .section-content
+	.row.btns a {
+		width: calc(50% - 5px);
+		margin-right: 10px;
+	}
+	#before-business-cooperate-composing .section-content
+	.row.btns a:last-child {		
+		margin-right: 0;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#before-business-cooperate-composing .section-content
+	.row.btns a {
+		min-width: 110px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#before-business-cooperate-composing .section-content
+	.row.btns a {
+		min-width: 120px;
+	}
+}
+
+@media all and (max-width: 991px) {
+	#before-business-cooperate-composing .section-content
+	.row.btns {
+		padding: 0 4%;
+	} 
+}
+
+
+
+@media all and (max-width: 575px) {
+	#before-business-cooperate-composing .composer-body .ck-editor__editable_inline {
+		min-height: 200px;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#before-business-cooperate-composing .composer-body .ck-editor__editable_inline {
+		min-height: 240px;
+	}
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#before-business-cooperate-composing .composer-body .ck-editor__editable_inline {
+		min-height: 280px;
+	}	
+}
+
+@media all and (min-width: 992px) {
+	#before-business-cooperate-composing .composer-body .ck-editor__editable_inline {
+		min-height: 400px;
+	}	
+}
+
+
+
+
+
+
+
+
+/*----- Customer Consultation Composing -----*/
+
+#customer-consultation-composing .composer {
+	padding-bottom: 0;
+}
+
+@media all and (max-width: 575px) {
+	#customer-consultation-composing .section-content
+	.row.btns a {
+		width: calc(50% - 5px);
+		margin-right: 10px;
+	}
+	#customer-consultation-composing .section-content
+	.row.btns a:last-child {		
+		margin-right: 0;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#customer-consultation-composing .section-content
+	.row.btns a {
+		min-width: 110px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#customer-consultation-composing .section-content
+	.row.btns a {
+		min-width: 120px;
+	}
+}
+
+@media all and (max-width: 991px) {
+	#customer-consultation-composing .section-content
+	.row.btns {
+		padding: 0 4%;
+	} 
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#customer-consultation-composing .composer-body .ck-editor__editable_inline {
+		min-height: 200px;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#customer-consultation-composing .composer-body .ck-editor__editable_inline {
+		min-height: 240px;
+	}
+}
+
+@media all and (min-width: 768px) {
+	#customer-consultation-composing .composer-body .ck-editor__editable_inline {
+		min-height: 280px;
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.work-help-article .post-meta .info .label {
+	opacity: .5;
+	margin-right: 5px;
+}
+
+.work-help-article .post-meta .info:not(:last-child) {
+	margin-right: 20px;
+}
+
+
+
+
+@media all and (max-width: 767px) {
+	.work-help-article .post-header {
+		margin-bottom: 15px;
+	}
+	.work-help-article .post-body .vt-table td:last-child {
+		padding: 15px 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.work-help-article .post-header {
+		margin-bottom: 17.5px;
+	}
+	.work-help-article .post-body .vt-table td:last-child {
+		padding: 17.5px 17.5px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.work-help-article .post-header {
+		margin-bottom: 20px;
+	}
+	.work-help-article .post-body .vt-table td:last-child {
+		padding: 20px 20px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,168 @@
+<div class="popup product-popup" (click)="handleOnClickClosePopup($event)" [ngClass]="show ? 'opened' : ''">
+    <div class="container default-container popup-content">
+        <div class="popup-body">
+            <div id="product-meta">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-5 product-gallery" id="product-gallery">
+                        <ng-container *ngIf="pdtImages.length > 0">
+                            <div class="featured-slider slider-ref product-gallery-slider" data-display="1,1,1,1"
+                                data-dot="on" data-nav="on" data-autoplay="on" data-interval="3000">
+                                <div class="slider-content">
+                                    <div class="slider-wrapper row">
+                                        <ng-container *ngFor="let item of pdtImages; index as i;">
+                                            <div class="col-12 slide item">
+                                                <div class="featured-wrapper">
+                                                    <div class="img-wrapper" [attr.data-index]="i">
+                                                        <img [src]="urlWownet + item.filePath + item.fileName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="pdtImages.length === 0">
+                            <img src="./assets/img/noImage.jpg">
+                        </ng-container>
+                    </div>
+
+                    <div class="col-lg-6 col-sm-7" id="product-info">
+                        <h2 class="h-medium name">{{ pdtInfo.pdtName }}</h2>
+                        <span class="id">{{ pdtInfo.pdtCd }}</span>
+                        <p class="short-description">{{ pdtInfo.option1 }}</p>
+                        <div class="basic-infos">
+                            <table>
+                                <tbody>
+                                    <ng-container *ngIf="isLogined">
+                                        <tr class="member-price">
+                                            <td>회원가</td>
+                                            <td>
+                                                <span>{{ pdtInfo.amt | setComma }}</span>
+                                                <span class="currency">원</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="pv" *ngIf="isPv1">
+                                            <td>{{ smWowWord.oPv1 }}</td>
+                                            <td>{{ pdtInfo.pv1 | setComma }}</td>
+                                        </tr>
+                                        <!-- <tr class="pv" *ngIf="isPv2">
+                                            <td>{{ smWowWord.oPv2 }}</td>
+                                            <td>{{ pdtInfo.pv2 | setComma }}</td>
+                                        </tr> -->
+                                        <!-- <tr class="pv" *ngIf="isPv3">
+                                            <td>{{ smWowWord.oPv3 }}</td>
+                                            <td>{{ pdtInfo.pv3 | setComma }}</td>
+                                        </tr> -->
+                                        <tr class="pv" *ngIf="isPoint">
+                                            <td>{{ smWowWord.oMileage }}</td>
+                                            <td>{{ pdtInfo.point | setComma }}</td>
+                                        </tr>
+                                    </ng-container>
+                                    <ng-container *ngIf="!isLogined">
+                                        <tr class="regular-price" *ngIf="isRetailAmt">
+                                            <td>소비자가</td>
+                                            <td>
+                                                <span>{{ pdtInfo.retailAmt | setComma }}</span>
+                                                <span>원</span>
+                                            </td>
+                                        </tr>
+                                        <ng-container *ngIf="isAmt">
+                                            <tr class="member-price">
+                                                <td>회원가</td>
+                                                <td>
+                                                    <span>{{ pdtInfo.amt | setComma }}</span>
+                                                    <span>원</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="pv" *ngIf="isPv1">
+                                                <td>{{ smWowWord.oPv1 }}</td>
+                                                <td>{{ pdtInfo.pv1 | setComma }}</td>
+                                            </tr>
+                                            <!-- <tr class="pv" *ngIf="isPv2">
+                                                <td>{{ smWowWord.oPv2 }}</td>
+                                                <td>{{ pdtInfo.pv2 | setComma }}</td>
+                                            </tr> -->
+                                            <!-- <tr class="pv" *ngIf="isPv3">
+                                                <td>{{ smWowWord.oPv3 }}</td>
+                                                <td>{{ pdtInfo.pv3 | setComma }}</td>
+                                            </tr> -->
+                                        </ng-container>
+                                        <tr class="regular-price" *ngIf="isPoint">
+                                            <td>{{ smWowWord.oMileage }}</td>
+                                            <td>
+                                                <span>{{ pdtInfo.retailPoint | setComma }}</span>
+                                            </td>
+                                        </tr>
+                                    </ng-container>
+                                    <tr>
+                                        <td>배송비결제</td>
+                                        <td>주문시 결제</td>
+                                    </tr>
+                                    <tr>
+                                        <td>원료 및 원산지</td>
+                                        <td>상품정보고시 참고</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <ng-container *ngIf="isOrd">
+                            <div class="quantity">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td style="vertical-align: middle">주문수량</td>
+                                            <td>
+                                                <div class="quantity-input row">
+                                                    <div class="cal-btn minus col-auto" (click)="handleOnClickMinus();">
+                                                        <img src="./assets/img/icons/quantity-minus.svg">
+                                                    </div>
+                                                    <div class="value col-auto">
+                                                        <span id="qty">{{ quantity | setComma }}</span>
+                                                    </div>
+                                                    <div class="cal-btn plus col-auto" (click)="handleOnClickPlus();">
+                                                        <img src="./assets/img/icons/quantity-plus.svg">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>총금액</td>
+                                            <td>
+                                                <span id="total-amount">{{ total | setComma }}</span>
+                                                <span class="currency">원</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="function row">
+                                <a href="javascript:;" class="w-btn small-btn col primary-btn checkout-btn" id="checkout"
+                                    (click)="handleOnClickBuyNow();">
+                                    <span>바로구매</span>
+                                    <div class="icon">
+                                        <svg width="13" height="16" viewBox="0 0 13 16" fill="none">
+                                            <path d="M5.36249 0.136763C6.14632 -0.104631 7.02329 -0.02405 7.74887 0.35932C8.68375 0.840363 9.34305 1.81536 9.4313 2.86465C9.46618 3.39663 9.4313 3.93034 9.45153 4.46301C9.97793 4.4686 10.5026 4.67197 10.8776 5.04452C11.2121 5.36266 11.4259 5.7987 11.4873 6.25498C11.8358 8.68706 12.1815 11.1191 12.5307 13.5509C12.5722 13.8038 12.5806 14.064 12.5338 14.3169C12.4163 15.0003 11.9241 15.6041 11.2766 15.8542C11.0314 15.9519 10.7677 16 10.5036 15.9993C7.79457 15.9997 5.08552 15.9993 2.37646 15.9993C2.1103 15.9993 1.83996 16.0101 1.57972 15.9446C1.01357 15.8145 0.511941 15.4304 0.241245 14.9159C0.0333393 14.5339 -0.0399161 14.0846 0.0204324 13.6548C0.3745 11.184 0.726474 8.71287 1.08054 6.24172C1.14612 5.77359 1.37426 5.32847 1.72554 5.01034C2.09774 4.65976 2.606 4.46964 3.1153 4.46301C3.12925 4.00151 3.11425 3.54 3.12262 3.07849C3.13588 2.48268 3.32355 1.89175 3.65843 1.3985C4.05959 0.7992 4.6718 0.344669 5.36249 0.136763ZM5.02831 1.5478C4.54796 1.91652 4.24901 2.50779 4.2382 3.11337C4.23471 3.55849 4.2382 4.0036 4.23645 4.44871C4.65087 4.46755 5.06633 4.4515 5.48109 4.45674C6.43062 4.4515 7.38085 4.4672 8.33038 4.44906C8.32933 4.01546 8.33108 3.58221 8.32933 3.1486C8.32689 2.58907 8.08306 2.03617 7.67038 1.65873C7.37004 1.38071 6.98527 1.19513 6.57958 1.13862C6.03574 1.05629 5.46051 1.20734 5.02831 1.5478ZM3.92355 7.45567C3.66401 7.51113 3.47564 7.76822 3.49239 8.03194C3.50146 8.50322 3.45471 8.98392 3.58134 9.44438C3.74494 10.082 4.14506 10.6534 4.68436 11.0302C5.13993 11.349 5.69249 11.5294 6.24923 11.5335C6.8705 11.5433 7.49248 11.3365 7.98364 10.9559C8.5334 10.5345 8.91851 9.90309 9.03293 9.21938C9.09398 8.88589 9.06851 8.54578 9.07479 8.2088C9.07305 8.05357 9.09014 7.88718 9.01165 7.74625C8.90177 7.52265 8.63107 7.39358 8.38863 7.45567C8.15491 7.5073 7.96968 7.72323 7.96027 7.96287C7.95015 8.25485 7.9662 8.54717 7.95364 8.83915C7.92852 9.34252 7.65887 9.82496 7.2455 10.1127C6.80039 10.4305 6.19481 10.5052 5.68551 10.3063C5.20656 10.126 4.82319 9.71333 4.67982 9.22182C4.54971 8.79275 4.64145 8.33927 4.59924 7.90078C4.5518 7.59695 4.2225 7.37579 3.92355 7.45567Z"/>
+                                        </svg>                                            
+                                    </div>
+                                </a>
+                                <a href="javascript:;" class="w-btn small-btn col add-to-cart-btn"
+                                    (click)="handleOnClickAddToCart();">
+                                    <span>장바구니 담기</span>
+                                    <div class="icon">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M0.228875 0.12053C0.348501 0.0256292 0.504124 -0.00455005 0.653566 0.000540435C0.980812 0.00490371 1.30842 -0.00418646 1.63567 0.0056309C2.13708 0.0303561 2.59086 0.417596 2.69339 0.909191C2.80939 1.47714 2.92428 2.0451 3.033 2.6145C4.22781 2.6265 5.42298 2.61596 6.61816 2.61959C9.21212 2.61959 11.8057 2.61959 14.3993 2.61959C14.6418 2.61959 14.8935 2.6025 15.1236 2.69486C15.6414 2.87848 15.9668 3.4628 15.8548 4.0002C15.5072 5.82405 15.1538 7.64681 14.8044 9.47029C14.7477 9.74227 14.7167 10.023 14.608 10.2811C14.3495 10.9084 13.6987 11.3447 13.0202 11.345C10.4135 11.348 7.80678 11.3447 5.20046 11.3465C4.97975 11.3505 4.75649 11.3392 4.54415 11.2752C3.94747 11.1047 3.46097 10.5931 3.3337 9.98407C2.74066 7.0454 2.14726 4.10638 1.5604 1.16626C1.23315 1.1619 0.905909 1.16844 0.579027 1.16444C0.328139 1.16662 0.0910681 0.985912 0.0234375 0.745205C-0.045284 0.52086 0.0412541 0.260882 0.228875 0.12053ZM8.43691 4.94376C8.434 5.42954 8.438 5.91532 8.43582 6.40073C7.95004 6.40291 7.46463 6.39891 6.97922 6.40182C6.63016 6.39091 6.336 6.7447 6.40872 7.08576C6.45344 7.35374 6.70724 7.56718 6.97922 7.56391C7.46463 7.56681 7.95041 7.56281 8.43582 7.565C8.438 8.05077 8.434 8.53619 8.43691 9.02196C8.42928 9.33176 8.70998 9.60664 9.01796 9.60083C9.32702 9.60773 9.60554 9.33103 9.599 9.0216C9.60191 8.53619 9.59791 8.05077 9.60009 7.565C10.0855 7.56281 10.5713 7.56681 11.0571 7.56391C11.3534 7.56972 11.6225 7.31411 11.6348 7.0185C11.6603 6.71161 11.4014 6.41346 11.092 6.40364C10.5949 6.39637 10.0975 6.40437 9.60009 6.40073C9.59645 5.90332 9.60445 5.40591 9.59718 4.90886C9.58554 4.57507 9.24303 4.30418 8.91542 4.37363C8.64562 4.41726 8.43182 4.67033 8.43691 4.94376Z" />
+                                            <path d="M5.83277 12.5319C6.316 12.4533 6.82941 12.5904 7.20793 12.9013C7.54135 13.1703 7.76897 13.5663 7.8326 13.9903C7.91805 14.5131 7.74279 15.0687 7.37773 15.452C7.07994 15.7709 6.65706 15.9683 6.22183 15.9963C5.7535 16.0276 5.27536 15.8599 4.93066 15.5414C4.65541 15.2913 4.46597 14.9502 4.3958 14.5851C4.29399 14.0779 4.43725 13.5296 4.7714 13.1354C5.0372 12.8151 5.42189 12.5973 5.83277 12.5319Z" />
+                                            <path d="M11.6505 12.5319C12.1337 12.4533 12.6471 12.5904 13.0256 12.9009C13.359 13.1703 13.5867 13.5663 13.6503 13.9903C13.7357 14.5131 13.5605 15.0687 13.1958 15.4516C12.9056 15.7621 12.4984 15.9574 12.0755 15.9934C11.6046 16.0352 11.1196 15.8745 10.7676 15.5585C10.4822 15.3069 10.2851 14.9586 10.2139 14.5851C10.1117 14.0783 10.2549 13.5296 10.5891 13.1351C10.8549 12.8151 11.2396 12.5973 11.6505 12.5319Z" />
+                                        </svg>                                            
+                                    </div>
+                                </a>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

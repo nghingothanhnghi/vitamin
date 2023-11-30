@@ -1,0 +1,53 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md notice row">
+                <h2 class="h-large s-font color-orange">Notice</h2>
+                <ul class="w-ul s-font">
+                    <li *ngFor="let item of collection">
+                        <a style="cursor: pointer;" class="row" (click)="handleOnClickBoardNo(item.boardNo)">
+                            <h4 class="col">{{item.title}}</h4>
+                            <span class="col-auto">{{item.insDate}}</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <a class="w-btn rounded-btn sm-btn more-btn" routerLink="/serviceCenter/notice">
+                    <span>More</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path
+                            d="M0 6.00008L5.99996 6.00008M5.99996 6.00008L12 6.00008M5.99996 6.00008V0M5.99996 6.00008V12"
+                            stroke="white" stroke-width="1" />
+                    </svg>
+                </a>                                
+            </div>
+
+            <div class="col-md service">
+                <h2 class="h-large s-font color-orange">Customer Service</h2>
+                <ul class="w-ul s-font">
+                    <li class="row phone">
+                        <img class="col-auto" src="./assets/img/300.svg">
+                        <div class="col">
+                            <p>Hotline 직통 전화선</p>
+                            <div class="row">
+                                <span class="h-small" href="#">02.515-9879</span>
+                                <span>운영시간 10:00 - 18:00</span>
+                            </div>                            
+                        </div>                        
+                    </li>
+                    <li class="row kakao">
+                        <img class="col-auto" src="./assets/img/301.svg">
+                        <div class="col">
+                            <p>Kakao Talk 카카오상담</p>
+                            <div class="row">
+                                <span class="h-small" href="#">kakao id: @아인셀</span>
+                                <span>운영시간 10:00 - 18:00</span>
+                            </div>  
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <img class="e-img" src="./assets/img/home/AINCELL-home/follow-notice.svg">
+</section>

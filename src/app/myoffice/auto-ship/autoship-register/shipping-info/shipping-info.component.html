@@ -1,0 +1,110 @@
+
+<div class="block-heading">
+  <h2 class="h-small">배송지 정보</h2>
+  <span>제품을 받으실 분의 정보를 정확하게 입력해주세요.</span>
+</div>
+
+<table class="vt-table" [formGroup]="form">
+  <tbody>
+    <tr class="shipping-select">
+      <td>배송지 선택</td>
+      <td>
+        <div class="radios-group row">
+          <div class="col-auto radio">
+            <input id="shipdestinationRadioOption1" type="radio" name="shipdestinationRadio" value="1"
+              (click)="handleOnClickLoginedPerson();">
+            <label for="shipdestinationRadioOption1">주문자와 동일합니다</label>
+          </div>
+          <div class="col-auto radio">
+            <input id="shipdestinationRadioOption2" type="radio" name="shipdestinationRadio" value="2" checked
+              (click)="handleOnClickNewShipping();">
+            <label for="shipdestinationRadioOption2">신규 입력</label>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr class="payment-date">
+      <td>결제일자 선택</td>
+      <td>
+        <div class="inputs-wrapper date-select row">
+          <select-dropdown 
+            class="dropdown-select col year-select" 
+            [options]="yearOptions" 
+            [selected]="yearSelected"
+            (changeSelectedValue)="handleOnChangeYearSelected($event);"
+          ></select-dropdown>
+          <select-dropdown 
+            class="dropdown-select col month-select" 
+            [options]="monthOptions" 
+            [selected]="monthSelected"
+            (changeSelectedValue)="handleOnChangeMonthSelected($event);"
+          ></select-dropdown>
+          <select-dropdown 
+            class="dropdown-select col day-select" 
+            [options]="daysOptions" 
+            [selected]="daySelected"
+            (changeSelectedValue)="handleOnChangeDaySelected($event);"
+          ></select-dropdown>
+        </div>
+        <span class="text-primary">※ 1~4일 신청 시, 당월 5일 또는 익월 5일 선택 가능합니다. <br> 5일~말일 신청 시, 익월 5일만 가능합니다.</span>
+      </td>
+    </tr>
+    <tr class="recipient">
+      <td>받는사람</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="recipient" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+    <tr class="phone">
+      <td>전화번호</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="tel" autocomplete="off">
+        </div>
+        <span class="text-danger">전화번호 입력시 '-'를 제외하고 입력하시길 바랍니다.</span>
+      </td>
+    </tr>
+    <tr class="cellphone">
+      <td>핸드폰</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="mobile" autocomplete="off">
+        </div>
+        <span class="text-danger">핸드폰 번호 입력시 '-'를 제외하고 입력하시길 바랍니다.</span>
+      </td>
+    </tr>
+    <tr class="email">
+      <td>E-Mail</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="eMail" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+    <tr class="address">
+      <td>주소</td>
+      <td>
+        <div class="address">
+          <div class="inputs_1 inputs-wrapper row">
+            <input class="col" formControlName="post" autocomplete="off">
+            <div class="col-auto postcode-btn w-btn primary-btn open-popup-btn" data-popup="address-browsing" (click)="handleOnOpenZipPopup();">
+              <span>우편번호 검색</span>
+            </div>
+          </div>
+          <div class="inputs_2 inputs-wrapper row">
+            <input type="text" formControlName="addr1" autocomplete="off">
+          </div>
+          <div class="inputs_3 inputs-wrapper row"><input type="text" formControlName="addr2" autocomplete="off"></div>
+        </div>
+      </td>
+    </tr>
+    <tr class="memo">
+      <td>메모</td>
+      <td>
+        <div class="inputs-wrapper row"><input type="text" formControlName="rMemo" autocomplete="off"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>

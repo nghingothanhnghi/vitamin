@@ -1,0 +1,130 @@
+<div class="single-post notice-post s-font container">
+    <div class="post-header">
+        <h2 class="h-large">{{noticeDetail.title}}</h2>
+        <div class="post-meta">
+            <ul class="w-ul row">
+                <li class="post-author col-auto row">
+                    <img class="col-auto" src="./assets/img/308.svg">
+                    <span class="col-auto">{{noticeDetail.insUser}}</span>
+                </li>
+                <li class="post-date col-auto">{{noticeDetail.insDate}}</li>
+                <li class="post-view col-auto">조회수 {{noticeDetail.readCnt}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="post-body" id="postBody">
+        <div [innerHTML]="contents ? (contents | renderHtml) : ''"></div>
+    </div>
+
+
+    <div class="post-footer">
+        <!-- <div class="post-actions row">
+            <div class="col col_left row">
+                <div class="col-auto post-action post-like">
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none">
+                        <path
+                            d="M10.6667 3.66407L9.711 2.68178C7.4652 0.373422 3.35219 1.17026 1.86714 4.07046C1.16871 5.43444 1.01167 7.40329 2.28572 9.91677C3.51277 12.3375 6.06357 15.2353 10.6667 18.3928C15.2698 15.2353 17.8206 12.3375 19.0476 9.91677C20.3217 7.40329 20.1646 5.43444 19.4662 4.07046C17.9811 1.17026 13.8681 0.373422 11.6223 2.68178L10.6667 3.66407ZM10.6667 20C-9.77751 6.49121 4.37168 -4.05449 10.4324 1.52411C10.5119 1.59729 10.59 1.67325 10.6667 1.75201C10.7433 1.67325 10.8214 1.5973 10.9009 1.52412C16.9616 -4.0545 31.1109 6.4912 10.6667 20Z"
+                            fill="black" />
+                        <path 
+                            d="M10.6667 20C-9.77751 6.49121 4.37168 -4.05449 10.4324 1.52411C10.5119 1.59729 10.59 1.67325 10.6667 1.75201C10.7433 1.67325 10.8214 1.5973 10.9009 1.52412C16.9616 -4.0545 31.1109 6.4912 10.6667 20Z"
+                            fill="none" />
+                    </svg>
+                </div>
+                <div class="col-auto post-action post-comment">
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none">
+                        <path
+                            d="M3.58698 14.5923C3.8688 14.8749 4.00992 15.2684 3.97188 15.6657C3.88663 16.5561 3.6903 17.4827 3.43814 18.3435C5.30657 17.9117 6.4477 17.4107 6.9664 17.1479C7.26083 16.9987 7.59998 16.9634 7.91878 17.0489C8.79995 17.2852 9.73906 17.4133 10.7159 17.4133C16.0679 17.4133 20.0922 13.6526 20.0922 9.37638C20.0922 5.10014 16.0679 1.33948 10.7159 1.33948C5.36382 1.33948 1.33948 5.10014 1.33948 9.37638C1.33948 11.3429 2.16635 13.1676 3.58698 14.5923ZM2.92663 19.8229C2.91761 19.8247 2.90857 19.8265 2.89953 19.8283C2.77652 19.8525 2.65113 19.8764 2.52334 19.8998C2.34409 19.9326 2.16011 19.9646 1.97134 19.9955C1.70477 20.0391 1.50071 19.7602 1.60601 19.5115C1.67481 19.3489 1.74263 19.1786 1.8087 19.002C1.85068 18.8898 1.89195 18.7751 1.93232 18.6582C1.93406 18.6532 1.9358 18.6481 1.93753 18.6431C2.26938 17.679 2.53961 16.5709 2.63849 15.5381C0.995318 13.8903 0 11.735 0 9.37638C0 4.19795 4.79765 0 10.7159 0C16.6341 0 21.4317 4.19795 21.4317 9.37638C21.4317 14.5548 16.6341 18.7528 10.7159 18.7528C9.62183 18.7528 8.56609 18.6093 7.57188 18.3427C6.87605 18.6953 5.37713 19.3372 2.92663 19.8229Z"
+                            fill="black" />
+                    </svg>
+                </div>
+            </div>
+            <div class="col col_right row">
+                <div class="col-auto post-action post-share">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path
+                            d="M16.875 1.25C15.8395 1.25 15 2.08947 15 3.125C15 4.16053 15.8395 5 16.875 5C17.9105 5 18.75 4.16053 18.75 3.125C18.75 2.08947 17.9105 1.25 16.875 1.25ZM13.75 3.125C13.75 1.39911 15.1491 0 16.875 0C18.6009 0 20 1.39911 20 3.125C20 4.85089 18.6009 6.25 16.875 6.25C15.9263 6.25 15.0764 5.82727 14.5033 5.15991L6.10623 9.06025C6.19964 9.35686 6.25 9.67255 6.25 10C6.25 10.3275 6.19964 10.6431 6.10623 10.9397L14.5033 14.8401C15.0764 14.1727 15.9263 13.75 16.875 13.75C18.6009 13.75 20 15.1491 20 16.875C20 18.6009 18.6009 20 16.875 20C15.1491 20 13.75 18.6009 13.75 16.875C13.75 16.5475 13.8004 16.2319 13.8938 15.9353L5.49674 12.0349C4.92362 12.7023 4.07368 13.125 3.125 13.125C1.39911 13.125 0 11.7259 0 10C0 8.27411 1.39911 6.875 3.125 6.875C4.07368 6.875 4.92362 7.29773 5.49674 7.96509L13.8938 4.06475C13.8004 3.76814 13.75 3.45245 13.75 3.125ZM3.125 8.125C2.08947 8.125 1.25 8.96447 1.25 10C1.25 11.0355 2.08947 11.875 3.125 11.875C4.16053 11.875 5 11.0355 5 10C5 8.96447 4.16053 8.125 3.125 8.125ZM16.875 15C15.8395 15 15 15.8395 15 16.875C15 17.9105 15.8395 18.75 16.875 18.75C17.9105 18.75 18.75 17.9105 18.75 16.875C18.75 15.8395 17.9105 15 16.875 15Z"
+                            fill="black" />
+                    </svg>
+                </div>
+                <div class="col-auto post-action post-print">
+                    <svg width="21" height="18" viewBox="0 0 21 18" fill="none">
+                        <path
+                            d="M3.21429 9C3.56933 9 3.85714 8.71218 3.85714 8.35714C3.85714 8.0021 3.56933 7.71429 3.21429 7.71429C2.85925 7.71429 2.57143 8.0021 2.57143 8.35714C2.57143 8.71218 2.85925 9 3.21429 9Z"
+                            fill="black" />
+                        <path
+                            d="M6.42857 0C5.00841 0 3.85714 1.15127 3.85714 2.57143V5.14286H2.57143C1.15127 5.14286 0 6.29413 0 7.71429V11.5714C0 12.9916 1.15127 14.1429 2.57143 14.1429H3.85714V15.4286C3.85714 16.8487 5.00841 18 6.42857 18H14.1429C15.563 18 16.7143 16.8487 16.7143 15.4286V14.1429H18C19.4202 14.1429 20.5714 12.9916 20.5714 11.5714V7.71429C20.5714 6.29413 19.4202 5.14286 18 5.14286H16.7143V2.57143C16.7143 1.15127 15.563 0 14.1429 0H6.42857ZM5.14286 2.57143C5.14286 1.86135 5.71849 1.28571 6.42857 1.28571H14.1429C14.8529 1.28571 15.4286 1.86135 15.4286 2.57143V5.14286H5.14286V2.57143ZM6.42857 9C5.00841 9 3.85714 10.1513 3.85714 11.5714V12.8571H2.57143C1.86135 12.8571 1.28571 12.2815 1.28571 11.5714V7.71429C1.28571 7.00421 1.86135 6.42857 2.57143 6.42857H18C18.7101 6.42857 19.2857 7.00421 19.2857 7.71429V11.5714C19.2857 12.2815 18.7101 12.8571 18 12.8571H16.7143V11.5714C16.7143 10.1513 15.563 9 14.1429 9H6.42857ZM15.4286 11.5714V15.4286C15.4286 16.1387 14.8529 16.7143 14.1429 16.7143H6.42857C5.71849 16.7143 5.14286 16.1387 5.14286 15.4286V11.5714C5.14286 10.8613 5.71849 10.2857 6.42857 10.2857H14.1429C14.8529 10.2857 15.4286 10.8613 15.4286 11.5714Z"
+                            fill="black" />
+                    </svg>
+                </div>
+            </div>
+        </div> -->
+        <div class="related-post row">
+            <div class="prev col-auto">
+                <a *ngIf="noticeDetail.preNo != null && noticeDetail.preNo != '0' && noticeDetail.preTitle != null"
+                    (click)="onClickPrevNext(noticeDetail.preNo)" class="row">
+                    <img class="col-auto" src="./assets/img/309.svg">
+                    <span class="col">{{ noticeDetail.preTitle }}</span>
+                </a>
+            </div>
+            <div class="next col-auto">
+                <a *ngIf="noticeDetail.nextNo != null && noticeDetail.nextNo != '0' && noticeDetail.nextTitle != null"
+                    (click)="onClickPrevNext(noticeDetail.nextNo)" class="row">
+                    <span class="col">{{ noticeDetail.nextTitle }}</span>
+                    <img class="col-auto" src="./assets/img/310.svg">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="single-post notice-post">
+    <section class="">
+        <div class="container">		
+            <div class="post-header">
+                <h2 class="h-small">{{noticeDetail.title}}</h2>			
+                 <div class="post-meta row">
+                        <div class="post-info info col-auto" *ngIf="listFile != null && listFile.length > 0">
+                            <div class = "title-info" *ngFor="let items of listFile ">
+                                <a class="info author col-auto" (click)="downloadFile(items)">
+                                    <container-element [ngSwitch]="items.type">
+                                        <img *ngSwitchCase="'zip'" src="/assets/img/icons/zip.svg">
+                                        <img *ngSwitchCase="'doc'" src="/assets/img/icons/doc.svg">
+                                        <img *ngSwitchCase="'xlsx'" src="/assets/img/icons/xlsx.svg">
+                                        <img *ngSwitchCase="'image'" src="/assets/img/icons/file.svg" style="width: unset">
+                                        <img *ngSwitchDefault src="/assets/img/icons/file.svg">
+                                    </container-element>
+                                <span class="title">{{items.fileName}}</span>
+                                </a>
+                            </div>
+                        </div>
+                 </div>
+            </div>
+            <div class="post-body" id="postBody">
+                <div [innerHTML]="contents ? (contents | renderHtml) : ''"></div>
+            </div>
+
+            <div class="row post-foot">
+                <div class="prev col">
+                    <a *ngIf="noticeDetail.preNo != null && noticeDetail.preNo != '0' && noticeDetail.preTitle != null" (click)="onClickPrevNext(noticeDetail.preNo)">
+                        <div class="carret left">
+                            <img src="./assets/img/icons/carret-right.svg">
+                        </div>
+                        <span>{{ noticeDetail.preTitle }}</span>
+                    </a>
+                </div>
+                <div class="next-post col-auto">
+                    <a *ngIf="noticeDetail.nextNo != null && noticeDetail.nextNo != '0' && noticeDetail.nextTitle != null" (click)="onClickPrevNext(noticeDetail.nextNo)">
+                        <span>{{ noticeDetail.nextTitle }}</span>
+                        <div class="carret right">
+                            <img src="./assets/img/icons/carret-right.svg">
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</div> -->

@@ -1,0 +1,43 @@
+<div class="office-block result-block">
+  <div class="calendar-header">
+    <div class="nav-btn prev" (click)="handleOnClickCalendarButton('-')">
+      <svg width="30" height="30" viewBox="0 0 30 30">
+        <path d="M19.1008 24.3996L9.80078 14.9996L19.1008 5.59961L19.9008 6.39961L11.2008 14.9996L19.9008 23.5996L19.1008 24.3996Z" fill="#7A7A7E" />
+      </svg>
+    </div>
+    <div class="date h-medium">
+      <span>{{ year }}</span>-<span>{{ month }}</span>
+    </div>
+    <div class="nav-btn next" (click)="handleOnClickCalendarButton('+')">
+      <svg width="30" height="30" viewBox="0 0 30 30">
+        <path d="M10.5008 24.3996L19.9008 14.9996L10.5008 5.59961L9.80078 6.39961L18.4008 14.9996L9.80078 23.5996L10.5008 24.3996Z" fill="#7A7A7E" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="calendar-body" id='calendar-grid'>
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th>일<span>요일</span></th>
+          <th>월<span>요일</span></th>
+          <th>화<span>요일</span></th>
+          <th>수<span>요일</span></th>
+          <th>목<span>요일</span></th>
+          <th>금<span>요일</span></th>
+          <th>토<span>요일</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let week of items; index as i">
+          <td *ngFor="let day of week; index as j">
+            <div class="day" [ngClass]="day.cnt !== '' ? 'active' : day.classes">
+              <span class="day-number">{{ day.date | setTwoDigitPad }}</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <order-calendar-detail class="calendar-support" [items]="detailItems"></order-calendar-detail>
+</div>

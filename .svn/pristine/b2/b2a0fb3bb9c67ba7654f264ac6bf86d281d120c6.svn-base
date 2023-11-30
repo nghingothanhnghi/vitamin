@@ -1,0 +1,82 @@
+export interface MemberBenefitModel {
+ 
+	 comId: String
+	 userid: String
+	 userCnt: String
+	 userName: String
+	 userNameKana: String
+	 userNameEng: String
+	 givenName: String
+	 middleName: String
+	 familyName: String
+	 nickName: String
+	 companyName: String
+	 status: String
+	 regKind: String
+	 regDate: String
+	 termDate: String
+	 logId: String
+	 logDate: String
+	 passWd: String
+	 passWdDate: String
+	 ctrCd: String
+	 userKind: String
+	 userKindDate: String
+	 cntCd: String
+	 grpCd: String
+	 abPos: String
+	 pid: String
+	 rid: String
+	 cid: String
+	 sid: String
+	 rankCd: String
+	 rankMaxCd: String
+	 rankMaxDate: String
+	 bankNo: String
+	 accNo: String
+	 depositor: String
+	 accDate: String
+	 tokenKey: String
+	 juminNo: String
+	 juminDate: String
+	 taxNo: String
+	 taxKind: String
+	 birthday: String
+	 gender: String
+	 tel: String
+	 mobile: String
+	 email: String
+	 post: String
+	 state: String
+	 city: String
+	 county: String
+	 addr1: String
+	 addr2: String
+	 notice: String
+	 remark: String
+	 insDate: String
+	 insUser: String
+	 updDate: String
+	 updUser: String
+	
+	 rankName: String
+	 rName: String
+	 cntName: String
+	 pname: String
+	 lv: String
+	 user: String
+	 dateOrd: String
+	 keihuTxt: String
+	 bankName: String
+	 deJuminNo: String
+	 deAccNo: String
+	 birthDay1: String
+	 fmtBirthday: String
+	 cardNo: String
+	 okDateEmail: String
+	 okDateSms: String
+	
+	 encryptPass: String
+
+	rname : String;
+}

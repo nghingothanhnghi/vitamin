@@ -1,0 +1,18 @@
+<section id="all-products">
+    <div class="container">
+      <h2 class="shopMainTit">All Products</h2>
+      <products [products]="products" [config]="config" [urlWownet]="urlWownet" (itemProduct)="getItemOfProduct($event);" class="mainAllProd"></products>
+      <div class="pagination row">
+        <paging 
+            class="col-auto row paging" 
+            [len]="len" 
+            [page]="page" 
+            [config]="config" 
+            [totalItems]="total"
+            (totalPage) = handleOnTotalPage($event)
+            (changePage)="handleOnChangePage($event);"
+        ></paging>
+      </div>
+    </div>
+  </section>
+  

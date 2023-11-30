@@ -1,0 +1,54 @@
+<div class="col-auto years-select">
+    <div class="dropdown-select col-auto row">
+        <div class="selected col-auto row" (click)="handleOnClickYearSelectDropdown();">
+            <span class="col">{{ selectedYear.label }}</span>
+            <div class="btn-open-sub col-auto">
+                <svg width="20" height="20" viewBox="0 0 40 40">
+                    <path d="M20 26.7L7.5 14.2L8.5 13.3L20 24.9L31.5 13.3L32.5 14.2L20 26.7Z" fill="black"></path>
+                </svg>
+            </div>
+        </div>
+        <ul class="options" [ngClass]="showYearOptions ? 'open-dropdown-select' : 'close-dropdown-select'">
+            <ng-template ngFor let-item [ngForOf]="yearOptions">
+                <li class="option" value="{{item.value}}" (click)="handleOnClickYearOption(item.value)">{{ item.label }}
+                </li>
+            </ng-template>
+        </ul>
+    </div>
+</div>
+<div class="col-auto months-select">
+    <div class="dropdown-select col-auto row ">
+        <div class="selected col-auto row" (click)="handleOnClickMonthSelectDropdown();">
+            <span class="col" id="from-month-selected">{{ selectedMonth.label }}</span>
+            <div class="btn-open-sub col-auto">
+                <svg width="20" height="20" viewBox="0 0 40 40">
+                    <path d="M20 26.7L7.5 14.2L8.5 13.3L20 24.9L31.5 13.3L32.5 14.2L20 26.7Z" fill="black"></path>
+                </svg>
+            </div>
+        </div>
+        <ul class="options" [ngClass]="showMonthOptions ? 'open-dropdown-select' : 'close-dropdown-select'">
+            <ng-template ngFor let-item [ngForOf]="monthOptions">
+                <li class="option" value="{{item.value}}" (click)="handleOnClickMonthOption(item.value)">{{ item.label
+                    }}</li>
+            </ng-template>
+        </ul>
+    </div>
+</div>
+<div class="col-auto days-select" *ngIf="hiddenDate === false">
+    <div class="dropdown-select col-auto row ">
+        <div class="selected col-auto row" (click)="handleOnClickDateSelectDropdown();">
+            <span class="col" id="from-day-selected">{{ selectedDate.label }}</span>
+            <div class="btn-open-sub col-auto">
+                <svg width="20" height="20" viewBox="0 0 40 40">
+                    <path d="M20 26.7L7.5 14.2L8.5 13.3L20 24.9L31.5 13.3L32.5 14.2L20 26.7Z" fill="black"></path>
+                </svg>
+            </div>
+        </div>
+        <ul class="options" [ngClass]="showDateOptions ? 'open-dropdown-select' : 'close-dropdown-select'">
+            <ng-template ngFor let-item [ngForOf]="dateOptions">
+                <li class="option" value="{{item.value}}" (click)="handleOnClickDateOption(item.value)">{{ item.label }}
+                </li>
+            </ng-template>
+        </ul>
+    </div>
+</div>

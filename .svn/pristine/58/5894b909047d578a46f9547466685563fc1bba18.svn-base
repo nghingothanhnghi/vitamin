@@ -1,0 +1,12 @@
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#make-a-payment .form-header {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+

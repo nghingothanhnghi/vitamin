@@ -1,0 +1,151 @@
+<div id="product-meta">
+    <div class="row">
+        <div class="col-lg-6 col-sm-5" id="product-gallery">
+            <ng-container *ngIf="pdtImages.length > 0">
+                <div class="featured-slider product-gallery-slider" data-display="1,1,1,1" data-dot="on"
+                    data-nav="on" data-autoplay="on" data-interval="3000">
+                    <div class="slider-content slider-ref ">
+                        <div class="slider-wrapper row container products-wrapper">
+                            <ng-container *ngFor="let item of pdtImages; index as i;">
+                                <div class="col-12 slide item">
+                                    <div class="featured-wrapper">
+                                        <div class="img-wrapper" [attr.data-index]="i">
+                                            <img [src]="urlWownet + item.filePath + item.fileName">
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>                    
+                </div>
+            </ng-container>
+            <ng-container *ngIf="pdtImages.length === 0">
+                <img src="./assets/img/noImage.jpg">
+            </ng-container>
+        </div>
+
+        <div class="col-lg-6 col-sm-7 s-font" id="product-info">
+            <h2 class="h-small product-name">{{ pdtInfo.pdtName }}</h2>
+            <span class="id">{{ pdtInfo.pdtCd }}</span>
+            <div class="basic-infos">
+                <table>
+                    <tbody>
+                        <ng-container *ngIf="isLogined">
+                            <tr class="member-price">
+                                <td>회원가</td>
+                                <td>
+                                    <span>{{ pdtInfo.amt | setComma }}</span>
+                                    <span class="currency">원</span>
+                                </td>
+                            </tr>
+                            <tr class="pv" *ngIf="isPv1">
+                                <td>{{ smWowWord.oPv1 }}</td>
+                                <td>{{ pdtInfo.pv1 | setComma }}</td>
+                            </tr>
+                            <tr class="pv" *ngIf="isPv2">
+                                <td>{{ smWowWord.oPv2 }}</td>
+                                <td>{{ pdtInfo.pv2 | setComma }}</td>
+                            </tr>
+                            <tr class="pv" *ngIf="isPv3">
+                                <td>{{ smWowWord.oPv3 }}</td>
+                                <td>{{ pdtInfo.pv3 | setComma }}</td>
+                            </tr>
+                            <tr class="pv" *ngIf="isPoint">
+                                <td>{{ smWowWord.oMileage }}</td>
+                                <td>{{ pdtInfo.point | setComma }}</td>
+                            </tr>
+                        </ng-container>
+                        <ng-container *ngIf="!isLogined">
+                            <tr class="regular-price" *ngIf="isRetailAmt">
+                                <td>소비자가</td>
+                                <td>
+                                    <span>{{ pdtInfo.retailAmt | setComma }}</span>
+                                    <span>원</span>
+                                </td>
+                            </tr>
+                            <ng-container *ngIf="isAmt">
+                                <tr class="member-price">
+                                    <td>회원가</td>
+                                    <td>
+                                        <span>{{ pdtInfo.amt | setComma }}</span>
+                                        <span>원</span>
+                                    </td>
+                                </tr>
+                                <tr class="pv" *ngIf="isPv1">
+                                    <td>{{ smWowWord.oPv1 }}</td>
+                                    <td>{{ pdtInfo.pv1 | setComma }}</td>
+                                </tr>
+                                <tr class="pv" *ngIf="isPv2">
+                                    <td>{{ smWowWord.oPv2 }}</td>
+                                    <td>{{ pdtInfo.pv2 | setComma }}</td>
+                                </tr>
+                                <tr class="pv" *ngIf="isPv3">
+                                    <td>{{ smWowWord.oPv3 }}</td>
+                                    <td>{{ pdtInfo.pv3 | setComma }}</td>
+                                </tr>
+                            </ng-container>
+                            <tr class="regular-price" *ngIf="isPoint">
+                                <td>{{ smWowWord.oMileage }}</td>
+                                <td>
+                                    <span>{{ pdtInfo.retailPoint | setComma }}</span>
+                                </td>
+                            </tr>
+                        </ng-container>
+                        <tr>
+                            <td>배송비결제</td>
+                            <td>주문시 결제</td>
+                        </tr>
+                        <tr>
+                            <td>원료 및 원산지</td>
+                            <td>상품정보고시 참고</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ng-container *ngIf="isOrd">
+                <div class="quantity">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: middle">주문수량</td>
+                                <td>
+                                    <div class="quantity-input row">
+                                        <div class="cal-btn minus col-auto" (click)="handleOnClickMinus();"
+                                            [ngClass]="{'disable-btn': isDisableBuying}">
+                                            <img src="./assets/img/icons/quantity-minus.svg">
+                                        </div>
+                                        <div class="value col-auto">
+                                            <span id="qty">{{ quantity | setComma }}</span>
+                                        </div>
+                                        <div class="cal-btn plus col-auto" (click)="handleOnClickPlus();"
+                                            [ngClass]="{'disable-btn': isDisableBuying}">
+                                            <img src="./assets/img/icons/quantity-plus.svg">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>총금액</td>
+                                <td>
+                                    <span id="total-amount">{{ total | setComma }}</span>
+                                    <span class="currency">원</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="function row">
+                    <a href="javascript:;" class="w-btn small-btn col add-to-cart-btn"
+                        (click)="handleOnClickAddToCart();" [ngClass]="{'disable-btn': isDisableBuying}">
+                        <span>장바구니 담기</span>
+                    </a>
+                    <a href="javascript:;" class="w-btn small-btn col primary-btn checkout-btn" id="checkout"
+                        (click)="handleOnClickBuyNow();" [ngClass]="{'disable-btn': isDisableBuying}">
+                        <span>바로구매</span>
+                    </a> 
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

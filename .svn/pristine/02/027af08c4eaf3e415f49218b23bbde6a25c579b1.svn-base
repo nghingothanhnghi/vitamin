@@ -1,0 +1,253 @@
+import { Component, OnInit } from '@angular/core';
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { CodeModel } from '@app/models/system/code.model';
+import { CodeState, getCodesY } from '@app/selectors/system/code.selector';
+import { loadCodesY} from '@app/actions/system/code.action';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { DateFilterModel } from '@app/models/components/date-filter.model';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { environment } from 'src/environments/environment';
+import { BenefitSearchState, getBenefitSearchItems, getBenefitSumItem, getBenefitTotalItems, getTitlePayItems } from '@app/selectors/myoffice/benefit/benefit-details-inquiry.selector';
+import { countBenefit, loadTitlePay, searchBenefit, sumBenefit } from '@app/actions/myoffice/benefit/benefit-details-inquiry.action';
+import { BenefitDetailInquiryModel } from '@app/models/myoffice/benefit/benefit-details-inquiry.module';
+import { PaginationInstance } from 'ngx-pagination';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { AuthUtil } from '@app/common/util/auth.util';
+import { LenConstant } from '@app/common/constant/len.constant';
+
+@Component({
+  selector: 'app-benefit-details-inquiry',
+  templateUrl: './benefit-details-inquiry.component.html',
+  styleUrls: ['./benefit-details-inquiry.component.css',
+              './../../../../../assets/css/my-office/benefit-management.css']
+})
+export class BenefitDetailsInquiryComponent implements OnInit {
+
+  page: number = 1;
+
+  len: number = 10;
+
+  //Start Information UserLogin
+
+  userId: String = '';
+  userName: String = "";
+  labelDate : String = "정산일자";
+
+
+  //End Information UserLogin
+
+  totalItems: number = 0;
+
+  config: PaginationInstance = {
+    id: 'benefit-details-inquiry',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+
+  options: SelectDropdownModel[] = [];
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+
+
+
+  codesY$ = new Observable<CodeModel[]>;
+  codesO$ = new Observable<CodeModel[]>;
+  codesT$ = new Observable<CodeModel[]>;
+
+  yearOptions: SelectDropdownModel[] = [];
+
+  dateFilterSelected: DateFilterModel = new DateFilterModel();
+  isChecked = true;
+
+  tiltePay$ = new Observable<BenefitDetailInquiryModel[]>;
+  benefitSearchItems$ = new Observable<BenefitDetailInquiryModel[]>;
+  benefitSumItem$ = new Observable<BenefitDetailInquiryModel>;
+  benefitTotalItems$ = new Observable<Number>;
+  
+  tiltePayNew : any[] = [];
+  titleResult: string | any[] = [];
+  lengthTitleResult: number = 0;
+  benefitSumItemNew : any[] = [];
+
+
+  collection: BenefitDetailInquiryModel[] = [];
+  rows: number[] = [];
+  cols: number[] = new Array(16);
+  totalCols: number = 6;
+  totalRows: number = 0;
+  floorTotalCols: number = 0;
+
+  constructor(
+      private _codeStore: Store<CodeState>,
+      private _benefitSearchStore: Store<BenefitSearchState>,
+      private _overlayLoadingStore: Store<OverlayLoadingState>,
+    ) {
+    this.codesY$ = this._codeStore.select(getCodesY);
+    this.tiltePay$ = this._benefitSearchStore.select(getTitlePayItems);
+  }
+
+  ngOnInit(): void {
+
+    let member = AuthUtil.getLoginedInfo();
+    if (member) {
+      this.userId = ConvertUtil.convertToSring(member.userid);
+      this.userName = ConvertUtil.convertToSring(member.username);
+    }
+
+    this.options = LenConstant.listLen;
+    this.selectedValue = this.options[0];
+
+
+    let params = this.getParams();
+    this._benefitSearchStore.dispatch(loadTitlePay({ params: params }));
+
+    this._codeStore.dispatch(loadCodesY());
+
+    this.codesY$.subscribe(res => {
+      this.yearOptions = [];
+      res.forEach((item) => this.yearOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) }));
+    });
+
+  }
+
+  handleOnChangeDateFilter(dateFilter: DateFilterModel): void {
+    this.dateFilterSelected = dateFilter;
+    this.page = 1;
+    this.onSearch();
+  }
+
+  handleOnChangeSelectedValue(selected: SelectDropdownModel): void {
+    if(ValidationUtil.isNotNullAndNotEmpty(selected.value)) {
+      this.len = Number(selected.value);
+      this.page = 1;
+      this.onSearch();
+    }
+  }
+
+  handleOnChangePage(page: number): void {
+    this.page = page;
+    this.onSearch();
+  }
+
+  getParams(): any {
+    let startDate = "" + this.dateFilterSelected.fromDate.year.value 
+                  + this.dateFilterSelected.fromDate.month.value
+                  + this.dateFilterSelected.fromDate.date.value;
+
+    let endDate = "" + this.dateFilterSelected.toDate.year.value
+                + this.dateFilterSelected.toDate.month.value
+                + this.dateFilterSelected.toDate.date.value;
+
+    let type = "1";
+    if (this.isChecked === true) {
+      type = "2";
+    }
+
+    let params = {
+      comId: environment.comId,
+      lang: environment.default_lang,
+
+      date1: startDate,
+      date2: endDate,
+      userId: this.userId,
+      type : type,
+
+      page: Number(this.page) - 1,
+      len: this.len,
+      
+    }
+
+    return params;
+  }
+
+  onSearch(): void {
+
+    setTimeout(() => {
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    }, 1);
+   
+
+    let params = this.getParams();
+
+    this._benefitSearchStore.dispatch(searchBenefit({ params: params }));
+    this._benefitSearchStore.dispatch(countBenefit({ params: params }));
+    this._benefitSearchStore.dispatch(sumBenefit({ params: params }));
+
+   
+    this.benefitSearchItems$ = this._benefitSearchStore.select(getBenefitSearchItems);
+    this.benefitTotalItems$ = this._benefitSearchStore.select(getBenefitTotalItems);
+    this.benefitSumItem$ = this._benefitSearchStore.select(getBenefitSumItem);
+    
+    //Render Hedaer
+    this.tiltePay$.subscribe( result => {
+      this.tiltePayNew = [];
+      this.titleResult = result;
+      this.lengthTitleResult = result.length;
+      this.tiltePayNew.push({payName : "정산일자"});
+      for (let i = 0; i < result.length; i++) {
+        let items = {
+          payName : result[i].payName
+        }
+  
+        this.tiltePayNew.push(items);
+      }
+      this.tiltePayNew.push({payName : "합계금액"});
+    });
+
+    //Render Body
+    this.benefitSearchItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collection = res;
+        
+        if (this.collection.length < 5) {
+          this.rows = new Array(5 - this.collection.length);
+        }
+
+      } else {
+        this.collection = [];
+        this.rows = new Array(5);
+      }
+      
+      setTimeout(() => {
+        this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+        this.setBlankRow();
+      }, 250);
+    });
+
+    //Total Items Of data
+    this.benefitTotalItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    })
+
+   
+  }
+
+  setBlankRow() {
+    this.totalRows = this.collection.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+
+    this.totalCols = this.lengthTitleResult > 0 ? this.lengthTitleResult + 2 : 2;
+
+    this.floorTotalCols =   Math.floor((this.totalCols/2));
+
+    this.cols = new Array(this.totalCols);
+  }
+
+  search() {
+    this.page = 1;
+    this.onSearch();
+  }
+
+}

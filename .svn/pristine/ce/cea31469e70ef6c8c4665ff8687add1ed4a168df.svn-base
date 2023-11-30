@@ -1,0 +1,63 @@
+.main-body {
+    padding-top: 30px;
+}
+
+
+.main-body .title {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.title .title-color {
+    color: #739E3C;
+}
+
+.global {
+    margin-bottom: 50px;
+}
+
+
+.flag-icon img {
+    width: auto;
+    margin-right: 10px;
+}
+
+.flag-icon .flag {
+    float: left;
+    display: flex;
+    width: 25%;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+@media all and (max-width: 575px) {
+    .flag-icon .flag {
+        width: 50%;
+    }
+}
+
+.flag-icon .flag p {
+    width: auto;
+    margin-bottom: 0;
+}
+
+
+
+@media all and (max-width: 991px) {
+   .main-body .title, 
+   .main-body .flag-icon {
+       padding: 0 4%;
+   }
+
+   .main-body {
+       padding: 30px 0;
+   }
+}
+
+
+
+@media all and (min-width: 992px) {
+    #global .main-container {
+        padding: 20px 0;
+    }
+}

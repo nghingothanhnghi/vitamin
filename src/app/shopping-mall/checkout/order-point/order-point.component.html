@@ -1,0 +1,30 @@
+<div id="redeem-point" class="form-body form-card " data-method="5" [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-auto label">
+      <span>사용가능 마일리지</span>
+    </div>
+    <div class="col-sm-auto inputs-wrapper row" style="padding-right: 29px;">
+      <input value="{{ totalPoint | setComma }}" type="text" class="col" readonly>
+      <!--<span class="col-auto currency">원</span>-->
+      <!--<div>{{ totalPoint | setComma }}</div>-->
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-sm-auto label" style="margin-right: 49px;">
+      <span>사용 마일리지</span>
+    </div>
+    <div class="col-sm-auto inputs-wrapper row" style="padding-right: 29px;">
+      <input id="u-point" value="0" formControlName="usePoint" (keyup)="handleOnChangeUsePoint($event.target)"  type="text" class="col">
+      <!--<span class="col-auto currency">원</span>-->
+    </div>
+    <!--<div class="col-sm-auto guide">
+      <div class="btns" id="useAllPoint">
+        <a href="javascript:" class="col col-sm-auto w-btn primary-btn" (click)="handleOnClickUseAllPoint();">
+          <span>전체사용</span>
+        </a>
+      </div>
+      <div>(※마일리지: {{ totalPoint | setComma }})</div>
+    </div>-->
+  </div>
+</div>

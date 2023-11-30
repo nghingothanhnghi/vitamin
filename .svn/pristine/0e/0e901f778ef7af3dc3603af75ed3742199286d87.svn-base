@@ -1,0 +1,49 @@
+
+<div id="login-find-id" class="login-page">
+    <div class="container">
+        <div class="heading">
+            <h2 class="h-medium">아이디찾기</h2>
+        </div>
+        
+        <div class="main-functions">
+            <div class="field-wrapper">
+                <span class="label">회원명</span>
+                <input type="text" [(ngModel)]="username" id="username">
+            </div>
+            <div class="field-wrapper">
+                <span class="label" >생년월일</span>
+                <span class="row date-selects-row">
+                <select-dropdown 
+                    class="dropdown-select col-auto row date-select"
+                    [options]="yearOptions"
+                    [selected]="fromYear"
+                    (changeSelectedValue)="handleOnChangeYearSeletedValue($event);"
+                ></select-dropdown>
+                <select-dropdown 
+                    class="dropdown-select col-auto row date-select"
+                    [options]="monthOptions"
+                    [selected]="fromMonth"
+                    (changeSelectedValue)="handleOnChangeMonthSeletedValue($event);"
+                ></select-dropdown>
+                <select-dropdown 
+                    class="dropdown-select col-auto row date-select"
+                    [options]="dateOptions"
+                    [selected]="fromDate"
+                    (changeSelectedValue)="handleOnChangeDateSeletedValue($event);"
+                ></select-dropdown>
+            </span>
+            </div>
+            <div class="field-wrapper">
+                <span class="label">휴대폰</span>
+                <input type="text" [(ngModel)]="phone" id="phone">
+            </div>
+            
+            <div class="field-wrapper group-btns">
+                <a href="javascript:history.back()" class="w-btn large-btn col dark-btn">이전</a>
+                <a class="w-btn large-btn col primary-btn" (click)="findId()">확인</a>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>

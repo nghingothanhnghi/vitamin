@@ -1,0 +1,83 @@
+<h2 class="h-false">배송지 정보</h2>
+
+<table class="vt-table" [formGroup]="form">
+  <tbody>
+    <tr>
+      <td>소유주명</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" placeholder="이미경" formControlName="cardOwner">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>카드종류</td>
+      <td>
+        <select-dropdown 
+          *ngIf="haveAdo"
+          class="dropdown-select row" 
+          [options]="bankOptions" 
+          [selected]="bankSelected"
+          (changeSelectedValue)="handleOnSelectedBank($event);"
+        ></select-dropdown>
+      </td>
+    </tr>
+    <tr>
+      <td>카드번호</td>
+      <td class="number-input">
+        <div class="input">
+          <div class="inputs-wrapper row">
+            <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo1" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+            <span class="col-auto hyphen">-</span>
+            <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo2" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+            <span class="col-auto hyphen">-</span>
+            <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo3" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+            <span class="col-auto hyphen">-</span>
+            <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo4" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+          </div>
+        </div>
+        <span>※ 법인카드는 결제 되지 않습니다.</span>
+      </td>
+    </tr>
+    <tr>
+      <td>유효기간(월/년)</td>
+      <td class="validity input col row">
+        <div class="validity-col inputs-wrapper row">
+          <input type="text" class="col input-2-digits" maxlength="2" formControlName="cardExpMM" autocomplete="off" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+          <span class="col-auto hyphen">/</span>
+          <input type="text" class="col input-4-digits" maxlength="2" formControlName="cardExpYY" autocomplete="off" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+        </div>
+
+        <div class="inputs-wrapper validity-input row" style="display: none;">
+          <span class="title title1">할부기간</span>
+          <select-dropdown 
+            class="dropdown-select col" 
+            [options]="cardInstallOptions" 
+            [selected]="cardInstallSelected"
+            (changeSelectedValue)="handleOnSelectedCardInstall($event);"
+          ></select-dropdown>
+          <span class="title title2">(5만원이상가능)</span>
+        </div>
+      </td>
+    </tr>
+    <tr class="card-pw">
+      <td>카드비밀번호</td>
+      <td>
+        <div class="input">
+          <div class="inputs-wrapper row">
+            <input class="col-auto input-2-digits" type="password" maxlength="2" formControlName="cardPw" autocomplete="off" (keyup)="handleOnKeyUpNumber($event.target)" readonly onclick="this.removeAttribute('readonly')">
+            <span>(앞 2자리 입력)</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>주민등록번호</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input class="col-auto input-6-digits" type="text" maxlength="6" formControlName="birthday" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

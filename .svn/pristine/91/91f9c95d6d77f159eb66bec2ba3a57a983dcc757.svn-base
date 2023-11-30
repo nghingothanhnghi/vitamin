@@ -1,0 +1,243 @@
+
+
+<header class="main-header s-font" id="main-header">
+    <div class="desktop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-auto row center-logo">
+                    <a routerLink="/"><img src="./assets/img/logo-top.png"></a>
+                </div>
+                <div class="col-lg left-nav">
+                    <ul class="menu w-ul">
+                        <ng-container *ngFor="let item of mainItems">
+                            <ng-container *ngIf="item.data.menuYn === 'Y'">
+                                <li class="menu-item col-auto" [attr.data-program-id]="item.data.prgId"
+                                    [ngClass]="activeId === item.data.prgId ? 'active' : ''">
+                                    <a [routerLink]="item.data.linkInfo" class="a1">
+                                        <span>{{ item.data.prgName }}</span>
+                                    </a>
+                                </li>
+                            </ng-container>
+                        </ng-container>
+                    </ul>
+                </div>
+                
+                <div class="col-lg right-nav">
+                    <ul class="menu w-ul">
+                        <!-- <li class="col-auto menu-item site" (click)="handleClickHomePage('2')"
+                            [ngClass]="{'active' : (isClickedMF == false)}">
+                            <a class="a1" href="javascript:;" routerLink="/">
+                                <span>HOME</span>
+                            </a>
+                        </li>
+
+                        <li class="col-auto menu-item site" (click)="handleClickMyoffice('2')"
+                            [ngClass]="{'active' : (isClickedMF == true)}">
+                            <a class="a1" href="javascript:;">
+                                <span>MY OFFICE</span>
+                            </a>
+                        </li> -->
+
+                        <!-- <li class="col-auto menu-item cart" *ngIf="isLogined">
+                            <a class="a1" routerLink="/shopping-mall/cart">
+                                <span>장바구니</span>
+                            </a>
+                        </li> -->
+
+                        <ng-container *ngFor="let item of rightMenu;">
+                            <ng-container
+                                *ngIf="item.loginYn == 'A' || (isLogined && item.loginYn == 'Y') || (!isLogined && item.loginYn == 'N')">
+                                <li class="col-auto menu-item" [ngClass]="item.prgId === activeTopLeft ? 'active' : ''">
+                                    <ng-container *ngIf="item.prgId === 'mr.Myoffice' && isHomepage">
+                                        <a class="a1 topBtn" [routerLink]="item.linkInfo" (click)="handleClickMyoffice();">
+                                            <span>{{ item.prgName }}</span>
+                                        </a>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="item.prgId === 'mr.Shop' && !isHomepage">
+                                        <a class="a1 topBtn" [routerLink]="item.linkInfo" (click)="handleClickHomePage();">
+                                            <span>{{ item.prgName }}</span>
+                                        </a>
+                                    </ng-container>
+
+                                    <ng-container *ngIf="item.prgId !== 'mr.Shop' && item.prgId !== 'mr.Myoffice'">
+                                        <a class="a1" href="javascript:;" (click)="handleOnClickRightMenu(item);">
+                                            <span>{{ item.prgName }}</span>
+                                        </a>
+                                    </ng-container>
+                                    <!-- <a class="a1 topBtn" href="javascript:;" (click)="handleOnClickRightMenu(item);">
+                                        <span>{{ item.prgName }}</span>
+                                    </a> -->
+                                </li>
+                            </ng-container>
+                        </ng-container>
+                    </ul>
+                </div>
+
+                <!-- div id="search-product" class="col-auto closed search-product" *ngIf="!url.startsWith('/login')">
+                    <div class="wrapper">
+                        <div class="input-wrapper">
+                            <input id="search-key" type="text" placeholder="Search" [(ngModel)]="key"
+                                (keydown.enter)="handleOnSearch();">
+                        </div>
+                        <div class="btns col-auto">
+                            <div class="w-btn btn-search-open">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                    <path
+                                        d="M19.5 19.5L24 24M21.4286 13.7143C21.4286 17.9748 17.9748 21.4286 13.7143 21.4286C9.4538 21.4286 6 17.9748 6 13.7143C6 9.4538 9.4538 6 13.7143 6C17.9748 6 21.4286 9.4538 21.4286 13.7143Z"
+                                        stroke="#2A2E46" stroke-width="1.6" stroke-linecap="round">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="w-btn btn-search-close">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                    <path
+                                        d="M6.50341 10C7.43557 10.9342 8.46287 11.7752 9.57848 12.4809C10.9181 13.3264 12.4018 13.9928 13.9803 14.2144C15.1967 14.3906 16.4456 14.2304 17.6058 13.8406C18.8029 13.4488 19.9201 12.8406 20.9562 12.1297C21.8671 11.501 22.7162 10.7844 23.4966 10C23.9992 10.4617 24.5074 10.9177 25 11.3902C23.8788 12.5588 22.5901 13.562 21.2144 14.4139C21.9418 15.1686 22.7005 15.8932 23.4299 16.6459C22.9498 17.1305 22.4697 17.6158 21.9811 18.0923C21.0795 17.2015 20.1911 16.2975 19.2886 15.4075C18.4014 15.7704 17.4825 16.0674 16.5335 16.2172C16.3653 16.2445 16.1943 16.2561 16.0281 16.2967C16.0269 17.5098 16.0293 18.723 16.0273 19.9366C15.3428 19.9422 14.6576 19.9422 13.9731 19.9366C13.9711 18.7226 13.9735 17.509 13.9723 16.2955C13.8768 16.2758 13.7808 16.2589 13.6841 16.2473C12.6596 16.1116 11.668 15.7965 10.7138 15.4071C9.81132 16.2975 8.92373 17.2031 8.02007 18.0923C7.53312 17.6142 7.05179 17.1301 6.57166 16.6447C7.30309 15.8936 8.06062 15.1678 8.78844 14.4127C7.40988 13.5636 6.12365 12.5568 5 11.3894C5.49378 10.9185 6.00241 10.4629 6.50341 10Z"
+                                        opacity="0.7" fill="#2A2E46"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div -->
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-header mobile">
+        <div class="container">
+            <ul class="row w-ul">
+                <li class="col-auto row center-logo">
+                    <a routerLink="/"><img src="./assets/img/logo-top.png"></a>
+                </li>
+                <li class="col text-end">
+                    <div class="profile mobile" id="menu-frofile">
+                        <a routerLink="/my-office/user-profile/personal-information">
+                            <img src="./assets/img/frofile2.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="z-index menu-toggle" id="menu-toggle">
+                        <div id="mobile-toggle">
+                            <div class="cross_hamburger_menu">
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="closed">
+        <div class="container">
+            <div id="mobile-main-menu">
+                <ul class="menu w-ul">
+                    <ng-container *ngFor="let item of mainItems">
+                        <ng-container *ngIf="item.data.menuYn === 'Y'">
+                            <li class="menu-item col-auto" [attr.data-program-id]="item.data.prgId"
+                                [ngClass]="activeId === item.data.prgId ? 'active' : ''">
+                                <div class="level-1">
+                                    <a [routerLink]="item.data.linkInfo">
+                                        <span>{{ item.data.prgName }}</span>
+                                    </a>
+                                </div>
+                                <ul class="sub-menu w-ul">
+                                    <ng-container *ngFor="let itemsub of momenusub">
+                                        <ng-container *ngIf="itemsub.menuYn == 'Y' && itemsub.pid==item.data.prgId">
+                                            <li [ngClass]="itemsub.prgId === tempActiveId ? 'active' : ''">
+                                                <a href="#" [routerLink]="itemsub.linkInfo">
+                                                    {{itemsub.prgName }}</a>
+                                            </li>
+                                        </ng-container>
+                                    </ng-container>
+                                </ul> 
+                            </li>
+                        </ng-container>
+                    </ng-container>
+                </ul>
+            </div>
+            <div id="mobile-bottom-menu">
+                <ul class="menu w-ul">
+                    <!-- <li class="menu-item site" (click)="handleClickHomePage('2')"
+                        [ngClass]="{'active' : (isClickedMF == false)}">
+                        <a href="javascript:;" routerLink="/">
+                            <span>HOME</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item site" (click)="handleClickMyoffice('2')"
+                        [ngClass]="{'active' : (isClickedMF == true)}">
+                        <a href="javascript:;">
+                            <span>MY OFFICE</span>
+                        </a>
+                    </li> -->
+                    <!-- <li class="menu-item cart" *ngIf="isLogined">
+                        <a routerLink="/shopping-mall/cart">
+                            <span>장바구니</span>
+                        </a>
+                    </li> -->
+                    <ng-container *ngFor="let item of rightMenu;">
+                        <ng-container
+                            *ngIf="item.loginYn == 'A' || (isLogined && item.loginYn == 'Y') || (!isLogined && item.loginYn == 'N')">
+                            <li class="menu-item" [ngClass]="item.prgId === activeTopLeft ? 'active' : ''">
+                                <ng-container *ngIf="item.prgId === 'mr.Myoffice' && isHomepage">
+                                    <a class="topBtn" [routerLink]="item.linkInfo" (click)="handleClickMyoffice();">
+                                        <span>{{ item.prgName }}</span>
+                                    </a>
+                                </ng-container>
+
+                                <ng-container *ngIf="item.prgId === 'mr.Shop' && !isHomepage">
+                                    <a class="topBtn" [routerLink]="item.linkInfo" (click)="handleClickHomePage();">
+                                        <span>{{ item.prgName }}</span>
+                                    </a>
+                                </ng-container>
+
+                                <ng-container *ngIf="item.prgId !== 'mr.Shop' && item.prgId !== 'mr.Myoffice'">
+                                    <a href="javascript:;" (click)="handleOnClickRightMenu(item);">
+                                        <span>{{ item.prgName }}</span>
+                                    </a>
+                                </ng-container>
+                                <!-- <a class="a1 topBtn" href="javascript:;" (click)="handleOnClickRightMenu(item);">
+                                    <span>{{ item.prgName }}</span>
+                                </a> -->
+                            </li>
+                        </ng-container>
+                    </ng-container>
+                </ul>                
+            </div>
+            <div class="hello" *ngIf="isLogined">
+                {{ loginedInfo?.username }} 님, 반갑습니다!
+                <ng-container *ngIf="smWownetPg.settMPoint === 'Y'">
+                    <ng-container *ngIf="!memberPoint">
+                        (마일리지 : 0)
+                    </ng-container>
+                    <ng-container *ngIf="memberPoint">
+                        (마일리지 : {{ memberPoint.havePoint | setComma }})
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+
+
+    </div>
+
+</header>
+
+<!-- <div id="sidebar-menu">
+    <ul>
+        <li class="menu-item" (click)="handleClickHomePage()" [ngClass]="{'active' : (isClickedMF == false)}">
+            <a routerLink="/">
+                <img src="./assets/img/iconHP.svg" alt="">
+            </a>
+        </li>
+
+        <li class="menu-item" (click)="handleClickMyoffice()" [ngClass]="{'active' : (isClickedMF == true)}">
+            <a>
+                <img src="./assets/img/iconMF.svg" alt="">
+            </a>
+        </li>
+    </ul>
+</div> -->
+
+<app-autologout style="display: none;"></app-autologout>
+<ngx-loading [show]="loading"></ngx-loading>

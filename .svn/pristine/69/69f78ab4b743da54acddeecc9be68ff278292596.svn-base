@@ -1,0 +1,72 @@
+<!-- <div class="row form-row date-time"> -->
+  <div class="info date-selects col-lg row">
+    <div class="info-heading col-lg-auto" *ngIf="hiddenImageSvg === false">
+      <span class="label col col-lg-auto">{{labelDate}}</span>
+      <div class="w-btn col-auto btn-hide has-icon" hideAdvancedFilter>
+        <span>닫기</span>
+        <div class="icon"><img src="./assets/img/icons/hide.svg"></div>
+      </div>
+    </div>
+    
+    <!-- from date -->
+    <date-select-dropdown
+      class="date-select date-from row col-lg"
+      [yearOptions]="yearOptions"
+      [year]="fromYear"
+      [month]="fromMonth"
+      [date]="fromDate"
+      [hiddenDate]="hiddenDate"
+      [stringYear]="stringYear"
+      [stringMonth]="stringMonth"
+      [stringDate]="stringDate"
+      [screen]= "screen"
+      [isCheckClickAll] ="isCheckClickAll"
+      (selectedValue)="hanldeOnGetFromDateSelectedValue($event);"
+    ></date-select-dropdown>
+    
+    <span class="lb col-auto" *ngIf="hiddenToDate === false"></span> 
+
+    <!-- to date -->
+    <date-select-dropdown  *ngIf="hiddenToDate === false"
+      class="date-select date-to row col-lg"
+      [yearOptions]="yearOptions"
+      [year]="toYear"
+      [month]="toMonth"
+      [date]="toDate"
+      [hiddenDate]="hiddenDate"
+      [stringYear]="stringYear"
+      [stringMonth]="stringMonth"
+      [stringDate]="stringDate"
+      [screen]="screen"
+      [isCheckClickAll] ="isCheckClickAll"
+      (selectedValue)="hanldeOnGetToDateSelectedValue($event);"
+    ></date-select-dropdown>
+
+
+
+  </div>
+  <div class="info desktop-time-btns time-btns col-lg-auto row" *ngIf="hiddenBtn === true && (screen.length==0 || screen == 'benefit-sponsorship-details')">
+    <a class="col-auto w-btn" [ngClass]="btnFilterIsActive === BTN_THIS_MONTH_ACTIVED ? 'active' : ''" id="qs-this-month" (click)="handleOnClickThisMonth();">당월</a>
+    <a class="col-auto w-btn" [ngClass]="btnFilterIsActive === BTN_LAST_MONTH_ACTIVED ? 'active' : ''" id="qs-last-month" (click)="handleOnClickLastMonth();">전월</a>
+    <a class="col-auto w-btn" [ngClass]="btnFilterIsActive === BTN_LAST_3MONTH_ACTIVED ? 'active' : ''" id="qs-last-3-months" (click)="handleOnClickLast3Months();">최근 3개월</a>
+    <a class="col-auto w-btn" [ngClass]="btnFilterIsActive === BTN_THIS_YEAR_ACTIVED ? 'active' : ''" id="qs-this-year" (click)="handleOnClickThisYear();">{{ now.getFullYear() + "" + stringYear }}</a>
+    <a class="col-auto w-btn" [ngClass]="btnFilterIsActive === BTN_ALL_ACTIVED ? 'active' : ''" id="qs-all" (click)="handleOnClickAll();">전체</a>
+  </div>
+
+  <div class="info desktop-time-btns time-btns col-lg-auto row" *ngIf="hiddenBtn === false && screen.length==0">
+    <a class="col-auto w-btn w-btn-new" id="qs-this-month" (click)="handleOnClickThisMonth();">당월</a>
+    <a class="col-auto w-btn w-btn-new" id="qs-last-month" (click)="handleOnClickLastMonth();">전월</a>
+  </div>
+
+  <div class="info desktop-time-btns time-btns col-lg-auto row" *ngIf="hiddenBtn === false && screen.length==0">
+    <a class="col-auto w-btn w-btn-new" id="qs-this-month" (click)="handleOnClickThisMonth();">당월</a>
+    <a class="col-auto w-btn w-btn-new" id="qs-last-month" (click)="handleOnClickLastMonth();">전월</a>
+  </div>
+
+  <div class="info desktop-time-btns time-btns col-lg-auto row" *ngIf="screen == 'consumer-sales-ratio-inquiry' && hiddenBtn===false">
+    <a class="col-auto w-btn" id="qs-this-year" (click)="handleOnClickThisYear();">{{ now.getFullYear() + "" + stringYear }}</a>
+    <a class="col-auto w-btn" id="qs-last-year" (click)="handleOnClickLastYear();">전년도</a>
+    <a class="col-auto w-btn" id="qs-all" (click)="handleOnClickAll();">전체</a>
+  </div>
+
+<!-- </div> -->

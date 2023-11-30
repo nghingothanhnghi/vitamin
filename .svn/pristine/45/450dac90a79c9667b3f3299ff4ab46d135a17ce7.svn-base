@@ -1,0 +1,63 @@
+<div class="draggable-element">
+
+  <div class="draggable-items-wrapper">
+    <table class="hr-table">
+      <thead>
+        <tr>
+          <th>총주문금액</th>
+          <th *ngIf="isPv1">총{{ smWowWord.oPv1 }}</th>
+          <!-- <th *ngIf="isPv2">총{{ smWowWord.oPv2 }}</th>
+          <th *ngIf="isPv3">총{{ smWowWord.oPv3 }}</th> -->
+          <th *ngIf="isPoint">총{{ smWowWord.oMileage }}</th>
+          <th>배송비</th>
+          <th>총 결제금액</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ ordAmt | setComma }} 원</td>
+          <td *ngIf="isPv1">{{ pv1 | setComma }}</td>
+          <!-- <td *ngIf="isPv2">{{ pv2 | setComma }}</td>
+          <td *ngIf="isPv3">{{ pv3 | setComma }}</td> -->
+          <td *ngIf="isPoint">{{ ordPoint | setComma }}</td>
+          <td>{{ deliAmt | setComma }} 원</td>
+          <td class="text-danger">{{ ordAmt + deliAmt | setComma}} 원</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<table class="hr-mobile-table">
+  <tbody>
+    <tr>
+      <td>총주문금액</td>
+      <td>{{ ordAmt | setComma }} 원</td>
+    </tr>
+    <tr *ngIf="isPv1">
+      <td>{{ smWowWord.oPv1 }}</td>
+      <td>{{ pv1 | setComma }} {{ smWowWord.oPv1 }}</td>
+    </tr>
+    <!-- <tr *ngIf="isPv2">
+      <td>{{ smWowWord.oPv2 }}</td>
+      <td>{{ pv2 | setComma }} {{ smWowWord.oPv2 }}</td>
+    </tr>
+    <tr *ngIf="isPv3">
+      <td>{{ smWowWord.oPv3 }}</td>
+      <td>{{ pv3 | setComma }} {{ smWowWord.oPv3 }}</td>
+    </tr> -->
+    <tr *ngIf="isPoint">
+      <td>{{ smWowWord.oMileage }}</td>
+      <td>{{ ordPoint | setComma }}</td>
+    </tr>
+    <tr>
+      <td>배송비</td>
+      <td>{{ deliAmt | setComma }} 원</td>
+    </tr>
+    <tr>
+      <td>총 결제금액</td>
+      <td>{{ ordAmt + deliAmt | setComma}} 원</td>
+    </tr>
+  </tbody>
+</table>

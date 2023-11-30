@@ -1,0 +1,19 @@
+.open-dropdown-select {
+    display: block;
+    background: white;
+    padding: 15px;
+}
+
+.close-dropdown-select {
+    display: none;
+}
+
+
+ul li {
+    padding: 5px;
+    font-size: 14px;
+}
+
+ul li:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,.05);    
+}

@@ -1,0 +1,20 @@
+<div id="order-details-inquiry" class="office-page">
+    <section class="section-content searching-result">
+        <div class="container mobile-container">
+            <div class="row">
+                <order-info class="order-information col-lg office-block mobile-block" [orderNo]="orderNo"
+                    (clickOpenOrderPopup)="handleOnClickToggleOrderPopup($event);"></order-info>
+                <order-shipping [userid]="userid" [orderNo]="orderNo"
+                    class="shipping-information office-block mobile-block col-lg"></order-shipping>
+                <order-payment class="result-block payment-information mobile-block office-block"></order-payment>
+                <order-money class="result-block payment-details mobile-block office-block"></order-money>
+                <order-product class="result-block order-product-information mobile-block office-block last none">
+                </order-product>
+            </div>
+        </div>
+    </section>
+    <section class="popups-container">
+        <order-popup [show]="showOrderPopup" (clickCloseOrderPopup)="handleOnClickToggleOrderPopup($event);">
+        </order-popup>
+    </section>
+</div>

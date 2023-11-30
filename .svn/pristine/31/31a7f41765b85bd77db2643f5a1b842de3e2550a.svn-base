@@ -1,0 +1,55 @@
+.regis-policy {
+    align-items: center;
+    margin-bottom: 15px;
+}
+.regis-policy .label {
+    margin-right: 30px;
+}
+
+/* .regis-policy .input div:not(:last-child) {
+ margin-right: 30px;
+} */
+.regis-policy .input label {
+    margin-right: 10px;
+}
+.regis-policy .input input {
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+.w-checkbox h4 {
+    margin-bottom: 0;
+}
+
+
+
+
+.group-btns a {
+    height: 44px;
+}
+
+
+@media all and (max-width: 575px) {
+	.group-btns a {
+        width: calc(50% - 5px);
+    }
+    .group-btns a:first-child {
+        margin-right: 10px;
+    }
+}
+
+
+@media all and (min-width: 576px) {
+	.group-btns a {
+        width: 160px;
+    }
+    .group-btns a:first-child {
+        margin-right: 10px;
+    }
+}
+

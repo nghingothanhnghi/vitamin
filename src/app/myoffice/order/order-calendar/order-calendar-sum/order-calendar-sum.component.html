@@ -1,0 +1,115 @@
+<div class="office-block">
+    <table class="calendar-detail-table hr-table" style="display: table;">
+        <colgroup>
+            <col width="60px" />
+            <col width="110px" />
+            <col width="110px" />
+            <col width="110px" />
+            <col width="110px" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th>구분</th>
+                <th>{{ sumByReple.title }}</th>
+                <th>{{ sumByFuture.title }}</th>
+                <th>{{ sumByVita.title }}</th>
+                <th>{{ sumBySum.title }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr [ngClass]="isCurentYear && currentMonth == '01' ? 'current-month' : ''">
+                <td>1월</td>
+                <td>{{ sumByReple.mon1 | setComma }}월</td>
+                <td>{{ sumByFuture.mon1 | setComma }}월</td>
+                <td>{{ sumByVita.mon1 | setComma }}월</td>
+                <td>{{ sumBySum.mon1 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '02' ? 'current-month' : ''">
+                <td>2월</td>
+                <td>{{ sumByReple.mon2 | setComma }}월</td>
+                <td>{{ sumByFuture.mon2 | setComma }}월</td>
+                <td>{{ sumByVita.mon2 | setComma }}월</td>
+                <td>{{ sumBySum.mon2 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '03' ? 'current-month' : ''">
+                <td>3월</td>
+                <td>{{ sumByReple.mon3 | setComma }}월</td>
+                <td>{{ sumByFuture.mon3 | setComma }}월</td>
+                <td>{{ sumByVita.mon3 | setComma }}월</td>
+                <td>{{ sumBySum.mon3 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '04' ? 'current-month' : ''">
+                <td>4월</td>
+                <td>{{ sumByReple.mon4 | setComma }}월</td>
+                <td>{{ sumByFuture.mon4 | setComma }}월</td>
+                <td>{{ sumByVita.mon4 | setComma }}월</td>
+                <td>{{ sumBySum.mon4 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '05' ? 'current-month' : ''">
+                <td>5월</td>
+                <td>{{ sumByReple.mon5 | setComma }}월</td>
+                <td>{{ sumByFuture.mon5 | setComma }}월</td>
+                <td>{{ sumByVita.mon5 | setComma }}월</td>
+                <td>{{ sumBySum.mon5 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '06' ? 'current-month' : ''">
+                <td>6월</td>
+                <td>{{ sumByReple.mon6 | setComma }}월</td>
+                <td>{{ sumByFuture.mon6 | setComma }}월</td>
+                <td>{{ sumByVita.mon6 | setComma }}월</td>
+                <td>{{ sumBySum.mon6 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '07' ? 'current-month' : ''">
+                <td>7월</td>
+                <td>{{ sumByReple.mon7 | setComma }}월</td>
+                <td>{{ sumByFuture.mon7 | setComma }}월</td>
+                <td>{{ sumByVita.mon7 | setComma }}월</td>
+                <td>{{ sumBySum.mon7 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '08' ? 'current-month' : ''">
+                <td>8월</td>
+                <td>{{ sumByReple.mon8 | setComma }}월</td>
+                <td>{{ sumByFuture.mon8 | setComma }}월</td>
+                <td>{{ sumByVita.mon8 | setComma }}월</td>
+                <td>{{ sumBySum.mon8 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '09' ? 'current-month' : ''">
+                <td>9월</td>
+                <td>{{ sumByReple.mon9 | setComma }}월</td>
+                <td>{{ sumByFuture.mon9 | setComma }}월</td>
+                <td>{{ sumByVita.mon9 | setComma }}월</td>
+                <td>{{ sumBySum.mon9 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '10' ? 'current-month' : ''">
+                <td>10월</td>
+                <td>{{ sumByReple.mon10 | setComma }}월</td>
+                <td>{{ sumByFuture.mon10 | setComma }}월</td>
+                <td>{{ sumByVita.mon10 | setComma }}월</td>
+                <td>{{ sumBySum.mon10 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '11' ? 'current-month' : ''">
+                <td>11월</td>
+                <td>{{ sumByReple.mon11 | setComma }}월</td>
+                <td>{{ sumByFuture.mon11 | setComma }}월</td>
+                <td>{{ sumByVita.mon11 | setComma }}월</td>
+                <td>{{ sumBySum.mon11 | setComma }}월</td>
+            </tr>
+            <tr [ngClass]="isCurentYear && currentMonth == '12' ? 'current-month' : ''">
+                <td>12월</td>
+                <td>{{ sumByReple.mon12 | setComma }}월</td>
+                <td>{{ sumByFuture.mon12 | setComma }}월</td>
+                <td>{{ sumByVita.mon12 | setComma }}월</td>
+                <td>{{ sumBySum.mon12 | setComma }}월</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>[합계]</td>
+                <td>{{ sumByReple.total | setComma }}월</td>
+                <td>{{ sumByFuture.total | setComma }}월</td>
+                <td>{{ sumByVita.total | setComma }}월</td>
+                <td>{{ sumBySum.total | setComma }}월</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

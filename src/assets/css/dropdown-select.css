@@ -1,0 +1,87 @@
+
+
+/*------ Module | Select (replacement for default Select Tag) -------*/
+
+.dropdown-select {
+	position: relative;
+}
+
+.dropdown-select .selected {
+	cursor: pointer;
+	border: 1px solid rgba(0,0,0,.1);
+}
+
+.dropdown-select .selected span {
+	display: block;	
+	min-width: 40px;
+}
+
+.dropdown-select .btn-open-sub {
+	transition: all ease-in-out .3s;
+	display: flex;
+	margin-top: auto;
+	margin-bottom: auto;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.dropdown-select .btn-open-sub svg {
+	transition: all ease-in-out .3s;
+}
+
+.dropdown-select .btn-open-sub.opened svg {
+	transform: rotate(-180deg);
+}
+
+
+.options {
+	display: none;
+	position: absolute;
+	left: 0;    
+	right: 0;
+	z-index: 9999;
+	padding: 0;
+	top: 100%;
+}
+
+.options .option {
+	display: block;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

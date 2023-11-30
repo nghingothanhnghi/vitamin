@@ -1,0 +1,71 @@
+import { Component, Input, OnInit, OnChanges, SimpleChanges, EventEmitter, Output } from '@angular/core';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { PaginationInstance } from 'ngx-pagination';
+
+@Component({
+  selector: 'paging',
+  templateUrl: './paging.component.html',
+  styleUrls: ['./paging.component.css']
+})
+export class PagingComponent implements OnInit, OnChanges {
+
+  @Input()
+  page: number = 1;
+  
+  @Input()
+  len: number = 10;
+
+  @Input()
+  totalItems: number = 0;
+
+  @Input()
+  config: PaginationInstance = {} as PaginationInstance;
+
+  @Output()
+  changePage = new EventEmitter<number>();
+
+  @Output()
+  totalPage = new EventEmitter<number>();
+  
+  displaySize: number = 5;
+  maxSize: number = 0;
+  centerIndex: number = 0;
+  totalPages: number = 0;
+
+  constructor() { }
+
+  ngOnInit(): void { 
+    if (this.displaySize < 5) {
+      this.displaySize = 5
+    }
+    this.maxSize = this.displaySize + 2;
+    this.centerIndex = Math.ceil(this.displaySize / 2);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    let cPage = changes["page"]
+    this.config.currentPage = this.page;
+    this.config.itemsPerPage = this.len;
+    this.config.totalItems = this.totalItems;
+    let temp = 1;
+    if (this.totalItems > 0) {
+      temp = (this.totalItems / this.len) | 0;
+    }
+    if(this.config.currentPage > temp+1 || this.totalItems == this.len|| 
+      ValidationUtil.isNullOrEmpty(cPage)){
+        setTimeout(() => {
+          this.changePage.emit(1);
+          this.config.currentPage = 1
+        }, 0);
+    }
+    if (this.totalItems % this.len > 0) {
+      temp += 1;
+    }
+    this.totalPages = temp;
+    this.totalPage.emit(temp);
+  }
+
+  handleOnChangePage(page: number): void {
+    this.changePage.emit(page);
+  }
+}

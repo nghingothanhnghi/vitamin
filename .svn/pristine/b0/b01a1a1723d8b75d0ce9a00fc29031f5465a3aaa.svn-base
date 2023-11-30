@@ -1,0 +1,33 @@
+export interface PdtCateModel {
+  cateCd: String;
+	cateName: String;
+	cateNameOrg: String;
+	useYn: String;
+	keihuTxt: String;
+	lv: String;
+	pcd: String;
+	pname: String;
+	pcdCate: String;
+	telecomYn: String;
+	telecomYns: String;
+	filePath: String;
+	fileNamePc: String;
+	fileNamePcOrg: String;
+	fileNameSp: String;
+	fileNamespOrg: String;
+	refCnt: String;
+	refCntAct: String;
+	refCntWait: String;
+	refCntOstk: String;
+	refCntTerm: String;
+	refDate: String;
+	sortNo: String;
+	myofficeYn: String;
+	myofficeYns: String;
+	remark: String;
+	workDate: String;
+	workUser: String;
+	total: String;
+	comId: String;
+	linkInfo: String;
+}

@@ -1,0 +1,217 @@
+<div class="container mobile-container" id="list-pc">
+    <div class="office-block mobile-block last none">
+        <!-- <div class="pagination mobile-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ totalItems }}</span>
+            </div>
+        </div> -->
+
+        <!-- pagination mobile -->
+        <paging
+            [len]="len"
+            [page]="page"
+            [config]="config"
+            [totalItems]="totalItems"
+            (changePage)="onChangePage($event)"
+            (changeLen)="onChangeLen($event)"
+            [turnOnLenOptions]="true"
+            [turnOnPagination]="false"
+            [turnOnTotalItem]="true"
+            [isMobile]="true"
+        ></paging>
+
+        <div class="table-container row draggable-element">
+
+            <div class="col col_data draggable-items-wrapper" draggableWrapper>
+                <div class="table-wrapper">
+                    <table class="hr-table">
+                        <thead>
+                            <tr>
+                                <th style="white-space: nowrap; text-align: center;">회원번호</th>
+                                <th style="white-space: nowrap; text-align: center;">회원명</th>
+                                <th style="white-space: nowrap; text-align: center;">본부/센터</th>
+                                <th style="white-space: nowrap; text-align: center;">추천인</th>
+                                <th style="white-space: nowrap; text-align: center;">합계</th>
+                                <th style="white-space: nowrap; text-align: center;">1월</th>
+                                <th style="white-space: nowrap; text-align: center;">2월</th>
+                                <th style="white-space: nowrap; text-align: center;">3월</th>
+                                <th style="white-space: nowrap; text-align: center;">4월</th>
+                                <th style="white-space: nowrap; text-align: center;">5월</th>
+                                <th style="white-space: nowrap; text-align: center;">6월</th>
+                                <th style="white-space: nowrap; text-align: center;">7월</th>
+                                <th style="white-space: nowrap; text-align: center;">8월</th>
+                                <th style="white-space: nowrap; text-align: center;">9월</th>
+                                <th style="white-space: nowrap; text-align: center;">10월</th>
+                                <th style="white-space: nowrap; text-align: center;">11월</th>
+                                <th style="white-space: nowrap; text-align: center;">12월</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items | paginate: config">
+                                <td style="text-align: center;">{{ item.userid }}</td>
+                                <td>{{ item.userName }}</td>
+                                <td>{{ item.cntName }}</td>
+                                <td>{{ item.rname }}({{ item.rid }})</td>
+                                <td style="text-align: right;">{{ item.totalPrice | setComma }}{{ showUnit? '원' : '' }}
+                                </td>
+                                <td style="text-align: right;">{{ item.mon1 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon2 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon3 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon4 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon5 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon6 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon7 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon8 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon9 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon10 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon11 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon12 | setComma }}{{ showUnit? '원' : '' }}</td>
+                            </tr>
+                            <ng-container *ngIf="totalRows < 5">
+                                <tr *ngFor="let row of rows; index as i">
+                                    <ng-container *ngFor="let col of cols; index as j">
+                                        <td>
+                                            <span>&nbsp;</span>
+                                            <ng-container *ngIf="totalRows === 0 && i === 2 && j === 7">
+                                                <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                        <tfoot>
+                            <tr *ngIf="sum$ | async as item">
+                                <td colspan="4" style="text-align: center;">[합계]</td>
+                                <td style="text-align: right;">{{ item.totalPrice | setComma }}{{ showUnit? '원' : '' }}
+                                </td>
+                                <td style="text-align: right;">{{ item.mon1 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon2 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon3 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon4 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon5 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon6 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon7 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon8 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon9 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon10 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon11 | setComma }}{{ showUnit? '원' : '' }}</td>
+                                <td style="text-align: right;">{{ item.mon12 | setComma }}{{ showUnit? '원' : '' }}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- mobile -->
+        <table class="hr-mobile-table">
+            <tbody *ngFor="let item of items | paginate: config">
+                <tr>
+                    <td>회원번호</td>
+                    <td style="text-align: center;">{{ item.userid }}</td>
+                </tr>
+                <tr>
+                    <td>회원명</td>
+                    <td style="text-align: center;">{{ item.userName }}</td>
+                </tr>
+                <tr>
+                    <td>본부/센터</td>
+                    <td style="text-align: center;">{{ item.cntName }}</td>
+                </tr>
+                <tr>
+                    <td>추천인</td>
+                    <td style="text-align: center;">{{ item.rName }}({{ item.rid }})</td>
+                </tr>
+                <tr>
+                    <td>합계</td>
+                    <td style="text-align: center;">{{ item.totalPrice | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>1월</td>
+                    <td style="text-align: center;">{{ item.mon1 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>2월</td>
+                    <td style="text-align: center;">{{ item.mon2 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>3월</td>
+                    <td style="text-align: center;">{{ item.mon3 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>4월</td>
+                    <td style="text-align: center;">{{ item.mon4 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>5월</td>
+                    <td style="text-align: center;">{{ item.mon5 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>6월</td>
+                    <td style="text-align: center;">{{ item.mon6 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>7월</td>
+                    <td style="text-align: center;">{{ item.mon7 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>8월</td>
+                    <td style="text-align: center;">{{ item.mon8 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>9월</td>
+                    <td style="text-align: center;">{{ item.mon9 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>10월</td>
+                    <td style="text-align: center;">{{ item.mon10 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>11월</td>
+                    <td style="text-align: center;">{{ item.mon11 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+                <tr>
+                    <td>12월</td>
+                    <td style="text-align: center;">{{ item.mon12 | setComma }}{{ showUnit? '원' : '' }}</td>
+                </tr>
+            </tbody>
+            <grid-no-data-mobile [items]="items"></grid-no-data-mobile>
+        </table>
+
+        <!-- pagination desktop -->
+        <paging
+            [len]="len"
+            [page]="page"
+            [config]="config"
+            [totalItems]="totalItems"
+            (changePage)="onChangePage($event)"
+            (changeLen)="onChangeLen($event)"
+            [turnOnLenOptions]="true"
+            [turnOnPagination]="true"
+            [turnOnTotalItem]="true"
+            [isMobile]="false"
+        ></paging>
+
+        <!-- <div class="pagination desktop-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems" [config]="config"
+                (changePage)="handleOnChangePage($event);"></paging>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ totalItems }}</span>
+            </div>
+        </div> -->
+    </div>
+
+</div>

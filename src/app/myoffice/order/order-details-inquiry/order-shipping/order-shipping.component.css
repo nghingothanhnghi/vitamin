@@ -1,0 +1,52 @@
+
+
+
+
+.vt-table {
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+
+
+
+
+
+
+
+
+
+.group-btns .w-btn {
+    padding: 7px 20px;
+}
+
+
+.group-btns .w-btn span {
+    padding-right: 0;
+}
+
+
+@media all and (min-width: 992px) {
+    .group-btns {
+        margin-top: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

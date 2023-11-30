@@ -1,0 +1,276 @@
+<div id="line-lineage" class="office-page">
+    <div style="display: none;">
+        <input id="current-rank-cd" type="hidden" value="" />
+        <input id="sel-id" type="hidden" value="" />
+    </div>
+    <section class="section-content searching-result">
+        <!-- Searching Form -->
+        <div class="searching-form">
+            <div class="container default-container">
+                <div class="advanced-search-items">
+
+                    <date-time-filter class="row form-row date-time" [yearOptions]="yearOptions" labelDate="주문일자"
+                        (changeDateTimeFilter)="handleOnChangeDateFilter($event);"></date-time-filter>
+                    <div class="row form-row">
+
+                        <!-- Standard Name -->
+                        <div class="col-lg row info standard-member-name">
+                            <span class="label col-auto">회원명</span>
+                            <div class="inputs-wrapper col row">
+                                <input class="col" value="{{userName}}" id="sel-name" disabled="">
+                                <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+                                    (click)="handleOnClickShowMemPopup();">
+                                    <svg width="16" height="16" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"
+                                            fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Display Stage -->
+                        <div class="col-12 col-lg row info display-stage">
+                            <span class="label col-auto">조회구분</span>
+                            <div class="row info col">
+                                <!-- <span class="value col" id="lv">{{lv}}</span> -->
+                                <input class="value col" id="lv" [(ngModel)]="lv" type="number"/>
+                                <div class="up-btn col-auto" (click)="increaseLv();">
+                                    <svg width="20" height="20" viewBox="0 0 40 40">
+                                        <path d="M20.5 13L33 25.5L32 26.4L20.5 14.8L9 26.4L8 25.5L20.5 13Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                                <div class="down-btn col-auto" (click)="decreaseLv()">
+                                    <svg width="20" height="20" viewBox="0 0 40 40">
+                                        <path d="M20 26.7L7.5 14.2L8.5 13.3L20 24.9L31.5 13.3L32.5 14.2L20 26.7Z"
+                                            fill="black" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rank -->
+                        <div class="col-lg info rank row">
+                            <div class="label col-auto"><span>직급</span></div>
+                            <select-dropdown class="dropdown-select col row" [options]="rankOptions"
+                                [selected]="rankSelected"
+                                (changeSelectedValue)="hanldeOnChangeRankSelectedValue($event)">
+                            </select-dropdown>
+                        </div>
+
+                    </div>
+
+                    <div class="row form-row">
+
+                        <!-- Sub-order Division -->
+                        <div class="row col-md info sub-order-division memCheck info-radio"
+                        *ngIf="mUsePId == 'Y'">
+                            <div class="label col-auto">
+                                <span>계보도</span>
+                            </div>
+                            <div class="radios-group row col">
+                                <div class="col-auto radio">
+                                    <input id="typeMemberOption1" (change)="onChangeTypeMember($event)" type="radio"
+                                        name="typeMemberRadio" value="P" [checked]="true"> <label
+                                        for="typeMemberOption1">후원인</label>
+                                </div>
+                                <div class="col-auto radio">
+                                    <input id="typeMemberOption2" (change)="onChangeTypeMember($event)" type="radio"
+                                        name="typeMemberRadio" value="R"> <label for="typeMemberOption2">추천인</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-auto row btns-wrapper submit-btn-wrapper">
+                            <!-- <div class="col-6 w-btn dark-btn has-icon top-line-btn" id="top-line-btn"
+                                (click)="onSearchTopLine();">
+                                <span class="col" style="display: contents;">상위라인 검색</span>
+                                <svg width="17" height="10" viewBox="0 0 17 10" fill="none">
+                                    <path d="M16 9.1L8.4 1.4L0.799999 9.1L0 8.3L8.4 0L16.8 8.3L16 9.1Z"
+                                        fill="white"></path>
+                                </svg>
+                            </div> -->
+
+                            <div class="col-6 w-btn submit-btn has-icon advanced" id="search-btn"
+                                (click)="onClickSearch();">
+                                <span>검색</span>
+                                <div class="icon ms-2"> <img src="./assets/img/icons/search-ncc.svg"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simple-search-items">
+                    <div class="row">
+                        <div class="w-btn btn-show-advanced-search col-auto" showAdvancedFilter>
+                            <div class="icon"><img src="./assets/img/icons/filter.svg"></div>
+                        </div>
+                        <div class="inputs-wrapper col row">
+                            <input class="col" value="{{userName}}" id="sel-name" disabled="">
+                            <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+                                (click)="handleOnClickShowMemPopup();">
+                                <svg width="16" height="16" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"
+                                        fill="white" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- btns mobile -->
+                <date-time-filter-mobile></date-time-filter-mobile>
+
+            </div>
+        </div>
+        <!-- Searching Results -->
+
+
+
+        <div class="container default-container results office-block mobile-block last none"
+            id="line-lineage-grid">
+
+            <div class="pagination mobile-pagination row">
+                <div class="col-auto per-page row">
+                    <div class="label col-auto"><span>페이지표시</span></div>
+                    <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                        (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+                </div>
+                <div class="col-auto total">
+                    <span class="label">Total</span>
+                    <span class="value"> {{total$ | async}}</span>
+                </div>
+            </div>
+
+            <div class="table-container row draggable-element">
+                <div class="col col_data draggable-items-wrapper" draggableWrapper>
+                    <div class="table-wrapper">
+                        <table class="hr-table">
+                            <thead>
+                                <tr>
+                                    <th style="white-space: nowrap;">단계<span></span></th>
+                                    <th style="white-space: nowrap;">계보<span></span></th>
+                                    <th style="white-space: nowrap;" *ngIf="this.memberType == 'P'">후원인<span></span>
+                                    </th>
+                                    <th style="white-space: nowrap;" *ngIf="this.memberType == 'R'">추천인<span></span>
+                                    </th>
+                                    <th style="white-space: nowrap;">가입일자<span></span></th>
+                                    <!-- <th style="white-space: nowrap;">본부/센터<span></span></th> -->
+                                    <th style="white-space: nowrap;">직급<span></span></th>
+                                    <th style="white-space: nowrap;">금액<span></span></th>
+                                    <!-- <th style="white-space: nowrap;"  *ngIf="isMember; else amtPoint">PV<span></span></th> -->
+                                    <!-- <th style="white-space: nowrap;">SV<span></span></th> -->
+                                    <!-- <ng-template #amtPoint> -->
+                                    <!-- <th style="white-space: nowrap;">마일리지<span></span></th> -->
+                                    <!-- </ng-template> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of collection | paginate: config "
+                                    [ngClass]="item.status == '0'?'red-line':''">
+                                    <td style="white-space: nowrap;" class="" cell="0" row="0">{{item.lv}}</td>
+                                    <td style="white-space: nowrap;text-align: left;cursor: pointer;" class=""
+                                        cell="1" row="0" (click)="handleOnClickRow(item);"> {{item.keihuTxt}}
+                                        ({{item.userid}})
+                                    </td>
+                                    <td style="white-space: nowrap;" class="" cell="2" row="0"
+                                        *ngIf="this.memberType == 'P'">{{item.pname}}
+                                        ({{item.pid}})</td>
+                                    <td style="white-space: nowrap;" class="" cell="2" row="0"
+                                        *ngIf="this.memberType == 'R'">{{item.rname}}
+                                        ({{item.rid}})</td>
+                                    <td style="white-space: nowrap;" class="" cell="3" row="0">{{item.regDate}}</td>
+                                    <!-- <td style="white-space: nowrap;" class="" cell="4" row="0">{{item.cntName}}</td> -->
+                                    <td style="white-space: nowrap;" class="" cell="5" row="0">{{item.rankName}}
+                                    </td>
+
+                                    <td style="white-space: nowrap;text-align: right;" class="" cell="7" row="0">
+                                        {{item.ordAmt}}</td>
+                                    <!-- <td style="white-space: nowrap;text-align: right;" class="" cell="8" row="0" \*ngIf="isMember; else amtPointR"> -->
+                                    <!-- <td style="white-space: nowrap;text-align: right;" class="" cell="8" row="0">
+                                        {{ item.pv | setComma }} SV</td> -->
+                                    <!-- <ng-template #amtPointR> -->
+                                    <!-- <td style="white-space: nowrap;text-align: right;" class="" cell="8" row="0">
+                                        {{item.amtPoint}}</td> -->
+                                    <!-- </ng-template> -->
+                                </tr>
+                            </tbody>
+                            <ng-container *ngIf="totalRows < 5">
+                                <tbody>
+                                    <tr *ngFor="let row of rows; index as i">
+                                        <ng-container *ngFor="let col of cols; index as j">
+                                            <td>
+                                                <span>&nbsp;</span>
+                                                <ng-container
+                                                    *ngIf="totalRows === 0 && i === 2 && j === totalCols / 2">
+                                                    <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                                </ng-container>
+                                            </td>
+                                        </ng-container>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <table class="hr-mobile-table">
+                <tbody *ngFor="let item of collection | paginate: config" (click)="handleOnClickRow(item);"
+                    [ngClass]="item.status == '0'?'red-line':''">
+                    <tr>
+                        <td>단계</td>
+                        <td style="text-align: center;">{{ item.lv }}</td>
+                    </tr>
+                    <tr>
+                        <td>계보</td>
+                        <td style="text-align: center;">{{item.keihuTxt}} ({{item.userid}})</td>
+                    </tr>
+
+                    <tr>
+                        <td *ngIf="this.memberType == 'P'">후원인</td>
+                        <td *ngIf="this.memberType == 'R'">추천인</td>
+                        <td style="text-align: center;" *ngIf="this.memberType == 'P'">{{item.pname}} ({{item.pid}})</td>
+                        <td style="text-align: center;" *ngIf="this.memberType == 'R'">{{item.rname}} ({{item.rid}})</td>
+                    </tr>
+                    <tr>
+                        <td>가입일자</td>
+                        <td style="text-align: center;">{{item.regDate}}</td>
+                    </tr>
+                    <tr>
+                        <td>직급</td>
+                        <td style="text-align: center;">{{item.rankName}}</td>
+                    </tr>
+                    <tr>
+                        <td>금액</td>
+                        <td style="text-align: center;">{{item.ordAmt}}</td>
+                    </tr>
+                </tbody>
+                <grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+
+            </table>
+
+            <div class="pagination desktop-pagination row">
+                <div class="col-auto per-page row">
+                    <div class="label col-auto"><span>페이지표시</span></div>
+                    <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                        (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+                </div>
+                <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems"
+                    [config]="config" (changePage)="handleOnChangePage($event);"></paging>
+                <div class="col-auto total">
+                    <span class="label">Total</span>
+                    <span class="value"> {{total$ | async}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="popups-member-container">
+        <member-popup [show]="showMemberPopup" (clickClosePopup)="handleOnClickToggleMemberPopup($event);"
+            (clickRowItem)="handleOnClickRowMemberPopup($event);"></member-popup>
+    </section>
+
+</div>

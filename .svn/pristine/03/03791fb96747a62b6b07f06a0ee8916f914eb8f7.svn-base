@@ -1,0 +1,40 @@
+<hp-header [ngClass]="(pageHeadingType$ | async) === typeOP ? 'mo-header' : ''"></hp-header>
+
+<!--body-->
+<main class="contTop">
+    <ng-container *ngIf="(pageHeadingType$ | async) === typeOP">
+        <section id="page-heading" *ngIf="showPageHeading$ | async">
+            <hp-page-heading></hp-page-heading>
+        </section>
+        <router-outlet></router-outlet>
+    </ng-container>
+
+    <!-- <ng-container *ngIf="(pageHeadingType$ | async) === typeHP">
+        <section>
+            <div class="main-container" [ngClass]="isLogined ? 'not-logged' : ''">
+                <div class="row">
+                    <div class="main-content col-lg">
+                        <div class="main-body">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ng-container> -->
+
+    <ng-container *ngIf="(pageHeadingType$ | async) === typeHP">
+        <router-outlet></router-outlet>
+    </ng-container>
+
+    <ng-container *ngIf="pageHeadingType$ | async as item">
+        <ng-container *ngIf="item !== typeHP && item !== typeOP">
+            <router-outlet></router-outlet>
+        </ng-container>
+    </ng-container>
+</main>
+
+<!--footer-->
+<hp-footer></hp-footer>
+
+<w-alert></w-alert>

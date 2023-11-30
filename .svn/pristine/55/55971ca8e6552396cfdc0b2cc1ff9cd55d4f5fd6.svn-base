@@ -1,0 +1,44 @@
+
+
+
+
+@media all and (min-width: 992px) {
+	.autoship-information, 
+    .shipping-information-1,
+    .shipping-information-2,
+    .registered-product-information {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.change-info-btn {
+        margin-top: 25px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.change-info-btn {
+        margin-top: 30px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.change-info-btn {
+        margin-top: 30px;
+    }
+}
+
+
+
+@media all and (min-width: 992px) {
+	.change-info-btn {
+        margin-top: 35px;
+    }
+}
+

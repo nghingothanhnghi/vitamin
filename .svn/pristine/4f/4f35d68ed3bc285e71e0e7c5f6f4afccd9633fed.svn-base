@@ -1,0 +1,590 @@
+/**/
+
+
+
+
+
+@media all and (max-width: 991px) {
+    .member-form .form-row {
+        margin-bottom: 15px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .member-form .form-row {
+        margin-bottom: 20px;
+    }
+}
+
+.member-form .form-row:last-child {
+    margin-bottom: 0;
+}
+
+
+
+
+.member-form .dropdown-select .selected,
+.member-form .dropdown-select .options {
+    background: #FFF;
+}
+
+.member-form .dropdown-select .selected {
+    padding-left: 10px;
+}
+
+
+
+.member-form .dropdown-select .selected,
+.member-form input:not([type="checkbox"]) {
+    border: 1px solid rgba(0, 0, 0, .05);
+    background: #F9FAFD;    
+    height: 44px;
+}
+
+.member-form input {
+    width: 100%; 
+}
+
+.member-form .hyphen {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.member-form .warning {
+    font-size: 14px;
+    display: block;
+    margin-top: 7px;
+}
+
+
+
+
+
+@media (min-width: 420px) {
+    #change-personal-information .year-select {
+        width: 36% !important;
+        margin-right: 2%;
+    }
+}
+
+
+@media all and (max-width: 575px) {
+    .user-profile .section-content .container {
+        padding: 30px 0;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .user-profile .section-content .container {
+        padding: 35px 0;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .user-profile .section-content .container {
+        padding: 40px 0;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .row.btns a {
+        min-width: 160px;
+    }
+
+    .user-profile .row.btns a {
+        padding: 10px !important;
+    }
+}
+
+
+
+
+
+
+
+.user-profile .btn {
+    border-radius: 5px;
+}
+
+.user-profile .row.btns .btn {
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+/*------ Basic Info ------*/
+
+
+
+@media (min-width: 992px) {
+    .user-profile .profile-info .basic-info {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .user-profile .profile-info {
+        background: #FFF;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
+    }
+}
+
+
+
+
+@media all and (max-width: 575px) {
+    .user-profile .profile-info .avatar {
+        max-width: 50px;
+        margin-right: 15px;
+    }
+
+    .user-profile .profile-info .change-info-btn a {
+        padding: 7.5px 20px;
+    }
+
+    .user-profile .profile-info .avatar img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .user-profile .profile-info .avatar {
+        max-width: 60px;
+        margin-right: 17.5px;
+    }
+
+    .user-profile .profile-info .change-info-btn a {
+        padding: 10px 22.5px;
+    }
+
+    .user-profile .profile-info .avatar img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .user-profile .profile-info .avatar {
+        max-width: 70px;
+        margin-right: 20px;
+    }
+
+    .user-profile .profile-info .change-info-btn a {
+        padding: 10px 25px;
+    }
+
+    .user-profile .profile-info .avatar img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 70px;
+        height: 70px;
+    }
+}
+
+
+@media all and (max-width: 991px) {
+    .user-profile .profile-info .basic-info {
+        align-items: center;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+    }
+}
+
+.user-profile .profile-info .change-info-btn a {
+    border-radius: 50px;
+}
+
+@media all and (min-width: 992px) {
+    .user-profile .profile-info .avatar {
+        max-width: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .user-profile .profile-info .avatar img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 100px;
+        height: 100px;
+    }
+
+
+    .user-profile .profile-info .change-info-btn {
+        margin-top: 20px;
+    }
+
+    .user-profile .profile-info .change-info-btn a {
+        padding: 10px;
+        background: #739E3C;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+    }
+}
+
+
+
+.user-profile .profile-info .basic-info h4 {
+    margin-bottom: 2.5px;
+}
+
+
+
+
+
+
+
+/*------ Detail Info ------*/
+
+.user-profile .detail-info ul li {
+    align-items: center;
+}
+
+
+@media all and (max-width: 360px) {
+    .user-profile .detail-info ul li img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+}
+
+
+@media all and (min-width: 361px) and (max-width: 575px) {
+    .user-profile .detail-info ul li img {
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+    }
+}
+
+
+@media all and (max-width: 575px) {
+    .user-profile .detail-info ul li {
+        width: 50%;
+        margin-bottom: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .user-profile .detail-info ul li:not(:last-child) {
+        margin-right: 40px;
+    }
+
+    .user-profile .detail-info ul li img {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .user-profile .detail-info ul li:not(:last-child) {
+        margin-right: 50px;
+    }
+
+    .user-profile .detail-info ul li img {
+        width: 24px;
+        height: 24px;
+        margin-right: 15px;
+    }
+}
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+    .user-profile .detail-info ul {
+        justify-content: center;
+    }
+
+    .user-profile .detail-info ul li {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .user-profile .detail-info ul li img {
+        width: 24px;
+        height: 24px;
+        margin-right: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*--------------------------*/
+
+@media all and (min-width: 992px) {
+    .user-profile .profile-info {
+        width: 300px;
+        margin-right: 30px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .user-profile .result-block:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*------ Content Info -------*/
+
+
+
+
+.user-profile .content-info .member-form h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+
+
+@media all and (min-width: 576px) {
+    .user-profile .content-info .member-form h2 {
+        margin-bottom: 30px;
+    }
+}
+
+@media all and (max-width: 575px) {
+    .user-profile .content-info .member-form h2 {
+        margin-bottom: 15px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .user-profile .content-info .member-form h2 {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .user-profile .content-info .member-form h2 {
+        margin-bottom: 25px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .user-profile .content-info .member-form h2 {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+#change-personal-information .content-info .sign-up input,
+#change-personal-information .content-info .member-name input,
+#change-personal-information .content-info .country-name input,
+#change-personal-information .content-info .password input {
+    width: 100%;
+}
+
+#change-personal-information .content-info .gender .dropdown-select {
+    width: 100%;
+}
+
+#change-personal-information .content-info .password .col:first-child {
+    width: calc(50% - 5px);
+    margin-right: 10px;
+}
+
+#change-personal-information .content-info .password .col:last-child {
+    width: calc(50% - 5px);
+}
+
+
+
+
+
+#change-personal-information .content-info .address .inputs-wrapper:first-child {
+    margin-bottom: 10px;
+}
+
+#change-personal-information .content-info .address .inputs-wrapper:last-child .col:first-child {
+    width: calc(50% - 5px);
+    margin-right: 10px;
+}
+
+#change-personal-information .content-info .address .inputs-wrapper:last-child .col:last-child {
+    width: calc(50% - 5px);
+}
+
+
+
+
+
+@media all and (max-width: 767px) {
+
+    #change-personal-information .content-info .label,
+    #change-personal-information .content-info .input,
+    #change-personal-information .content-info .extra {
+        width: 100%;
+        max-width: 430px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+
+
+@media (min-width: 767px) and (max-width: 991px) {
+
+    #change-personal-information .content-info .label,
+    #change-personal-information .content-info .extra {
+        width: calc(50% - 215px);
+    }
+
+    #change-personal-information .content-info .input {
+        width: 430px;
+    }
+
+    #change-personal-information .content-info .extra .verify-btn {
+        margin-left: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+/*-------- Desktop ----------*/
+
+@media (min-width: 1200px) {
+    #change-personal-information .content-info .input {
+        width: 430px;
+    }
+
+    #change-personal-information .content-info .extra .verify-btn {
+        margin-left: 10px;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    #change-personal-information .member-form .form-row .label {
+        width: 100%;
+    }
+
+    #change-personal-information .content-info .extra {
+        width: calc(100% - 430px);
+    }
+
+    #change-personal-information .content-info {
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+@media (min-width: 1200px) {
+
+    #change-personal-information .content-info .label,
+    #change-personal-information .content-info .extra {
+        width: calc(50% - 215px);
+    }
+
+    #change-personal-information .content-info {
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+#change-personal-information .form-row.birthdate .years-select, 
+#change-personal-information .form-row.birthdate .months-select,
+#change-personal-information .form-row.birthdate .days-select  {
+    flex: 1 0 0%;
+}
+
+#change-personal-information .form-row.birthdate .years-select, 
+#change-personal-information .form-row.birthdate .months-select {
+    margin-right: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------- Change Password -------*/
+
+#change-password .content-info {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#change-password .content-info input {
+    width: 100%;
+}
+
+
+
+
+
+
+

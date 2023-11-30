@@ -1,0 +1,10 @@
+/**/
+
+
+
+
+@media (max-width: 767px) {
+    #cart #cart-details {
+        border-bottom: none;
+    }
+}

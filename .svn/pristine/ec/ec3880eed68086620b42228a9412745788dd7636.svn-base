@@ -1,0 +1,167 @@
+/**/
+
+
+@media all and (min-width: 576px) {
+    .submit-btn {
+        min-width: 140px;
+    }
+}
+
+
+
+@media all and (max-width: 575px) {
+    .searching-result .container.results {
+        margin-bottom: 60px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .searching-result .container.results {
+        margin-bottom: 70px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .searching-result .container.results {
+        margin-bottom: 80px;
+    }
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.searching-result .searching-form .submit {
+        margin-bottom: 10px;
+    }
+
+    .searching-result .searching-form .submit .inquiry-classification {
+        margin-right: 10px;
+    }
+
+    .searching-result .searching-form .submit .submit-btn {
+        min-width: 100px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .searching-result .searching-form .submit {
+        margin-bottom: 10px;
+    }
+
+    .searching-result .searching-form .submit .inquiry-classification {
+        margin-right: 10px;
+    }
+
+    .searching-result .searching-form .submit .submit-btn {
+        min-width: 140px;
+    }
+}
+
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .searching-result .searching-form .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .searching-result .searching-form .date-time {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .searching-result .searching-form .submit {
+        flex: 1 0 0%;
+        margin-right: 15px;
+    }
+
+    .searching-result .searching-form .submit .inquiry-classification {
+        margin-right: 15px;
+    }
+
+    .searching-result .searching-form .mobile-date-time-filter {
+        flex: 0 0 auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#auto-ship-registration .inquiry-classification .dropdown-select {
+    width: 130px;
+}
+
+
+@media (min-width: 576px) and (max-width: 991px) {
+    #auto-ship-registration .searching-result .searching-form .date-selects .info-heading {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+    #auto-ship-registration.office-page .searching-form .inquiry-classification {
+        width: calc(50% - 25px);
+    }
+}
+
+
+
+
+@media all and (max-width: 991px) {
+    #auto-ship-registration.office-page .searching-form .inquiry-classification {
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 5px;
+        padding-left: 15px;
+        background: #FFF;
+        box-shadow: 0px 2.5px 5px rgb(0 0 0 / 5%);
+    }
+
+
+    #auto-ship-registration.office-page .searching-form .inquiry-classification .label {
+        padding-right: 15px;
+    }
+
+    #auto-ship-registration.office-page .searching-form .inquiry-classification .label::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 75%;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, .1);
+    }
+}
+
+@media all and (min-width: 992px) {
+    #auto-ship-registration .searching-result .searching-form .container {
+        box-shadow: 0px 5px 15px rgb(0 0 0 / 10%);
+    }
+
+    #auto-ship-registration.office-page .searching-form .inquiry-classification .label {
+        width: 48px;
+
+    }
+}

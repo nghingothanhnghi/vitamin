@@ -1,0 +1,91 @@
+<div class="popup recent-address-browsing" [ngClass]="show ? 'opened' : ''">
+  <div class="container default-container popup-content">
+    <div class="popup-header row">
+      <h2 class="col h-small">최근 배송지이력정보</h2>
+      <a href="javascript:;" class="col-auto close-popup-btn" (click)="handleOnClickClosePopup();">
+        <svg width="22" height="22" viewBox="0 0 22 22">
+          <path d="M1 1L21 21" />
+          <path d="M21 1L1 21" />
+        </svg>
+      </a>
+    </div>
+    <div class="popup-body">
+      <div class="container default-container results searching-result">
+        <div class="table-container">
+          <table class="hr-table">
+            <thead>
+              <tr>
+                <th>이름</th>
+                <th>연락처</th>
+                <th>주소</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items | paginate: config" (click)="handleOnClickRow(item);">
+                <td>{{ item.rPost }}</td>
+                <td>{{ item.rTel }}</td>
+                <td>{{ item.rAddr1 }}</td>
+              </tr>
+              <ng-container *ngIf="items.length < 5 && items.length > 0">
+                <tr *ngFor="let num of rows">
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </ng-container>
+              <ng-container *ngIf="items.length === 0">
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;<span class='h-small empty-warning'>조회된 데이타가 없습니다.</span></td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination row">
+          <div class="col-auto per-page row">
+            <div class="label col-auto"><span>페이지표시</span></div>
+            <select-dropdown class="dropdown-select col-auto row" 
+              [options]="lenOptions" 
+              [selected]="lenSelected"
+              (changeSelectedValue)="handleOnChangeLenSelected($event);"
+            ></select-dropdown>
+          </div>
+          <paging 
+            class="col-auto row paging" 
+            [len]="len" 
+            [page]="page" 
+            [totalItems]="total" 
+            [config]="config"
+            (changePage)="handleOnChangePage($event);"
+          ></paging>
+          <div class="col-auto col-sm-auto total">
+            <span class="label">Total</span>
+            <span class="value">{{ total }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

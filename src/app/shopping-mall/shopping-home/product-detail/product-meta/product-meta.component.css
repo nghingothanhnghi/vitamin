@@ -1,0 +1,182 @@
+.disable-btn {
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+/*---------- Product Meta ----------*/
+
+
+
+
+
+@media all and (max-width: 575px) {
+    #product-meta {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    #product-meta {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #product-meta {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    #product-meta {
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
+}
+
+
+
+
+
+
+
+#product-gallery ul {
+    padding: 0;
+    margin: 0;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+}
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    #product-gallery {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    #product-gallery {
+        margin-bottom: 25px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    #product-gallery {
+        margin-bottom: 30px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    #product-gallery {
+        padding-right: 4%;
+    }
+}
+
+
+
+
+.product-name {
+    font-weight: bold;
+    margin-bottom: 0;
+    font-size: 32px;
+}
+
+
+.short-description {
+    color: #584E3F;
+}
+
+
+
+
+
+
+/*----- 4. Function Buttons -----*/
+
+
+.function a {
+    padding: 10px;
+    line-height: 1.2em;
+}
+
+.function a:not(:last-child) {
+    margin-right: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.add-to-cart-btn {
+    border: 1px solid #B9BDCA;
+}
+
+.add-to-cart-btn:hover {
+    border: 1px solid #8A91A6;
+}
+
+.add-to-cart-btn svg path {
+    fill: #8A91A6;
+    transition: all ease-in-out .3s;
+}
+
+.add-to-cart-btn:hover svg path {
+    fill: #5F677E;
+}
+
+.add-to-cart-btn span {
+    color: #8A91A6;
+}
+
+.add-to-cart-btn:hover span {
+    color: #5F677E;
+}
+
+
+
+
+
+
+
+.naver-pay-btn {
+    background: #0FB967;
+    color: #FFF;
+}
+
+.naver-pay-btn svg {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.naver-pay-btn:hover {
+    background: #00A857;
+}

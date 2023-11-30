@@ -1,0 +1,72 @@
+/**/
+
+
+
+
+
+
+.heading {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.heading h2 {
+    margin-bottom: 10px;
+}
+
+
+
+
+.group-btns a {
+    width: calc(50% - 5px);
+}
+
+.group-btns a:first-child {
+    margin-right: 10px;
+}
+
+
+
+.help-p {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+.extra-functions .row .col:first-child {
+    padding-right: 15px;
+    text-align: right;
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+
+.extra-functions .row .col:last-child {
+    padding-left: 15px;
+}
+
+
+.extra-functions a {
+    padding: 3.5px 0;
+    color: #1A6BB6;
+    transition:  all ease-in-out .3s;
+    position: relative;
+}
+
+.extra-functions a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 0;
+    background: #1A6BB6;
+    opacity: .5;
+    transition:  all ease-in-out .3s;
+}
+
+.extra-functions a:hover:after {
+    width: 100%;
+}

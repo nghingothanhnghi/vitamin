@@ -1,0 +1,12 @@
+<div *ngIf="hiddenbtn===true" class="mobile-time-btns time-btns row">
+    <a class="col-auto w-btn" (click)="handleOnClickThisMonth();">당월</a>
+    <a class="col-auto w-btn last-month" (click)="handleOnClickLastMonth();">전월</a>
+    <a class="col-auto w-btn last-3-months" (click)="handleOnClickLast3Months();">최근 3개월</a>
+    <a class="col-auto w-btn this-year" (click)="handleOnClickThisYear();">{{ year }}년</a>
+    <a class="col-auto w-btn all" (click)="handleOnClickAll();">전체</a>
+</div>
+<div *ngIf="hiddenbtn===false" class="mobile-time-btns time-btns row">
+    <a class="col-auto w-btn this-year" (click)="handleOnClickThisYear();">{{ year }}년</a>
+    <a class="col-auto w-btn this-year" (click)="handleOnClickLastYear();">전년도</a>
+    <a class="col-auto w-btn all" (click)="handleOnClickAll();">전체</a>
+</div>

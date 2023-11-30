@@ -1,0 +1,215 @@
+import { Component, OnInit } from '@angular/core';
+import { countBenefitRemittanceDetails, searchBenefitRemittanceDetails, sumBenefitRemittanceDetails } from '@app/actions/myoffice/benefit/benefit-remittance-details.action';
+import { loadCodesY } from '@app/actions/system/code.action';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { DateFilterModel } from '@app/models/components/date-filter.model';
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { BenefitRemittanceDetailsModel } from '@app/models/myoffice/benefit/benefit-remittance-details.module';
+import { CodeModel } from '@app/models/system/code.model';
+import { BenefitRemittanceDetailsSearchState, getBenefitRemittanceDetailsSearchItems, getBenefitRemittanceDetailsSumItem, getBenefitRemittanceDetailsTotalItems } from '@app/selectors/myoffice/benefit/benefit-remittance-details.selector';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { CodeState, getCodesY } from '@app/selectors/system/code.selector';
+import { Store } from '@ngrx/store';
+import { PaginationInstance } from 'ngx-pagination';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { AuthUtil } from '@app/common/util/auth.util';
+import { Router } from '@angular/router';
+import { LenConstant } from '@app/common/constant/len.constant';
+
+@Component({
+  selector: 'app-benefit-remittance-details',
+  templateUrl: './benefit-remittance-details.component.html',
+  styleUrls: ['./benefit-remittance-details.component.css']
+})
+export class BenefitRemittanceDetailsComponent implements OnInit {
+
+  //Start Information UserLogin
+
+   userId: String = '';
+   userName: String = "";
+   labelDate : String = "지급일자";
+
+ //End Information UserLogin
+
+   // Start Data of select date
+   codesY$ = new Observable<CodeModel[]>;
+
+   yearOptions: SelectDropdownModel[] = [];
+   dateFilterSelected: DateFilterModel = new DateFilterModel();
+
+   // End Data of select date
+
+  // Start Paging
+  page: number = 1;
+
+  len: number = 10;
+
+  totalItems: number = 0;
+
+  config: PaginationInstance = {
+    id: 'benefit-accounting-inquiry',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+  options: SelectDropdownModel[] = [];
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+  // End Paging
+
+  benefitRemittanceDetailsSearchItems$ = new Observable<BenefitRemittanceDetailsModel[]>;
+  benefitRemittanceDetailsSumItem$ = new Observable<BenefitRemittanceDetailsModel>;
+  benefitRemittanceDetailsTotalItems$ = new Observable<Number>;
+  collection: BenefitRemittanceDetailsModel[] = [];
+  rows: number[] = [];
+  cols: number[] = new Array(16);
+  totalCols: number = 9;
+  floorTotalCols= Math.floor((this.totalCols/2));
+  totalRows: number = 0;
+
+
+  constructor(
+    private _codeStore: Store<CodeState>,
+    private _benenefitRemittanceDetailsSearchStore: Store<BenefitRemittanceDetailsSearchState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState>,
+    private router: Router
+  ) {
+    this.codesY$ = this._codeStore.select(getCodesY);
+  }
+
+  ngOnInit(): void {
+
+    let member = AuthUtil.getLoginedInfo();
+    if (member) {
+      this.userId = ConvertUtil.convertToSring(member.userid);
+      this.userName = ConvertUtil.convertToSring(member.username);
+    }
+
+    // Start load code of year
+    this._codeStore.dispatch(loadCodesY());
+    this.codesY$.subscribe(res => {
+      this.yearOptions = [];
+      res.forEach((item) => this.yearOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) }));
+    });
+    // End load code of year
+
+    //Data of Paging
+    this.options = LenConstant.listLen;
+    this.selectedValue = this.options[0];
+
+  }
+
+  handleOnChangeDateFilter(dateFilter: DateFilterModel): void {
+    this.dateFilterSelected = dateFilter;
+    this.onSearch();
+  }
+
+  //Start Paging
+  onChangeLen(selected: SelectDropdownModel): void {
+    if(ValidationUtil.isNotNullAndNotEmpty(selected.value)) {
+      this.len = Number(selected.value);
+      this.page = 1;
+      this.onSearch();
+    }
+  }
+
+  onChangePage(page: number): void {
+    this.page = page;
+    this.onSearch();
+  }
+  //End Paging
+
+  getParams(): any {
+    let strDate = this.dateFilterSelected.fromDate.year.value + "-"
+                  + this.dateFilterSelected.fromDate.month.value + "-"
+                  + this.dateFilterSelected.fromDate.date.value;
+
+    let endDate = this.dateFilterSelected.toDate.year.value + "-"
+                + this.dateFilterSelected.toDate.month.value + "-"
+                + this.dateFilterSelected.toDate.date.value;
+
+
+    let params = {
+      comId: environment.comId,
+      lang: environment.default_lang,
+
+      sDate: strDate,
+      eDate: endDate,
+      userId: this.userId,
+
+      page: Number(this.page) - 1,
+      len: this.len,
+
+    }
+
+    return params;
+  }
+
+  onSearch(): void {
+
+    setTimeout(() => {
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    }, 1);
+
+    let params = this.getParams();
+
+    this._benenefitRemittanceDetailsSearchStore.dispatch(searchBenefitRemittanceDetails({ params: params }));
+    this._benenefitRemittanceDetailsSearchStore.dispatch(countBenefitRemittanceDetails({ params: params }));
+    this._benenefitRemittanceDetailsSearchStore.dispatch(sumBenefitRemittanceDetails({ params: params }));
+
+
+    this.benefitRemittanceDetailsSearchItems$ = this._benenefitRemittanceDetailsSearchStore.select(getBenefitRemittanceDetailsSearchItems);
+    this.benefitRemittanceDetailsTotalItems$ = this._benenefitRemittanceDetailsSearchStore.select(getBenefitRemittanceDetailsTotalItems);
+    this.benefitRemittanceDetailsSumItem$ = this._benenefitRemittanceDetailsSearchStore.select(getBenefitRemittanceDetailsSumItem);
+
+    // Render Body
+    this.benefitRemittanceDetailsSearchItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collection = res;
+
+        if (this.collection.length < 5) {
+          this.rows = new Array(5 - this.collection.length);
+        }
+      } else {
+        this.collection = [];
+        this.rows = new Array(5);
+      }
+
+      this.setBlankRow();
+      setTimeout(() => {
+       this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+      }, 250);
+    });
+
+    // Total Items Of data
+    this.benefitRemittanceDetailsTotalItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    })
+
+
+  }
+
+  setBlankRow() {
+    this.totalRows = this.collection.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+
+    this.cols = new Array(this.totalCols);
+  }
+
+  search() {
+    this.page = 1 ;
+    this.onSearch();
+  }
+
+}

@@ -1,0 +1,8 @@
+<div id="member-search" class="office-page">
+    <app-member-search-filter [page]="page" [len]="len" (changePage)="handleOnChangePage($event)">
+    </app-member-search-filter>
+
+    <app-member-search-grid [len]="len" [page]="page" (changeLen)="handleOnChangeLen($event)"
+        (changePage)="handleOnChangePage($event)">
+    </app-member-search-grid>
+</div>

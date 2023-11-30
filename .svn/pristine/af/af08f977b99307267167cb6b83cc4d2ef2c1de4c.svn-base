@@ -1,0 +1,83 @@
+<div class="form-body form-card form-no-bankbook m-no-bankbook passless" data-method="3" [formGroup]="form">
+    <div class="row">
+        <div class="col-md col_1">
+            <ng-container *ngIf="smWownetPg.settMPoint === 'Y'">
+                <div id="redeem-point" style="margin-bottom: 25px;">
+                    <div class="row" style="margin-bottom: 25px;">
+                        <div class="col-sm-auto label">
+                        <span>사용가능 마일리지</span>
+                        </div>
+                        <div class="col row" >
+                        <input id="u-point" value="{{ totalPoint | setComma }}" type="text" class="col" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-sm-auto label" style="margin-right: 49px;">
+                        <span>사용 마일리지</span>
+                        </div>
+                        <div class="col row">
+                        <input id="u-point-bank" value="0" formControlName="usePointBank" (keyup)="handleOnChangeUsePointBank($event.target)"  type="text" class="col">
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="row info bank">
+                <div class="col-auto label" style="margin-right: 44.5px;"><span>은행</span></div>
+                <div class="col inputs-wrapper row">
+                    <select-dropdown class="dropdown-select" [selected]="paymentBankSelected"
+                        [options]="paymentBankOptions"
+                        (changeSelectedValue)="handleOnChangeSelectedBankBook($event);"></select-dropdown>
+                </div>
+            </div>
+            <div class="row info amount">
+                <div class="col-auto label" style="margin-right: 44.5px;"><span>입금액</span></div>
+                <div class="col inputs-wrapper row">
+                    <input type="text" formControlName="cardAmt" readonly>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md col_2">
+            <div class="row info reg-date">
+                <div class="col-auto label"><span>입금일</span></div>
+                <div class="col inputs-wrapper row">
+                    <input type="text" formControlName="regDate" maxlength="8"
+                        (keyup)="handleOnKeyUpNumber($event.target)">
+                </div>
+                <div class="col guide"><span>ex) 20221001</span></div>
+            </div>
+            <div class="row info name">
+                <div class="col-auto label"><span>입금자명</span></div>
+                <div class="col inputs-wrapper row">
+                    <input type="text" formControlName="cardHolder">
+                </div>
+                <div class="col guide"><span>입금자명은 송금자명과 일치하게 작성 바랍니다.</span></div>
+            </div>
+
+            <div class="row info card-passbook-name" id="issuanceRequest" *ngIf="showIssuanceRequestNumber">
+                <div class="col-auto label"><span>발행요청번호</span></div>
+                <div class="col inputs-wrapper row">
+                    <input type="text" id="issuanceRequestNumber" maxlength="20" formControlName="cashRcptNum"
+                        autocomplete="off" readonly onclick="this.removeAttribute('readonly');">
+                </div>
+                <div class="col-auto guide"><span>※ 핸드폰 / 주민등록 번호 / 사업자번호</span></div>
+            </div>
+            <div class="row info app-date">
+                <div class="col-auto label"><span>주문승인일자</span></div>
+                <div class="col inputs-wrapper row">
+                    <input type="text" formControlName="authDate" readonly>
+                </div>
+            </div>
+
+            <div class="row info card-passbook-name">
+                <div class="col-auto label"><span>현금영수증</span></div>
+                <div class="col inputs-wrapper row">
+                    <select-dropdown class="dropdown-select" [selected]="cashReceiptSelected"
+                        [options]="cashReceiptOptions"
+                        (changeSelectedValue)="handleOnChangeSelectedCashReceipt($event);"></select-dropdown>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+export interface FaqModel {
+    page: String;
+    boardNoQ: String;
+    boardNoA: String;
+    cateCd: String;
+    boardCate: String;
+    title: String;
+    isAnswer: String;
+    contentsQ: String;
+    insUserQ: String;
+    insNameQ: String;
+    insDateQ: String;
+    contentsA: String;
+    ins_UserA: String;
+    insNameA: String;
+    insDateA: String;
+	codeCd: String;
+	codeName: String;
+	codeNameOrg: String;
+	codeS1: String;
+	codeS2: String;
+    codeS3: String;
+	comId: String;
+	kindCd: String;
+	boardSeq: String;
+	boardLv: String;
+    sort_no: String;
+	contents: String;
+	contentsNew: String;
+	contentsEdit: String;
+	getReadCnt: String;
+	getDownCnt: String;
+	urlInfo: String;
+	topYn: String;
+	secretYn: String;
+	filePath: String;
+	fileName: String;
+	fileNameOrg: String;
+	insDate: String;
+	insUser: String;
+	updDate: String;
+	updUser: String;	
+	insUserA: String;
+
+}

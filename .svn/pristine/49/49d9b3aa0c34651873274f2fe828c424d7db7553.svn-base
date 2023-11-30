@@ -1,0 +1,119 @@
+<pagination-template 
+  class="col-auto row paging" 
+  #p="paginationApi" [id]="config.id + ''"
+  [maxSize]="maxSize"
+  (pageChange)="handleOnChangePage($event);"
+  *ngIf="totalPages > 1 "
+>
+  <div *ngIf="totalPages > 5" class="col-auto nav-btn" [class.disabled]="p.isFirstPage()" (click)="handleOnChangePage(1);">
+    <svg width="34" height="34" viewBox="0 0 34 34">
+      <path class="shape" d="M17.5 11V23L9 17L17.5 11ZM26 11V23L17.5 17L26 11ZM8 11H9V23H8V11Z"></path>
+    </svg>
+  </div>
+  <div class="col-auto nav-btn" [class.disabled]="p.isFirstPage()" (click)="handleOnChangePage(page - 1);">
+    <svg width="34" height="34" viewBox="0 0 34 34">
+      <path class="shape" d="M21.5 11V23L13 17L21.5 11ZM12 11H13V23H12V11Z"></path>
+    </svg>
+  </div>
+
+  <div class="numbers col-auto row">
+    <ng-container *ngFor="let page of p.pages; index as i;">
+      <!-- case 1: totalPages <= 5 then load all -->
+      <ng-container *ngIf="totalPages <= displaySize">
+        <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+          [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+          <span>{{ page.value }}</span>
+        </div>
+      </ng-container>
+
+      <!-- case 2: when totalPages > 5 -->
+      <ng-container *ngIf="totalPages > displaySize">
+        <!-- case 2.a: when currentPage <= 3(center) then remove last 2 pages -->
+        <ng-container *ngIf="p.getCurrent() <= centerIndex && i < displaySize">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+            [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+
+        <!-- case 2.b: when currentPage > 3(center) and currentPage < totalPages - 1 then remove first page and last page -->
+        <ng-container *ngIf="p.getCurrent() > centerIndex && i > 0 && i < maxSize - 1 && p.getCurrent() < totalPages - 2 ">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+            [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+
+        <!-- case 2.c: when last 5 pages but totalPages < 7 then remove first page -->
+        <ng-container *ngIf="totalPages < maxSize && p.getCurrent() >= totalPages - 2 && i > 0">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+            [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+
+        <!-- case 2.d: when last 5 pages but totalPages >= 7 then remove first 2 pages -->
+        <ng-container *ngIf="totalPages >= maxSize && p.getCurrent() >= totalPages - 2 && i > 1">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+            [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+
+<!--
+  <div class="numbers col-auto row">
+    <ng-container *ngFor="let page of p.pages; index as i;">
+      <ng-container *ngIf="totalPages <= 5 && i < 5">
+        <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+          [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+          <span>{{ page.value }}</span>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="totalPages > 5">
+        <ng-container *ngIf="p.getCurrent() <= 3 && i < 5">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);"
+            [class.current]="p.getCurrent() === page.value" [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+  
+        <ng-container *ngIf="p.getCurrent() > 3 && i > 0 && i < 6 && p.getCurrent() < totalPages - 2 ">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+            [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+        
+        <ng-container *ngIf="totalPages < maxSize && p.getCurrent() >= totalPages - 2 && i > 0">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+            [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="totalPages >= maxSize && p.getCurrent() >= totalPages - 2 && i > 1">
+          <div class="number col-auto" (click)="p.setCurrent(page.value);" [class.current]="p.getCurrent() === page.value"
+            [ngClass]="p.getCurrent() === page.value ? 'active disabled' : ''">
+            <span>{{ page.value }}</span>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+-->
+
+  <div class="col-auto nav-btn" [class.disabled]="p.isLastPage()" (click)="handleOnChangePage(page + 1);">
+    <svg width="34" height="34" viewBox="0 0 34 34">
+      <path class="shape" d="M12 11V23L20.5 17L12 11ZM20.5 11H21.5V23H20.5V11Z"></path>
+    </svg>
+  </div>
+  <div *ngIf="totalPages > 5" class="col-auto nav-btn" [class.disabled]="p.isLastPage()" (click)="handleOnChangePage(totalPages);">
+    <svg width="34" height="34" viewBox="0 0 34 34">
+      <path class="shape" d="M16.5 11V23L25 17L16.5 11ZM8 11V23L16.5 17L8 11ZM25 11H26V23H25V11Z"></path>
+    </svg>
+  </div>
+</pagination-template>

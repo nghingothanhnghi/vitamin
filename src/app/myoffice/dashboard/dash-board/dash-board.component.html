@@ -1,0 +1,1095 @@
+<div id="dashboard" class="page-body office-page">
+    <div class="container mobile-container">
+        <div class="st-time-nav mobile-block">
+            <div class="row nav-row">
+                <div class="col-auto nav-btn prev" id="minusbtn" (click)="onClickPrev()">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <path d="M19 7L11 15L19 23" stroke="#2B2937" stroke-miterlimit="10"></path>
+                    </svg>
+                </div>
+
+                <div class="col title h-small" id="currentDate">
+                    {{collectionInfoDashBoard.payDateText}}
+                </div>
+
+                <div class="col-auto nav-btn next" id="plusbtn" (click)="onClickNext()">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                        <path d="M11 23L19 15L11 7" stroke="#2B2937" stroke-miterlimit="10"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="st-common-info mobile-block">
+            <div class="row">
+                <div class="col-lg office-block user-info">
+                    <div class="company-logo">
+                        <div class="img-wrapper">
+                            <img src="{{ pathMemImage }}" />
+                        </div>
+                    </div>
+
+                    <div class="personal-info">
+                        <div class="info user-name">
+                            <span class="value">{{userName}}</span>
+                        </div>
+                        <div class="info user-id">
+                            <span class="label">회원번호</span>
+                            <span class="value">{{userid}}</span>
+                        </div>
+                        <div class="info joint-date">
+                            <span class="label">가입일 </span>
+                            <div class="value">
+                                <span>{{regDate}}&#160;</span>
+                                <span>&#160;{{cntName}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="recent-promotion">
+                        <div class="info">
+                            <div class="label">전월직급</div>
+                            <div class="value">{{collectionInfoDashBoard.rankOld1Name}}</div>
+                        </div>
+                        <div class="info">
+                            <div class="label">당월직급</div>
+                            <div class="value">{{collectionInfoDashBoard.rankNewName}}</div>
+                        </div>
+                        <div class="info">
+                            <div class="label">최고직급</div>
+                            <div class="value">{{collectionInfoDashBoard.rankMaxName}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg office-block recent-performance">
+                    <div class="performance-pv">
+                        <div class="info">
+                            <div class="label">금주 실적</div>
+                            <div class="value">{{collectionInfoDashBoard.ordPv ? (collectionInfoDashBoard.ordPv |
+                                setComma) : "0"}} PV</div>
+                        </div>
+                        <div class="info">
+                            <div class="label">당월 실적</div>
+                            <div class="value">{{collectionInfoDashBoard.ordPvMon ? (collectionInfoDashBoard.ordPvMon |
+                                setComma) : "0"}} PV</div>
+                        </div>
+                        <div class="info">
+                            <div class="label">전월 실적</div>
+                            <div class="value">{{collectionInfoDashBoard.ordPvOld ? (collectionInfoDashBoard.ordPvOld |
+                                setComma) : "0"}} PV</div>
+                        </div>
+                        <div class="info">
+                            <div class="label">누적 실적</div>
+                            <div class="value">{{collectionInfoDashBoard.ordPvAcc ? (collectionInfoDashBoard.ordPvAcc |
+                                setComma) : "0"}} PV</div>
+                        </div>
+                    </div>
+
+                    <div class="performance-purchase">
+                        <div class="info">
+                            <div class="label">최초 구매일</div>
+                            <div class="value">{{collectionInfoDashBoard.firstOrdDate}}</div>
+
+                        </div>
+                        <div class="info">
+                            <div class="label">최종 구매일</div>
+                            <div class="value">{{collectionInfoDashBoard.lastOrdDate}}</div>
+                        </div>
+                        <div class="info">
+                            <div class="label">VIP 적용기간</div>
+                            <div class="value">{{collectionInfoDashBoard.regDate}} ~
+                                {{collectionInfoDashBoard.vipDateLimit}}</div>
+                        </div>
+                    </div>
+
+                    <div class="performance-maintenance">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>전월유지</th>
+                                    <th>전월2STAR</th>
+                                    <th>당월유지</th>
+                                    <th>당월2STAR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="value done" *ngIf="collectionInfoDashBoard.actYnOld == 'Y'">유지</div>
+                                        <div class="value" *ngIf="collectionInfoDashBoard.actYnOld == 'N'">미유지</div>
+                                    </td>
+                                    <td>
+                                        <div class="value done" *ngIf="collectionInfoDashBoard.actYnOld2start == 'Y'">유지
+                                        </div>
+                                        <div class="value" *ngIf="collectionInfoDashBoard.actYnOld2start == 'N'">미유지
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="value done" *ngIf="collectionInfoDashBoard.actYnNow == 'Y'">유지</div>
+                                        <div class="value" *ngIf="collectionInfoDashBoard.actYnNow == 'N'">미유지</div>
+                                    </td>
+                                    <td>
+                                        <div class="value done" *ngIf="collectionInfoDashBoard.actYnNow2start == 'Y'">유지
+                                        </div>
+                                        <div class="value" *ngIf="collectionInfoDashBoard.actYnNow2start == 'N'">미유지
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="col-lg office-block direct-recommendation-status">
+                    <h2 class="h-false">최종 업데이트 시간 : {{calcTime}}</h2>
+                    <div class="month-status prev-month">
+                        <div class="info title">전월 2스타 직추천인 현황</div>
+                        <div class="info pv">
+                            <div class="label">본인 40 PV 유지자</div>
+                            <div class="value">
+                                <span style="color: red;">{{collectionInfoDashBoard.actPvROld}}</span> 명 (전월 본인 40 PV)
+                            </div>
+                        </div>
+                        <div class="info x">{{collectionInfoDashBoard.actTxtLegOld}}</div>
+                    </div>
+
+                    <div class="month-status current-month">
+                        <div class="info title">당월 2스타 직추천인 현황</div>
+                        <div class="info pv">
+                            <div class="label">본인 40 PV 유지자</div>
+                            <div class="value">
+                                <span style="color: red;">{{collectionInfoDashBoard.actPvRNow}}</span> 명 (전월 본인 40 PV)
+                            </div>
+                        </div>
+
+                        <div class="info x">{{collectionInfoDashBoard.actTxtLegNow}}</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="st-performance-detail">
+            <!-- Row 1 -->
+            <div class="row row_1">
+                <div class="col-lg office-block last-week-performance mobile-block">
+                    <h2 class="h-false">이번주 대소실적</h2>
+                    <div class="draggable-element">
+                        <div class="perform-gird draggable-items-wrapper">
+                            <table class="hr-table" style="display: table">
+                                <thead>
+                                    <tr>
+                                        <th>대실적<span style="color: red;">{{collectionInfoDashBoard.maxLeg ? '(' +
+                                                collectionInfoDashBoard.maxLeg + ')' : ''}}</span></th>
+                                        <th>대실적 PV</th>
+                                        <th>소실적 PV</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{collectionInfoDashBoard.maxLegName}}</td>
+                                        <td>{{collectionInfoDashBoard.maxPv ? (collectionInfoDashBoard.maxPv | setComma)
+                                            : "0"}} PV</td>
+                                        <td>{{collectionInfoDashBoard.minPv ? (collectionInfoDashBoard.minPv | setComma)
+                                            : "0"}} PV</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 office-block allowance-amount mobile-block">
+                    <h2 class="h-false col">
+                        <span>수당 금액 </span>
+                        <span style="color: red">(해당 금액은 확정된 금액이 아니며, 반품 등의 사유로 인해 변경될 수 있습니다.)</span>
+                    </h2>
+
+                    <div class="draggable-element">
+                        <div class="perform-gird draggable-items-wrapper">
+                            <table class="hr-table">
+                                <thead>
+                                    <tr>
+                                        <th>스타트</th>
+                                        <th>그룹</th>
+                                        <th>매칭그룹</th>
+                                        <th>유니레벨</th>
+                                        <th>직급달성축하 </th>
+                                        <th>직급유지</th>
+                                        <th>합계</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{collectionInfoDashBoard.amt1 ? (collectionInfoDashBoard.amt1 | setComma) :
+                                            "0"}}</td>
+                                        <td>{{collectionInfoDashBoard.amt2 ? (collectionInfoDashBoard.amt2 | setComma) :
+                                            "0"}}</td>
+                                        <td>{{collectionInfoDashBoard.amt3 ? (collectionInfoDashBoard.amt3 | setComma) :
+                                            "0"}}</td>
+                                        <td>{{collectionInfoDashBoard.amt4 ? (collectionInfoDashBoard.amt4 | setComma) :
+                                            "0"}}</td>
+                                        <td>{{collectionInfoDashBoard.amt5 ? (collectionInfoDashBoard.amt5 | setComma) :
+                                            "0"}}</td>
+                                        <td>{{collectionInfoDashBoard.amt6 ? (collectionInfoDashBoard.amt6 | setComma) :
+                                            "0"}}</td>
+                                        <td>{{collectionInfoDashBoard.totalAmt ? (collectionInfoDashBoard.totalAmt |
+                                            setComma) : "0"}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <table class="vt-table">
+                        <tbody>
+                            <tr>
+                                <td>스타트</td>
+                                <td>{{collectionInfoDashBoard.amt1 ? (collectionInfoDashBoard.amt1 | setComma) : "0"}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>그룹</td>
+                                <td>{{collectionInfoDashBoard.amt2 ? (collectionInfoDashBoard.amt2 | setComma) : "0"}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>매칭그룹</td>
+                                <td>{{collectionInfoDashBoard.amt3 ? (collectionInfoDashBoard.amt3 | setComma) : "0"}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>유니레벨</td>
+                                <td>{{collectionInfoDashBoard.amt4 ? (collectionInfoDashBoard.amt4 | setComma) : "0"}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>직급달성축하</td>
+                                <td>{{collectionInfoDashBoard.amt5 ? (collectionInfoDashBoard.amt5 | setComma) : "0"}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>직급유지</td>
+                                <td>{{collectionInfoDashBoard.amt6 ? (collectionInfoDashBoard.amt6 | setComma) : "0"}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>합계</td>
+                                <td>{{collectionInfoDashBoard.totalAmt ? (collectionInfoDashBoard.totalAmt | setComma) :
+                                    "0"}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row office-block mobile-block performance-by-leg">
+                <h2 class="h-false">레그별 실적</h2>
+                <div class="draggable-element">
+                    <div class="perform-gird draggable-items-wrapper">
+                        <table class="hr-table">
+                            <thead>
+                                <tr>
+                                    <th>레그</th>
+                                    <th>A {{collectionInfoDashBoard.ausername}}</th>
+                                    <th>B {{collectionInfoDashBoard.busername}}</th>
+                                    <th>C {{collectionInfoDashBoard.cusername}}</th>
+                                    <th>D {{collectionInfoDashBoard.dusername}}</th>
+                                    <th>E {{collectionInfoDashBoard.eusername}}</th>
+                                    <th>F {{collectionInfoDashBoard.fusername}}</th>
+                                    <th>G {{collectionInfoDashBoard.gusername}}</th>
+                                    <th>H {{collectionInfoDashBoard.husername}}</th>
+                                    <th>I {{collectionInfoDashBoard.iusername}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="textCenter">이전실적</td>
+                                    <td>{{collectionInfoDashBoard.apvBe ? (collectionInfoDashBoard.apvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.bpvBe ? (collectionInfoDashBoard.bpvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.cpvBe ? (collectionInfoDashBoard.cpvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.dpvBe ? (collectionInfoDashBoard.dpvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.epvBe ? (collectionInfoDashBoard.epvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.fpvBe ? (collectionInfoDashBoard.fpvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.gpvBe ? (collectionInfoDashBoard.gpvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.hpvBe ? (collectionInfoDashBoard.hpvBe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.ipvBe ? (collectionInfoDashBoard.ipvBe | setComma) :
+                                        "0"}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="textCenter">신규실적</td>
+                                    <td>{{collectionInfoDashBoard.apv ? (collectionInfoDashBoard.apv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.bpv ? (collectionInfoDashBoard.bpv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.cpv ? (collectionInfoDashBoard.cpv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.dpv ? (collectionInfoDashBoard.dpv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.epv ? (collectionInfoDashBoard.epv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.fpv ? (collectionInfoDashBoard.fpv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.gpv ? (collectionInfoDashBoard.gpv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.hpv ? (collectionInfoDashBoard.hpv | setComma) : "0"}}
+                                    </td>
+                                    <td>{{collectionInfoDashBoard.ipv ? (collectionInfoDashBoard.ipv | setComma) : "0"}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="textCenter">계산실적</td>
+                                    <td>{{collectionInfoDashBoard.apvCalc ? (collectionInfoDashBoard.apvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.bpvCalc ? (collectionInfoDashBoard.bpvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.cpvCalc ? (collectionInfoDashBoard.cpvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.dpvCalc ? (collectionInfoDashBoard.dpvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.epvCalc ? (collectionInfoDashBoard.epvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.fpvCalc ? (collectionInfoDashBoard.fpvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.gpvCalc ? (collectionInfoDashBoard.gpvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.hpvCalc ? (collectionInfoDashBoard.hpvCalc | setComma)
+                                        : "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.ipvCalc ? (collectionInfoDashBoard.ipvCalc | setComma)
+                                        : "0"}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="textCenter">이월실적</td>
+                                    <td>{{collectionInfoDashBoard.apvRe ? (collectionInfoDashBoard.apvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.bpvRe ? (collectionInfoDashBoard.bpvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.cpvRe ? (collectionInfoDashBoard.cpvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.dpvRe ? (collectionInfoDashBoard.dpvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.epvRe ? (collectionInfoDashBoard.epvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.fpvRe ? (collectionInfoDashBoard.fpvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.gpvRe ? (collectionInfoDashBoard.gpvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.hpvRe ? (collectionInfoDashBoard.hpvRe | setComma) :
+                                        "0"}}</td>
+                                    <td>{{collectionInfoDashBoard.ipvRe ? (collectionInfoDashBoard.ipvRe | setComma) :
+                                        "0"}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+                <table class="hr-mobile-table">
+                    <!-- A -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>A {{collectionInfoDashBoard.ausername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.apvBe ? (collectionInfoDashBoard.apvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.apv ? (collectionInfoDashBoard.apv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.apvCalc ? (collectionInfoDashBoard.apvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.apvRe ? (collectionInfoDashBoard.apvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <!-- B -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>B {{collectionInfoDashBoard.busername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.bpvBe ? (collectionInfoDashBoard.bpvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.bpv ? (collectionInfoDashBoard.bpv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.bpvCalc ? (collectionInfoDashBoard.bpvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.bpvRe ? (collectionInfoDashBoard.bpvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- C -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>C {{collectionInfoDashBoard.cusername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.cpvBe ? (collectionInfoDashBoard.cpvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.cpv ? (collectionInfoDashBoard.cpv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.cpvCalc ? (collectionInfoDashBoard.cpvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.cpvRe ? (collectionInfoDashBoard.cpvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- D -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>D {{collectionInfoDashBoard.dusername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.dpvBe ? (collectionInfoDashBoard.dpvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.dpv ? (collectionInfoDashBoard.dpv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.dpvCalc ? (collectionInfoDashBoard.dpvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.dpvRe ? (collectionInfoDashBoard.dpvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- E -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>E {{collectionInfoDashBoard.eusername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.epvBe ? (collectionInfoDashBoard.epvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.epv ? (collectionInfoDashBoard.epv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.epvCalc ? (collectionInfoDashBoard.epvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.epvRe ? (collectionInfoDashBoard.epvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- F -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>F {{collectionInfoDashBoard.fusername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.fpvBe ? (collectionInfoDashBoard.fpvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.fpv ? (collectionInfoDashBoard.fpv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.fpvCalc ? (collectionInfoDashBoard.fpvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.fpvRe ? (collectionInfoDashBoard.fpvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- G -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>G {{collectionInfoDashBoard.gusername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.gpvBe ? (collectionInfoDashBoard.gpvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.gpv ? (collectionInfoDashBoard.gpv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.gpvCalc ? (collectionInfoDashBoard.gpvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.gpvRe ? (collectionInfoDashBoard.gpvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- H -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>H {{collectionInfoDashBoard.husername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.hpvBe ? (collectionInfoDashBoard.hpvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.hpv ? (collectionInfoDashBoard.hpv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.hpvCalc ? (collectionInfoDashBoard.hpvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.hpvRe ? (collectionInfoDashBoard.hpvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- I -->
+                    <tbody>
+                        <tr>
+                            <th>레그</th>
+                            <th>I {{collectionInfoDashBoard.iusername}}</th>
+                        </tr>
+                        <tr>
+                            <td>이전실적</td>
+                            <td>{{collectionInfoDashBoard.ipvBe ? (collectionInfoDashBoard.ipvBe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신규실적</td>
+                            <td>{{collectionInfoDashBoard.ipv ? (collectionInfoDashBoard.ipv | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>계산실적</td>
+                            <td>{{collectionInfoDashBoard.ipvCalc ? (collectionInfoDashBoard.ipvCalc | setComma) : "0"}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>이월실적</td>
+                            <td>{{collectionInfoDashBoard.ipvRe ? (collectionInfoDashBoard.ipvRe | setComma) : "0"}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="row row_3 mobile-block">
+                <div class="office-block position-status">
+                    <h2 class="h-false">
+                        <span>직급자 현황 </span>
+                        <span style="color: red">(추천레그 6대까지의 직급자 인원수)</span>
+                    </h2>
+                    <div class="table-wrapper draggable-wrapper" draggableWrapper>
+                        <table class="hr-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>레그</th>
+                                    <th>A</th>
+                                    <th>M</th>
+                                    <th>SM</th>
+                                    <th>D</th>
+                                    <th>SD</th>
+                                    <th>MD</th>
+                                    <th>CD</th>
+                                    <th>ND</th>
+                                    <th>ID</th>
+                                    <th>PD</th>
+                                    <th>합계</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngIf="collectionSatusOfRankDashBoard.length === 0">                                    
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </ng-container>
+                                <tr *ngFor="let item of collectionSatusOfRankDashBoard">
+                                    <td>{{item.seq}}</td>
+                                    <td>{{item.username}}</td>
+                                    <td>{{item.rankA}}</td>
+                                    <td>{{item.rankM}}</td>
+                                    <td>{{item.rankSm}}</td>
+                                    <td>{{item.rankD}}</td>
+                                    <td>{{item.rankSd}}</td>
+                                    <td>{{item.rankMd}}</td>
+                                    <td>{{item.rankCd}}</td>
+                                    <td>{{item.rankNd}}</td>
+                                    <td>{{item.rankId}}</td>
+                                    <td>{{item.rankPd}}</td>
+                                    <td>{{item.total}}</td>
+                                </tr>
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2">합계</td>
+                                    <td>{{collectionInfoDashBoardSum.rankA}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankM}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankSm}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankD}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankSd}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankMd}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankCd}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankNd}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankId}}</td>
+                                    <td>{{collectionInfoDashBoardSum.rankPd}}</td>
+                                    <td>{{collectionInfoDashBoardSum.total}}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="manager-challenge row">
+                    <div class="col-auto office-block sponsorship-genealogy">
+                        <h2 class="h-false">[후원계보] <span class="text-right"> {{collectionInfoDashBoard.rankNewName}} -->
+                                {{collectionInfoDashBoard.ruPRankName}} 도전중</span></h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>당월 본인 실적</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col">{{collectionInfoDashBoard.ruPSelf | setComma}}</div>
+                                            <div class="col-auto">/</div>
+                                            <div class="col">{{collectionInfoDashBoard.ruPSelfBase | setComma}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruPSelfYn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruPSelfYn == 'N'"><img
+                                            src="../../assets/img/icons/circle-close.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td>당월 직추천 실적</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col">{{collectionInfoDashBoard.ruPLv1 | setComma}}</div>
+                                            <div class="col-auto">/</div>
+                                            <div class="col">{{collectionInfoDashBoard.ruPLv1Base | setComma}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruPlv1Yn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruPlv1Yn == 'N'"><img
+                                            src="../../assets/img/icons/circle-close.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td>소실적PV (월 누적)</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col">{{collectionInfoDashBoard.ruPMin | setComma}}</div>
+                                            <div class="col-auto">/</div>
+                                            <div class="col">{{collectionInfoDashBoard.ruPMinBase | setComma}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruPMinYn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruPMinYn == 'N'"><img
+                                            src="../../assets/img/icons/circle-close.svg"></td>
+                                </tr>
+                                <tr class="last-border">
+                                    <td>후원레그 조직달성</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col value-text">{{collectionInfoDashBoard.ruPleg}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruPlegYn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-auto office-block recommended-genealogy">
+                        <h2 class="h-false">[추천계보] <span class="text-right"> {{collectionInfoDashBoard.rankNewName}} -->
+                                {{collectionInfoDashBoard.ruRRankName}} 도전중</span></h2>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>당월 본인 실적</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col">{{collectionInfoDashBoard.ruRSelf | setComma}}</div>
+                                            <div class="col-auto">/</div>
+                                            <div class="col">{{collectionInfoDashBoard.ruRSelfBase | setComma}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruRSelfYn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruRSelfYn == 'N'"><img
+                                            src="../../assets/img/icons/circle-close.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td>당월 직추천 실적</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col">{{collectionInfoDashBoard.ruRLv1 | setComma}}</div>
+                                            <div class="col-auto">/</div>
+                                            <div class="col">{{collectionInfoDashBoard.ruRLv1Base | setComma}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruRLv1Yn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruRLv1Yn == 'N'"><img
+                                            src="../../assets/img/icons/circle-close.svg"></td>
+                                </tr>
+                                <tr>
+                                    <td>그룹 불륨PV (월 누적)</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col">{{collectionInfoDashBoard.ruRMin | setComma}}</div>
+                                            <div class="col-auto">/</div>
+                                            <div class="col">{{collectionInfoDashBoard.ruRMinBase | setComma}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruRMinYn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruRMinYn == 'N'"><img
+                                            src="../../assets/img/icons/circle-close.svg"></td>
+                                </tr>
+                                <tr class="last-border">
+                                    <td>추천레그 조직달성</td>
+                                    <td class="value">
+                                        <div class="row">
+                                            <div class="col value-text">{{collectionInfoDashBoard.ruRLeg}}</div>
+                                        </div>
+                                    </td>
+
+                                    <td class="check" *ngIf="collectionInfoDashBoard.ruRLegYn == 'Y'"><img
+                                            src="../../assets/img/icons/circle-check.svg"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 4 -->
+            <div class="row office-block direct-recommendation-activity-status mobile-block none last">
+                <h2 class="h-false">직추천인 활동현황</h2>
+
+                <!-- pagination moblie -->
+                <div class="pagination mobile-pagination row">
+                    <div class="col-auto per-page row">
+                        <div class="label col-auto"><span>페이지표시</span></div>
+                        <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                            (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+                    </div>
+                    <div class="col-auto total">
+                        <span class="label">Total</span>
+                        <span class="value">{{ getActivityStatusDashBoardTotal$ | async }}</span>
+                    </div>
+                </div>
+
+
+                <div class="table-wrapper draggable-wrapper" draggableWrapper>
+                    <table class="hr-table">
+                        <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>유지</th>
+                                <th>2스타</th>
+                                <th>후원인명</th>
+                                <th>회원명</th>
+                                <th>센터</th>
+                                <th>전월직급</th>
+                                <th>현재직급</th>
+                                <th>최고직급</th>
+                                <th>전월PV</th>
+                                <th>당월PV</th>
+                                <th>누적PV</th>
+                                <th>최종주문일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="collectionActivityStatusDashBoard.length === 0">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </ng-container>
+                            <tr *ngFor="let item of collectionActivityStatusDashBoard | paginate: config">
+                                <td>{{item.seq}}</td>
+                                <td>{{item.actYnNow}}</td>
+                                <td>{{item.actYnNow2start}}</td>
+                                <td>{{item.pname}}</td>
+                                <td>{{item.username}}</td>
+                                <td>{{item.cntName}}</td>
+                                <td>{{item.rankOldName}}</td>
+                                <td>{{item.rankNewName}}</td>
+                                <td>{{item.rankMaxName}}</td>
+                                <td>{{item.ordPvOld ? (item.ordPvOld | setComma) : "0"}}</td>
+                                <td>{{item.ordPvMon ? (item.ordPvMon | setComma) : "0"}}</td>
+                                <td>{{item.ordPvAcc ? (item.ordPvAcc | setComma) : "0"}}</td>
+                                <td>{{item.lastOrdDate}}</td>
+                            </tr>
+                        </tbody>
+
+                        <ng-container *ngIf="totalRows < 5">
+                            <tbody>
+                                <tr *ngFor="let row of rows; index as i">
+                                    <ng-container *ngFor="let col of cols; index as j">
+                                        <td>
+                                            <span>&nbsp;</span>
+                                            <ng-container *ngIf="totalRows === 0 && i === 2 && j === totalCols % 2">
+                                                <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+
+                    </table>
+                </div>
+
+                <!-- <div class="draggable-element">
+                    <div class="perform-gird draggable-items-wrapper">
+                        <table class="hr-table">
+                            <thead>
+                                <tr>
+                                    <th>NO</th>
+                                    <th>유지</th>
+                                    <th>2스타</th>
+                                    <th>후원인명</th>
+                                    <th>회원명</th>
+                                    <th>센터</th>
+                                    <th>전월직급</th>
+                                    <th>현재직급</th>
+                                    <th>최고직급</th>
+                                    <th>전월PV</th>
+                                    <th>당월PV</th>
+                                    <th>누적PV</th>
+                                    <th>최종주문일</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of collectionActivityStatusDashBoard | paginate: config">
+                                    <td>{{item.seq}}</td>
+                                    <td>{{item.actYnNow}}</td>
+                                    <td>{{item.actYnNow2start}}</td>
+                                    <td>{{item.pname}}</td>
+                                    <td>{{item.username}}</td>
+                                    <td>{{item.cntName}}</td>
+                                    <td>{{item.rankOldName}}</td>
+                                    <td>{{item.rankNewName}}</td>
+                                    <td>{{item.rankMaxName}}</td>
+                                    <td>{{item.ordPvOld ? (item.ordPvOld | setComma) : "0"}}</td>
+                                    <td>{{item.ordPvMon ? (item.ordPvMon | setComma) : "0"}}</td>
+                                    <td>{{item.ordPvAcc ? (item.ordPvAcc | setComma) : "0"}}</td>
+                                    <td>{{item.lastOrdDate}}</td>
+                                </tr>
+                            </tbody>
+
+                            <ng-container *ngIf="totalRows < 5">
+                                <tbody>
+                                    <tr *ngFor="let row of rows; index as i">
+                                        <ng-container *ngFor="let col of cols; index as j">
+                                            <td>
+                                                <span>&nbsp;</span>
+                                                <ng-container *ngIf="totalRows === 0 && i === 2 && j === totalCols % 2">
+                                                    <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                                </ng-container>
+                                            </td>
+                                        </ng-container>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+
+                        </table>
+                    </div>
+                </div> -->
+
+                <table class="hr-mobile-table">
+                    <tbody *ngFor="let item of collectionActivityStatusDashBoard">
+                        <tr>
+                            <td>NO</td>
+                            <td>{{item.seq}}</td>
+                        </tr>
+                        <tr>
+                            <td>유지</td>
+                            <td>{{item.actYnNow}}</td>
+                        </tr>
+                        <tr>
+                            <td>2스타</td>
+                            <td>{{item.actYnNow2start}}</td>
+                        </tr>
+                        <tr>
+                            <td>후원인명</td>
+                            <td>{{item.pname}}</td>
+                        </tr>
+                        <tr>
+                            <td>회원명</td>
+                            <td>{{item.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>센터</td>
+                            <td>{{item.cntName}}</td>
+                        </tr>
+                        <tr>
+                            <td>전월직급</td>
+                            <td>{{item.rankOldName}}</td>
+                        </tr>
+                        <tr>
+                            <td>현재직급</td>
+                            <td>{{item.rankNewName}}</td>
+                        </tr>
+                        <tr>
+                            <td>최고직급</td>
+                            <td>{{item.rankMaxName}}</td>
+                        </tr>
+                        <tr>
+                            <td>전월PV</td>
+                            <td>{{item.ordPvOld ? (item.ordPvOld | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>당월PV</td>
+                            <td>{{item.ordPvMon ? (item.ordPvMon | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>누적PV</td>
+                            <td>{{item.ordPvAcc ? (item.ordPvAcc | setComma) : "0"}}</td>
+                        </tr>
+                        <tr>
+                            <td>최종주문일</td>
+                            <td>{{item.lastOrdDate}}</td>
+                        </tr>
+                    </tbody>
+                    <grid-no-data-mobile [items]="collectionActivityStatusDashBoard"></grid-no-data-mobile>
+                </table>
+
+                <!-- pagination pc -->
+                <div class="pagination desktop-pagination row">
+                    <div class="col-auto per-page row">
+                        <div class="label col-auto"><span>페이지표시</span></div>
+                        <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                            (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+                    </div>
+                    <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems"
+                        [config]="config" (changePage)="handleOnChangePage($event);"></paging>
+                    <div class="col-auto total">
+                        <span class="label">Total</span>
+                        <span class="value">{{ getActivityStatusDashBoardTotal$ | async }}</span>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>

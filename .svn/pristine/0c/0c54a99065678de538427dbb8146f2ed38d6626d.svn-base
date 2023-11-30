@@ -1,0 +1,282 @@
+<div id="benefit-sponsorship-details" class="office-page">
+
+	<!-- Main Header -->
+	<div th:replace="fragments/inc-header" id="inc-header"></div>
+	<!-- End Header -->
+
+
+	<!-- Main Content -->
+	<main>
+
+		<section class="section-content searching-result benSearch">
+			<div class="searching-form">
+				<div class="container">
+					<date-time-filter class="row form-row date-time" [yearOptions]="yearOptions" [hiddenDate]="false"
+						[hiddenBtn]="true" [labelDate]="labelDate" [hiddenImageSvg]="false"
+						(changeDateTimeFilter)="handleOnChangeDateFilter($event);">
+					</date-time-filter>
+
+					<div class="row form-row last-row submit">
+						<div class="col-auto submit-btn-wrapper">
+							<div class="w-btn submit-btn has-icon advanced" id="search" (click)="search();">
+								<span th:text="#{common.btn.001}">검색</span>
+								<div class="icon ms-2"><img src="./assets/img/icons/search-ncc.svg"></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- btns mobile -->
+					<date-time-filter-mobile [screen]="screen" class="mobile-date-time-filter">
+					</date-time-filter-mobile>
+				</div>
+			</div>
+
+
+
+			<div class="container results memnberTab" id="benefit-sponsorship-details-grid">
+				<span class="text-primary">※ 주말 및 공휴일인 경우 다음 영업일에 지급됩니다.</span>
+				<br>
+				<span class="text-primary">※ 주민등록번호 정보가 없는 경우, 발생된 수당이 지급되지 않을 수 있습니다.</span>
+				<!--pc-->
+
+				<div class="office-block" style="margin-top:10px ">
+					<!-- pagination moblie -->
+					<div class="pagination mobile-pagination row">
+						<div class="col-auto per-page row">
+							<div class="label col-auto"><span>페이지표시</span></div>
+							<select-dropdown class="dropdown-select col row" [options]="options"
+								[selected]="selectedValue" (changeSelectedValue)="handleOnChangeSelectedValue($event);">
+							</select-dropdown>
+						</div>
+						<div class="col-auto total">
+							<span class="label">Total</span>
+							<span class="value">{{ benefitSponsorshipDetailsTotalItems$ | async }}</span>
+						</div>
+					</div>
+
+					<div class="table-container row draggable-element">
+						<div class="col col_data draggable-items-wrapper" draggableWrapper>
+							<div class="table-wrapper">
+								<table class="hr-table">
+									<thead>
+										<tr>
+											<th class="textCenter" rowspan="2">계산일자</th>
+											<th class="textCenter" rowspan="2">수당명</th>
+											<th class="textCenter" colspan="2">수급자</th>
+											<th class="textCenter" colspan="2">대상자 센터 / 직급</th>
+											<th class="textCenter" colspan="4">수당내역</th>
+											<th class="textCenter" colspan="4">대상자</th>
+											<th class="textCenter" rowspan="2">비고사항</th>
+										</tr>
+
+										<tr style="border-top: 1px solid rgba(0,0,0,.1);">
+											<th class="textCenter">번호</th>
+											<th class="textCenter">이름</th>
+
+											<th class="textCenter">센터</th>
+											<th class="textCenter">직급</th>
+
+											<th class="textCenter">단계</th>
+											<th class="textCenter">재원</th>
+											<th class="textCenter">지급율(%)</th>
+											<th class="textCenter">수당금액</th>
+
+											<th class="textCenter">번호</th>
+											<th class="textCenter">이름</th>
+											<th class="textCenter">센터</th>
+											<th class="textCenter" style="border-right: 1px solid rgb(0 0 0 / 10%);">직급
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr *ngFor="let item of collection | paginate: config">
+											<td>{{ item.payDate }}</td>
+											<td>{{ item.payName }}</td>
+											<td>{{ item.userid }}</td>
+											<td>{{ item.username }}</td>
+											<td>{{ item.cntName }}</td>
+											<td>{{ item.rankName }}</td>
+											<td>{{ item.tgLv }}</td>
+											<td>{{ item.tgBasic ? (item.tgBasic | setComma): "" }}</td>
+											<td>{{ item.tgRate ? item.tgRate + "%" : "" }}</td>
+											<td>{{ item.tgAmt ? (item.tgAmt | setComma): "" }}</td>
+											<td>{{ item.tgUserid }}</td>
+											<td>{{ item.tgUsername }}</td>
+											<td>{{ item.tgCntName }}</td>
+											<td>{{ item.tgRankName }}</td>
+											<td>{{ item.remark }}</td>
+										</tr>
+									</tbody>
+
+									<ng-container *ngIf="totalRows < 5">
+										<tbody>
+											<tr *ngFor="let row of rows; index as i">
+												<ng-container *ngFor="let col of cols; index as j">
+													<td>
+														<span>&nbsp;</span>
+														<ng-container
+															*ngIf="totalRows === 0 && i === 2 && j === floorTotalCols">
+															<span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+														</ng-container>
+													</td>
+												</ng-container>
+											</tr>
+										</tbody>
+									</ng-container>
+
+									<tfoot>
+										<tr *ngIf="benefitSponsorshipDetailsSumItem$ | async as item">
+											<td class="label-table" colspan="7">[합계]</td>
+											<td>{{ item.tgBasic ? (item.tgBasic | setComma): "" }}</td>
+											<td>{{ item.tgRate ? item.tgRate + "%" : "" }}</td>
+											<td>{{ item.tgAmt ? (item.tgAmt | setComma): "" }}</td>
+											<td>{{ item.tgUserid }}</td>
+											<td>{{ item.tgUsername }}</td>
+											<td>{{ item.tgCntName }}</td>
+											<td>{{ item.tgRankName }}</td>
+											<td>{{ item.remark }}</td>
+										</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- mobile-->
+					<table class="hr-mobile-table">
+						<tbody *ngFor="let item of collection">
+							<tr>
+								<td>계산일자</td>
+								<td>{{ item.payDate }}</td>
+							</tr>
+
+							<tr>
+								<td>수당명</td>
+								<td>{{ item.payName }}</td>
+							</tr>
+
+							<tr class="rowSpanMoblie">
+								<td rowspan="3">수급자</td>
+								<td>
+
+									<div>
+										<span>번호</span>
+										<span>{{ item.userid }}</span>
+									</div>
+
+									<div>
+										<span>이름</span>
+										<span>{{ item.username }}</span>
+									</div>
+
+								</td>
+							</tr>
+
+							<tr class="rowSpanMoblie">
+								<td rowspan="3">대상자 센터 / 직급</td>
+								<td>
+
+									<div>
+										<span>센터</span>
+										<span>{{ item.cntName }}</span>
+									</div>
+
+									<div>
+										<span>직급</span>
+										<span>{{ item.rankName }}</span>
+									</div>
+
+								</td>
+							</tr>
+
+							<tr class="rowSpanMoblie">
+								<td>수당내역</td>
+								<td rowspan="5">
+
+									<div>
+										<span>단계</span>
+										<span>{{ item.tgLv }}</span>
+									</div>
+
+									<div>
+										<span>재원</span>
+										<span>{{ item.tgBasic ? (item.tgBasic | setComma) : "" }}</span>
+									</div>
+
+									<div>
+										<span>지급율(%)</span>
+										<span>{{ item.tgRate ? (item.tgRate + "%") : "" }}</span>
+									</div>
+
+									<div>
+										<span>수당금액</span>
+										<span>{{ item.tgAmt ? (item.tgAmt | setComma) : "" }}</span>
+									</div>
+
+								</td>
+
+							</tr>
+
+							<tr class="rowSpanMoblie">
+								<td>대상자</td>
+
+								<td rowspan="5">
+
+									<div>
+										<span>번호</span>
+										<span>{{ item.tgUserid}}</span>
+									</div>
+
+									<div>
+										<span>이름</span>
+										<span>{{ item.tgUsername}}</span>
+									</div>
+
+									<div>
+										<span>센터</span>
+										<span>{{ item.tgCntName}}</span>
+									</div>
+
+									<div>
+										<span>직급</span>
+										<span>{{ item.tgRankName}}</span>
+									</div>
+
+								</td>
+							</tr>
+
+							<tr>
+								<td>비고사항</td>
+								<td>{{ item.remark }}</td>
+							</tr>
+
+
+						</tbody>
+						<grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+					</table>
+
+
+					<!-- pagination pc -->
+					<div class="pagination desktop-pagination row">
+						<div class="col-auto per-page row">
+							<div class="label col-auto"><span>페이지표시</span></div>
+							<select-dropdown class="dropdown-select col row" [options]="options"
+								[selected]="selectedValue" (changeSelectedValue)="handleOnChangeSelectedValue($event);">
+							</select-dropdown>
+						</div>
+						<paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems"
+							[config]="config" (changePage)="handleOnChangePage($event);"></paging>
+						<div class="col-auto total">
+							<span class="label">Total</span>
+							<span class="value">{{ benefitSponsorshipDetailsTotalItems$ | async }}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!------------- Footer ------------->
+	<div th:replace="fragments/inc-footer" id="inc-footer"></div>
+	<!--------------------------------->
+</div>

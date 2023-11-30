@@ -1,0 +1,295 @@
+<div class="print-page">
+    <div>
+        <div class="row" style="justify-content: space-between;">
+            <div class="col-left">
+                <table class="tbTwo text-center">
+                    <colgroup>
+                        <col width="50px">
+                        <col width="50px">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td>귀속 <br>
+                                연도
+                            </td>
+                            <td>{{currentYear}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-center">
+                <h3 style="margin: 0;">■
+                    거주자의 사업소득 원천징수영수증 <br>
+                    □
+                    거주자의 사업소득 지급명세서 </h3>
+                <div>( ■ 소득자
+                    보관용 □ 발행자 보관용 )</div>
+            </div>
+            <div class="col-right">
+
+                <table class="tbTwo text-center">
+                    <colgroup>
+                        <col width="50px">
+                        <col width="50px">
+                        <col width="60px">
+                        <col width="60px">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">내ㆍ외국인
+                            </td>
+                            <td colspan="2">내국인1 <br>
+                                외국인9
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>거주 <br>지국
+                            </td>
+                            <td>&nbsp;</td>
+                            <td>거주지국 <br>코 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;드
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="tbTwo text-center">
+            <colgroup>
+                <col width="70">
+                <col width="150">
+                <col>
+                <col width="150">
+                <col width="150">
+                <col>
+                <col width="145">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td rowspan="2">
+                        <p>징수</p>
+                        <p>의무자 </p>
+                    </td>
+                    <td>
+                        <p>①사업자등록번호</p>
+                    </td>
+                    <td> 
+                        <p id="saNo1" style="width: 80px">{{company.comTaxNo}}</p>
+                    </td>
+                    <td>
+                        <p>②법인명 또는 상호</p>
+                    </td>
+                    <td>
+                        <p id="comName1" >{{company.comName}}</p>
+                    </td>
+                    <td>
+                        <p style="width: 50px">③성명</p>
+                    </td>
+                    <td>
+                        <p id="saOwner" >{{company.comOwner}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>④주민(법인)등록번호</p>
+                    </td>
+                    <td>
+                        <p id="saNo2" >{{company.comTaxNo}}</p>
+                    </td>
+                    <td>
+                        <p>⑤소재지 또는 주소</p>
+                    </td>
+                    <td colspan="3">
+                        <p id="addr1" >&nbsp;{{company.addr}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="tbTwo text-center">
+            <colgroup>
+                <col width="70">
+                <col width="135">
+                <col width="145">
+                <col width="150">
+                <col width="300">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td rowspan="4">
+                        <p>소득자</p>
+                    </td>
+                    <td>
+                        <p>⑥상 호</p>
+                    </td>
+                    <td>
+                        <p id="saName">{{company.comName}}</p>
+                    </td>
+                    <td>
+                        <p>⑦사업자등록번호</p>
+                    </td>
+                    <td>
+                        <p id="saNo">{{company.comTaxNo}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>⑧사 업 장 소 재 지</p>
+                    </td>
+                    <td colspan="3">
+                        <p id="saAddress">{{company.addr}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>⑨성 명</p>
+                    </td>
+                    <td>
+                        <p id="userName">{{collectionUser.userName}}</p>
+                    </td>
+                    <td>
+                        <p>⑩주민등록번호</p>
+                    </td>
+                    <td>
+                        <p id="juminNoOrg">{{collectionUser.juminNoOrg}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>⑪주 소</p>
+                    </td>
+                    <td colspan="3">
+                        <p id="addr3">&nbsp;{{collectionUser.taxAddress ? collectionUser.taxAddress : collectionUser.addr}}</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="tbTwo text-center">
+            <colgroup>
+                <col width="150">
+                <col width="150">
+                <col width="500">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td height="35" rowspan="2" text-align="center" class="rline gray01 t_c">
+                        <p class="gray01">⑫업종구분</p>
+                    </td>
+                    <td height="35" text-align="center" valign="middle" class="rline gray01 t_c" style="background-color: #999999;">
+                        <p class="gray01">940910&nbsp;(다단계판매)</p>
+                    </td>
+                    <td text-align="center" valign="middle" class="rline t_c">
+                        <p class="gray01"> ※ 작성방법 참조</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="tbTwo text-center">
+            <colgroup>
+                <col width="50">
+                <col width="50">
+                <col width="50">
+                <col width="50">
+                <col width="50">
+                <col width="150">
+                <col>
+                <col>
+                <col>
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td colspan="3">
+                        <p>⑬지 급</p>
+                    </td>
+                    <td colspan="2">
+                        <p>⑭소득귀속</p>
+                    </td>
+                    <td rowspan="2">
+                        <p>⑮지 급 총 액</p>
+                    </td>
+                    <td rowspan="2">
+                        <p>(16) 세율</p>
+                    </td>
+                    <td colspan="3">
+                        <p>원 천 징 수 세 액</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>연</p>
+                    </td>
+                    <td>
+                        <p>월</p>
+                    </td>
+                    <td>
+                        <p>일</p>
+                    </td>
+                    <td>
+                        <p>연</p>
+                    </td>
+                    <td>
+                        <p>월</p>
+                    </td>
+                    <td>
+                        <p>(17) 소 득 세</p>
+                    </td>
+                    <td>
+                        <p>(18) 지방소득세</p>
+                    </td>
+                    <td>
+                        <p>(19) 계</p>
+                    </td>
+                </tr>
+                <tr *ngFor="let item of collection">
+                    <td>{{item.year}}</td>
+                    <td>{{item.month}}</td>
+                    <td>{{item.day}}</td>
+                    <td>{{item.year}}</td>
+                    <td>{{item.month}}</td>
+                    <td>{{ item.totalAmt ? (item.totalAmt | setComma): "0"}}</td>
+                    <td>3.3%</td>
+                    <td>{{ item.tax1Amt ? (item.tax1Amt | setComma): "0"}}</td>
+                    <td>{{ item.tax2Amt ? (item.tax2Amt | setComma): "0"}}</td>
+                    <td>{{ item.taxTotalAmt ? (item.taxTotalAmt | setComma): "0"}}</td>
+                </tr>
+
+                <tr *ngIf="collectionSum as item">
+                    <td colspan="5">합&nbsp;&nbsp;&nbsp;계</td>
+                    <td>{{ item.totalAmt ? (item.totalAmt | setComma): "0"}}</td>
+                    <td>3.3%</td>
+                    <td>{{ item.tax1Amt ? (item.tax1Amt | setComma): "0"}}</td>
+                    <td>{{ item.tax2Amt ? (item.tax2Amt | setComma): "0"}}</td>
+                    <td>{{ item.taxTotalAmt ? (item.taxTotalAmt | setComma): "0"}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="width100">
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <p>&nbsp;위의 원천징수세액(수입금액)을 정히 영수(지급)합니다.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-right">
+                        <p id="toDate">{{currentDay}}&nbsp;</p>
+                    </td>
+                </tr>
+                <tr class="text-right">
+                    <td>
+                        <p>징수(보고)의무자&nbsp;&nbsp;&nbsp;<span>{{company.comName}}</span>&nbsp;&nbsp;</p>
+                    </td>
+                    <td>
+                        <img alt="" src="{{pathImg}}" style="width: 100px;">
+                        <p>(서명 &nbsp;&nbsp;&nbsp;&nbsp;또는 &nbsp;&nbsp;&nbsp;&nbsp;인)&nbsp;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;<strong>세 무 서 장 <span>귀하</span></strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+</div>

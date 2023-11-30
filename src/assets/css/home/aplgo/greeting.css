@@ -1,0 +1,173 @@
+/* .bgr img {
+    width: auto;
+}
+
+.bgr {
+    background: #F7FCED;
+    padding: 50px;
+    position: relative;
+    padding-bottom: 0;
+}
+
+@media all and (max-width: 575px) {
+	.bgr {
+        padding: 20px;
+        padding-bottom: 0;
+    }
+}
+
+.bgr .element {
+    position: absolute;
+    z-index: 0;
+    width: 25%;
+    right: 17.5%;
+    bottom: 0;
+}
+
+@media all and (max-width: 575px) {
+	.bgr .element {
+        right: 55.5%;
+    }
+} */
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	/* .bgr .element {
+        right: 30%;
+    } */
+}
+
+/* .bgr-line {
+    background: #242529;
+    height: 30px;
+    position:absolute;
+    z-index: 1;
+}
+
+@media all and (max-width: 575px) {
+    .bgr-line {
+        margin-right: 20px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.bgr-line {
+        margin-right:30px;
+    }
+} 
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.bgr-line {
+        margin-right: 40px;
+    }
+}
+
+@media all and (min-width: 992px) and (max-width: 1310px) {
+    .bgr-line {
+        margin-right: 45px;
+    }
+}
+
+
+.bgr p {
+    color: #858585;
+    text-align: center;
+}
+.bgr .colunm {
+    text-align: left;
+}
+
+.colunm {
+    column-count: 2;
+    column-gap: 35px;
+}
+
+@media all and (max-width: 575px) {
+	.colunm {
+        column-count: 1
+    }
+}
+
+
+.p-bold {
+    color:#242529;
+}
+
+.bgr h2 {
+	font-weight:700;
+    margin-bottom: 20px;
+}
+
+.bgr .h-medium {
+    margin-bottom: 20px;
+}
+
+.content {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sign p {
+    margin-bottom: 0;
+}
+
+.img-ceo {
+    text-align: end;
+    z-index: 99;
+    position: relative;
+    top: 30px;
+}
+
+@media all and (max-width: 360px) {
+	.img-ceo {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 575px) {
+    .img-ceo {
+        right: 25px;
+    }
+}
+.ceo {
+    display: flex;
+    align-items: center;
+}
+
+.content .p-bold {
+    color: #242529;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 991px) {
+	#greeting .main-heading {
+		display: none;
+	}
+	#greeting.main-body {
+		padding: 30px 0;
+		
+	}
+    
+}
+
+
+
+@media (min-width: 992px) {
+	#greeting .main-container {
+    padding: 20px 0;
+}
+}
+
+.main-body {
+    padding-bottom: 70px;
+} */
+
+
+

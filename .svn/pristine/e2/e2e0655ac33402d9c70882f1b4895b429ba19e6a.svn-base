@@ -1,0 +1,43 @@
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { Company } from '@app/models/system/company.model';
+import { CompanyState, getCompany } from '@app/selectors/system/company.selector'
+import { loadCompany } from '@app/actions/system/company.actions';
+import { ValidationUtil } from '@app/common/util/validation.util';
+
+declare const daum: any;
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./../../../../assets/css/home/aplgo/contact.css',
+              './contact.component.css']
+})
+export class ContactComponent implements OnInit {
+
+  company$ = new Observable<Company>; 
+  company = {} as Company;
+
+  constructor(
+    private _companyStore: Store<CompanyState>,
+  ) { 
+    this.company$ = this._companyStore.select(getCompany);
+  }
+
+  ngOnInit(): void {
+    new daum.roughmap.Lander({
+      "timestamp": "1664439306374",
+      "key": "2bvop",
+      "mapHeight": "360"
+    }).render();
+
+    this._companyStore.dispatch(loadCompany());
+    this.company$.subscribe(res => {
+      if(ValidationUtil.isNotNullAndNotEmpty(res)){
+        this.company = res;
+      }
+    })
+  }
+}

@@ -1,0 +1,12 @@
+<div id="schedule" class="office-page scheduleInf">
+  <section class="section-content calendar-section">
+    <div class="container mobile-container">
+        <app-schedule-table
+          class="row"
+          [year]="year"
+          [month]="month"
+          (clickScheduleButton)="handleOnClickScheduleButton($event);"
+        ></app-schedule-table >
+    </div>
+  </section>
+</div>

@@ -1,0 +1,74 @@
+<div class="searching-form">
+    <div class="container default-container">
+        <div class="advanced-search-items">
+            <!-- date row -->
+            <date-time-filter labelDate="주문일자" class="row form-row date-time" [yearOptions]="yearOptions"
+                (changeDateTimeFilter)="handleOnChangeDateFilter($event);"></date-time-filter>
+
+            <!-- row 2 -->
+            <div class="row form-row">
+                <!-- Standard Name -->
+                <div class="row col-12 col-lg info standard-member-name">
+                    <span class="label col-auto">기준 회원명</span>
+                    <div class="inputs-wrapper col row">
+                        <input class="col" [value]="username" disabled="">
+                        <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+                            (click)="handleOnClickOpenPopup();">
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Name -->
+                <div class="row col-12 col-lg info product-name">
+                    <span class="label col-auto">상품명명</span>
+                    <input class="col" placeholder="상품명 입력하세요" [(ngModel)]="pdtName">
+                </div>
+
+                <!-- Center -->
+                <div class="row col-12 col-lg info center">
+                    <div class="label col-auto"><span>주문경로</span></div>
+                    <select-dropdown class="dropdown-select col row" [options]="centerOptions"
+                        [selected]="centerSelected"
+                        (changeSelectedValue)="hanldeOnChangeCenterSelectedValue($event)"></select-dropdown>
+                </div>
+
+                <!-- Inquiry Classification -->
+                <div class="row col-12 col-lg info inquiry-classification">
+                    <span class="label col-auto">조회구분</span>
+                    <select-dropdown class="dropdown-select col row" [options]="checkUseridOptions"
+                        [selected]="checkUseridSelected"
+                        (changeSelectedValue)="hanldeOnChangeCheckUseridSelectedValue($event)"></select-dropdown>
+                </div>
+
+                <!-- Submit Btn -->
+                <div class="col-md-auto submit-btn-wrapper">
+                    <div class="w-btn submit-btn has-icon advanced" (click)="search.emit();">
+                        <span>검색</span>
+                        <div class="icon ms-2"><img src="./assets/img/icons/search-ncc.svg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- filter search mobile -->
+        <div class="simple-search-items">
+            <div class="row">
+                <div class="w-btn btn-show-advanced-search col-auto" showAdvancedFilter>
+                    <div class="icon"><img src="./assets/img/icons/filter.svg"></div>
+                </div>
+                <div class="inputs-wrapper col row">
+                    <input class="col" placeholder="상품명 입력하세요" [(ngModel)]="pdtName">
+                    <div class="col-auto submit-btn simple" id="search" (click)="search.emit();">검색</div>
+                </div>
+            </div>
+        </div>
+
+        <date-time-filter-mobile></date-time-filter-mobile>   
+         
+    </div>
+</div>

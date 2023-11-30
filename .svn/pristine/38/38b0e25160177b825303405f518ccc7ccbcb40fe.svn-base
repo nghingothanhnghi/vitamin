@@ -1,0 +1,42 @@
+
+
+
+
+
+@media all and (max-width: 991px) {
+    #certification {
+        padding: 30px 4%;
+    }
+}
+
+@media all and (min-width: 992px) {
+    #certification {
+        padding: 20px 0;
+    }
+}
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+    #certification .content-part {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {    
+    #certification .content-part {
+        margin-bottom: 15px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    #certification .content-part {
+        margin-bottom: 20px;
+    }
+}
+

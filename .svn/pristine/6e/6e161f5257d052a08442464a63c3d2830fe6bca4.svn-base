@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.row.g-sm-5 > * {
+    padding: 20px;
+}
+@media (min-width: 576px) {
+    .row-5col .col-sm-2{
+        width: 19.967%;
+    }
+
+}

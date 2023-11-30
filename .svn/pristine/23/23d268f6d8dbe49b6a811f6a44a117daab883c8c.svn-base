@@ -1,0 +1,232 @@
+import { Component, OnInit } from '@angular/core';
+import { countBenefitSponsorshipDetails, searchBenefitSponsorshipDetails, sumBenefitSponsorshipDetails } from '@app/actions/myoffice/benefit/benefit-sponsorship-details.action';
+import { loadCodesY } from '@app/actions/system/code.action';
+import { ConvertUtil } from '@app/common/util/convert.util';
+import { ValidationUtil } from '@app/common/util/validation.util';
+import { DateFilterModel } from '@app/models/components/date-filter.model';
+import { SelectDropdownModel } from '@app/models/components/select-dropdown.model';
+import { BenefitSponsorshipDetailsModel } from '@app/models/myoffice/benefit/benefit-sponsorship-details.module';
+import { CodeModel } from '@app/models/system/code.model';
+import { BenefitSponsorshipDetailsSearchState, getBenefitSponsorshipDetailsSearchItems, getBenefitSponsorshipDetailsSumItem, getBenefitSponsorshipDetailsTotalItems } from '@app/selectors/myoffice/benefit/benefit-sponsorship-details.selector';
+import { OverlayLoadingState } from '@app/selectors/overlay-loading.selector';
+import { CodeState, getCodesY } from '@app/selectors/system/code.selector';
+import { Store } from '@ngrx/store';
+import { PaginationInstance } from 'ngx-pagination';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { setShowOverlayLoading } from '@app/actions/overlay-loading.action';
+import { AuthUtil } from '@app/common/util/auth.util';
+import { Router } from '@angular/router';
+import { LenConstant } from '@app/common/constant/len.constant';
+
+
+@Component({
+  selector: 'app-benefit-sponsorship-details',
+  templateUrl: './benefit-sponsorship-details.component.html',
+  styleUrls: ['./benefit-sponsorship-details.component.css']
+})
+export class BenefitSponsorshipDetailsComponent implements OnInit {
+
+screen : String = "benefit-sponsorship-details";
+
+// Start Data of select date
+codesY$ = new Observable<CodeModel[]>;
+
+yearOptions: SelectDropdownModel[] = [];
+dateFilterSelected: DateFilterModel = new DateFilterModel();
+
+// End Data of select date
+
+//Start Information UserLogin
+
+  userId: String = '';
+  userName: String = "";
+  labelDate : String = "정산일자";
+//End Information UserLogin
+
+  // Start Paging
+  page: number = 1;
+
+  len: number = 10;
+
+  totalItems: number = 0;
+
+  config: PaginationInstance = {
+    id: 'benefit-accounting-inquiry',
+    itemsPerPage: this.len,
+    currentPage: this.page,
+    totalItems: this.totalItems,
+  }
+  options: SelectDropdownModel[] = [];
+  selectedValue: SelectDropdownModel = new SelectDropdownModel();
+  // End Paging
+
+  benefitSponsorshipDetailsSearchItems$ = new Observable<BenefitSponsorshipDetailsModel[]>;
+  benefitSponsorshipDetailsSumItem$ = new Observable<BenefitSponsorshipDetailsModel>;
+  benefitSponsorshipDetailsTotalItems$ = new Observable<Number>;
+  collection: BenefitSponsorshipDetailsModel[] = [];
+  rows: number[] = [];
+  cols: number[] = new Array(16);
+  totalCols: number = 15;
+  floorTotalCols= Math.floor((this.totalCols/2));
+  totalRows: number = 0;
+
+  constructor(
+    private _codeStore: Store<CodeState>,
+    private _benefitSponsorshipDetailsSearchStore: Store<BenefitSponsorshipDetailsSearchState>,
+    private _overlayLoadingStore: Store<OverlayLoadingState>,
+  ) { 
+    this.codesY$ = this._codeStore.select(getCodesY);
+  }
+
+  ngOnInit(): void {
+
+    let member = AuthUtil.getLoginedInfo();
+    if (member) {
+      this.userId = ConvertUtil.convertToSring(member.userid);
+      this.userName = ConvertUtil.convertToSring(member.username);
+    }
+
+     // Start load code of year
+     this._codeStore.dispatch(loadCodesY());
+     this.codesY$.subscribe(res => {
+       this.yearOptions = [];
+       res.forEach((item) => this.yearOptions.push({ label: item.codeName, value: ConvertUtil.convertToSring(item.codeS1) }));
+     });
+     // End load code of year
+
+    //Data of Paging
+    this.options = LenConstant.listLen;
+    this.selectedValue = this.options[0];
+
+  }
+
+  handleOnChangeDateFilter(dateFilter: DateFilterModel): void {
+    this.dateFilterSelected = dateFilter;
+    this.page = 1;
+    this.onSearch();
+  }
+
+  //Start Paging
+  handleOnChangeSelectedValue(selected: SelectDropdownModel): void {
+    if(ValidationUtil.isNotNullAndNotEmpty(selected.value)) {
+      this.len = Number(selected.value);
+      this.page = 1;
+      this.onSearch();
+    }
+  }
+
+  handleOnChangePage(page: number): void {
+    this.page = page;
+    this.onSearch();
+  }
+  //End Paging
+
+  getParams(): any {
+
+    let payDateFrom = this.dateFilterSelected.fromDate.year.value + "-" 
+                  + this.dateFilterSelected.fromDate.month.value + "-" 
+                  + this.dateFilterSelected.fromDate.date.value;
+
+    let payDateTo = this.dateFilterSelected.toDate.year.value + "-" 
+                  + this.dateFilterSelected.toDate.month.value + "-" 
+                  + this.dateFilterSelected.toDate.date.value;
+
+    if(ValidationUtil.isNullOrEmpty(this.dateFilterSelected.fromDate.year.value)
+      || ValidationUtil.isNullOrEmpty(this.dateFilterSelected.fromDate.month.value)
+      || ValidationUtil.isNullOrEmpty(this.dateFilterSelected.fromDate.date.value)) {
+
+        payDateFrom = "";
+      }
+
+    if(ValidationUtil.isNullOrEmpty(this.dateFilterSelected.toDate.year.value)
+      || ValidationUtil.isNullOrEmpty(this.dateFilterSelected.toDate.month.value)
+      || ValidationUtil.isNullOrEmpty(this.dateFilterSelected.toDate.date.value)) {
+        
+        payDateTo = "";
+      }
+
+
+    let params = {
+      comId: environment.comId,
+      lang: environment.default_lang,
+
+      payDateFrom: payDateFrom,
+      payDateTo : payDateTo,
+      userId: this.userId,
+
+      page: Number(this.page) - 1,
+      len: this.len,
+      
+    }
+
+    return params;
+  }
+
+  onSearch(): void {
+
+    setTimeout(() => {
+      this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: true }));
+    }, 1);
+
+    let params = this.getParams();
+    
+    this._benefitSponsorshipDetailsSearchStore.dispatch(searchBenefitSponsorshipDetails({ params: params }));
+    this._benefitSponsorshipDetailsSearchStore.dispatch(countBenefitSponsorshipDetails({ params: params }));
+    this._benefitSponsorshipDetailsSearchStore.dispatch(sumBenefitSponsorshipDetails({ params: params }));
+
+   
+    this.benefitSponsorshipDetailsSearchItems$ = this._benefitSponsorshipDetailsSearchStore.select(getBenefitSponsorshipDetailsSearchItems);
+    this.benefitSponsorshipDetailsSumItem$ = this._benefitSponsorshipDetailsSearchStore.select(getBenefitSponsorshipDetailsSumItem);
+    this.benefitSponsorshipDetailsTotalItems$ = this._benefitSponsorshipDetailsSearchStore.select(getBenefitSponsorshipDetailsTotalItems);
+    
+    //Render Body
+    this.benefitSponsorshipDetailsSearchItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.collection = res;
+        
+        if (this.collection.length < 5) {
+          this.rows = new Array(5 - this.collection.length);
+        }
+      } else {
+        this.collection = [];
+        this.rows = new Array(5);
+      }
+
+      setTimeout(() => {
+        this.setBlankRow(); 
+        this._overlayLoadingStore.dispatch(setShowOverlayLoading({ loading: false }));
+      }, 250);
+     
+    });
+
+    //Total Items Of data
+    this.benefitSponsorshipDetailsTotalItems$.subscribe(res => {
+      if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+        this.totalItems = Number(res);
+      } else {
+        this.totalItems = 0;
+      }
+      this.config.totalItems = this.totalItems;
+    })
+
+  }
+
+  setBlankRow() {
+    this.totalRows = this.collection.length;
+    if (this.totalRows === 0) {
+      this.rows = new Array(5);
+    } else if (this.totalRows < 5) {
+      this.rows = new Array(5 - this.totalRows);
+    }
+    
+    this.cols = new Array(this.totalCols);
+  }
+  
+  search() {
+    this.page = 1;
+    this.onSearch();
+  }
+
+}
+

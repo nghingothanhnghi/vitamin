@@ -1,0 +1,1331 @@
+/**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.draggable-element table th,
+.draggable-element table td {
+    white-space: nowrap;
+    width: 12%;
+}
+
+.performance-by-leg .draggable-element table th,
+.performance-by-leg .draggable-element table td {
+    width: 10%;
+}
+
+.position-status .draggable-element table th,
+.position-status .draggable-element table td {
+    width: 5%;
+}
+
+.draggable-element ::-webkit-scrollbar {
+    height: 3px;
+    background: rgba(0, 0, 0, .05);
+}
+
+
+.draggable-element,
+.draggable-element .draggable-items-wrapper {
+    overflow: auto;
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .info-block {
+        background: #FFF;
+        border-bottom: 5px solid #D9D9D9;
+        padding: 30px 4%;
+    }
+}
+
+
+@media all and (min-width: 576px) {
+    .info-block {
+        background: #FFF;
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, .1);
+        position: relative;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .info-block {
+        padding: 20px 15px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .info-block {
+        padding: 25px 20px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .info-block {
+        padding: 30px 25px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.st-time-nav {
+    background: #FFF;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0,0,0,.05);
+}
+
+
+
+
+@media all and (min-width: 992px) {
+    .st-time-nav {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+.st-time-nav .container .nav-row {
+    justify-content: center;
+}
+
+
+.st-time-nav .container .nav-btn {
+    cursor: pointer;
+}
+
+.st-time-nav .container .nav-btn svg path {
+    transition: all ease-in-out .3s;
+}
+
+.st-time-nav .container .nav-btn:hover svg path {
+    stroke: #F68E1E;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .st-time-nav .container {
+        padding: 20px 0;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .st-time-nav .container {
+        padding: 20px 2%;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .st-time-nav .container {
+        padding: 22.5px 2%;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .st-time-nav .container {
+        padding: 25px 2%;
+    }
+}
+
+
+
+
+
+
+
+.st-time-nav .title {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+@media all and (max-width: 575px) {
+    .st-time-nav .title {
+        font-size: 16px;
+    }
+}
+
+
+
+@media all and (min-width: 992px) {
+
+    .st-common-info .user-info,
+    .st-common-info .recent-performance {
+        margin-right: 20px;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+
+    .st-time-nav .title {
+        font-size: 22px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .st-time-nav .title {
+        font-size: 22px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .st-common-info {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*----- 1. User Info -----*/
+
+
+@media all and (max-width: 575px) {
+    .user-info {
+        padding: 0;
+        padding-bottom: 30px;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    .user-info {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .user-info {
+        padding: 0;
+        padding-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+.user-info .company-logo .img-wrapper img {
+    display: block;
+    width: auto;
+}
+
+
+.user-info .personal-info .user-name {
+    font-weight: bold;
+}
+
+/*  .user-info .personal-info span:not(.value) {
+    opacity: .6;
+} */
+
+
+.user-info .personal-info .info .label {
+    opacity: .6;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .user-info .company-logo {
+        position: relative;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    .user-info .company-logo:after {
+        content: "";
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        background: #92C253;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+}
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    .user-info .company-logo {
+        position: relative;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+
+    .user-info .company-logo:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        background: #92C253;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+}
+
+.user-info .company-logo .img-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.user-info .company-logo .img-wrapper img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: 4px solid #92C253;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #fff;
+}
+
+
+@media all and (min-width: 992px) {
+    .user-info .company-logo {
+        position: relative;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    .user-info .company-logo:after {
+        content: "";
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        background: #92C253;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .user-info .personal-info {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 0 8%;
+    }
+
+    .user-info .personal-info .user-name {
+        font-size: 16px;
+        margin-bottom: 7.5px;
+    }
+
+    .user-info .personal-info .user-id {
+        margin-bottom: 5px;
+    }
+
+    .user-info .company-logo .img-wrapper img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+
+    }
+
+
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .user-info .personal-info {
+        padding: 30px 20px 30px 0;
+        position: relative;
+    }
+
+    .user-info .personal-info:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #D9D9D9;
+        width: 1px;
+        height: calc(100% - 60px);
+    }
+}
+
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .user-info .personal-info {
+        padding: 30px 30px 30px 0;
+        position: relative;
+    }
+
+    .user-info .personal-info:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #D9D9D9;
+        width: 1px;
+        height: calc(100% - 60px);
+    }
+}
+
+
+
+@media all and (min-width: 992px) {
+    .user-info .personal-info {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 0 8%;
+    }
+
+    .user-info .personal-info .user-name {
+        font-size: 20px;
+        margin-bottom: 7.5px;
+    }
+
+    .user-info .personal-info .user-id {
+        margin-bottom: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.joint-date .value {
+    opacity: 1;
+}
+
+.user-info .recent-promotion .info .label,
+.user-info .personal-info .info .label {
+    display: flex;
+    justify-content: end;
+    /* padding-right: 10px; */
+    opacity: .6;
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    .user-info .personal-info .info .label {
+        display: inline;
+    }
+}
+
+.user-info .recent-promotion .info .value {
+    padding-left: 15px;
+}
+
+.user-info .recent-promotion {
+    padding: 0 8%;
+}
+
+
+.user-info .recent-promotion .info,
+.user-info .personal-info .info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px 10%;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.user-info .personal-info .info {
+    border-top: none;
+    padding: 3px 0;
+}
+
+.joint-date .value,
+.user-id .value {
+    display: flex;
+}
+
+.text-right {
+    float: right;
+    color: red;
+}
+
+.user-info .recent-promotion .info .label,
+.user-info .personal-info .info .label {
+    flex: 1 0 0%;
+    width: 100%;
+}
+
+.user-info .recent-promotion .info .value,
+.user-info .personal-info .info .value {
+    flex: 1 0 0%;
+    width: 100%;
+}
+
+@media all and (max-width: 575px) {
+    .user-info .recent-promotion {
+        padding: 0 8%;
+    }
+
+    .user-info .recent-promotion .info {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 8px 10%;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    .user-info .recent-promotion .info .label {
+        flex: 1 0 0%;
+        width: 100%;
+    }
+
+    .user-info .recent-promotion .info .value {
+        flex: 1 0 0%;
+        width: 100%;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .user-info .recent-promotion {
+        padding: 30px 0 30px 20px;
+    }
+
+    .user-info .recent-promotion .info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .user-info .recent-promotion {
+        padding: 30px 0 30px 30px;
+    }
+
+    .user-info .recent-promotion .info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .user-info .recent-promotion {
+        padding: 0 8%;
+    }
+
+    .user-info .recent-promotion .info {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 8px 10%;
+        border-top: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    .user-info .recent-promotion .info .label {
+        flex: 1 0 0%;
+        width: 100%;
+    }
+
+    .user-info .recent-promotion .info .value {
+        flex: 1 0 0%;
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 2. Recent Performance -----*/
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .recent-performance {
+        padding: 30px 0;
+        border-bottom: 5px solid #D9D9D9;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .recent-performance {
+        padding: 25px 0;
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .recent-performance {
+        width: calc(50% - 10px);
+        margin-right: 20px;
+    }
+
+    .recent-performance {
+        padding: 25px 0;
+    }
+}
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+    .recent-performance {
+        padding: 25px 0;
+    }
+}
+
+
+@media all and (min-width: 1200px) {
+    .recent-performance {
+        padding: 30px 0;
+    }
+}
+
+
+
+
+.recent-performance .performance-pv {
+    padding-bottom: 12.5px;
+    margin-bottom: 12.5px;
+    padding-left: 6%;
+    padding-right: 6%;
+    position: relative;
+}
+
+.recent-performance .performance-pv:after {
+    content: "";
+    position: absolute;
+    width: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    bottom: 0;
+    background: rgba(0, 0, 0, .1);
+}
+
+
+.recent-performance .performance-purchase {
+    padding-bottom: 12.5px;
+    margin-bottom: 15px;
+    padding-left: 6%;
+    padding-right: 6%;
+    position: relative;
+}
+
+.recent-performance .performance-purchase:after {
+    content: "";
+    position: absolute;
+    width: 88%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    bottom: 0;
+    background: rgba(0, 0, 0, .1);
+}
+
+
+.recent-performance .performance-pv .info,
+.recent-performance .performance-purchase .info {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2.5px 0;
+}
+
+
+.recent-performance .performance-pv .info .label,
+.recent-performance .performance-purchase .info .label {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.recent-performance .performance-pv .info .value,
+.recent-performance .performance-purchase .info .value {
+    flex: 1 0 0%;
+    width: 100%;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+.recent-performance .performance-maintenance {
+    display: flex;
+    border: 5px solid #F68E1E;
+    padding: 10px;
+    font-size: 13px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.recent-performance .performance-maintenance table {
+    text-align: center;
+}
+
+
+.recent-performance .performance-maintenance table tbody td {
+    padding: 5px;
+}
+
+
+
+.recent-performance .performance-maintenance .value {
+    color: #FFF;
+    background: #FF9950;
+    padding: 5px;
+}
+
+.recent-performance .performance-maintenance .value.done {
+    background: #5F9FFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .direct-recommendation-status {
+        padding: 30px 0;
+        border-bottom: 5px solid #D9D9D9;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .direct-recommendation-status {
+        padding: 25px 0;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .direct-recommendation-status {
+        padding: 25px 0;
+    }
+
+    .direct-recommendation-status {
+        width: calc(50% - 10px);
+    }
+}
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+    .direct-recommendation-status {
+        padding: 25px 0;
+    }
+}
+
+
+@media all and (min-width: 1200px) {
+    .direct-recommendation-status {
+        padding: 30px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.direct-recommendation-status h2 {
+    font-weight: bold;
+    padding-left: 6%;
+    padding-right: 6%;
+    color: red;
+}
+
+
+.direct-recommendation-status .title {
+    font-weight: bold;
+}
+
+
+
+.direct-recommendation-status .month-status:not(:last-child) {
+    border-bottom: 5px solid #D9D9D9;
+    padding-bottom: 10px;
+}
+
+.direct-recommendation-status .month-status:not(:first-child) {
+    padding-top: 10px;
+}
+
+
+
+.direct-recommendation-status .month-status {
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+
+.direct-recommendation-status .month-status .info {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+
+.direct-recommendation-status .month-status .info:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+
+
+.direct-recommendation-status .month-status .info.title {
+    font-weight: bold;
+}
+
+.direct-recommendation-status .month-status .info.pv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.direct-recommendation-status .month-status .info.pv .label {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.direct-recommendation-status .month-status .info.pv .value {
+    flex: 1 0 0%;
+    text-align: right;
+}
+
+
+
+
+
+.direct-recommendation-status .month-status .info.x {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 2. Performance Detail -----*/
+
+
+
+@media all and (max-width: 575px) {
+    .st-performance-detail .container {
+        width: 100%;
+    }
+}
+
+
+
+
+@media all and (min-width: 768px) {
+    .st-performance-detail table {
+        font-size: 14px;
+    }
+}
+
+
+.st-performance-detail .info-block h2 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+@media all and (max-width: 991px) {
+    .st-performance-detail .info-block h2 {
+        margin-bottom: 12.5px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .st-performance-detail .info-block h2 {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+/*----- Last Week Performance  & Allowance Amount -----*/
+
+.st-performance-detail .row_1 .hr-table {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    text-align: center;
+}
+
+
+@media all and (min-width: 992px) {
+    .st-performance-detail .row_1 {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+/*----- Last Week Performance -----*/
+
+
+
+@media all and (min-width: 992px) {
+    .st-performance-detail .last-week-performance {
+        margin-right: 20px;
+    }
+}
+
+
+
+/*----- Allowance Amount -----*/
+
+@media all and (max-width: 575px) {
+    .st-performance-detail .allowance-amount .vt-table {
+        text-align: center;
+    }
+
+    .st-performance-detail .allowance-amount .vt-table td:first-child {
+        width: 35%;
+    }
+}
+
+@media all and (min-width: 576px) {
+    .st-performance-detail .allowance-amount .hr-table {
+        display: table;
+    }
+
+    .st-performance-detail .allowance-amount .vt-table {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Performance By Leg -----*/
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .st-performance-detail .performance-by-leg {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .st-performance-detail .performance-by-leg {
+        margin-bottom: 25px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .st-performance-detail .performance-by-leg {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+
+
+
+.st-performance-detail .performance-by-leg .hr-table thead {
+    text-align: center;
+}
+
+.st-performance-detail .performance-by-leg .hr-table tbody td:not(:first-child) {
+    text-align: right;
+}
+
+
+
+.st-performance-detail .performance-by-leg .hr-mobile-table tbody tr:first-child {
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    text-align: center;
+    padding: 7.5px 0;
+}
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+    .st-performance-detail .performance-by-leg .hr-mobile-table {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .st-performance-detail .performance-by-leg .hr-mobile-table tbody {
+        width: calc(50% - 10px);
+        flex: 0 0 auto;
+    }
+
+    .st-performance-detail .performance-by-leg .hr-mobile-table tbody:nth-child(2n-1) {
+        margin-right: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*----- Row 3 -----
+    - Position Status
+    - Sponsorship Genealogy
+    - Recommended Genealogy
+*/
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .st-performance-detail .position-status {
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .st-performance-detail .position-status {
+        margin-bottom: 25px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .st-performance-detail .row_3 {
+        margin-bottom: 30px;
+    }    
+}
+
+
+
+
+
+
+
+
+/*----- Position Status -----*/
+
+.st-performance-detail .position-status .hr-table {
+    text-align: center;
+    display: table;
+}
+
+
+
+@media all and (min-width: 992px) {
+    .st-performance-detail .manager-challenge {
+        width: 33%;
+    }
+    .st-performance-detail .position-status {
+        width: calc(67% - 20px);
+        margin-right: 20px;
+    }
+}
+
+
+
+
+
+
+/*----- Manager Challenge -----*/
+
+
+.st-performance-detail .manager-challenge table th,
+.st-performance-detail .manager-challenge table td {
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+
+
+.st-performance-detail .manager-challenge table td.value .col:first-child {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.st-performance-detail .manager-challenge table td.value .col:last-child {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+.st-performance-detail .manager-challenge table td.check img {
+    max-width: 18px;
+}
+
+
+
+
+
+
+
+/*----- Sponsorship Genealogy & Recommended Genealogy -----*/
+
+.recommended-genealogy table td:first-child {
+    width: 52%;
+}
+
+.value-text {
+    padding-right: 0 !important;
+}
+
+.last-border {
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+@media all and (max-width: 575px) {
+
+    .st-performance-detail .sponsorship-genealogy,
+    .st-performance-detail .recommended-genealogy {
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+
+    .st-performance-detail .sponsorship-genealogy,
+    .st-performance-detail .recommended-genealogy {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .st-performance-detail .sponsorship-genealogy {
+        width: calc(50% - 10px);
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+    .st-performance-detail .recommended-genealogy {
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .st-performance-detail .sponsorship-genealogy {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .st-performance-detail .recommended-genealogy {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Direct Recommendation Activity Status -----*/
+
+.st-performance-detail .direct-recommendation-activity-status .hr-table {
+    text-align: center;
+}

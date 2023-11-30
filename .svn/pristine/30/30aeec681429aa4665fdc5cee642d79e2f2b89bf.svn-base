@@ -1,0 +1,165 @@
+/**/
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	#benefit-analysis #page-heading {
+		margin-bottom: 30px;
+	} 
+}
+
+
+
+/*---- 	1. 	Benefit Amount 
+		1.1.	Circle Chart
+		1.2.	Column Chart
+		
+		2. Monthly Performance Table
+		3. Monthly Performance Chart
+----*/
+
+
+
+/*---- 	1. 	Benefit Amount ----*/
+
+@media all and (max-width: 575px) {
+	.benefit-amount {
+		margin-bottom: 35px;
+	}	
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.benefit-amount {
+		margin-bottom: 40px;
+	}	
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.benefit-amount {
+		margin-bottom: 45px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.benefit-amount {
+		margin-bottom: 50px;
+	}
+}
+
+
+
+
+/*---- 	1. 	Benefit Amount 
+		1.1.	Circle Chart ----*/
+
+.circle-chart {
+	margin-bottom: 20px;
+}	
+
+
+/*---- 2. Monthly Performance ----*/
+
+@media all and (max-width: 575px) {
+	.monthly-performance-table {
+		margin-bottom: 110px;
+	}	
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.monthly-performance-table {
+		margin-bottom: 130px;
+	}	
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.monthly-performance-table {
+		margin-bottom: 130px;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	.monthly-performance-table {
+		margin-bottom: 90px;
+	}
+	.monthly-performance-table td:first-child {
+		text-align: center;
+	}
+}
+
+
+
+
+
+
+/*---- 3. Monthly Performance Chart ----*/
+
+@media all and (max-width: 575px) {
+	.monthly-performance {
+		margin-bottom: 60px;
+	}	
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.monthly-performance {
+		margin-bottom: 70px;
+	}	
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.monthly-performance {
+		margin-bottom: 80px;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	.benefit-amount {
+		margin-bottom: 50px;
+	}
+}
+
+
+@media all and (max-width: 991px) {
+	.monthly-performance .hr-chart .value {
+		top: -20px;	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<div class="main-body">
+    <div class="content">
+        <h2 class="h-large">보상플랜</h2>
+        <p class="h-small">이제 한국에서도 세계화된 유통망으로 글로벌 사업자로 시작 할 수 있습니다!</p>
+    </div>
+
+    <div class="img-content">
+        <img src="../../assets/img/home/business/1.png" alt="">
+        <img src="../../assets/img/home/business/2.png" alt="">
+        <img src="../../assets/img/home/business/3.png" alt="">
+        <img src="../../assets/img/home/business/4.png" alt="">
+        <img src="../../assets/img/home/business/5.png" alt="">
+        <img src="../../assets/img/home/business/6.png" alt="">
+        <img src="../../assets/img/home/business/7.png" alt="">
+    </div>
+</div>

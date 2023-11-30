@@ -1,0 +1,116 @@
+<div class="popup name-browsing searching-result" [ngClass]="show ? 'opened' : ''">
+  <div class="container default-container popup-content">
+    <div class="popup-header row">
+      <h2 class="col h-medium">기준 회원명</h2>
+      <a href="javascript:;" class="col-auto close-popup-btn" (click)="handleOnClickClosePopup();">
+        <svg width="22" height="22" viewBox="0 0 22 22">
+          <path d="M1 1L21 21" />
+          <path d="M21 1L1 21" />
+        </svg>
+      </a>
+    </div>
+    <div class="popup-body">
+      <div class="searching-form">
+        <div class="container default-container">
+          <div class="row form-row">
+            <!-- Member Name -->
+            <div class="col-sm-5 col-lg-6 info member-name row">
+              <span class="col-auto label">회원명</span>
+              <input class="col" placeholder="이름을 입력하세요" [(ngModel)]="username" (keydown.enter)="handleOnClickSearch()">
+            </div>
+            <!-- Rank -->
+            <div class="col-7 col-sm col-lg info rank row">
+              <div class="col-auto label"><span>직급</span></div>
+              <select-dropdown 
+                class="dropdown-select col row"
+                [options]="rankOptions"
+                [selected]="rankSelected"
+                (changeSelectedValue)="handleOnChangeRankSelected($event);"
+              ></select-dropdown>
+            </div>
+            <!-- Submit Btn -->
+            <div class="col col-sm col-lg w-btn submit-btn" (click)="handleOnClickSearch();">검색</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container default-container results">
+        <div class="table-container">
+          <table class="hr-table">
+            <thead>
+              <tr>
+                <th style="text-align: center;">회원명</th>
+                <th style="text-align: center;">직급</th>
+                <th style="text-align: center;">추천인</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of items | paginate: config" (click)="handleOnClickRow(item);" [ngClass]="item.status == '0'?'red-line':''">
+                <td style="text-align: center;">{{ item.username }}</td>
+                <td style="text-align: center;">{{ item.rankName }}</td>
+                <td style="text-align: center;">{{ item.rname }}({{ item.rid }})</td>
+              </tr>
+              <ng-container *ngIf="items.length < 5 && items.length > 0">
+                <tr *ngFor="let num of rows">
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </ng-container>
+              <ng-container *ngIf="items.length === 0">
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;<span class='h-small empty-warning'>조회된 데이타가 없습니다.</span></td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination row">
+          <div class="col-auto per-page row">
+            <div class="label col-auto"><span>페이지표시</span></div>
+            <select-dropdown 
+              class="dropdown-select col-auto row" 
+              [options]="lenOptions" 
+              [selected]="lenSelected"
+              (changeSelectedValue)="handleOnChangeLenSelected($event);"
+            ></select-dropdown>
+          </div>
+          <paging 
+            class="col-auto row paging" 
+            [len]="len" 
+            [page]="page" 
+            [totalItems]="total" 
+            [config]="config"
+            (changePage)="handleOnChangePage($event);"
+          ></paging>
+          <div class="col-auto col-sm-auto total">
+            <span class="label">Total</span>
+            <span class="value">{{ total }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

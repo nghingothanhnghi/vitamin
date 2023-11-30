@@ -1,0 +1,360 @@
+#autoship .disable {
+    pointer-events: none;
+}
+
+#autoship .searching-form .info.standard-member-name .name-browsing-btn {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 10px 15px;
+}
+
+#autoship .searching-form .info.standard-member-name .name-browsing-btn span {
+    padding-right: 10px;
+}
+
+.situation {
+    display: flex;
+    align-items: center;
+    width: 15%;
+    margin-bottom: 0;
+}
+
+.pay-day {
+  margin-bottom: 0;
+}
+
+.vt-table .postcode-btn {
+    padding: 10px 15px;
+}
+
+
+
+@media (min-width: 992px) {
+    #autoship .searching-result .searching-form .container {
+        box-shadow: 0px 5px 15px rgb(0 0 0 / 10%);
+    }
+}
+
+
+
+
+/* ----------------------------- */
+
+
+.row-2 .office-block {
+    width: calc(50% - 25px);
+    margin-right: 30px;
+}
+
+@media (max-width: 991px) {
+    .row-2 .office-block {
+        width: 100%;
+    }
+}
+
+.row-2 .office-block:last-child {
+    margin-right: 0;
+}
+
+.row-2 .input .inputs-wrapper .verify-btn {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: calc(50% - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-2 .input .inputs-wrapper input {
+    margin-bottom: 10px;
+}
+
+.office-block input {
+    border: 1px solid rgba(0, 0, 0, .05);
+    padding: 10px 15px;
+}
+
+.row-2 .hyphen {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+#autoship .office-block .dropdown-select .selected {
+    border: 1px solid rgba(0, 0, 0, .05);
+    padding: 10px 15px;
+}
+
+@media (max-width: 575px) {
+    #autoship .office-block .year-select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #autoship .office-block .month-select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #autoship .office-block .day-select {
+        width: 100%;
+    }
+}
+
+
+
+
+
+#autoship .office-block .year-select {
+    flex: 0 0 auto;
+    max-width: 120px;
+    margin-right: 2%;
+}
+
+#autoship .office-block .month-select {
+    flex: 0 0 auto;
+    max-width: 120px;
+    margin-right: 2%;
+}
+
+#autoship .office-block .day-select {
+    flex: 0 0 auto;
+    max-width: 120px;
+}
+
+
+
+
+
+.office-block .number-input input {
+    width: calc(25% - 10px);
+}
+
+.office-block .number-input input:last-child {
+    margin-right: 0;
+}
+
+.office-block .validity-col.inputs-wrapper .col {
+    width: calc(33.333% - 10px);
+    margin-right: 10px;
+}
+
+.office-block .validity-col.inputs-wrapper .col:last-child {
+    margin-right: 0;
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    #autoship .office-block .vt-table td:last-child {
+        width: 100%;
+    }
+}
+
+
+.office-block .validity-col.inputs-wrapper span {
+    width: 2%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+
+.office-block .card-pw .inputs-wrapper input {
+    width: 50%;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.office-block .card-pw .inputs-wrapper span {
+    width: 45%;
+    display: flex;
+    align-items: center;
+
+}
+
+.validity-input span {
+    display: flex;
+    align-items: center;
+}
+
+.validity-input .title1 {
+    width: 20%;
+}
+
+.validity-input .title2 {
+    width: 33.33%;
+}
+
+.validity-input .dropdown-select {
+    width: 33.33%;
+    margin-right: 15px;
+}
+
+
+
+/* ---------------------------- */
+
+#autoship #cart #cart-details table thead {
+    background: #F6F9FE;
+}
+
+
+@media (max-width: 991px) {
+    #autoship #cart #cart-details table thead {
+        display: none;
+    }
+
+    #autoship #cart #cart-details {
+        padding: 0;
+    }
+
+    #autoship #cart #cart-details .table-wrapper {
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, .05);
+    }
+}
+
+#autoship #cart #cart-details table thead th {
+    color: #1F1D29;
+    border-right: 1px solid rgb(0 0 0 / 10%);
+}
+
+#autoship #cart #cart-details table thead th:last-child {
+    border-right: none;
+}
+
+#autoship #cart-details-table thead .col_2 {
+    padding-left: 20px;
+}
+
+.row-3 .hr-table {
+    text-align: center;
+}
+
+.row-3 .cal-btn {
+    width: 33px;
+    height: 33px;
+}
+
+.row-3 .quantity-input {
+    align-items: center;
+    justify-content: center;
+}
+
+.row-3 .cal-btn {
+    border-radius: 25px;
+    border: 1px solid rgba(0, 0, 0, .05);
+    display: flex;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.row-3 .cal-btn img {
+    width: 10px;
+    height: auto;
+    margin: auto;
+}
+
+.row-3 input {
+    border-radius: 25px;
+    width: 60px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: 25px;
+    height: 100%;
+}
+
+.row-3 .minus,
+.row-3 .value {
+    margin-right: 5px;
+}
+
+.row-3 .btn-red {
+    background-color: #F05438;
+    border-radius: 5px;
+}
+
+.row-3 .hr-mobile-table tr:first-child {
+    background: none;
+}
+
+.row-3 .hr-mobile-table td:last-child {
+    border-left: 1px solid rgba(0, 0, 0, .05);
+}
+
+.row-3 .hr-mobile-table td:first-child {
+    border-right: none;
+}
+
+.row-3 .hr-table img {
+    width: auto;
+}
+
+@media (max-width: 991px) {
+    .row-3 .hr-mobile-table img {
+        width: auto;
+    }
+
+    .row-3 .hr-mobile-table tr {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row-3 .btn-red {
+        width: 150px;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px) {
+    #autoship #cart #cart-details {
+        padding: 0;
+    }
+
+    #autoship .block-heading {
+        margin-bottom: 15px;
+    }
+}
+
+
+/* ------------------- */
+.row-4 .hr-table {
+    text-align: center;
+}
+
+.row-4 .hr-mobile-table tr:first-child {
+    background: none;
+}
+
+.row-4 .hr-mobile-table td:first-child {
+    /* background:#F6F9FE; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -------------------- */
+
+#autoship .change-info-btn {
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+}
+
+#autoship .change-info-btn .postcode-btn {
+    border-radius: 20px;
+    background: #92C253;
+    width: 200px;
+}
+
+@media (max-width: 575px) {
+    #autoship .standard-member-name .label {
+        width: 75px;
+    }
+}
+

@@ -1,0 +1,33 @@
+.order-number .name-browsing-btn {
+	padding: 8px 25px;
+	width: auto;
+	color: #fff;
+    transition: all ease-in-out .3s;
+}
+
+
+
+.vt-table {
+	border-top: 1px solid rgba(0,0,0,.1);
+}
+
+
+.order-number {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+@media all and (min-width: 992px) {
+	
+}
+
+
+
+
+
+
+
+
+
+

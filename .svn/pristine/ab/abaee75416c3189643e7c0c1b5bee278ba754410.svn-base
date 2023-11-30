@@ -1,0 +1,106 @@
+.map {
+    margin-bottom: 30px;
+}
+
+
+.content .h-medium {
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+.content .contact {
+    display: flex;
+    align-items: center;
+}
+
+@media all and (max-width: 767px) {
+
+    .content .contact,
+    .content .number-bus {
+        width: 100%;
+    }
+}
+
+.content .address {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.content .h-small {
+    padding-right: 10px;
+    font-weight: 600;
+}
+
+.content .subway {
+    display: flex;
+    align-items: start;
+    padding-bottom: 20px;
+}
+
+.col-right .h-medium {
+    font-weight: 600;
+}
+
+.bus strong {
+    margin-right: 10px;
+}
+
+
+
+@media all and (max-width: 575px) {
+    .content .col-6 {
+        width: 100%;
+    }
+}
+
+
+.public strong {
+    margin-right: 10px;
+}
+
+.bus1 strong {
+    background: #BBDAED;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.bus2 strong {
+    background: #A6D09D;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.bus3 strong {
+    background: #F2BAC3;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.bus4 strong {
+    background: #F67994;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+
+
+
+
+@media (max-width: 991px) {
+    #contact .content {
+        padding: 0 4%;
+    }
+
+    #contact.main-body {
+        padding-bottom: 30px;
+    }
+}
+
+
+
+@media (min-width: 992px) {
+    #contact .main-container {
+        padding: 20px 0;
+    }
+}

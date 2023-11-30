@@ -1,0 +1,28 @@
+<p> 이번 달에 <span>{{ completedCase }}</span>개의 케이스를 완료했습니다 </p>
+<table class="calendar-support-table">
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>
+        <div class="day active">{{ item.date }}</div>
+      </td>
+      <td>
+        <span>{{ item.cnt | setComma }}건</span>
+      </td>
+      <td>
+        <span>{{ item.amt | setComma }}원</span>
+      </td>
+      <td *ngIf="isPv1">
+        <span>{{ item.pv | setComma }}{{ smWowWord.oPv1 }}</span>
+      </td>
+      <!-- <td *ngIf="isPv2">
+        <span>{{ item.pv2 | setComma }}{{ smWowWord.oPv2 }}</span>
+      </td> -->
+      <!-- <td *ngIf="isPv3">
+        <span>{{ item.pv3 | setComma }}{{ smWowWord.oPv3 }}</span>
+      </td> -->
+      <td *ngIf="isPoint">
+        <span>{{ item.point | setComma }}{{ smWowWord.oMileage }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

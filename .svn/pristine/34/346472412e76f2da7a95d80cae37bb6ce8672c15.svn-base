@@ -1,0 +1,21 @@
+<div id="page-menu" class="page-menu">
+  <div class="container">
+    <div class="row containing-row">
+      <ul class="row w-ul">
+        <ng-container *ngFor="let item of children">
+          <ng-container *ngIf="item.data.menuYn == 'Y'">
+            <li
+              class="menu-item col-auto"
+              [ngClass]="item.data.prgId === tempActiveId ? 'active' : ''"
+            >
+              <a [routerLink]="item.data.linkInfo" class="level-1">{{
+                item.data.prgName
+              }}</a>
+              <!-- <a [routerLink]="item.data.linkInfo" class="level-1">{{ item.data.prgNameEn }}</a> -->
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>

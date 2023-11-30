@@ -1,0 +1,62 @@
+<h2 class="h-false">오토십정보</h2>
+<table class="vt-table" [formGroup]="form">
+  <tbody>
+    <tr>
+      <td>오토십번호</td>
+      <td>{{ adoNo }}</td>
+    </tr>
+    <tr>
+      <td>회원명</td>
+      <td>{{ username }}</td>
+    </tr>
+    <tr>
+      <td>신청일</td>
+      <td>{{ regDate }}</td>
+    </tr>
+    <tr>
+      <td>상태</td>
+      <td class="row">
+        <p class="situation">{{ strStatus }}</p>
+        <!-- <ng-container *ngIf="status === 'ACTIVE' && adoNo !== ''">
+          <a class="col-auto postcode-btn btn primary open-popup-btn" (click)="handleOnClickCancelAdo();">
+            <span>철회신청</span>
+          </a>
+        </ng-container> -->
+      </td>
+    </tr>
+    <tr>
+      <td>결제일자 선택</td>
+      <td>
+        <p class="pay-day" *ngIf="haveAdo">{{ admitDay }}</p>
+        <!-- <div class="row input" *ngIf="haveAdo">
+          <select-dropdown 
+            class="dropdown-select col year-select" 
+            [options]="yearOptions" 
+            [selected]="yearSelected"
+            (changeSelectedValue)="handleOnChangeYearSelected($event);"
+          ></select-dropdown>
+          <select-dropdown 
+            class="dropdown-select col month-select" 
+            [options]="monthOptions" 
+            [selected]="monthSelected"
+            (changeSelectedValue)="handleOnChangeMonthSelected($event);"
+          ></select-dropdown>
+          <select-dropdown 
+            class="dropdown-select col day-select" 
+            [options]="daysOptions" 
+            [selected]="daySelected"
+            (changeSelectedValue)="handleOnChangeDaySelected($event);"
+          ></select-dropdown>
+        </div> -->
+      </td>
+    </tr>
+    <tr>
+      <td>비고사항</td>
+      <td>
+        <div class="inputs-wrapper row">
+          <input type="text" formControlName="remark">
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

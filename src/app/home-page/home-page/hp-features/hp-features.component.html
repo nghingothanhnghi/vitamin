@@ -1,0 +1,53 @@
+<!-- <section class="mainFeatures" id="products-slider">
+    <div class="container">
+        <div class="cate-nav row">
+            <h2 class="col-12 col-md-6 shopMainTit">AINCELL Product</h2>
+            <ul class="col-12 col-md-6 row justify-content-end" id="cate-grp">
+                <li class="col-auto" [ngClass]="btnFilterIsActive === BTN_BEST_SELLER_ACTIVED ? 'active' : ''" (click)="changeSpecialProducts(BTN_BEST_SELLER_ACTIVED);"><span>추천상품</span></li>
+                <li class="col-auto" [ngClass]="btnFilterIsActive === BTN_NEW_ACTIVED ? 'active' : ''" (click)="changeSpecialProducts(BTN_NEW_ACTIVED);"><span>신상품</span></li>
+                <li class="col-auto" [ngClass]="btnFilterIsActive === BTN_PROMOTION_ACTIVED ? 'active' : ''" (click)="changeSpecialProducts(BTN_PROMOTION_ACTIVED);"><span>프로모션</span></li>
+            </ul>
+        </div>
+        <div class="cate-products featured-slider" data-display="3,3,2,2" data-nav="on">
+            <div class="slider-content slider-ref">
+                <ul class="slider-wrapper row gx-5">
+                    <li class="col-lg-3 slide" *ngFor="let item of products; index as i">
+                        <a class="row" href="javascript:;" (click)="handleOnClickProductDetail(item);">
+                            <div class="product-thumbnail">
+                                <ng-container *ngIf="item.fileName === null || item.fileName === ''">
+                                    <img src="./assets/img/noImage.jpg">
+                                </ng-container>
+                                <ng-container *ngIf="item.fileName !== null && item.fileName !== ''">
+                                    <img [src]="urlWownet + item.filePath + item.fileName">
+                                </ng-container>
+                            </div>
+                            <div class="product-content">
+                                <h5>화장품</h5>
+                                <h4 class="h-false">{{item.pdtName}}</h4>
+                                <div class="h-false price row">
+                                    <ng-container *ngIf="isLogined">
+                                        <span class="col-auto member-price">{{ item.amt | setComma }}<span>원</span></span>
+                                        <span class="col-auto regular-price">{{ item.retailAmt | setComma }}<span>원</span></span>
+                                    </ng-container>
+                                    <ng-container *ngIf="!isLogined">
+                                        <span class="col-auto regular-price">{{ item.retailAmt | setComma }}<span>원</span></span>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </a>                        
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section> -->
+
+<section class="mainFeatures" id="products-slider">
+    <div class="container">
+        <div class="cate-nav row">
+            <h2 class="col-12 col-md-6 shopMainTit">Page 1 is working!!!</h2>
+        </div>
+        
+    </div>
+</section>

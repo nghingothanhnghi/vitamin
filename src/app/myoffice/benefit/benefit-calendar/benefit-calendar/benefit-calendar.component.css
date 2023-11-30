@@ -1,0 +1,11 @@
+
+
+@media all and (min-width: 992px) {
+	#benefit-calendar .calendar {
+		margin-right: 30px;
+	}
+	#benefit-calendar .calendar-detail {
+		width: 40%;
+	}
+	
+}

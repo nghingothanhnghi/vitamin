@@ -1,0 +1,47 @@
+<div id="choose-member-type" class="member-registration office-page">
+    <div class="container mobile-container">
+        <div class="row">
+            <div class="col-lg member-type mbd-user mobile-block light">
+                <div class="title">
+                    <img src="../../../../assets/img/pen.svg" alt="">
+                    <h4 class="h-medium">회원 멤버</h4>
+                    <p>사업자 회원</p>
+                </div>
+                
+                <div class="description">
+                    <ng-container *ngIf="company$ | async as company">
+                        <p>{{ company.comName }} 제품을 판매하고 사업의 기회를 소개하는 등 
+                            소득을 목적으로 
+                            <br>
+                            제품 판매 및 후원 활동을 할 수 있는 독립사업자를 말합니다.</p>
+                        <p>일정한 실적 달성 시 보상 프로그램에 의한 다양한 보너스를 받을 수 있습니다.</p>
+                    </ng-container>                    
+                </div>
+                
+                <a class="w-btn primary-btn large-btn" (click)="goToRegister(kind_member)">
+                    <span>회원가입</span>
+                </a>
+            </div>
+            
+            
+            <div class="col-lg member-type consumer-user mobile-block last none" *ngIf="oConsumerMemYn === 'Y'">
+                <div class="title">
+                    <img src="../../../../assets/img/pen.svg" alt="">
+                    <h4 class="h-medium">소비자 멤버</h4>
+                    <p>소비자 회원</p>
+                </div>
+                <div class="description">
+                    <ng-container *ngIf="company$ | async as company">
+                        <p>단순 소비 목적으로 {{ company.comName }}의 제품을 구입하고자 하는 일반 소비자를 의미합니다.</p>
+                        <p>{{ company.comName }} 사업을 시작하고 싶으시면 언제든 회원로 전환이 가능합니다.</p>
+                        <p>* 추천인이 없을 경우 비즈니스센터 ({{ company.tel }})로 문의하시기 바랍니다.</p>
+                    </ng-container>
+                </div>
+                
+                <a class="w-btn primary-btn large-btn" (click)="goToRegister(kind_consumer)">
+                    <span>회원가입</span>
+                </a>
+            </div>
+        </div>		
+    </div>
+</div>

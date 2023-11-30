@@ -1,0 +1,139 @@
+.pointer-none {
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+    .registration-form {
+        padding: 10px 0;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+    .registration-form {
+        padding: 15px 0;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+    .registration-form {
+        padding: 20px 0;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+    .registration-form {
+        padding: 25px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+/*----- Step 2 | Identify Verification -----*/
+
+
+
+.registration-form {
+    max-width: 750px;
+}
+
+.registration-form .name input,
+.registration-form .birthdate input {
+    width: 100%;
+}
+
+
+
+
+
+
+.bank-number .w-btn {
+    display: inline-flex;
+}
+
+
+@media all and (max-width: 639px) {
+    .bank-number .input {
+        flex: 1 0 0%;
+    }
+
+    .bank-number .extra {
+        flex: 0 0 auto;
+        width: auto;
+    }
+
+    .bank-number .extra .verify-btn {
+        margin-top: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .registration-form .group-btns a {
+        width: calc(50% - 5px);
+    }
+
+    .registration-form .group-btns a:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    .label {
+        margin-bottom: 5px;
+    }
+}
+
+
+
+@media all and (min-width: 640px) {
+    .extra {
+        width: calc(50% - 165px);
+    }
+
+    .label {
+        width: calc(50% - 165px);
+        height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .step-content .input {
+        width: 330px;
+    }
+
+    .registration-form .verify-btn {
+        margin-top: 0;
+        margin-left: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .registration-form .group-btns a {
+        width: 160px;
+    }
+
+    .registration-form .group-btns a:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+
+
+
+
+.group-btns a {
+    height: 44px;
+}

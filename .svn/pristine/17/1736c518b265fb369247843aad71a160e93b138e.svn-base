@@ -1,0 +1,37 @@
+	<div class="basic-info row">
+		<div class="col-auto col-lg-12 avatar">
+			<img src="{{pathMemImage}}">
+		</div>
+		<div class="col col-lg-12 name-id">
+			<h4 class="h-small" id="info-username">{{userInfo.username}}</h4>
+			<span id="info-userid">{{userInfo.userid}}</span>
+		</div>
+		<div class="col-auto col-lg-12">
+			<a class="w-btn medium-btn primary-btn copy-url-btn" id="coppy-register-member" (click)="handleOnClickCopy()">회원등록 URL 복사하기</a>
+			<textarea class="input" id="url-input" hidden=""></textarea>
+		</div>
+		
+	</div>
+	<div class="detail-info box-layout">
+		<ul class="row">
+			<li class="col-auto col-lg-12 row">
+				<img class="col-auto" src="./assets/img/icons/profile-register-date.svg">
+				<span class="col" id="left-birthday">{{userInfo.birthday}}</span>
+			</li>
+
+			<li class="col-auto col-lg-12 row">
+				<img class="col-auto" src="./assets/img/icons/profile-rank.svg">
+				<span class="col" id="left-rank">{{userInfo.rankName}}</span>
+			</li>
+			<li class="col-auto col-lg-12 row">
+				<img class="col-auto" src="./assets/img/icons/profile-center.svg">
+				<span class="col" id="left-center">{{userInfo.cntName}}</span>
+			</li>
+			<li class="col-auto col-lg-12 row">
+				<img class="col-auto" src="./assets/img/icons/profile-recommender.svg">
+				<span class="col" id="left-recommend">{{rName}}</span>
+			</li>
+
+		</ul>
+	</div>
+

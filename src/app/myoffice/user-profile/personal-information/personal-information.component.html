@@ -1,0 +1,57 @@
+<body id="personal-information" class="user-profile office-page">
+    <div class="container mobile-container">
+        <div class="row">
+
+            <app-user-profile class="col-lg-auto profile-info office-block mobile-block"></app-user-profile>
+
+            <div class="col-lg content-info mobile-block last none">
+                <div class="office-block privacy">
+                    <h2 class="h-small">개인정보</h2>
+                    <table class="vt-table">
+                        <tbody>
+                            <tr>
+                                <td>생년월일</td>
+                                <td id="content-birthday">{{personalInfo.birthday}}</td>
+                            </tr>
+                            <tr>
+                                <td>전화번호</td>
+                                <td id="content-tel">{{personalInfo.tel}}</td>
+                            </tr>
+                            <tr>
+                                <td>핸드폰번호</td>
+                                <td id="content-mobile">{{personalInfo.mobile}}</td>
+                            </tr>
+                            <tr>
+                                <td>이메일주소</td>
+                                <td id="content-email">{{personalInfo.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>주소</td>
+                                <td id="content-address">{{address}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="office-block account-information">
+                    <h2 class="h-small">계좌정보</h2>
+                    <table class="vt-table">
+                        <tbody>
+                            <tr>
+                                <td>은행명</td>
+                                <td id="content-bankName">{{personalInfo.bankName}}</td>
+                            </tr>
+                            <tr>
+                                <td>계좌번호</td>
+                                <td id="content-cardNo">{{personalInfo.cardNo}}</td>
+                            </tr>
+                            <tr>
+                                <td>예금주명</td>
+                                <td id="content-depositor">{{personalInfo.depositor}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

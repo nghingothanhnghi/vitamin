@@ -1,0 +1,177 @@
+
+<div id="auto-ship-registration" class="office-page">
+    <section class="section-content searching-result">
+        <div class="searching-form">
+            <div class="container">
+                <div class="row form-row date-time row_1">
+					<!-- date row -->
+					<date-time-filter 
+					labelDate="신청일자"
+					class="row form-row date-time"
+					[yearOptions]="yearOptions"
+					[hiddenDate]="false"
+					[hiddenImageSvg] = "false"
+					(changeDateTimeFilter)="handleOnChangeDateFilter($event);">
+					</date-time-filter>
+				</div>
+
+				<div class="row form-row submit last-row">
+					<div class="col col-lg-auto row info inquiry-classification non-background">
+						<span class="label col-auto">상태</span>
+						<select-dropdown
+						class="dropdown-select col row" 
+						[options]="situationOptions" 
+						[selected]="selectedSituationValue"
+						(changeSelectedValue)="hanldeOnChangeRankSelectedValue($event)">
+						</select-dropdown>
+
+					</div>
+
+					<div class="col-auto submit-btn-wrapper">
+						<div class="w-btn submit-btn has-icon advanced" id="search" (click)="onSearch();">
+							<span th:text="#{common.btn.001}">검색</span>
+							<div class="icon ms-2"> <img src="./assets/img/icons/search-ncc.svg"></div>
+						</div>						
+					</div>
+				</div>
+
+				<date-time-filter-mobile></date-time-filter-mobile>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="container results mobile-container memnberTab" id="list-pc">
+            <div class="office-block mobile-block last">
+
+                <!-- pagination moblie -->
+				<div class="pagination mobile-pagination row">
+					<div class="col-auto per-page row">
+					<div class="label col-auto"><span>페이지표시</span></div>
+						<select-dropdown 
+							class="dropdown-select col row"
+							[options]="options"
+							[selected]="selectedValue"
+							(changeSelectedValue)="handleOnChangeSelectedValue($event);" ></select-dropdown>
+					</div>
+					<div class="col-auto total">
+					<span class="label">Total</span>
+					<span class="value">{{ totalItems$ | async }}</span>
+					</div>
+				</div>
+
+                <div class="table-container row draggable-element">
+                    <div class="col col_data draggable-items-wrapper">
+                        <div class="table-wrapper">
+                            <table class="hr-table">
+                                <thead>
+                                    <tr>
+                                        <th class="textCenter">오토십번호</th>
+                                        <th class="textCenter">구분</th>
+                                        <th class="textCenter">신청일</th>
+                                        <th class="textCenter">결제예정일</th>
+                                        <th class="textCenter">상태</th>
+                                        <th class="textCenter">합계금액</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+									<tr *ngFor="let item of collection | paginate: config">
+                                        <td style="white-space: nowrap;text-align: center;cursor: pointer;">
+																					<a [href]="'my-office/auto-ship/edit?adoNo=' + item.adoNo" target="_blank" style="color: #2A2E46;">{{ item.adoNo }}</a>
+																				</td>
+                                        <td style="white-space: nowrap;" class="textCenter">{{ item.adoKindName }}</td>
+                                        <td style="white-space: nowrap;" class="textCenter">{{ item.regDate2 }}</td>
+                                        <td style="white-space: nowrap;" class="textCenter">{{ item.admitsDay2 }}</td>
+                                        <td style="white-space: nowrap;" class="textCenter">{{ item.adoStatusName }}</td>
+                                        <td style="white-space: nowrap;" class="textRight">{{ item.totAmt ? (item.totAmt | setComma) + '' : "0"}}월</td>
+									</tr>
+								</tbody>
+
+									<ng-container *ngIf="totalRows < 5">
+										<tbody>
+										  <tr *ngFor="let row of rows; index as i">
+											<ng-container *ngFor="let col of cols; index as j">
+											  <td>
+												<span>&nbsp;</span>
+												<ng-container *ngIf="totalRows === 0 && i === 2 && j === 2">
+												  <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+												</ng-container>
+											  </td>
+											</ng-container>
+										  </tr>
+										</tbody>
+									  </ng-container>
+
+                                <tfoot>
+                                    <tr *ngIf="sumItem$ | async as item">
+                                        <td style="text-align: center;" colspan="5" class="">총 합계</td>
+                                        <td class="textRight">{{ item.totAmt ? (item.totAmt | setComma) + '' : "0"}}월</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <table class="hr-mobile-table">
+                    <tbody id="grid-list-pc-mobile-row_0" row="0" *ngFor="let item of collection">
+						<tr row="0" cell="0">
+							<td>오토십번호</td>
+							<td class="">{{ item.adoNo }}</td>
+						</tr>
+						<tr row="0" cell="1">
+							<td>구분</td>
+							<td class="">{{ item.adoKindName }}</td>
+						</tr>
+						<tr row="0" cell="2">
+							<td>신청일</td>
+							<td  class="">{{ item.regDate2 }}</td>
+						</tr>
+						<tr row="0" cell="3">
+							<td>결제예정일</td>
+							<td class="">{{ item.admitsDay2 }}</td>
+						</tr>
+						<tr row="0" cell="4">
+							<td>상태</td>
+							<td class="">{{ item.adoStatusName }}</td>
+						</tr>
+						<tr row="0" cell="5">
+							<td>합계금액</td>
+							<td>{{ item.totAmt ? (item.totAmt | setComma) + '' : "0"}}월</td>
+						</tr>
+					</tbody>
+					<grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+				</table>
+
+                <!-- pagination pc -->
+				<div class="pagination desktop-pagination row">
+					<div class="col-auto per-page row">
+					<div class="label col-auto"><span>페이지표시</span></div>
+					<select-dropdown 
+						class="dropdown-select col row"
+						[options]="options"
+						[selected]="selectedValue"
+						(changeSelectedValue)="handleOnChangeSelectedValue($event);"
+					></select-dropdown>
+					</div>
+					<paging 
+					class="col-auto row paging"
+					[len]="len"
+					[page]="page"
+					[totalItems]="totalItems"
+					[config]="config"
+					(changePage)="handleOnChangePage($event);"
+					></paging>
+					<div class="col-auto total">
+					<span class="label">Total</span>
+					<span class="value">{{ totalItems$ | async }}</span>
+					</div>
+				</div>
+            </div>
+        </div>
+    </section>
+</div>
+

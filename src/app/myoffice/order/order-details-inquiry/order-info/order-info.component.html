@@ -1,0 +1,69 @@
+<div class="order-number">
+    <span class="col-auto">주문번호</span>
+    <div class="row col">
+        <input class="col" type="text" readonly="readonly" [value]="orderNo">
+        <a class="open-popup-btn w-btn dark-btn name-browsing-btn" href="javascript:;" data-popup="name-browsing"
+            (click)="handleOnClickShowOrderPopup();">
+            주문번호찾기
+        </a>
+    </div>
+</div>
+<div class="result-block">
+    <h2 class="h-small">주문정보</h2>
+    <table class="vt-table">
+        <tbody>
+            <tr>
+                <td>주문일자</td>
+                <td>{{ orderInfo.ordDate2 }}</td>
+            </tr>
+            <tr>
+                <td>승인일자</td>
+                <td>{{ orderInfo.accDate2 }}</td>
+            </tr>
+            <tr>
+                <td>회원명</td>
+                <td>{{ orderInfo.userInfo }}</td>
+            </tr>
+            <tr>
+                <td>소속본부/센터</td>
+                <td>{{ orderInfo.cntNameOrd }}</td>
+            </tr>
+            <tr>
+                <td>유형</td>
+                <td>{{ orderInfo.kindName }}</td>
+            </tr>
+            <tr>
+                <td>경로</td>
+                <td>{{ orderInfo.pathName }}</td>
+            </tr>
+            <tr>
+                <td>비고사항</td>
+                <td>{{ orderInfo.remark }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="vt-table tabAfter">
+        <tbody>
+            <tr>
+                <td>주문금액</td>
+                <td>{{ orderInfo.ordAmt | setComma }}원</td>
+            </tr>
+            <tr *ngIf="isPv1">
+                <td>주문{{smWowWord.oPv1}}</td>
+                <td>{{ orderInfo.ordPv1 | setComma }}</td>
+            </tr>
+            <!-- <tr *ngIf="isPv2">
+                <td>주문{{smWowWord.oPv2}}</td>
+                <td>{{ orderInfo.ordPv2 | setComma }}</td>
+            </tr> -->
+            <!-- <tr *ngIf="isPv3">
+                <td>주문{{smWowWord.oPv3}}</td>
+                <td>{{ orderInfo.ordPv3 | setComma }}</td>
+            </tr> -->
+            <tr>
+                <td>주문{{smWowWord.oMileage}}</td>
+                <td>{{ orderInfo.ordPoint | setComma }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

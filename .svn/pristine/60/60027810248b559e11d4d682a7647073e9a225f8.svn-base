@@ -1,0 +1,542 @@
+<div id="benefit-statement" class="office-page">
+    <!-- Main Header -->
+    <div th:replace="fragments/inc-header" id="inc-header"></div>
+    <!-- End Header -->
+    <!-- Main Content -->
+    <main>
+        <div style="display: none;">
+            <input type="hidden" id="user-id" th:value="${userid}" />
+            <input type="hidden" id="selected-day" value="" />
+        </div>
+
+        <section class="section-content searching-result">
+            <div class="searching-form">
+                <div class="container">
+                    <div class="">
+
+                        <div class="row form-row">
+                            <!-- Year -->
+                            <div class="col-md row info date-selects">
+                                <div class="info-heading col-sm-auto">
+                                    <span class="label">{{labelDate}}</span>
+                                </div>
+
+                                <div class="date-select date-from row col-sm">
+                                    <div class="row col-sm-6 col-md years-select">
+                                        <select-dropdown class="dropdown-select col row" [options]="yearOptions"
+                                            [selected]="yearSelected"
+                                            (changeSelectedValue)="hanldeOnChangeYearSelectedValue($event)">
+                                        </select-dropdown>
+                                    </div>
+
+
+                                    <!-- Month -->
+                                    <div class="row col-sm-6 col-md months-select">
+                                        <select-dropdown class="dropdown-select col row" [options]="monthOptions"
+                                            [selected]="monthSelected"
+                                            (changeSelectedValue)="hanldeOnChangeMonthSelectedValue($event)">
+                                        </select-dropdown>
+                                    </div>
+
+                                    <!-- day -->
+                                    <div class="row col-sm-6 col-md days-select">
+                                        <select-dropdown class="dropdown-select col row" [options]="dayOptions"
+                                            [selected]="daySelected"
+                                            (changeSelectedValue)="hanldeOnChangeDaySelectedValue($event)">
+                                        </select-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col col-md-3 row info desktop-time-btns time-btns">
+                                <a class="col w-btn this-month" id="this-month" (click)="onThisMonth();" [ngClass]="btnFilterIsActive === BTN_THIS_MONTH_ACTIVED ? 'active' : ''">당월</a>
+                                <a class="col w-btn last-month" id="last-month" (click)="onLastMonth();" [ngClass]="btnFilterIsActive === BTN_LAST_MONTH_ACTIVED ? 'active' : ''">전월</a>
+                            </div>
+
+                            <div class="col col-md-auto submit-btn-wrapper">
+                                <div class="w-btn submit-btn advanced has-icon" id="search" (click)="onSearch();">
+                                    <span>검색</span>
+                                    <div class="icon"><img src="./assets/img/icons/search-ncc.svg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container results mobile-container">
+                <div class="row print-payment-statement mobile-block light">
+                    <div class="col-sm col-text">
+                        <span class="text-primary">※ 수당명세서는 지급일자 기준입니다.</span>
+                        <br>
+                        <span class="text-primary">※ 주민등록번호 정보가 없는 경우, 발생된 수당이 지급되지 않을 수 있습니다.</span>
+                    </div>
+                    <div class="col-sm-auto col-btn">
+                        <a class="w-btn dark-btn medium-btn">
+                            <span (click)="handleOnClickReport();">수당명세서 인쇄</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="office-block allowance-statement mobile-block" id="grid-pay-print">
+                    <h2 class="h-small">수당명세서</h2>
+                    <p>
+                        <span id="uname">{{ userName }}</span>
+                        <span> 님 수고 많으셨습니다. 회원님의 수당내역은 다음과 같습니다.</span>
+                    </p>
+                    <table class="hr-table" [ngClass]="collectionFindPayPrint.length > 0 ? '' : 'empty-table'">
+                        <thead>
+                            <th class="label-table">지급일자</th>
+                            <th class="label-table">회원번호</th>
+                            <th class="label-table">회원명</th>
+                            <th class="label-table">지급합계</th>
+                            <th class="label-table">공제합계</th>
+                            <th class="label-table">실지급액</th>
+                            <th class="label-table">입금은행</th>
+                            <th class="label-table">계좌번호</th>
+                            <th class="label-table">예금주</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of collectionFindPayPrint">
+                                <td>{{ item.paymentdate }}</td>
+                                <td>{{ item.userid }}</td>
+                                <td>{{ item.username }}</td>
+                                <td class="textRight">{{ item.totalAmt ? (item.totalAmt | setComma) + '원' :"0원"}}</td>
+                                <td class="textRight">{{ item.vat ? (item.vat | setComma) + '원' : "0원"}}</td>
+                                <td class="textRight">{{ item.trueAmt ? (item.trueAmt | setComma) + '원' : "0원"}}</td>
+                                <td>{{ item.bank }}</td>
+                                <td>{{ item.accnumber }}</td>
+                                <td>{{ item.accholder }}</td>
+                            </tr>
+                        </tbody>
+
+                        <ng-container *ngIf="totalRowsFindPayPrint < 5">
+                            <tbody>
+                                <tr *ngFor="let row of rowsFindPayPrint; index as i">
+                                    <ng-container *ngFor="let col of colsFindPayPrint; index as j">
+                                        <td>
+                                            <span>&nbsp;</span>
+                                            <ng-container
+                                                *ngIf="totalRowsFindPayPrint === 0 && i === 2 && j === floorTotalColsFindPayPrint">
+                                                <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                    </table>
+
+                    <table class="hr-mobile-table">
+                        <tbody *ngFor="let item of collectionFindPayPrint">
+                            <tr>
+                                <td>지급일자</td>
+                                <td>{{ item.paymentdate }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>회원번호</td>
+                                <td>{{ item.userid }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>회원명</td>
+                                <td>{{ item.username }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>지급합계</td>
+                                <td>{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>공제합계</td>
+                                <td>{{ item.vat ? (item.vat | setComma) + '원' : "0원"}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>실지급액 </td>
+                                <td>{{ item.trueAmt ? (item.trueAmt | setComma) + '원' : "0원"}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>입금은행</td>
+                                <td>{{ item.bank }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>계좌번호</td>
+                                <td>{{ item.accnumber }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>예금주</td>
+                                <td>{{ item.accholder }}</td>
+                            </tr>
+                        </tbody>
+                        <grid-no-data-mobile [items]="collectionFindPayPrint"></grid-no-data-mobile>
+                    </table>
+                </div>
+
+                <div class="row">
+
+                    <div class="office-block allowance-history col-lg mobile-block" id="grid-pay-history">
+                        <h2 class="h-small">수당/공제 내역</h2>
+                        <table class="hr-table" style="display: table">
+                            <thead>
+                                <th class="label-table">구분</th>
+                                <th class="label-table">항목</th>
+                                <th class="label-table">금액</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of collectionFindPayHistory">
+                                    <td>{{ item.gubun }}</td>
+                                    <td>{{ item.giveKindName }}</td>
+                                    <td class="textRight">{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                            <ng-container *ngIf="totalRowsFindPayHistory < 5">
+                                <tbody>
+                                    <tr *ngFor="let row of rowsFindPayHistory; index as i">
+                                        <ng-container *ngFor="let col of colsFindPayHistory; index as j">
+                                            <td>
+                                                <span>&nbsp;</span>
+                                                <ng-container
+                                                    *ngIf="totalRowsFindPayHistory === 0 && i === 2 && j === floorTotalColsFindPayHistory">
+                                                    <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                                </ng-container>
+                                            </td>
+                                        </ng-container>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+
+                        </table>
+                    </div>
+
+
+                    <div class="office-block profile col-lg mobile-block">
+                        <h2 class="h-small">회원정보</h2>
+                        <table class="vt-table alternated">
+                            <tbody *ngIf="collectionInfoMember as item">
+                                <tr>
+                                    <td>가입일자</td>
+                                    <td id="reg-date">{{item.regDate}}</td>
+                                </tr>
+                                <tr>
+                                    <td>성명(회원번호)</td>
+                                    <td id="username">
+                                        {{item.username ? item.username + (item.userid ? "("+ item.userid + ")" : ""):
+                                        (item.userid ? "("+ item.userid + ")" : "")}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>소속본부/센터</td>
+                                    <td id="cnt-name">{{item.cntName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>직급</td>
+                                    <td id="rank-name">{{item.rankName}}</td>
+                                </tr>
+                                <tr>
+                                    <td>후원인</td>
+                                    <td id="p-name">
+                                        {{item.pname ? item.pname + (item.pid ? "("+ item.pid + ")" : ""): (item.pid ?
+                                        "("+ item.pid + ")" : "")}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>추천인</td>
+                                    <td id="r-name">
+                                        {{item.rname ? item.rname + (item.rid ? "("+ item.rid + ")" : ""): (item.rid ?
+                                        "("+ item.rid + ")" : "")}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>전화번호</td>
+                                    <td id="tel">{{item.tel}}</td>
+                                </tr>
+                                <tr>
+                                    <td>핸드폰번호</td>
+                                    <td id="mobile">{{item.mobile}}</td>
+                                </tr>
+                                <tr>
+                                    <td>이메일주소</td>
+                                    <td id="email">{{item.email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>주소</td>
+                                    <td id="address">
+                                        {{item.post ? "( " + item.post + " ) " + (item.addr1 ? item.addr1 + " " +
+                                        (item.addr2 ? item.addr2 + " " : ""): (item.addr2 ? item.addr2 + " " : "")) :
+                                        (item.addr1 ? item.addr1 + " " + (item.addr2 ? item.addr2 + " " : ""): "")}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="office-block order-history mobile-block" id="grid-order-history">
+                        <h2 class="h-small">주문내역</h2>
+                        <p>
+                            <span>회원님의</span>
+                            <span class="date"> {{dateShow}} </span>
+                            <span>주문내역입니다</span>
+                            .
+                        </p>
+                        <table class="hr-table" [ngClass]="collectionOrderHistory.length > 0 ? '' : 'empty-table'">
+                            <thead>
+                                <th class="label-table">주문일자</th>
+                                <th class="label-table">주문번호</th>
+                                <th class="label-table">주문구분</th>
+                                <th class="label-table">합계금액</th>
+                                <th class="label-table" *ngIf="isPv1">{{smWowWord.oPv1}}</th>
+                                <!-- <th class="label-table" *ngIf="isPv2">{{smWowWord.oPv2}}</th> -->
+                                <!-- <th class="label-table" *ngIf="isPv3">{{smWowWord.oPv3}}</th> -->
+                                <th class="label-table">현금</th>
+                                <th class="label-table">카드</th>
+                                <th class="label-table">무통장</th>
+                                <th class="label-table">기타금액</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of collectionOrderHistory">
+                                    <td>{{ item.accDate }}</td>
+                                    <td>{{ item.ordNo }}</td>
+                                    <td>{{ item.ordKind }}</td>
+                                    <td class="textRight">{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}
+                                    </td>
+                                    <td class="textRight" *ngIf="isPv1">{{ item.pv ? (item.pv | setComma) : "0"}}</td>
+                                    <!-- <td class="textRight" *ngIf="isPv2">{{ item.pv2 ? (item.pv2 | setComma) : "0"}}</td> -->
+                                    <!-- <td class="textRight" *ngIf="isPv3">{{ item.pv3 ? (item.pv3 | setComma) : "0"}}</td> -->
+                                    <td class="textRight">{{ item.cash ? (item.cash | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight">{{ item.card ? (item.card | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight">{{ item.bankbook ? (item.bankbook | setComma) + '원' : "0원"}}
+                                    </td>
+                                    <td class="textRight">{{ item.other ? (item.other | setComma) + '원' : "0원"}}</td>
+                                </tr>
+                            </tbody>
+
+                            <ng-container *ngIf="totalRowsOrderHistory < 5">
+                                <tbody>
+                                    <tr *ngFor="let row of rowsOrderHistory; index as i">
+                                        <ng-container *ngFor="let col of colsOrderHistory; index as j">
+                                            <td>
+                                                <span>&nbsp;</span>
+                                                <ng-container
+                                                    *ngIf="totalRowsOrderHistory === 0 && i === 2 && j === floorTotalColsOrderHistory">
+                                                    <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                                </ng-container>
+                                            </td>
+                                        </ng-container>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+
+                            <tfoot>
+                                <tr>
+                                    <td class="label-table" colspan="3">&lt;합계금액&gt;</td>
+                                    <td class="textRight">{{ collectionSumOrderHistory.totalAmt ?
+                                        (collectionSumOrderHistory.totalAmt | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight" *ngIf="isPv1">{{ collectionSumOrderHistory.pv ?
+                                        (collectionSumOrderHistory.pv | setComma) : "0"}}</td>
+                                    <!-- <td class="textRight" *ngIf="isPv2">{{ collectionSumOrderHistory.pv2 ?
+                                        (collectionSumOrderHistory.pv2 | setComma) : "0"}}</td> -->
+                                    <!-- <td class="textRight" *ngIf="isPv3">{{ collectionSumOrderHistory.pv3 ?
+                                        (collectionSumOrderHistory.pv3 | setComma) : "0"}}</td> -->
+                                    <td class="textRight">{{ collectionSumOrderHistory.cash ?
+                                        (collectionSumOrderHistory.cash | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight">{{ collectionSumOrderHistory.card ?
+                                        (collectionSumOrderHistory.card | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight">{{ collectionSumOrderHistory.bankbook ?
+                                        (collectionSumOrderHistory.bankbook | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight">{{ collectionSumOrderHistory.other ?
+                                        (collectionSumOrderHistory.other | setComma) + '원' : "0원"}}</td>
+                                </tr>
+
+                            </tfoot>
+                        </table>
+                        <table class="hr-mobile-table">
+                            <tbody *ngFor="let item of collectionOrderHistory">
+                                <tr>
+                                    <td>주문일자</td>
+                                    <td>{{ item.accDate }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>주문번호</td>
+                                    <td>{{ item.ordNo }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>주문구분</td>
+                                    <td>{{ item.ordKind }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>합계금액</td>
+                                    <td>{{ item.totalAmt ? (item.totalAmt | setComma) + '원' : "0원"}}</td>
+                                </tr>
+
+                                <tr *ngIf="isPv1">
+                                    <td>{{smWowWord.oPv1}}</td>
+                                    <td>{{ item.pv ? (item.pv | setComma) : "0"}}</td>
+                                </tr>
+
+                                <!-- <tr *ngIf="isPv2">
+                                    <td>{{smWowWord.oPv2}}</td>
+                                    <td>{{ item.pv2 ? (item.pv2 | setComma) : "0"}}</td>
+                                </tr> -->
+
+                                <!-- <tr *ngIf="isPv3">
+                                    <td>{{smWowWord.oPv3}}</td>
+                                    <td>{{ item.pv3 ? (item.pv3 | setComma) : "0"}}</td>
+                                </tr> -->
+
+                                <tr>
+                                    <td>현금</td>
+                                    <td>{{ item.cash ? (item.cash | setComma) + '원' : "0원"}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>카드</td>
+                                    <td>{{ item.card ? (item.card | setComma) + '원' : "0원"}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>무통장</td>
+                                    <td>{{ item.bankbook ? (item.bankbook | setComma) + '원' : "0원"}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>기타금액</td>
+                                    <td>{{ item.other ? (item.other | setComma) + '원' : "0원"}}</td>
+                                </tr>
+                            </tbody>
+                            <grid-no-data-mobile [items]="collectionOrderHistory"></grid-no-data-mobile>
+                        </table>
+                    </div>
+
+
+                    <div class="office-block order-history order-history-2 mobile-block last none" id="grid-order-product-history">
+                        <h2 class="h-small">주문내역</h2>
+                        <p>
+                            <span>회원님의</span>
+                            <span class="date"> {{dateShow}} </span>
+                            <span>주문내역입니다</span>
+                            .
+                        </p>
+                        <table class="hr-table" [ngClass]="collectionOrderProductHistory.length > 0 ? '' : 'empty-table'">
+                            <thead>
+                                <th class="label-table">주문일자</th>
+                                <th class="label-table">주문번호</th>
+                                <th class="label-table">상품명</th>
+                                <th class="label-table">수량</th>
+                                <th class="label-table">금액</th>
+                                <th class="label-table" *ngIf="isPv1">{{smWowWord.oPv1}}</th>
+                                <!-- <th class="label-table" *ngIf="isPv2">{{smWowWord.oPv2}}</th> -->
+                                <!-- <th class="label-table" *ngIf="isPv3">{{smWowWord.oPv3}}</th> -->
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of collectionOrderProductHistory">
+                                    <td>{{ item.accDate }}</td>
+                                    <td>{{ item.ordNo }}</td>
+                                    <td class="textLeft">{{ item.pdtName }}</td>
+                                    <td class="textRight">{{ item.qty ? (item.qty | setComma) : "0"}}</td>
+                                    <td class="textRight">{{ item.amt ? (item.amt | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight" *ngIf="isPv1">{{ item.pv ? (item.pv | setComma) : "0"}}</td>
+                                    <!-- <td class="textRight" *ngIf="isPv2">{{ item.pv2 ? (item.pv2 | setComma) : "0"}}</td> -->
+                                    <!-- <td class="textRight" *ngIf="isPv3">{{ item.pv3 ? (item.pv3 | setComma) : "0"}}</td> -->
+                                </tr>
+                            </tbody>
+
+                            <ng-container *ngIf="totalRowsOrderProductHistory < 5">
+                                <tbody>
+                                    <tr *ngFor="let row of rowsOrderProductHistory; index as i">
+                                        <ng-container *ngFor="let col of colsOrderProductHistory; index as j">
+                                            <td>
+                                                <span>&nbsp;</span>
+                                                <ng-container
+                                                    *ngIf="totalRowsOrderProductHistory === 0 && i === 2 && j === flooTotalColsOrderProductHistory">
+                                                    <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                                </ng-container>
+                                            </td>
+                                        </ng-container>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+                            <tfoot>
+                                <tr>
+                                    <td class="label-table" colspan="3">&lt;합계금액&gt;</td>
+                                    <td class="textRight">{{ collectionSumOrderProductHistory.qty ?
+                                        (collectionSumOrderProductHistory.qty | setComma) : "0"}}</td>
+                                    <td class="textRight">{{ collectionSumOrderProductHistory.amt ?
+                                        (collectionSumOrderProductHistory.amt | setComma) + '원' : "0원"}}</td>
+                                    <td class="textRight" *ngIf="isPv1">{{ collectionSumOrderProductHistory.pv ?
+                                        (collectionSumOrderProductHistory.pv | setComma) : "0"}}</td>
+                                    <!-- <td class="textRight" *ngIf="isPv2">{{ collectionSumOrderProductHistory.pv2 ?
+                                        (collectionSumOrderProductHistory.pv2 | setComma): "0"}}</td> -->
+                                    <!-- <td class="textRight" *ngIf="isPv3">{{ collectionSumOrderProductHistory.pv3 ?
+                                        (collectionSumOrderProductHistory.pv3 | setComma) : "0"}}</td> -->
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <table class="hr-mobile-table">
+                            <tbody *ngFor="let item of collectionOrderProductHistory">
+                                <tr>
+                                    <td>주문일자</td>
+                                    <td>{{ item.accDate }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>주문번호</td>
+                                    <td>{{ item.ordNo }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>상품명</td>
+                                    <td>{{ item.pdtName }}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>수량</td>
+                                    <td>{{ item.qty ? (item.qty | setComma): "0"}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>금액</td>
+                                    <td>{{ item.amt ? (item.amt | setComma) + '원' : "0원"}}</td>
+                                </tr>
+
+                                <tr *ngIf="isPv1">
+                                    <td>{{smWowWord.oPv1}}</td>
+                                    <td>{{ item.pv ? (item.pv | setComma) : "0"}}</td>
+                                </tr>
+
+                                <!-- <tr *ngIf="isPv2">
+                                    <td>{{smWowWord.oPv2}}</td>
+                                    <td>{{ item.pv2 ? (item.pv2 | setComma) : "0"}}</td>
+                                </tr> -->
+
+                                <!-- <tr *ngIf="isPv3">
+                                    <td>{{smWowWord.oPv3}}</td>
+                                    <td>{{ item.pv3 ? (item.pv3 | setComma) : "0"}}</td>
+                                </tr> -->
+
+                            </tbody>
+                            <grid-no-data-mobile [items]="collectionOrderProductHistory"></grid-no-data-mobile>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!------------- Footer ------------->
+    <div th:replace="fragments/inc-footer" id="inc-footer"></div>
+    <!--------------------------------->
+</div>

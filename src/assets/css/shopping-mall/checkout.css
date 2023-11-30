@@ -1,0 +1,1384 @@
+
+
+#checkout .hr-table {
+	box-shadow: none;
+}
+
+#checkout .hr-table thead {	
+	background:  #E0C180;
+	color: #fff;	
+}
+
+
+
+@media all and (max-width: 991px) {
+	#checkout .main-container { 
+		width: 100%;	
+	}	
+}
+
+@media all and (min-width: 992px) {
+	#checkout .main-container { 
+		padding: 0;
+	}
+}
+
+
+
+@media all and (max-width: 991px) {	
+	#checkout #cart-details, 
+	#checkout #order-information,
+	#checkout #shipping-information,
+	#checkout #payment-information,
+	#checkout #redeem-point,
+	#checkout #make-a-payment {
+		border-bottom: 5px solid #A8A9B7;
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#checkout .main-heading h2 {
+	display: flex;
+	margin-bottom: 0;
+	font-weight: 400;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	#checkout .main-heading h2 *:not(:last-child) {
+		margin-right: 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout .main-heading h2 *:not(:last-child) {
+		margin-right: 12.5px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout .main-heading h2 *:not(:last-child) {
+		margin-right: 15px;
+	}
+}
+
+@media all and (min-width: 992px) {
+	#checkout .main-heading h2 *:not(:last-child) {
+		margin-right: 17.5px;
+	}
+}
+
+
+
+#checkout .main-heading h2 .carret {
+	display: flex;
+	align-items: center;
+	opacity: .5;
+}
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+	#checkout .main-heading {
+		display: none;
+	}
+}
+
+@media all and (min-width: 992px) {
+	#checkout .main-heading {
+		padding: 20px 0;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 1. Cart Details -----*/
+
+
+@media all and (max-width: 575px) {
+	#checkout #cart-details {
+		padding: 25px 4%;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #cart-details {
+		padding: 30px 4%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #cart-details {
+		padding: 35px 4%;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #cart-details {
+		margin-top: 40px;
+		margin-bottom: 60px;
+	}	
+}
+
+
+
+#checkout #cart-details .office-heading, 
+#checkout #cart-details .office-form .form-header, 
+#checkout #cart-details .office-form .form-body {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#checkout #cart-details .table-wrapper {
+	overflow: hidden;
+	border: 1px solid rgba(0,0,0,.05);
+}
+
+
+
+
+
+
+#checkout #cart-details table .currency {
+	margin-left: 3px;
+}	
+	
+
+
+
+@media all and (max-width: 575px) {
+	#checkout #cart-details table {
+		text-align: left;
+	}	
+	#checkout #cart-details .hr-table th:last-child, 
+	#checkout #cart-details .hr-table td:last-child {
+		text-align: center;
+	}	
+}
+
+
+
+@media all and (min-width: 576px) {
+	#checkout #cart-details table {
+		text-align: center;
+	}	
+	#checkout #cart-details .hr-table th:nth-child(2), 
+	#checkout #cart-details .hr-table td:nth-child(2) {
+		text-align: left;
+	}	
+}
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#checkout #cart-details .hr-table th:last-child, 
+	#checkout #cart-details .hr-table td:last-child,
+	#checkout #cart-details .hr-table th:first-child, 
+	#checkout #cart-details .hr-table td:first-child {
+		width: 50px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #cart-details .hr-table th:last-child, 
+	#checkout #cart-details .hr-table td:last-child,
+	#checkout #cart-details .hr-table th:first-child, 
+	#checkout #cart-details .hr-table td:first-child {
+		width: 60px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #cart-details .hr-table th:last-child, 
+	#checkout #cart-details .hr-table td:last-child,
+	#checkout #cart-details .hr-table th:first-child, 
+	#checkout #cart-details .hr-table td:first-child {
+		width: 70px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #cart-details .hr-table th:last-child, 
+	#checkout #cart-details .hr-table td:last-child,
+	#checkout #cart-details .hr-table th:first-child, 
+	#checkout #cart-details .hr-table td:first-child {
+		width: 80px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 576px) {
+	#checkout #cart-details .mobile-product-pv {
+		display: none;
+	}	
+}
+
+
+
+@media all and (max-width: 575px) {	
+	#checkout #cart-details table {
+		display: table;		
+	}
+	
+	#checkout #cart-details table th:nth-child(1), 
+	#checkout #cart-details table th:nth-child(4) {
+		display: none;
+	}
+	
+	#checkout #cart-details table td:nth-child(1), 
+	#checkout #cart-details table td:nth-child(4) {
+		display: none;
+	}
+
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {	
+	#checkout #cart-details table {
+		display: table;		
+	}
+}
+
+
+
+
+
+#checkout #cart-details table tr:last-child td {
+	border-bottom: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 2. Order Information -----*/
+
+
+
+
+
+
+/*----- 3. Shipping Information -----*/
+
+
+@media all and (max-width: 575px) {
+	#checkout #shipping-information {
+		padding: 25px 0;
+	}	
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #shipping-information {
+		padding: 30px 4%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #shipping-information {
+		padding: 35px 4%;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #shipping-information {
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		margin-bottom: 60px;
+	}	
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {	
+	#checkout #shipping-information .office-heading, 
+	#checkout #shipping-information .office-form {
+		padding-left: 4%;
+		padding-right: 4%;
+	}	
+}
+
+
+
+
+
+
+#checkout #shipping-information .inputs-row {
+	padding: 0;
+}
+
+#checkout #shipping-information .cash-receipt {
+	padding-bottom: 0px
+}
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #shipping-information .form-body .label {
+		margin-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #shipping-information .form-body .label {
+		margin-right: 17.5px;
+	}
+}
+
+@media all and (min-width: 992px) {
+	#checkout #shipping-information .form-body .label {
+		margin-right: 20px;
+	}
+}
+
+
+
+
+
+
+
+/*------ Shipping Information | Shipping Address Type ------*/
+
+
+@media all and (max-width: 767px) {
+	#checkout #shipping-information .shipping-address-type li {
+		margin-bottom: 5px;
+	}		
+}
+
+
+@media all and (min-width: 768px) {
+	#checkout #shipping-information .shipping-address-type {
+		justify-content: center;
+	}	
+}
+
+
+
+
+
+
+
+/*------ Shipping Information | Shipping Contact ------*/
+
+@media all and (max-width: 575px) {
+	#checkout #shipping-information .shipping-contact .recipient-name {
+		margin-right: 4%;
+		width: 48%;
+	}	
+	#checkout #shipping-information .shipping-contact .recipient-mobile {
+		width: 48%;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	#checkout #shipping-information .shipping-contact .recipient-name {
+		margin-right: 4%;
+		width: 48%;
+	}	
+	#checkout #shipping-information .shipping-contact .recipient-mobile {
+		width: 48%;
+	}
+	#checkout #shipping-information .shipping-contact .label {
+		width: 65px;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #shipping-information .shipping-contact .info:not(:last-child) {
+		margin-right: 3%;
+	}	
+	
+	#checkout #shipping-information .shipping-contact .recipient-name .label {
+		width: 60px;
+	}	
+}
+
+
+
+
+
+
+
+/*------ Shipping Information | Shipping Address ------*/
+
+@media all and (max-width: 575px) {
+	#checkout #shipping-information .shipping-address .address-browse {
+		margin-right: 4%;
+		width: 48%;
+		margin-bottom: 5px;
+	}	
+	#checkout #shipping-information .shipping-address .address-1 {
+		width: 48%;
+		margin-bottom: 5px;
+	}
+	#checkout #shipping-information .shipping-address .address-1 .inputs-wrapper {
+		display: flex;
+		justify-content: flex-end;
+	}
+	#checkout #shipping-information .shipping-address .address-1 .inputs-wrapper input {
+		margin-top: auto;
+		margin-bottom: 0;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	#checkout #shipping-information .shipping-address .address-browse {
+		margin-right: 2%;
+		width: 48%;
+	}	
+	#checkout #shipping-information .shipping-address .address-1 {
+		width: 50%;
+	}
+	#checkout #shipping-information .shipping-address .label {
+		width: 65px;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #shipping-information  .shipping-address .info:not(:last-child) {
+		margin-right: 3%;
+	}	
+	
+	#checkout #shipping-information .shipping-address .address-browse .label {
+		width: 60px;
+	}	
+}
+
+
+
+
+
+
+/*------ Shipping Information | Shipping Memo ------*/
+
+#checkout #shipping-information .shipping-memo .guide {
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+
+@media all and (max-width: 575px) {
+	#checkout #shipping-information .shipping-memo .memo {
+		margin-bottom: 5px;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	#checkout #shipping-information .shipping-memo .label {
+		width: 65px;
+	}	
+}
+
+@media all and (min-width: 992px) {
+	#checkout #shipping-information .shipping-memo .memo {
+		margin-bottom: 10px;
+	}
+	
+	#checkout #shipping-information .shipping-memo .label {
+		width: 60px;
+	}	
+}
+
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+	#checkout #shipping-information .open-popup-btn span {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+@media all and (min-width: 768px) {
+	#checkout #shipping-information .open-popup-btn span {
+		padding-left: 12.5px;
+		padding-right: 12.5px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 4. Payment Information -----*/
+
+@media all and (max-width: 575px) {
+	#checkout #payment-information {
+		padding: 25px 4%;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #payment-information {
+		padding: 30px 4%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #payment-information {
+		padding: 35px 4%;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #payment-information {
+		margin-bottom: 60px;
+	}	
+}
+
+
+
+
+
+#checkout #payment-information .office-heading, 
+#checkout #payment-information .office-form .form-header, 
+#checkout #payment-information .office-form .form-body {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+
+
+
+
+#checkout #payment-information .table-wrapper {
+	overflow: hidden;
+	border: 1px solid rgba(0,0,0,.05);
+}
+
+
+
+
+#checkout #payment-information .hr-mobile-table tbody {
+	border-top: 3px solid  #E0C180;
+}
+
+@media all and (max-width: 575px) {
+	#checkout #payment-information .hr-mobile-table td {
+		text-align: left;
+	}
+	#checkout #payment-information .hr-mobile-table td:first-child {
+		width: 40%;
+	}
+	#checkout #payment-information .hr-mobile-table td:last-child {
+		padding-left: 30px;
+	}
+}
+
+
+@media all and (min-width: 576px) {
+	#checkout #payment-information .hr-mobile-table {
+		display: none;
+	}
+}
+
+
+
+
+@media all and (min-width: 576px) {
+	#checkout #payment-information .hr-table {
+		display: table;
+		text-align: center;
+	}	
+	#checkout #payment-information .hr-table tr:last-child td {
+		border-bottom: none;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 5. Make a Payment -----*/
+
+@media all and (max-width: 575px) {
+	#checkout #make-a-payment {
+		padding: 25px 0;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #make-a-payment {
+		padding: 30px 4%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #make-a-payment {
+		padding: 35px 4%;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #make-a-payment {
+		padding-bottom: 20px;
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		margin-bottom: 60px;
+	}	
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#checkout #make-a-payment .office-form .form-heading,
+	#checkout #make-a-payment .office-form .form-body {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*----- Form Header | Radios -----*/
+
+
+@media all and (min-width: 576px) {
+	#checkout #make-a-payment .form-header .radios-group {
+		justify-content: center;
+	}
+}
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #make-a-payment .form-header .radios-group li {
+		margin-right: 40px;
+	}
+	#checkout #make-a-payment .form-header .radios-group li:last-child {
+		margin-right: 0;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #make-a-payment .form-header .radios-group li {
+		margin-right: 45px;
+	}
+	#checkout #make-a-payment .form-header .radios-group li:last-child {
+		margin-right: 0;
+	}
+}
+
+
+
+
+@media all and  (max-width: 575px) {
+	#checkout #make-a-payment .office-form .form-header {
+		border-bottom: none;
+	}
+	#checkout #make-a-payment .form-header .radios-group {
+		padding-bottom: 0;
+	}
+	#checkout #make-a-payment .form-header .radios-group li {
+		margin-bottom: 0;
+	}
+}
+
+
+
+
+
+@media all and (min-width: 992px) {
+	#checkout #make-a-payment .form-header .radios-group li {
+		margin-right: 50px;
+	}
+	#checkout #make-a-payment .form-header .radios-group li:last-child {
+		margin-right: 0;
+	}
+}
+
+
+
+
+
+
+/*----- Form Body -----*/
+
+
+
+
+
+
+#checkout #make-a-payment .form-card {
+	display: none;
+}
+
+#checkout #make-a-payment .form-card.form-credit-card {
+	display: block;
+}
+
+
+
+
+
+
+@media all and (max-width: 575px) {	
+	#checkout #make-a-payment .form-card .cards-selection {
+		margin-bottom: 15px;
+	}	
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #make-a-payment .form-card .cards-selection {
+		margin-bottom: 20px;
+	}	
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #make-a-payment .form-card .cards-selection {
+		margin-bottom: 25px;
+	}	
+}
+
+
+@media all and (max-width: 991px) {
+	#checkout #make-a-payment .form-card .cards-selection {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #make-a-payment .form-card .cards-selection {
+		width: 15%;
+		margin-right: 3%;
+		padding-left: 3%;
+	}
+	#checkout #make-a-payment .form-card .card-detail {
+		padding-left: 3%;
+		padding-right: 3%;
+		border-left: 1px solid rgba(0,0,0,.1);
+	}	
+}
+
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #make-a-payment .form-card .cards-selection .w-card {
+		width: 150px;
+	}
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #make-a-payment .form-card .cards-selection .w-card {
+		width: 180px;
+	}
+}
+
+
+
+
+@media all and (max-width: 991px) {
+	#checkout #make-a-payment .form-card .cards-selection .w-card:not(:last-child) {
+		margin-right: 10px;
+	}
+	#checkout #make-a-payment .form-card .cards-selection .w-card {
+		border: 1px dashed rgba(0,0,0,.2);
+	}
+}
+
+
+
+@media all and (min-width: 992px) {	
+	#checkout #make-a-payment .form-card .cards-selection .w-card {
+		margin-bottom: 10px;
+	}
+	
+	#checkout #make-a-payment .form-card .cards-selection .w-card:last-child {
+		margin-bottom: 0;
+	}	
+}
+
+
+#checkout #make-a-payment .form-card .cards-selection .w-card:hover {
+	color:  #E0C180;
+	border: 1px solid  #E0C180;
+}
+
+
+
+#checkout #make-a-payment .form-card .cards-selection .w-card.active {
+	color: #fff;
+	background:  #E0C180;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.1);
+	border: 1px solid  #E0C180;
+}
+
+#checkout #make-a-payment .form-card .cards-selection .w-card.active:hover {
+	box-shadow: 0px 5px 10px rgba(0,0,0,.2);
+}
+
+
+
+#checkout #make-a-payment .form-card .cards-selection .w-card .icon {
+	width: 0;
+	margin-left: 0;
+}
+
+#checkout #make-a-payment .form-card .cards-selection .w-card:hover .icon, 
+#checkout #make-a-payment .form-card .cards-selection .w-card.active .icon {
+	width: 21px;
+	padding-left: 10px;
+}
+
+
+
+#checkout #make-a-payment .form-card .cards-selection 
+.w-card .icon svg path {
+	fill:  #E0C180;
+}
+
+#checkout #make-a-payment .form-card .cards-selection 
+.w-card.active .icon svg path {
+	fill: #fff;
+}
+
+
+
+
+
+
+
+/*----- Card Details -----*/
+
+#checkout #make-a-payment .form-card .card-type {
+	display: none;
+}
+
+#checkout #make-a-payment .form-card .card-type.active {
+	display: block;
+}
+
+
+
+@media all and (min-width: 768px) {
+	#checkout #make-a-payment .form-no-bankbook .col_1,
+	#checkout #make-a-payment .form-card .card-detail .col_1 {
+		width: 48%;
+		margin-right: 4%;
+	}
+	#checkout #make-a-payment .form-no-bankbook .col_2,
+	#checkout #make-a-payment .form-card .card-detail .col_2  {
+		width: 48%;
+	}
+}
+
+
+
+/*---- Credit Card ----*/
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.form-credit-card .card-detail .info .label {
+		margin-right: 10px;
+		width: 80px;
+	}
+	.form-no-bankbook .col_1 .info .label {
+		margin-right: 10px;
+		width: 75px;
+	}
+	.form-no-bankbook .col_2 .info .label {
+		margin-right: 10px;
+		width: 75px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.form-credit-card .card-detail .col_1 .info .label {
+		margin-right: 10px;
+		width: 55px;
+	}
+	.form-credit-card .card-detail .col_2 .info .label {
+		margin-right: 10px;
+		width: 75px;
+	}
+	.form-no-bankbook .col_1 .info .label {
+		margin-right: 10px;
+		width: 75px;
+	}
+	.form-no-bankbook .col_2 .info .label {
+		margin-right: 10px;
+		width: 75px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.form-credit-card .card-detail .col_1 .info .label {
+		margin-right: 12.5px;
+		width: 60px;
+	}
+	.form-credit-card .card-detail .col_2 .info .label {
+		margin-right: 12.5px;
+		width: 80px;
+	}
+	.form-no-bankbook .col_1 .info .label {
+		margin-right: 12.5px;
+		width: 80px;
+	}
+	.form-no-bankbook .col_2 .info .label {
+		margin-right: 12.5px;
+		width: 80px;
+	}
+}
+
+
+
+
+/*--- Card Details | Card Number ----*/
+
+#checkout #make-a-payment .form-card .card-detail .card-number input:not(:last-child) {
+	margin-right: 10px;
+}
+
+
+/*--- Card Details | Card Owner ----*/
+
+
+
+
+/*--- Card Details | Card Expiring Date ----*/
+
+.form-credit-card .card-detail .card-expiring-date .input-2-digits {
+	width: auto;
+	max-width: 50px;
+}
+
+
+.form-credit-card .card-detail .card-expiring-date .input-4-digits {
+	width: auto;
+	max-width: 70px;
+}
+
+
+
+
+/*--- Card Details | Card Installment Period ----*/
+
+.form-credit-card .general-card .card-installment-period .dropdown-select {
+	max-width: 140px;
+}
+	
+
+
+/*--- Card Details | Card Birthdate ----*/
+
+.form-credit-card .card-detail .card-birthdate input {
+	width: auto;
+	max-width: 140px;
+}
+
+
+/*--- Card Details | Card Business Number ----*/
+
+.form-credit-card .card-detail .card-business-number input {
+	width: auto;
+	max-width: 140px;
+}
+
+
+
+
+/*--- Card Details | Card Password ----*/
+
+
+.form-credit-card .card-detail .card-password input {
+	width: auto;
+	max-width: 60px;
+}
+
+
+
+
+
+
+
+
+/*------- Virtual Card --------*/
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	.form-virtual-card .info .label {
+		margin-right: 10px;
+		width: 80px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.form-virtual-card .info .label {
+		margin-right: 12.5px;
+		width: 90px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 768px) {
+	#checkout .payment-method .input-2-digits {
+    	min-width: 50px;
+	}
+	#checkout .payment-method .input-4-digits {
+		min-width: 60px;
+	}
+	#checkout .payment-method .installment-period .dropdown-select {
+		min-width: 140px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- 6. Terms & Conditions -----*/
+
+
+@media all and (max-width: 575px) {
+	#checkout #terms-n-condition {
+		padding: 25px 4%;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #terms-n-condition {
+		padding: 30px 4%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #terms-n-condition {
+		padding: 35px 4%;
+	}	
+}
+
+
+
+
+/* redeem-point */
+
+@media all and (max-width: 575px) {
+	#checkout #redeem-point {
+		padding: 25px 4%;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#checkout #redeem-point {
+		padding: 30px 4%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#checkout #redeem-point {
+		padding: 35px 4%;
+	}	
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #redeem-point {
+		margin-bottom: 60px;
+	}	
+}
+
+
+
+
+
+
+#checkout #redeem-point .label,
+#checkout #redeem-point .guide {
+	display: flex;
+	align-items: center;
+}
+
+
+
+
+#checkout #redeem-point .inputs-wrapper {
+	background: #F9FAFD;
+	border: 1px solid rgba(0, 0, 0, .05);
+	align-items: center;
+	padding-right: 15px;
+}
+
+
+
+
+#checkout #redeem-point .inputs-wrapper input {
+	padding-left: 15px;
+	padding-right: 5px;
+	background: none;
+	border: 1px solid rgba(0, 0, 0, 0);
+
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#checkout #redeem-point .container {
+		padding-left: 4%;
+		padding-right: 4%;
+	}
+
+	#checkout #redeem-point .label,
+	#checkout #redeem-point .inputs-wrapper {
+		margin-bottom: 15px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#checkout #redeem-point .btns,
+#checkout #redeem-point .btns .w-btn {
+	height: 100%;
+}
+
+
+#checkout #redeem-point .guide {
+	opacity: 1;
+}
+
+@media all and (max-width: 575px) {
+	#checkout #redeem-point .btns .w-btn {
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+
+	#checkout #redeem-point .guide {
+		margin-left: 0;
+	}
+
+
+}
+
+
+
+
+#checkout #redeem-point .btns .w-btn {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-right: 10px;
+}
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+
+	#checkout #redeem-point .label,
+	#checkout #redeem-point .inputs-wrapper {
+		margin-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+
+	#checkout #redeem-point .label,
+	#checkout #redeem-point .inputs-wrapper {
+		margin-right: 20px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#checkout #redeem-point {
+		margin-bottom: 40px;
+	}
+
+	#checkout #redeem-point .label,
+	#checkout #redeem-point .inputs-wrapper {
+		margin-right: 25px;
+	}
+}
+
+
+
+
+
+#checkout #terms-n-condition .checkbox:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+

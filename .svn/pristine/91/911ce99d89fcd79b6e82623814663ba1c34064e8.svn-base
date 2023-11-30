@@ -1,0 +1,37 @@
+<div id="accumulet-sa">
+    <div class="content-part content-top">
+
+        <h2 class="h-large" style="font-weight: 700; margin-bottom: .5em">어큐뮬릿 에스에이</h2>
+
+        <p class="h-small">어큐뮬릿 에스에이 (Acumullit SA®)</p>
+        <p><strong> 빠르고, 편리하고, 맛있는!</strong></p>
+        <p class="p-span">수없이 많은 영양분이 균형 있게 조화를 이룬 자연에서 얻은 식물의 힘을 AINCELL만의 혁신적인 기술인 어큐뮬릿 에스에이(Acumullit SA)과학적 기술로
+            탄생시켰습니다.</p>
+        <p class="p-span">언제 어디서나 맛있고 간편한 아인셀 로젠지 드롭 한 알로 신중하게 선택된 허브, 과일, 베리, 채소 등 자연의 다양한 식물 을 섭취할 수 있습니다.</p>
+        <p class="p-span">어큐뮬릿 에스에이(Acumullit SA)는 자연 식물이 가진 고유하고 유익한 활성 성분을 보호, 강화하는 기술로 과일, 허브, 씨앗 등에서 얻을 수 있는 플라보노이드,
+            유기산 등 식물이 가진 건강에 유익한 성분들의 체내 흡수율을 높여주는 아인셀의 특별한 기술입니다.</p>
+        <p class="h-small">아큐뮬릿 에스에이(Acumullit SA) 시리즈의 장점</p>
+        <ul>
+            <li>입안에 한 알로 빠른 흡수<br />
+                제품은 입안에 넣는 순간부터 서서히 녹기 시작하여 흡수가 시작됩니다.<br />
+                입안에서 녹으며 자극적이지 않는 맛을 즐길 수 있습니다.</li>
+            <li>시간, 장소 구애 없이 물 없이도 간편한 섭취<br />
+                더 이상 섭취하기 위해 기다릴 필요 없습니다. 이보다 더 간단할 수 없습니다.</li>
+            <li>천연 과일의 더 건강하고 산뜻한 맛<br />
+                과일추출물은 인공적이지 않고 자연스러운 풍미를 제공합니다.</li>
+            <li>AINCELL만의 혁신 기술로 탄생<br />
+                어큐뮬릿 에스에이 기술로 얻어진 원료를 통해 만들어진 독창적인 제품입니다.</li>
+            <li>온 가족이 안심하고 섭취 할 수 있도록 안전한 성분만 함유<br />
+                제품은 엄격하게 관리되고 있는 제조 시설에서 코셔(Kosher)와 할랄(Halal) 기준에 적합하게 제조되어 공급됩니다.</li>
+        </ul>
+
+    </div>
+
+    <!-- src http://AINCELLgo.com/bbs/board.php?bo_table=vision&wr_id=33 -->
+
+    <p><img src="./assets/img/home/acumullit-sa-1.jpg"></p>
+    <p><img src="./assets/img/home/acumullit-sa-2.jpg"></p>
+    <p><img src="./assets/img/home/acumullit-sa-3.jpg"></p>
+    <p><img src="./assets/img/home/acumullit-sa-4.jpg"></p>
+    <p><img src="./assets/img/home/acumullit-sa-5.jpg"></p>
+</div>

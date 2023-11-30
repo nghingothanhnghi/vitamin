@@ -1,0 +1,123 @@
+<div id="cart-details">
+    <div class="heading">
+        <h2 class="h-small">장바구니</h2>
+        <span>장바구니에 등록하신 상품의 목록입니다.</span>
+    </div>
+    <table id="cart-details-table">
+        <thead>
+            <tr>
+                <th class="col_1"></th>
+                <th class="col_2">상품정보</th>
+                <th class="col_3">소비자가</th>
+                <th class="col_4">단가</th>
+                <th class="col_5">PV</th>
+                <th class="col_6" *ngIf="isPoint">{{ smWowWord.oMileage }}</th>
+                <th class="col_7">총금액</th>
+                <th class="col_8">수량</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of cartItems;">
+                <td class="col_1 thumbnail">
+                    <div class="featured-wrapper">
+                        <div class="img-wrapper">
+                            <ng-container *ngIf="item.fileName">
+                                <img [src]="urlWownet + item.filePath + item.fileName">
+                            </ng-container>
+                            <ng-container *ngIf="!item.fileName">
+                                <img src="./assets/img/noImage.jpg">
+                            </ng-container>
+                        </div>
+                    </div>
+                </td>
+                <td class="col_2 basic-info">
+                    <div class="row">
+                        <div class="meta col-lg-12 col">
+                            <h4 class="h-false name">{{ item.pdtName }}</h4>
+                            <span class="id">{{ item.pdtCD }}</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn-remove" (click)="handleOnRemoveCartItem(item);">
+                                <svg viewBox="0 0 30 30">
+                                    <path [attr.d]="'cart-detail-remove' | getPathSvg: 'solid'"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td class="col_3 regular-price">
+                    <div class="value">
+                        <span>{{ item.retailAmt | setComma }}</span>
+                        <span>원</span>
+                    </div>
+                </td>
+                <td class="col_4 member-price">
+                    <div class="value">
+                        <span>{{ item.amt | setComma }}</span>
+                        <span>원</span>
+                    </div>
+                </td>
+                <td class="col_5 pv">
+                    <div class="value" *ngIf="isPv1">
+                        <span class="pv-value">{{ +item.pv1 * +item.qty | setComma }}</span>
+                        <span>{{smWowWord.oPv1}}</span>
+                    </div>
+
+                    <!-- <div class="value" *ngIf="isPv2">
+                        <span class="pv-value">{{ +item.pv2 * +item.qty | setComma }}</span>
+                        <span>{{smWowWord.oPv2}}</span>
+                    </div> -->
+
+                    <!-- <div class="value" *ngIf="isPv3">
+                        <span class="pv-value">{{ +item.pv3 * +item.qty | setComma }}</span>
+                        <span class="label">{{smWowWord.oPv3}}</span>
+                    </div> -->
+                </td>
+                <td class="col_6 mileage" *ngIf="isPoint">
+                    <div class="value">
+                        <span class="pv-value">{{ +item.point * +item.qty | setComma }}</span>
+                        <span class="label">{{smWowWord.oMileage}}</span>
+                    </div>
+                </td>
+                <td class="col_7 amount">
+                    <div class="value">
+                        <span class="amount-value">{{ +item.amt * +item.qty | setComma }}</span>
+                        <span>원</span>
+                    </div>
+                </td>
+                <td class="col_8 quantity">
+                    <div class="row quantity-wrapper">
+                        <div class="col-auto btn-minus" (click)="handleOnClickMinus(item);">
+                            <svg viewBox="0 0 30 30">
+                                <path [attr.d]="'cart-detail-minus' | getPathSvg: 'solid'"></path>
+                            </svg>
+                        </div>
+                        <div class="col-auto input-quantity">
+                            <span class="quantity-value">{{ item.qty | setComma }}</span>
+                        </div>
+                        <div class="col-auto btn-plus" (click)="handleOnClickPlus(item);">
+                            <svg viewBox="0 0 30 30">
+                                <path [attr.d]="'cart-detail-plus' | getPathSvg: 'solid'"></path>
+                            </svg>
+                        </div>
+                        <div class="col-auto btn-remove" (click)="handleOnRemoveCartItem(item);">
+                            <svg viewBox="0 0 30 30">
+                                <path [attr.d]="'cart-detail-remove' | getPathSvg: 'solid'"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="!cartItems || cartItems.length === 0">
+            <tr>
+                <ng-container *ngIf="isPoint">
+                    <td colspan="8">장바구니가 비어 있습니다.</td>
+                </ng-container>
+                <ng-container *ngIf="!isPoint">
+                    <td colspan="7">장바구니가 비어 있습니다.</td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

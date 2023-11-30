@@ -1,0 +1,30 @@
+<div class="office-page">
+    <div class="container mobile-container">
+        <div class="office-block mobile-block">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="row row-cols-2 row-cols-sm-3 g-2 g-lg-3">
+                        <div class="col">
+                            <a href="https://ripplem.soonpay.co.kr" class="btn btn-orange fs-4 text-white rounded-4 w-100 py-5 min-h175 d-flex flex-column justify-content-center align-items-center">리플페이</a>
+                        </div>
+                        <div class="col">
+                            <a href="https://ripplem153.soonpay.co.kr" class="btn btn-info fs-4 text-white rounded-4 w-100 py-5 min-h175 d-flex flex-column justify-content-center align-items-center">미래페이</a>
+                        </div>
+                        <div class="col">
+                            <a href="https://on.pay-onplat.com" class="btn green-btn fs-4 text-white rounded-4 w-100 py-5 min-h175 d-flex flex-column justify-content-center align-items-center">비타페이 <span class="fw-semibold">D+1</span></a>
+                        </div>
+                        <div class="col">
+                            <a href="https://esignon.page.link/2L7H5ro13Pg2WaPA8" class="btn btn-warning fs-4 text-white rounded-4 w-100 py-5 min-h175 d-flex flex-column justify-content-center align-items-center">리플페이미래페이이용신청서</a>
+                        </div>
+                        <div class="col">
+                            <a href="https://docs.esignon.net/link/35?c=YSdartm4ZutboLjgcn3OyG/n4ARdX3PHlqslv2rjvH4%3D" class="btn btn-danger fs-4 text-white rounded-4 w-100 py-5 min-h175 d-flex flex-column justify-content-center align-items-center">비타페이가입신청서</a>
+                        </div>
+                        <div class="col">
+                            <a href="https://esignon.page.link/ziCp2hLiULYiRj9e9" class="btn btn-purple fs-4 text-white rounded-4 w-100 py-5 min-h175 d-flex flex-column justify-content-center align-items-center">총판가입서</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

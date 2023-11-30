@@ -1,0 +1,128 @@
+<section id="st-about-us">
+    <div class="img-flower-background">
+        <img src="./assets/img/home/AINCELL-home/best-product-flower.png">
+    </div>
+    <div class="container" id="pc-mode-container">
+        <div class="row product-featured">
+            <div class="row col-md-auto product-left">
+                <div class="left-contents">
+                    <div class="title-right s-font">Skincare
+                    </div>
+                    <div class="contents-text-right">
+                        <p>아인셀는 코스메슈티컬 올인원 전문 기업으로 제조사 삼성메디코스와 협력하여 피부에 효과적인 천연성분을 기반으로</p>
+                        <p>피부 솔루션을 제고하는올인원 전문 화장품 회사 입니다.</p>
+                    </div>
+                    <div class="contents-btn">
+                        <div class="col-auto">
+                            <a class="AINCELL-btn dark-outline-btn medium-btn">
+                                <span>MORE</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0 6.00008L5.99996 6.00008M5.99996 6.00008L12 6.00008M5.99996 6.00008V0M5.99996 6.00008V12"
+                                        stroke="#584E3F" stroke-width="0.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-auto right-img">
+                    <a>
+                        <img src="./assets/img/home/AINCELL-home/product-left.png">
+                    </a>
+                </div>
+            </div>
+            <div class="row col-md-auto product-right">
+                <div class="col-md-auto right-img">
+                    <a><img src="./assets/img/home/AINCELL-home/product-right.png"></a>
+                </div>
+                <div class="right-contents">
+                    <div class="title-right">
+                        <p>Cleansing</p>
+                    </div>
+                    <div class="contents-text-right">
+                        <p>아인셀는 코스메슈티컬 올인원 전문 기업으로 제조사 삼성메디코스와 협력하여 피부에 효과적인 천연성분을 기반으로</p>
+                        <p>피부 솔루션을 제고하는올인원 전문 화장품 회사 입니다.</p>
+                    </div>
+                    <div class="contents-btn">
+                        <div class="col-auto">
+                            <a class="AINCELL-btn dark-outline-btn medium-btn">
+                                <span>MORE</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0 6.00008L5.99996 6.00008M5.99996 6.00008L12 6.00008M5.99996 6.00008V0M5.99996 6.00008V12"
+                                        stroke="#584E3F" stroke-width="0.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="mobile-container">
+        <div class="row product-featured">
+            <div class="row col-md-auto product-left">
+                <div class="col-md-auto right-img">
+                    <a>
+                        <img src="./assets/img/home/AINCELL-home/product-left.png">
+                    </a>
+                </div>
+                <div class="left-contents">
+                    <div class="title-right">
+                        <p>Skincare</p>
+                    </div>
+                    <div class="contents-text-right">
+                        <p>아인셀는 코스메슈티컬 올인원 전문 기업으로 제조사 삼성메디코스와 협력하여 피부에 효과적인 천연성분을 기반으로</p>
+                        <p>피부 솔루션을 제고하는올인원 전문 화장품 회사 입니다.</p>
+                    </div>
+                    <div class="contents-btn">
+                        <div class="col-auto">
+                            <a class="AINCELL-btn dark-outline-btn medium-btn">
+                                <span>MORE</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0 6.00008L5.99996 6.00008M5.99996 6.00008L12 6.00008M5.99996 6.00008V0M5.99996 6.00008V12"
+                                        stroke="#584E3F" stroke-width="0.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row col-md-auto product-right">
+                <div class="col-md-auto right-img">
+                    <a><img src="./assets/img/home/AINCELL-home/product-right.png"></a>
+                </div>
+                <div class="right-contents">
+                    <div class="title-right">
+                        <p>Cleansing</p>
+                    </div>
+                    <div class="contents-text-right">
+                        <p>아인셀는 코스메슈티컬 올인원 전문 기업으로 제조사 삼성메디코스와 협력하여 피부에 효과적인 천연성분을 기반으로</p>
+                        <p>피부 솔루션을 제고하는올인원 전문 화장품 회사 입니다.</p>
+                    </div>
+                    <div class="contents-btn">
+                        <div class="col-auto">
+                            <a class="AINCELL-btn dark-outline-btn medium-btn">
+                                <span>MORE</span>
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0 6.00008L5.99996 6.00008M5.99996 6.00008L12 6.00008M5.99996 6.00008V0M5.99996 6.00008V12"
+                                        stroke="#584E3F" stroke-width="0.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="background">
+        <img src="./assets/img/home/AINCELL-home/best-product.svg" class="img-background-product">
+    </div>
+</section>

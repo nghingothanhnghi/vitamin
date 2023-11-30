@@ -1,0 +1,80 @@
+<div class="card-type corporation-card" data-card="2" [formGroup]="form">
+  <div class="row">
+    <div class="col-md col_1">
+      <ng-container *ngIf="smWownetPg.settMPoint === 'Y'">
+        <div id="redeem-point" style="margin-bottom: 18px;">
+          <div class="row" style="margin-bottom: 20px;">
+              <div class="col-sm-auto label">
+                <span>사용가능 마일리지</span>
+              </div>
+              <div class="col row" >
+                <input id="u-point" value="{{ totalPoint | setComma }}" type="text" class="col" readonly>
+              </div>
+          </div>
+          
+          <div class="row">
+              <div class="col-sm-auto label" style="margin-right: 49px;">
+                <span>사용 마일리지</span>
+              </div>
+              <div class="col row">
+                <input id="u-point-general-card" value="0" formControlName="usePointGCard" (keyup)="handleOnChangeUsePointGCard($event.target)" type="text" class="col">
+              </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="row info card-number">
+        <div class="col-auto label" style="margin-right: 64.5px;"><span>카드번호</span></div>
+        <div class="col inputs-wrapper row">
+          <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo1" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+          <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo2" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+          <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo3" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+          <input type="text" class="col input-4-digits" maxlength="4" formControlName="cardNo4" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+        </div>
+      </div>
+      <div class="row info card-owner">
+        <div class="col-auto label" style="margin-right: 64.5px;"><span>소유주</span></div>
+        <div class="col inputs-wrapper row">
+          <input type="text" formControlName="cardHolder">
+        </div>
+      </div>
+      <div class="row info card-expiring-date">
+        <div class="col-auto label" style="margin-right: 64.5px;"><span>유효기간</span></div>
+        <div class="col inputs-wrapper row">
+          <input type="text" class="col col-sm-auto input-2-digits" maxlength="2" formControlName="cardMM" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+          <span class="col-auto unit">월/</span>
+          <input type="text" class="col col-sm-auto input-4-digits" maxlength="4" formControlName="cardYY" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+          <span class="col-auto unit">년</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md col_2">
+      <div class="row info card-business-number">
+        <div class="col-auto label"><span>사업자번호</span></div>
+        <div class="col-auto inputs-wrapper row">
+          <input type="text" class="input-10-digits" maxlength="10" formControlName="birthday" (keyup)="handleOnKeyUpNumber($event.target)" autocomplete="off">
+        </div>
+        <div class="col guide"><span>사업자번호(10자리)</span></div>
+      </div>
+      <div class="row info card-password">
+        <div class="col-auto label"><span>카드비밀번호</span></div>
+        <div class="col-auto inputs-wrapper row">
+          <input type="password" maxlength="2" class="input-2-digits" formControlName="cardPassword" (keyup)="handleOnKeyUpNumber($event.target)" readonly onclick="this.removeAttribute('readonly');">
+        </div>
+        <div class="col guide"><span>** (앞2자리)</span></div>
+      </div>
+      <div class="row info card-installment-period">
+        <div class="col-auto label"><span>할부기간</span></div>
+        <div class="col inputs-wrapper row">
+          <select-dropdown 
+            class="dropdown-select col row" 
+            [selected]="generalCardSelected"
+            [options]="generalCardInstallOptions"
+            (changeSelectedValue)="handleOnChangeGeneralSelectedCardInstall($event);"
+          ></select-dropdown>
+          <div class="col guide"><span>(5만원이상 할부가능)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

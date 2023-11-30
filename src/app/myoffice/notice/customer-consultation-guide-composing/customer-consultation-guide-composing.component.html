@@ -1,0 +1,46 @@
+<section class="section-content">
+        <div class="container composer composer-compact">
+            <h2 class="h-medium composer-title">QNA 작성</h2>
+            <div class="row composer-body">
+                
+                <div class="searching-form">
+                    <div class="form-row">
+                        <div class="row info-row title">
+                            <span class="col label text-center">게시판 카테고리</span>
+                            <div class="col-auto content">
+                                <select-dropdown class="dropdown-select col row" 
+                                    [options]="boardCateOptions" 
+                                    [selected]="boardCateSelected"
+                                    (changeSelectedValue)="hanldeOnChangeUserKindSelectedValue($event)">
+                                </select-dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              
+
+                <div class="row info-row title">
+                    <span class="col label text-center">제목</span>
+                    <div class="col-auto content">
+                        <input name="title" value="" id="title-customer" [(ngModel)]="qnaRegis.title" #title="ngModel">
+                    </div>
+                </div>
+
+                <div class="row info-row editor">
+                    <span class="col label text-center">내용</span>
+                    <div class="col-auto content">
+                            <textarea name="contents" value="" id="contentsNew" [(ngModel)]="qnaRegis.contents"
+                            #contents="ngModel"></textarea>
+                        <div class="row btns">
+
+                            <a class="col-auto w-btn small-btn light-btn" routerLink="/serviceCenter/qna">목록</a>
+                            <a type="submit" class="col-auto w-btn small-btn primary-btn" (click)="onSubmit()" id="saveBtn">등록</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</section>

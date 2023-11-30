@@ -1,0 +1,3150 @@
+
+
+
+
+
+
+
+
+.member-registration .heading h2 {
+	display: inline;
+}
+.member-registration .heading span {
+	color: rgba(0, 0, 0, .5);
+}
+
+
+
+/*------ Member Management ------
+		 1. Member Registration
+---------------------------------*/
+
+
+@media all and (min-width: 992px) {
+	.member-registration .registration-steps {
+		width: 190px;
+		margin-right: 100px;
+		position: relative;
+		margin-bottom: 0;
+	}
+	.member-registration .registration-steps::after {
+		content: "";
+		position: absolute;
+		right: 30px;
+		top: 0;
+		height: 100%;
+		width: 1px;
+		z-index: 10;
+		border-left: 1px solid rgba(0,0,0,.2);
+	}
+
+
+	
+	.member-registration .registration-steps li {
+		padding: 0;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-bottom: 70px;
+		margin-top: 30px;
+	}
+	
+	#member-registration-1 .step-content {
+		padding-top: 15px;
+	}
+}
+
+
+
+.member-registration .registration-steps .step-right {
+	position: relative;
+	z-index: 100;
+}
+
+.member-registration .registration-steps .step-left span.name {
+	color: rgba(0, 0, 0, .5);
+	margin-top: 5px;
+}
+
+
+@media all and (min-width: 992px) {	
+	.member-registration .registration-steps .step-left {
+		text-align: right;
+		margin-right: 45px;
+	}
+	
+	
+	.member-registration .registration-steps .step-right {
+		width: 60px;
+	}
+	
+
+	.member-registration .registration-steps .step-right::after {
+		content: "";
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #D9D9D9;
+		margin: 30px auto 30px;
+		position: absolute;
+		top: 60px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	.member-registration .registration-steps .step-right.last::after {
+		width: 0;
+		height: 0;
+	}
+	
+	.member-registration .registration-steps li .step-items {
+		border-radius: 100px;
+		width: 60px;
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: #fff;
+	}
+	
+	.member-registration .registration-steps li .step-items svg {	
+		width: 25px;
+		height: 30px;
+	}
+
+	.member-registration .registration-steps li.current .step-items {	
+		background: #fff;
+	}
+
+}
+
+.member-registration .registration-steps .step-left span {
+	display: block;
+}
+
+@media all and (max-width: 991px) {
+	.member-registration .registration-steps {
+		width: 100%;
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 30px;
+	}
+	
+	.member-registration .registration-steps li {
+		padding: 0;
+		display: flex;
+		flex-direction: column-reverse;
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+
+
+
+	.member-registration .registration-steps .step-right {  
+		display: flex;  
+		justify-content: center;
+		margin-bottom: 5px;
+	}
+	
+
+	.member-registration .registration-steps .step-right::after {
+		content: "";
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: #D9D9D9;
+		margin: auto 30px;
+		position: absolute;
+		left: calc(50% + 80px);
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	.member-registration .registration-steps .step-right.last::after {
+		width: 0;
+		height: 0;
+	}
+	
+	.member-registration .registration-steps .step-left {
+		text-align: center;
+	}
+	
+}
+
+.member-registration .registration-steps::after {
+	content: "";
+	position: absolute;
+	z-index: 10;
+}	
+
+
+@media all and (min-width: 992px) {	
+
+	.member-registration .registration-steps::after {
+		right: 30px;
+		height: 100%;
+		width: 1px;
+		border-left: 1px solid rgba(0,0,0,.2);
+	}	
+
+}
+
+@media all and (max-width: 991px) {	
+
+	.member-registration .registration-steps::after {
+		width: 100%;
+		height: 1px;
+		border-top: 1px solid rgba(0,0,0,.2);
+	}	
+
+}
+
+
+
+.member-registration .registration-steps li .step-items {
+	border-radius: 100px;
+	border: solid #C0C0C0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #fff;
+}
+
+.member-registration .registration-steps li.current .step-items {	
+	border: solid #739E3C;
+	background: #fff;
+}
+
+
+.member-registration .registration-steps li.active .step-items {		
+	border: solid #739E3C;
+	background: #739E3C;
+}
+.member-registration .registration-steps li.active .step-items svg {
+    fill: #fff;
+}
+
+@media all and (min-width: 992px) {
+	.member-registration .registration-steps li .step-items,
+	.member-registration .registration-steps li.current .step-items,
+	.member-registration .registration-steps li.active .step-items {	
+		border-width: 2px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	.member-registration .registration-steps li .step-items {			
+		width: 40px;
+		height: 40px;
+	}
+
+	.member-registration .registration-steps::after {
+		top: 20px;
+	}
+	
+	.member-registration .registration-steps li .step-items,
+	.member-registration .registration-steps li.current .step-items,
+	.member-registration .registration-steps li.active .step-items {	
+		border-width: 1px;
+	}
+
+}
+
+
+@media all and (max-width: 575px) {
+	.member-registration .registration-steps li .step-items {			
+		width: 30px;
+		height: 30px;
+		border-width: 1px;
+	}
+
+	.member-registration .registration-steps::after {
+		top: 15px;
+	}
+	
+	.member-registration .registration-steps li .step-items,
+	.member-registration .registration-steps li.current .step-items,
+	.member-registration .registration-steps li.active .step-items {	
+		border-width: 1px;
+	}
+
+}
+
+
+
+.member-registration .registration-steps li .step-items svg {	
+	fill: #C0C0C0;
+}
+
+.member-registration .registration-steps li.current .step-items svg {	
+	fill: #739E3C;
+}
+
+
+@media all and (min-width: 992px) {
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	
+	.member-registration .registration-steps li .step-items svg {
+		width: 16.666px;
+		height: 20px;
+	}
+}
+
+@media all and (max-width: 575px) {
+	
+	.member-registration .registration-steps li .step-items svg {
+		width: 12.5px;
+		height: 15px;
+	}
+}
+
+
+/* .step-items img {
+	height: 30px;
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+/* Membertab */
+
+.pagination .total .value{
+	color: #000;
+}
+
+
+
+
+
+
+.memnberTab .pagination .per-page .dropdown-select{
+	background:transparent;
+	width: 70px;
+}
+
+.memnberTab .pagination .per-page .label{
+	padding-right: 0;
+}
+
+.memnberTab .dropdown-select .selected span {
+	padding:0;
+}
+
+
+
+
+
+
+
+
+
+
+.member-registration .step-content .inputs-wrapper {
+	align-items: center;
+}
+
+.member-registration .step-content .hyphen {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Form Content */
+
+.member-registration .step-content {
+	margin-bottom: 10px;
+}
+
+.member-registration .step-content:last-child {
+	margin-bottom: 0;
+}
+
+
+
+@media all and (max-width: 575px) {
+	.registration-form {
+		padding: 30px 20px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.registration-form {
+		padding: 40px 30px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.registration-form {
+		padding: 50px 40px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.registration-form {
+		padding: 60px 50px;
+	}
+}
+
+
+
+
+
+
+.registration-form {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+
+/*---- Form Row ----*/
+
+
+@media all and (max-width: 991px) {
+	.registration-form .form-row {
+		margin-bottom: 15px;
+	}
+}
+
+@media all and (min-width: 992px) {
+	.registration-form .form-row {
+		margin-bottom: 20px;
+	}
+}
+
+.registration-form .form-row:last-child {
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*----- Col 1 | Label ------*/
+
+@media all and (max-width: 575px) {
+	.registration-form .label {
+		margin-bottom: 0px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	.registration-form .label {
+		padding-right: 15px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.registration-form .label {
+		padding-right: 20px;		
+	}
+}
+
+
+
+
+
+/*----- Col 2 | Input ------*/
+
+.registration-form .dropdown-select .selected,
+.registration-form .dropdown-select .options {
+	background: #FFF;
+}
+
+
+.registration-form .dropdown-select .selected,
+.registration-form input {
+	box-shadow: 0px 5px 10px rgba(0,0,0,.05);
+	border: none;
+}
+
+
+.member-registration input:read-only {
+	color: rgba(43,41,55,.7);
+}
+
+
+.registration-form .dropdown-select .options {
+	padding: 10px 0;
+	border-top: none;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.05);
+}
+
+.registration-form .dropdown-select .option {
+	padding: 2.5px 15px;
+	transition: all ease-in-out .3s;
+}
+
+.registration-form .dropdown-select .option:hover {
+	color: #ac998a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Year, Month, Day & Calendar ------*/
+
+
+@media all and (max-width: 419px) {
+	.registration-form .year-select {
+		width: 34%;
+		margin-right: 2%;
+	}
+	.registration-form .month-select {
+		width: 31%;
+		margin-right: 2%;
+	}
+	.registration-form .day-select {
+		width: 31%;
+	}
+	.registration-form .calendar-select {
+		width: 100%;
+		margin-top: 10px;
+	}	
+}
+
+
+@media all and (min-width: 420px) {
+	.registration-form .year-select {
+		width: 25%;
+		margin-right: 2%;
+	}
+
+	.registration-form .month-select,
+	.registration-form .day-select {
+		width: 23%;
+		margin-right: 2%;
+	}
+
+	.registration-form .calendar-select{
+		width: 23%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Col 3 | Notice & Verify Buttons ------*/
+
+.registration-form .verify-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	width: auto;
+	max-width: 100%;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.05);
+}
+
+
+.member-registration .input .verify-btn {
+	margin-top: 0;
+	margin-left: 10px;
+}
+	
+
+@media all and (max-width: 767px) {
+	.member-registration .input .verify-btn {		
+		min-width: 80px;
+	}		
+}
+
+
+@media all and (min-width: 768px) {
+	.member-registration .input .verify-btn {
+		min-width: 100px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+	.registration-form .extra .verify-btn {
+		margin-top: 10px;
+	}
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.registration-form .extra .verify-btn {
+		margin-left: 10px;
+	}
+	
+}
+
+
+@media all and (min-width: 992px) {
+	.registration-form .extra .verify-btn {
+		margin-left: 15px;
+	}
+}
+
+
+
+
+
+
+/*------ Font & Spacing -------*/
+
+@media all and (max-width: 767px) {
+	.registration-form input {	font-size: 14px; }	
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.registration-form input {	font-size: 15px; }	
+}
+
+@media all and (min-width: 992px) {
+	.registration-form input {	font-size: 16px; }	
+}
+
+
+
+
+
+@media all and (max-width: 991px) {
+	.registration-form .verify-btn {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.registration-form .dropdown-select .selected,
+	.registration-form input {
+		padding: 10px 15px;
+	}
+
+	.registration-form .label {
+		padding: 10px 0;
+	}
+	
+}
+
+
+@media all and (min-width: 992px) {
+	.registration-form .verify-btn {
+		padding-top: 9px;
+		padding-bottom: 9px;
+	}
+
+	.registration-form .dropdown-select .selected,
+	.registration-form input {
+		padding: 10px 15px;
+	}
+
+	.registration-form .label {
+		padding: 10px 0;
+	}
+}
+
+
+
+.member-registration .step-content .notice {
+	text-align: center;
+}
+
+.member-registration .step-content .required {
+	margin-right: 10px;
+	color: #ac998a;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.member-registration .step-content .notice {
+		margin-bottom: 25px;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.member-registration .step-content .notice {
+		margin-bottom: 30px;
+	}
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.member-registration .step-content .notice {
+		margin-bottom: 35px;
+	}
+}
+
+@media all and (min-width: 992px) {	
+	.member-registration .step-content .notice {
+		margin-bottom: 40px;
+	}
+}
+
+
+
+
+
+
+.member-registration .step-content .warning {
+	font-size: 14px;
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.member-registration .row.btns a {
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-bottom: 15px;
+}
+
+
+
+
+
+
+.member-registration .heading {
+	text-align: left;
+}
+
+.member-registration .agreement-part {
+	margin-bottom: 20px;
+}
+
+
+
+
+
+/*----- Step 1 | Terms & Conditions Agreement -----*/
+
+
+.member-registration .agreement .info:not(:last-child) {
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+
+
+
+.member-registration .agreement .info.opened .info-heading {
+	border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.member-registration .agreement .info-heading {
+	display: flex;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.member-registration .agreement .info-heading {
+		padding: 12.5px 0;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.member-registration .agreement .info-heading {
+		padding: 15px 0;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.member-registration .agreement .info-heading {
+		padding: 17.5px 0;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	.member-registration .agreement .info-heading {
+		padding: 20px 0;
+	}
+}
+
+
+
+
+
+
+.member-registration .agreement .info .btn-expand {
+	cursor: pointer;
+	transform: rotate(180deg);
+	transition: all ease-in-out .3s;
+	transform-origin: center;
+}
+
+.member-registration .agreement .info .btn-expand.expanded {
+	transform: rotate(0deg);
+}
+
+
+#member-registration-1 .step-content .info .info-content {
+	max-height: 320px;
+	overflow-x: hidden;	
+	padding-right: 40px;
+	display: none;
+}
+
+
+
+
+
+#member-registration-1 .step-content .info .info-content.opened {
+	display: block;
+}
+
+
+
+
+
+
+
+#member-registration-1 .step-content .info .info-content p:last-child, 
+#member-registration-1 .step-content .info .info-content ul:last-child,
+#member-registration-1 .step-content .info .info-content ol:last-child {
+	margin-bottom: 0;
+}
+
+#member-registration-1 .step-content .info .info-content ul,
+#member-registration-1 .step-content .info .info-content ol {
+	padding-left: 1em;
+}
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#member-registration-1 .step-content .info .info-content {
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+	
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-registration-1 .step-content .info .info-content {
+		margin-top: 22.5px;
+		margin-bottom: 22.5px;
+	}
+	
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#member-registration-1 .step-content .info .info-content {
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+	
+}
+
+
+
+
+@media all and (min-width: 992px) {
+	#member-registration-1 .step-content .info .info-content {
+		margin-top: 30px;
+		margin-bottom: 30px;		
+	}	
+}
+
+
+
+#member-registration-1 .step-content .info:last-child {
+	margin-bottom: 0;
+}
+
+
+#member-registration-1 .step-content .info ::-webkit-scrollbar {
+	width: 10px;
+	background: #F2F2F2;
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----- Step 2 | Identify Verification -----*/
+
+#member-registration-2 .section-content .container {
+	padding-bottom: 0;
+}
+
+
+#member-registration-2 .step-content {
+	background: #F1F5FB;
+}
+
+#member-registration-2 .registration-form {
+	max-width: 720px;
+}
+
+#member-registration-2 .registration-form .name input, 
+#member-registration-2 .registration-form .birthdate input {
+	width: 100%;
+}
+
+
+
+
+
+@media all and (max-width: 639px) {
+	#member-registration-2 .step-content .label, 
+	#member-registration-2 .step-content .input,
+	#member-registration-2 .step-content .extra {
+		width: 100%;
+		max-width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+	}		
+}
+
+
+
+@media all and (min-width: 640px) {
+	#member-registration-2 .step-content .label, 
+	#member-registration-2 .step-content .extra {
+		width: calc(50% - 150px);
+	}
+	#member-registration-2 .step-content .input {
+		width: 300px;
+	}
+	#member-registration-2 .registration-form .verify-btn {
+		margin-top: 0;
+		margin-left: 10px;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Step 3 | Member Information ------*/
+
+
+#member-registration-3 .step-content {
+	background: #F1F5FB;
+}
+
+#member-registration-3 .registration-form {
+	max-width: 840px;
+}
+
+
+#member-registration-3 .step-content h2 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+
+
+#member-registration-3 .profile .sign-up input,
+#member-registration-3 .profile .member-name input, 
+#member-registration-3 .profile .country-name input, 
+#member-registration-3 .profile .password input {
+	width: 100%;
+}
+
+#member-registration-3 .profile .gender .dropdown-select {
+	width: 100%;
+}
+
+#member-registration-3 .profile .password .col:first-child {
+	width: calc(50% - 5px);
+	margin-right: 10px;
+}
+
+#member-registration-3 .profile .password .col:last-child {
+	width: calc(50% - 5px);
+}
+
+
+
+
+
+#member-registration-3 .profile .address 
+.inputs-wrapper:first-child {
+	margin-bottom: 10px;
+}
+
+#member-registration-3 .profile .address 
+.inputs-wrapper:last-child .col:first-child {
+	width: calc(50% - 5px);
+	margin-right: 10px;
+}
+
+#member-registration-3 .profile .address 
+.inputs-wrapper:last-child .col:last-child {
+	width: calc(50% - 5px);
+}
+
+
+
+
+
+@media all and (max-width: 767px) {
+	#member-registration-3 .step-content .label, 
+	#member-registration-3 .step-content .input,
+	#member-registration-3 .step-content .extra {
+		width: 100%;
+		max-width: 430px;
+		margin-left: auto;
+		margin-right: auto;
+	}		
+}
+
+
+
+@media all and (min-width: 768px) {
+	#member-registration-3 .step-content .label, 
+	#member-registration-3 .step-content .extra {
+		width: calc(50% - 215px);
+	}
+	#member-registration-3 .step-content .input {
+		width: 430px;
+	}
+}
+
+
+
+#member-registration-3 .bank-account input {
+	width: 100%;
+}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+/*------ Step 4 | Completion ------*/
+
+#member-registration-4 .section-content .container {
+	padding-bottom: 0;
+}
+
+#member-registration-4 .step-content {
+	background: #F1F5FB;
+}
+
+#member-registration-4 .registration-form h2 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+
+
+@media all and (max-width: 575px) {
+	#member-registration-4 .registration-form h2 {
+		margin-bottom: 25px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-registration-4 .registration-form h2 {
+		margin-bottom: 30px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#member-registration-4 .registration-form h2 {
+		margin-bottom: 35px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#member-registration-4 .registration-form h2 {
+		margin-bottom: 40px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#member-registration-4 .registration-form .row.btns a {
+	min-width: 120px;
+}
+
+
+
+#member-registration-4 .registration-form .recommender-info span {
+	font-weight: 500;
+}
+
+#member-registration-4 .registration-form .recommender-name span {
+	color: #00A3FF;
+}
+
+#member-registration-4 .registration-form .recommender-id span {
+	color: #ac998a;
+}
+
+
+@media all and (max-width: 576px) {
+	#member-registration-4 .registration-form .recommender-info {
+		text-align: center;
+	}
+}
+
+
+@media all and (min-width: 576px) {
+	#member-registration-4 .registration-form .recommender-name {
+		text-align: right;
+		padding-right: 10px;
+	}
+	#member-registration-4 .registration-form .recommender-id {
+		text-align: left;
+		padding-left: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Member Management ------
+		 2. Member Information Inquiry
+---------------------------------*/
+
+
+
+
+#member-information-inquiry .section-content .container.results {
+	padding-bottom: 0;
+
+}
+
+#member-information-inquiry .hr-table, 
+#member-information-inquiry .vt-table {
+	text-align: center;
+	border-top: 1px solid rgb(31 29 41 / 9%);
+	box-shadow: none;
+}
+
+
+
+/*------ Searching Form --------*/
+
+
+
+
+
+
+#member-information-inquiry .searching-result .searching-form .standard-member-name input{
+	border: none;
+}
+
+#member-information-inquiry .standard-member-name .inputs-wrapper {
+	border: 1px solid rgba(0,0,0,.1); 
+    border-radius: 5px;
+}
+
+
+
+/* #member-information-inquiry .searching-form .name-browsing-btn {
+	background: #739E3C;
+	box-shadow: 0px 5px 10px rgba(176, 131, 116, 0.2);
+	border-radius: 5px;
+	padding: 12px 17px;
+} */
+
+
+
+
+.memCheck .radios-group{
+	display: flex;
+    align-items: center;
+	padding-right: 25px;
+}
+.memCheck .radios-group:last-child{
+	padding-right:10px;
+}
+
+.radios-group input{
+	width: 18px;
+    height: 18px;
+	margin-right:5px ;
+}
+
+.searching-form .memCheck .submit-btn{
+	background: #739E3C;
+    box-shadow: 0px 5px 10px rgb(176 131 116 / 20%);
+    border-radius: 5px;
+    padding: 12px 17px;
+}
+
+
+
+
+
+.btns-wrapper .top-line-btn {
+	margin-right: 10px;
+}
+
+
+
+
+#member-information-inquiry .searching-result .searching-form 
+.standard-member-name {
+	border: none;
+	padding-left: 0;
+	margin-right: 10px;
+}
+
+
+
+
+#member-information-inquiry .searching-result .searching-form 
+.standard-member-name .label:after {
+	width: 0;
+	height: 0;
+}
+
+
+#member-information-inquiry .searching-result .searching-form 
+.standard-member-name .label:after {
+	width: 0;
+	height: 0;
+}
+
+@media all and (max-width: 575px) {
+	#member-information-inquiry .searching-result .searching-form 
+	.standard-member-name .label {
+		margin-right: 10px;
+			}
+	
+}
+@media all and (max-width: 991px){
+	#member-information-inquiry .searching-result .searching-form .standard-member-name{
+		background: none;
+		box-shadow: none;
+	}
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#member-information-inquiry .searching-result .searching-form .submit-btn {
+		min-width: 80px;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-information-inquiry .searching-result .searching-form .submit-btn {
+		min-width: 100px;
+	}
+	
+}
+
+
+
+
+
+
+
+
+/*------ Overall ------*/
+
+
+@media all and (max-width: 575px) {
+	#member-information-inquiry .overall .column:first-child {
+		margin-bottom: 40px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#member-information-inquiry .profile {
+		margin-right: 30px;		
+	}
+	
+	#member-information-inquiry .office-block {
+		margin-bottom: 30px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------ Recommended Genealogy --------*/
+
+
+@media all and (max-width: 575px) {
+	#member-information-inquiry .profile td:first-child {
+		width: 45%;
+		background: #f5f5f5;
+	}
+
+	#member-information-inquiry .searching-form input {
+		padding: 9px 12.5px;
+	}
+	.memInfor .searching-form .name-browsing-btn {
+		right: 27px;
+	}
+	#member-information-inquiry .result-block h2{
+		float: left;
+	}
+
+	#member-information-inquiry .profile .confirm-btn{
+		float: right;
+		
+	}
+
+	.result-block.recommended-genealogy h2{
+		margin-bottom: 0;
+	}
+	#member-information-inquiry .section-content .container.results{
+		padding-top: 20px;
+	}
+	.memnberTab{
+		box-shadow: none;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-information-inquiry .profile td:first-child {
+		width: 40%;
+	}
+	
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#member-information-inquiry .profile td:first-child {
+		width: 40%;
+	}
+	.memInfor .searching-form .name-browsing-btn{
+		right: 0px;
+	}
+}
+
+
+
+@media all and (max-width: 991px) {
+	#member-information-inquiry .recommended-genealogy-list, 
+	#member-information-inquiry .recommended-genealogy-list table {
+		margin-bottom: 0;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#member-information-inquiry .profile td:first-child {
+		width: 35%;
+	}
+}
+
+
+
+#member-information-inquiry .profile td:first-child {
+	background:#F6F9FE;
+	border-right: 1px solid rgba(0,0,0,.07);
+}
+
+
+
+
+
+
+
+@media all and (max-width: 991px) {
+	#line-lineage .searching-form .sub-order-division{
+		border: none;
+	}
+}
+
+
+
+@media all and (min-width: 992px) and (max-width: 1199px){
+	#line-lineage .searching-result .searching-form .criteria-classification {
+		margin-right: 15px;
+	}
+	
+	#line-lineage .searching-result .searching-form .radios-group .radio:not(:last-child) {
+		margin-right: 5px;
+	}
+	
+	#line-lineage .searching-result .submit-btn, 
+	#line-lineage .searching-result .top-line-btn {
+			min-width: 100px;
+	}	
+}
+
+
+@media all and (min-width: 1200px){
+	#line-lineage .searching-result .searching-form .criteria-classification {
+		margin-right: 30px;
+	}
+	
+	#line-lineage .searching-result .submit-btn, 
+	#line-lineage .searching-result .top-line-btn {
+			min-width: 130px;
+	}	
+}
+
+
+
+
+
+/*------ Promotion Date --------*/
+
+
+/*------ Affiliated Members --------*/
+
+
+/*------ Monthly Chart --------*/
+
+
+#member-information-inquiry .monthly-performance .hr-chart ul li {
+	display: block;	
+	width: calc(100%/12);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Member Management ------
+		 3. Member Search
+---------------------------------*/
+
+
+#member-search .searching-result .hr-table {
+	text-align: center;
+}
+
+#member-search .section-content .container.results {
+	padding-bottom: 40px;
+
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .rank,
+	#member-search .searching-result .standard-member-name {
+		margin-bottom: 10px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .rank,
+	#member-search .searching-result .standard-member-name {
+		margin-bottom: 12.5px;
+	}
+}
+
+
+@media all and (min-width: 768px)  {
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .rank {
+		/*margin-bottom: 15px;*/
+	}
+}
+
+
+
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .rank {
+		margin-bottom: 15px;
+	}
+	
+	
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .rank,
+	#member-search .searching-result .standard-member-name, 
+	#member-search .searching-result .member-name {
+		width: calc(50% - 5px);
+	}
+	
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .standard-member-name {
+		margin-right: 10px;
+	}
+
+	.searching-form .form-row:last-child{
+		justify-content: space-between;
+	}
+
+	.searching-form .submit-btn{
+		min-width: 130px;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .rank,
+	#member-search .searching-result .standard-member-name {
+		margin-right: 20px;
+	}
+	
+	
+	
+	#member-search .searching-result .rank .dropdown-select {
+		min-width: 120px;
+	}	
+	
+	#member-search .searching-result .standard-member-name input {
+		width: 120px;
+	}	
+}
+
+
+@media all and (min-width: 1200px) {
+	#member-search .searching-result .inquiry-classification, 
+	#member-search .searching-result .rank,
+	#member-search .searching-result .standard-member-name {
+		margin-right: 25px;
+	}
+	
+	
+	#member-search .searching-result .rank,
+	#member-search .searching-result .standard-member-name {
+		width: calc(25% - 22.5px);
+	}
+}
+
+
+
+
+
+
+@media all and (min-width: 992px)  {
+	#member-search .searching-result 
+	.searching-form .submit-btn {
+		min-width: 150px;
+	}
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#member-search .searching-result .searching-form .criteria-classification {
+		margin-bottom: 15px;
+	}
+	
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-search .searching-result .searching-form .criteria-classification {
+		margin-bottom: 12.5px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#member-search .searching-result .searching-form .criteria-classification {
+		margin-bottom: 15px;
+	}
+	#member-search .searching-result .searching-form .criteria-classification .label {
+		margin-right: 15px;
+	}
+}
+
+
+
+
+@media all and (max-width: 991px) {	
+	#member-search .searching-result .searching-form .row_2 {	
+		margin-bottom: 20px;
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+	#member-search .searching-result .searching-form .label {
+		width: 75px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 767px) {
+	#member-search .searching-result .searching-form .submit-btn.advanced {
+		width: 100%;
+	}
+
+
+	
+	
+	#member-search .searching-result .searching-form .standard-member-name, 
+	#member-search .searching-result .searching-form .inquiry-classification {
+		padding-right: 0;
+	}
+	
+
+
+
+	#box-lineage .searching-result .standard-member-name, 
+	#box-lineage .searching-result .display-stage, #box-lineage .searching-result .rank{
+		width: 100%;
+	}
+	.date-time .borDashed{
+		border-right: none;
+	}
+	.searching-form .memCheck{
+		width: 100%;
+	}
+
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+}
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Member Management ------
+		 4. Member Inquiry By Position
+---------------------------------*/
+
+
+#member-inquiry-by-position .searching-result .results .member-list .hr-table {
+	position: relative;
+}
+
+
+@media (max-width: 767px){
+	#member-inquiry-by-position .searching-result .searching-form .label {
+		width: 75px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#member-inquiry-by-position .searching-result .inquiry-classification, 
+	#member-inquiry-by-position .searching-result .standard-member-name {
+		margin-bottom: 15px;
+	}
+	
+	
+	#member-inquiry-by-position .searching-result .inquiry-classification, 
+	#member-inquiry-by-position .searching-result .rank,
+	#member-inquiry-by-position .searching-result .standard-member-name, 
+	#member-inquiry-by-position .searching-result .member-name {
+		width: calc(50% - 5px);
+	}
+	
+ 
+	#member-inquiry-by-position .searching-result .standard-member-name {
+		margin-right: 10px;
+	}
+
+	#member-inquiry-by-position .searching-form .submit-btn-wrapper{
+		width:100% ;
+	}
+	
+}
+
+
+
+
+
+
+
+
+.result-block h2{
+	margin-bottom: 20px;
+}
+
+
+
+#member-inquiry-by-position .inquiry-classification .dropdown-select {
+	min-width: 140px;
+}
+
+
+
+@media all and (max-width: 575px) {
+		
+	#member-inquiry-by-position .searching-result .standard-member-name {
+		margin-bottom: 10px;
+	}
+	.searching-form .form-row, .searching-result .searching-form .container{
+		box-shadow: none;
+	}
+	.searching-form .display-stage .info .value{
+		padding: 0 5px;
+	}
+	.searching-form .display-stage .up-btn, .searching-result .btns-wrapper .submit-btn{
+		margin-right: 0;
+	}
+
+
+	#member-inquiry-by-position .searching-result .searching-form .criteria-classification {
+		margin-bottom: 10px;
+	}
+
+	#member-inquiry-by-position .searching-form .form-row .info:not(.info-radio, .date-selects, .non-background, .desktop-time-btns){
+		margin-bottom: 12.5px;
+	}
+	
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-inquiry-by-position .searching-result .inquiry-classification, 
+	#member-inquiry-by-position .searching-result .standard-member-name {
+		margin-bottom: 15px;
+	}
+	#member-inquiry-by-position .searching-result .searching-form .criteria-classification {
+		margin-bottom: 12.5px;
+	}
+
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+
+@media all and (min-width: 992px) {
+	#member-inquiry-by-position .searching-result .standard-member-name, 
+	#member-inquiry-by-position .searching-result .inquiry-classification {
+		padding-right: 20px;
+	}
+	.memnberTab .result-block{
+		margin-bottom: 0;
+	}
+	
+	.memnberTab .pagination{
+		margin-top: 30px;
+		justify-content: space-between;
+	}
+	.searching-result .content-row{
+		margin-bottom: 30px;
+	}
+	
+	.memInfor .searching-form .container .form-row {
+
+	
+	}
+	.section-content .container.results {		
+		padding-bottom: 40px;
+	}
+}
+
+
+
+
+
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	#member-inquiry-by-position .searching-result .inquiry-classification, 
+	#member-inquiry-by-position .searching-result .standard-member-name {
+		margin-bottom: 12.5px;
+	}
+	#member-inquiry-by-position .searching-result .searching-form .criteria-classification {
+		margin-bottom: 12.5px;
+	}
+	.memSearch .searching-form .mobile-time-btns a{
+		padding: 0px 20px;
+	}
+	#member-information-inquiry .resultsTab .column{
+		width: 100%;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#member-inquiry-by-position .searching-result .searching-form .submit-btn {
+		min-width: 120px;
+	}
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#member-inquiry-by-position .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-bottom: 5px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	#member-inquiry-by-position .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-right: 20px;
+	}
+}
+
+
+@media all and (min-width: 992px) {
+	#member-inquiry-by-position .searching-result .searching-form 
+	.form-row:nth-child(2) .label {
+		margin-right: 10px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#member-inquiry-by-position .general-list table, 
+#member-inquiry-by-position .member-list table {
+	text-align: center;
+}
+
+#member-inquiry-by-position .section-content .container.results {
+	padding-bottom: 0;
+}
+
+
+@media all and (min-width: 992px) {
+	#member-inquiry-by-position .overall .column:first-child {
+		width: 32%;
+		margin-right: 30px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#member-inquiry-by-position .searching-result .searching-form .search-info {
+		margin-bottom: 15px;
+	}
+	#member-inquiry-by-position .searching-result .searching-form .search-info:last-child {
+		margin-bottom: 0;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(1),
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(2), 
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(3),
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(4) {
+		margin-bottom: 15px;
+	}
+	
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(1), 
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(3) {
+		padding-right: 15px;
+	}	
+}
+
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(1),
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(2) {
+		margin-bottom: 15px;
+	}
+	
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(1), 
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(3),
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(4) {
+		padding-right: 15px;
+	}	
+}
+
+@media all and (min-width: 992px) {
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(1),
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(2) {
+		margin-bottom: 20px;
+	}
+	
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(1), 
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(3),
+	#member-inquiry-by-position .searching-result .searching-form .search-info:nth-child(4) {
+		padding-right: 20px;
+	}	
+}
+
+
+
+
+
+
+
+
+
+/*------ Member Management ------
+		 5. Line Lineage
+---------------------------------*/
+
+
+/* #line-lineage .section-content .container.results {
+	padding-bottom: 0;
+}	 */
+@media all and (max-width: 767px){
+	
+	#line-lineage .searching-result .criteria-classification{
+		margin-bottom: 0;
+	}
+	
+}
+
+
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#line-lineage .searching-result .inquiry-classification, 
+	#line-lineage .searching-result .standard-member-name {
+		margin-bottom: 15px;
+	}
+	
+	
+	/* #line-lineage .searching-result .rank, */
+	#line-lineage .searching-result .standard-member-name, 
+	#line-lineage .searching-result .display-stage {
+		width: calc(50% - 5px);
+	}
+	
+	#line-lineage .searching-result .inquiry-classification, 
+	#line-lineage .searching-result .standard-member-name {
+		margin-right: 10px;
+	}
+	
+	#line-lineage .searching-result .searching-form .label {
+    	width: 85px;
+}
+
+}
+
+
+
+@media all and (min-width: 992px){
+
+	
+}
+
+
+
+
+#line-lineage .section-content .hr-table {
+	text-align: center;
+}	
+
+
+#line-lineage .section-content .hr-table th:nth-child(2) {
+	text-align: left;
+}	
+
+#line-lineage .section-content .hr-table th:nth-child(8), 
+#line-lineage .section-content .hr-table th:nth-child(9) {
+	text-align: right;
+}	
+
+/* #line-lineage .section-content .hr-table td, 
+#line-lineage .section-content .hr-mobile-table td {
+	padding: 10px;
+}	
+
+
+ */
+
+
+
+
+
+@media all and (max-width: 575px) {
+	
+	#line-lineage .searching-result .display-stage {
+		margin-right: 10px;
+	}
+	
+	
+	#line-lineage .searching-result .standard-member-name,
+	#line-lineage .searching-result .display-stage,
+	#line-lineage .searching-result .rank {
+		margin-bottom: 10px;
+	}
+
+	
+	
+	#line-lineage .searching-result .criteria-classification, 
+	#line-lineage .searching-result .sub-order-division	{
+		padding-left: 0;
+		margin-bottom: 15px;
+	}
+	
+	#line-lineage .searching-result .criteria-classification {
+		margin-right: 10px;
+		width: 100%;
+	}
+	#line-lineage .searching-result .criteria-classification{
+		margin-bottom: 12.5px;
+	}
+
+
+	#line-lineage .searching-result .searching-form .label {
+		width: 80px;
+	}
+}
+
+@media all and (min-width: 576px) and (max-width: 767px){
+	
+	#line-lineage .searching-result .searching-form .label{
+		width: 85px;
+	}
+	#line-lineage .searching-result .sub-order-division {
+		margin-top: 0;
+	}
+
+}
+@media all and (max-width: 991px) {
+	#line-lineage .searching-result .display-stage .info{
+			border: none;
+		}
+}
+@media all and (min-width: 576px) and (max-width: 991px) {
+	
+	#line-lineage .searching-result .standard-member-name,
+	#line-lineage .searching-result .display-stage {
+		margin-bottom: 15px;
+	}
+	
+	#line-lineage .searching-result .btns-wrapper .submit-btn,
+	#line-lineage .searching-result .btns-wrapper .top-line-btn {
+		width: calc(50% - 10px);
+	}
+
+	#line-lineage .searching-result .criteria-classification, 
+	#line-lineage .searching-result .sub-order-division {
+		margin-bottom: 12.5px;
+	}	
+	
+	
+	#line-lineage .searching-result .btns-wrapper {
+		margin-left: auto;
+		margin-right: 0;
+		width: 100%;
+	}	
+	
+	
+	#line-lineage .searching-result .sub-order-division{
+		padding-left: 0;
+		
+	}
+	.searching-form .form-row{
+		padding: 0;
+	}
+
+	
+
+
+}
+@media all and (min-width: 768px) and (max-width: 991px){
+	/* #line-lineage .searching-result .btns-wrapper {
+		
+		margin-top:10px;
+	} */
+	#line-lineage .searching-form .time-btns{
+		width: 100%;
+		
+	}
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px){
+	
+	.searching-form .sub-order-division {
+		padding-left:0;
+	}
+}
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	
+
+	#line-lineage .searching-result .display-stage, 
+	#line-lineage .searching-result .standard-member-name {
+		margin-right: 0;
+		padding-right: 20px;
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	#line-lineage .searching-result .criteria-classification .radios-group li,
+	#line-lineage .searching-result .sub-order-division .radios-group li {
+		display: flex;
+		align-items: center;
+	}
+	
+}
+
+
+
+
+
+
+
+@media all and (max-width: 576px) {
+	#line-lineage .searching-result .submit-btn, 
+	#line-lineage .searching-result .top-line-btn {
+		min-width: auto;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Member Management ------
+		 6. Box Lineage
+---------------------------------*/
+
+
+
+
+
+
+
+#box-lineage .section-content .container.results {
+	background: #fff url(../../img/my-office/map.png) no-repeat center;
+	padding: 30px;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+	border-radius: 25px;
+	margin-top: 30px;
+}	
+
+
+
+
+
+
+#box-lineage .searching-result 
+.criteria-classification .radios-group li:not(:last-child) {
+	margin-right: 20px;
+	
+}
+
+.table-container .col_data{
+	background: transparent;
+}
+
+@media all and (max-width: 575px) {
+	#box-lineage .searching-result .display-stage,
+	#box-lineage .searching-result .rank	{
+		/* width: calc(50% - 5px); */
+	}
+	#box-lineage .searching-result .display-stage {
+		margin-right: 10px;
+	}
+	
+	
+	#box-lineage .searching-result .standard-member-name,
+	#box-lineage .searching-result .display-stage,
+	#box-lineage .searching-result .rank {
+		margin-bottom: 10px;
+	}
+
+	
+	
+	#box-lineage .searching-result .criteria-classification {
+		margin-bottom: 15px;
+	}
+
+	#box-lineage .section-content .container.results{
+		height: auto;
+	}
+	.searching-form .form-row .info:last-child{
+		border: none;
+	}
+	
+	
+}
+
+@media all and (max-width: 767px){
+	#box-lineage .searching-result .searching-form .label{
+		width: 75px;
+	}
+	#box-lineage .searching-form .form-row .info-radio{
+			margin-bottom: 12.5px;
+	}
+
+	#box-lineage .searching-result .standard-member-name, 
+	#box-lineage .searching-result .display-stage,
+	#box-lineage .searching-result .rank{
+		margin-bottom: 12.5px;
+	}
+
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px){
+	#box-lineage .searching-result .btns-wrapper .submit-btn, 
+	#box-lineage .searching-result .btns-wrapper .top-line-btn{
+		width: calc(50% - 10px);
+	}
+	#box-lineage .searching-form .form-row .info-radio{
+		width: 100%;
+	
+	}
+	
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	
+	#box-lineage .searching-result .standard-member-name,
+	#box-lineage .searching-result .display-stage,
+	#box-lineage .searching-result .rank	{
+		margin-bottom: 15px;
+	}
+	
+	#box-lineage .searching-result .criteria-classification {
+		margin-right: 15px;
+	}	
+	
+	
+	#box-lineage .searching-result .btns-wrapper {
+		margin-left: auto;
+		margin-right: 0;
+	}	
+	
+	.searching-form .form-row .info:last-child{
+		border: none;
+	}
+	
+
+}
+@media all and (min-width: 768px) and (max-width: 991px){
+	#box-lineage .searching-form .time-btns{
+		margin-top: 10px;
+	}
+
+	#box-lineage .searching-result .standard-member-name,
+	#box-lineage .searching-result .display-stage{
+		width: calc(50% - 5px);
+	}
+	#box-lineage .searching-result .standard-member-name{
+		margin-right: 10px;
+	}
+	
+	
+}
+
+
+
+
+
+@media all and (max-width: 991px) {
+	#box-lineage .searching-result .inquiry-classification {
+		margin-bottom: 15px;
+	}
+	#box-lineage .searching-result .inquiry-classification .label {
+		margin-right: 20px;
+	}
+}
+
+
+
+
+
+
+@media all and (min-width: 992px) {
+	#box-lineage .searching-result .standard-member-name {
+		padding-right: 20px;
+	}
+
+	#box-lineage .searching-result .display-stage, 
+	#box-lineage .searching-result .rank {
+		margin-right: 20px;
+	}
+	
+	#box-lineage .searching-result .display-stage, 
+	#box-lineage .searching-result .rank, 
+	#box-lineage .searching-result .criteria-classification {
+		margin-right: 20px;
+	}
+	
+	#box-lineage .table-container{
+		padding:30px 0;
+	}
+	
+	
+	#box-lineage .searching-result .display-stage, 
+	#box-lineage .searching-result .rank {
+		margin-right: 20px;
+	}
+	
+	#box-lineage .searching-result .submit-btn, 
+	#box-lineage .searching-result .top-line-btn {
+		min-width: 100px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------- Box Graph --------*/
+
+#box-lineage .box-graph .node  {
+	position: relative;
+}
+
+
+#box-lineage .box-graph .node .content {
+	align-items: center;
+	justify-content: center;
+	min-height: 120px;
+	position: relative;
+}
+
+#box-lineage .dashed {
+	background-size: 5px 1px, 1px 5px;
+}
+
+#box-lineage .box-graph .spacing {
+	width: 10%;
+}
+
+
+#box-lineage .row.main {
+	justify-content: center;	
+}
+
+#box-lineage .row.main .node {
+	min-width: 240px;
+}
+
+
+#box-lineage .node ul li {
+	display: block;
+	text-align: center;
+}
+
+
+#box-lineage .node ul {
+	padding: 15px 0;
+	margin-bottom: 5px;
+}
+
+#box-lineage .node .name {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#box-lineage .under .node .name {
+	padding: 10px 0;
+}
+
+#box-lineage .main .node .name {
+	padding: 12.5px 0;
+}
+
+
+#box-lineage .node .content {
+	border-radius: 10px;
+	box-shadow: 0px 5px 10px rgba(0,0,0,.1);	
+}
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {	
+	
+	#box-lineage .row.main {
+		padding-bottom: 40px;
+		position: relative;
+	}	
+	
+	#box-lineage .row.main:after {
+		content: "";
+		position: absolute;
+		bottom: 0; left: 50%; 
+		transform: translateX(-50%);
+		width: 1px;	
+		height: 40px;
+		background: linear-gradient(#000 50%, rgba(255, 255, 255, 0) 0%);
+		background-position: top, right;
+		background-size: 1px 5px;
+	}
+	
+	
+	
+	#box-lineage .row.under .node {
+		width: 50%;		
+		margin-bottom: 30px;
+	}
+	#box-lineage .row.under .node:nth-child(1), 
+	#box-lineage .row.under .node:nth-child(3) {
+		padding-right: 10%;	
+	}
+	
+	#box-lineage .row.under .node:nth-child(2), 
+	#box-lineage .row.under .node:nth-child(4) {
+		padding-left: 10%;	
+	}
+	
+	
+	
+	
+	/*------ Left Node Dashed Line -------*/
+	
+	#box-lineage .row.under .node:nth-child(1) .dashed, 
+	#box-lineage .row.under .node:nth-child(3) .dashed {
+		top: 50%; right: 0; 
+		transform: translateY(-50%);
+		width: 20%;	
+		height: 1px;
+	}
+	
+	
+	
+	/*------ Right Node Dashed Line -------*/
+	
+	#box-lineage .row.under .node:nth-child(2) .dashed, 
+	#box-lineage .row.under .node:nth-child(4) .dashed {
+		top: 50%; left: 0; 
+		transform: translateY(-50%);
+		width: 20%;	
+		height: 1px;
+	}
+	
+	
+	
+	
+	
+	/*------ Circle --------*/
+	
+	#box-lineage .row.under .node:nth-child(1) .dashed:after, 
+	#box-lineage .row.under .node:nth-child(3) .dashed:after {
+		content: "";
+		position: absolute;
+		right: -4px;
+		top: 50%; transform: translateY(-50%);
+		width: 9px; height: 9px;
+		background: #000;
+		border-radius: 10px;
+	}
+	
+	
+	
+	/*------ Node Triangle Point | Left --------*/
+	
+	#box-lineage .row.under .node:nth-child(1) .content:before, 
+	#box-lineage .row.under .node:nth-child(3) .content:before {
+		content: "";
+		position: absolute;
+		right: -4px;
+		top: 50%; transform: translateY(-50%);
+		width: 0; 
+		height: 0; 
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		border-left: 4px solid #000;
+	}
+	
+	
+	/*------ Node Triangle Point | Right --------*/
+	
+	#box-lineage .row.under .node:nth-child(2) .content:before, 
+	#box-lineage .row.under .node:nth-child(4) .content:before {
+		content: "";
+		position: absolute;
+		left: -4px;
+		top: 50%; transform: translateY(-50%);
+		width: 0; 
+		height: 0; 
+		border-top: 4px solid transparent;
+		border-bottom: 4px solid transparent;
+		border-right: 4px solid #000;
+	}
+	
+	
+	
+	/*-------- Middle Line ---------*/
+	
+	#box-lineage .row.under .node:nth-child(1):after, 
+	#box-lineage .row.under .node:nth-child(3):after {
+		content: "";
+		position: absolute;
+		width: 1px;
+		height: calc(100% + 30px);
+		top: -30px;
+		right: 0;
+		background: #000;
+		background: linear-gradient(#000 50%, rgba(255, 255, 255, 0) 0%);
+		background-position: top, right;
+		background-size: 2px 5px;
+	}
+	
+	
+	#box-lineage .box-graph .row.under:last-child 
+	.node:last-child:not(:nth-child(2n)):after	{
+		height: calc(50% + 30px) !important;
+	}
+	
+	#box-lineage .box-graph .row.under:last-child 
+	.node:nth-last-child(2):not(:nth-child(2n)):after	{
+		height: calc(50% + 30px) !important;
+	}	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 576px) {
+	#box-lineage .row.under .node {
+		width: 20%;		
+	}
+	#box-lineage .row.under .node:nth-child(1), 
+	#box-lineage .row.under .node:nth-child(3) {
+		margin-right: 5%;	
+	}
+	
+	#box-lineage .row.under .node:nth-child(2) {
+		margin-right: 10%;	
+	}
+	
+	#box-lineage .row.under .node:nth-child(2) {
+		margin-right: 10%;	
+	}
+	
+	
+	
+	#box-lineage .row.under {
+		padding: 50px 0;
+		position: relative;
+	}
+	
+	#box-lineage .row.main {
+		padding-bottom: 50px;
+		position: relative;
+	}
+	
+	
+	#box-lineage .row.main:after {
+		content: "";
+		position: absolute;
+		bottom: 0; left: 50%; 
+		transform: translateX(-50%);
+		width: 1px;	
+		height: 50px;
+		background: linear-gradient(#000 50%, rgba(255, 255, 255, 0) 0%);
+		background-position: top, right;
+		background-size: 1px 5px;
+	}
+	
+	
+	
+	
+	
+	
+	
+	/*------ Horizontal Line ------*/
+	#box-lineage .row.under:before {
+		content: "";
+		position: absolute;
+		top: 0; left: 50%; 
+		transform: translateX(-50%);
+		width: 80%;	
+		height: 1px;
+		background: linear-gradient(to right, #000 50%, rgba(255, 255, 255, 0) 0%);
+		background-position: top, right;
+		background-size: 5px 1px;
+	}
+
+	
+	
+	
+	/*------ Vertical Line ------*/
+	
+	#box-lineage .row.under:not(:last-child):after {
+		content: "";
+		position: absolute;
+		top: 0; left: 50%; 
+		transform: translateX(-50%);
+		width: 1px;	
+		height: 100%;
+		background: linear-gradient(#000 50%, rgba(255, 255, 255, 0) 0%);
+		background-position: top, right;
+		background-size: 1px 5px;
+	}
+	
+	
+	
+	
+	
+	/*------ Circle ------*/
+
+	#box-lineage .row.under .nodes-wrapper:before {
+		content: "";
+		position: absolute;
+		top: -4px; left: 50%; 
+		transform: translateX(-50%);
+		width: 8px;	height: 8px;
+		border-radius: 10px;
+		background: #000;
+	}
+
+	
+	
+	
+	/*------ Node Top Triangle Point ------*/
+	
+	#box-lineage .row.under .node .content:before {
+		content: "";
+		position: absolute;
+		top: -4px;
+		left: 50%; 
+		transform: translateX(-50%);
+		width: 0; 
+		height: 0; 
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-bottom: 4px solid #000;
+	}
+	
+	
+	/*------ Node Top Line ------*/
+	
+	#box-lineage .row.under .node .dashed {
+		content: "";
+		position: absolute;
+		width: 1px;
+		height: 50px; 
+		top: -50px; 
+		left: 50%; 
+		transform: translateX(-50%);		
+		background: #000;
+		background: linear-gradient(#000 50%, rgba(255, 255, 255, 0) 0%);
+		background-position: top, right;
+		background-size: 2px 5px;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+		
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+
+@media all and (min-width: 992px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*------ Member Management ------
+		 7. Affiliate Member Analysis
+---------------------------------*/
+
+@media all and (min-width: 992px) {	
+	#affiliate-member-analysis .section-content .container {
+		padding: 0;
+	}
+}
+
+
+
+
+#affiliate-member-analysis .position-chart .hr-chart ul li {
+	display: block;	
+	width: calc(100%/9);
+}
+
+
+
+#affiliate-member-analysis .section-content table {
+	text-align: center;
+	font-size: 14px;
+}
+#affiliate-member-analysis .memnberTab{
+	/* margin-bottom: 30px; */
+}
+
+.section-content .position-chart{
+	margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+#affiliate-member-analysis .combination-table .table-wrapper {
+	min-width: 640px;
+}
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	#affiliate-member-analysis .section-content .result-block {
+		margin-bottom: 40px;
+	}
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#affiliate-member-analysis .section-content .result-block {
+		margin-bottom: 0px;
+		margin-top: 0;
+	}
+	#affiliate-member-analysis .section-content .result-block.monthly-subscriber-acquisition{
+		margin-top: 30px;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#affiliate-member-analysis .section-content .result-block {
+		margin-bottom: 50px;
+	}
+	.searching-form .date-select{
+		width: 47%;
+	}
+	#affiliate-member-analysis .section-content .combination-table,
+	#affiliate-member-analysis .section-content .age-chart{
+		width: 100%;
+	}
+}
+
+
+@media all and (min-width: 992px) {	
+	#affiliate-member-analysis .section-content .result-block.monthly-subscriber-acquisition{
+		margin-top: 30px;
+	}
+}
+
+
+#affiliate-member-analysis .section-content .result-block:last-child {
+	margin-bottom: 0;
+	padding-top: 30px;
+}
+
+
+
+
+#affiliate-member-analysis .monthly-subscriber-acquisition 
+.table-container .col_data .table-wrapper {
+	min-width: 640px;
+}
+
+.no_use {
+  color: red;
+  text-decoration: line-through;
+}
+.no_use a {
+  color: red !important;
+}
+
+.node3110 {
+	color : white;
+}
+.node3110 a {
+	color : white !important;
+}
+
+
+.row.btns .btn {
+	border-radius: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+.btn { 
+	letter-spacing: 1px;
+	cursor: pointer;
+	display: block;
+	position: relative;
+	color: #FFF;
+	text-align: center;
+}
+
+.btn:hover {
+	color: #FFF;
+}
+
+
+.btn:after,
+.btn:before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+	transition: all ease-in-out .3s;
+}
+
+.btn:after {
+	opacity: 0;
+	background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.05));
+}
+
+.btn:hover:after {
+	opacity: 1;
+}	
+
+
+.btn.primary {    
+    background: #739E3C;
+}
+
+.btn.light {    
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+	transition: all ease-in-out .3s;
+}
+
+
+input, button, .verify-btn {
+	border-radius: 5px;
+}
+
+
+

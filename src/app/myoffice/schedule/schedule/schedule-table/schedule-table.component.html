@@ -1,0 +1,78 @@
+  <div class="calendar col-lg office-block mobile-block">
+    <div >
+      <div class="calendar-header">
+        <div class="nav-btn prev" (click)="handleOnClickScheduleButton('-')">
+          <svg width="30" height="30" viewBox="0 0 30 30">
+            <path
+              d="M19.1008 24.3996L9.80078 14.9996L19.1008 5.59961L19.9008 6.39961L11.2008 14.9996L19.9008 23.5996L19.1008 24.3996Z"
+              fill="#7A7A7E" />
+          </svg>
+        </div>
+        <div class="date h-medium">
+          <span>{{ year }}</span>-<span>{{ month }}</span>
+        </div>
+        <div class="nav-btn next" (click)="handleOnClickScheduleButton('+')">
+          <svg width="30" height="30" viewBox="0 0 30 30">
+            <path
+              d="M10.5008 24.3996L19.9008 14.9996L10.5008 5.59961L9.80078 6.39961L18.4008 14.9996L9.80078 23.5996L10.5008 24.3996Z"
+              fill="#7A7A7E" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="calendar-body" id='calendar-grid'>
+        <table class="calendar-table">
+          <thead>
+            <tr>
+              <th>일<span>요일</span></th>
+              <th>월<span>요일</span></th>
+              <th>화<span>요일</span></th>
+              <th>수<span>요일</span></th>
+              <th>목<span>요일</span></th>
+              <th>금<span>요일</span></th>
+              <th>토<span>요일</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let week of items; index as i">
+              <td *ngFor="let day of week; index as j">
+                <div class="day" [ngClass]="day.classes">
+                  <span class="day-number">{{ day.date | setTwoDigitPad }}</span>
+                </div>
+                <ul *ngIf="day.haveEvent ==true" class="article-dots row">
+                  <li class="dot type-4"></li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="calendar-detail col-lg-auto mobile-block"> 
+    <div class="calendar-articles office-block">
+      <div class="heading row">
+          <h2 class="h-small col"> 이벤트 상세 정보</h2>
+          <div class="col-auto">Total {{total}}</div>
+      </div>
+      <div class="article-days row"></div>
+      <div class='col-lg-12 col-md-6' *ngIf="!detailItems?.length; else renderCalendarDetail">
+        <span class='empty-warning'>현재 이벤트가 아직 없습니다.</span>
+      </div>
+      <ng-template #renderCalendarDetail>
+        <div *ngFor="let item of detailItems">
+          <div class="day col-lg-12 col-md-6">
+            <h4>{{item.year}}년 {{item.month}}월 {{item.day}}일</h4>
+            <ul>
+              <li class='article row' *ngFor="let item1 of item.events">
+                <a class='row' (click)="onClickEvents(item1.regNo)" href="javascript:;">
+                  <div class='dot type-4'></div>
+                  <span class='col'>{{item1.title}}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>

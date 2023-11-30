@@ -1,0 +1,151 @@
+<div id="change-personal-information" class="user-profile office-page">
+    <div class="container mobile-container">
+        <div class="row">
+            <div class="col-lg-auto profile-info office-block mobile-block">
+                <app-user-profile></app-user-profile>
+            </div>
+
+            <div class="col office-block mobile-block last none">
+                <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                    <div class="content-info">
+                        <div class="heading">
+                            <h2 class="h-medium">회원정보</h2> 
+                        </div>
+                        <div class="member-form">
+                            <div class="form-row row ">
+                                <div class="label">닉네임</div>
+                                <div class="input">
+                                    <div class="row row_1">
+                                        <input class="col" id="nickName" formControlName="nickName">
+                                        <div class="col-auto w-btn dark-btn" style="width: 75px;" (click)="countNickName();">
+                                            <span>중복확인</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="form-row row birthdate">
+                                <div class="label">생년월일</div>
+                                <div class="input">
+                                    <date-select-dropdown class="inputs-wrapper row" [yearOptions]="yearOptions"
+                                        [year]="birthYear" [month]="birthMonth" [date]="birthDate"
+                                        [stringYear]="stringYear" [stringMonth]="stringMonth" [stringDate]="stringDate"
+                                        (selectedValue)="hanldeOnGetToDateSelectedValue($event);"></date-select-dropdown>
+                                    <span class="warning">생년월일을 입력하시기 바랍니다. 주민등록번호 입력시 자동으로 표시됩니다.</span>
+                                </div>
+                                <div class="extra"></div>
+                            </div>
+                            <div class="form-row row tel home-phone">
+                                <div class="label">전화번호</div>
+                                <div class="input">
+                                    <div class="row ai-center">
+                                        <input onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"
+                                            (keydown)="onKeydownTel1($event)" type="text" class="col input-4-digits"
+                                            id="tel1" maxlength="3" formControlName="tel1">
+                                        <span class="col-auto hyphen">-</span>
+                                        <input onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"
+                                            (keydown)="onKeydownTel2($event)" type="text" class="col input-4-digits"
+                                            id="tel2" maxlength="4" formControlName="tel2">
+                                        <span class="col-auto hyphen">-</span>
+                                        <input onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"
+                                            (keydown)="onKeydownTel3($event)" type="text" class="col input-4-digits"
+                                            id="tel3" maxlength="4" formControlName="tel3">
+                                    </div>
+                                </div>
+                                <div class="extra"></div>
+                            </div>
+                            <div class="form-row row tel cell-phone">
+                                <div class="label">핸드폰번호</div>
+                                <div class="input">
+                                    <div class="row ai-center">
+                                        <input type="text" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"
+                                            class="col input-4-digits" id="mobile1" maxlength="3"
+                                            (keydown)="onKeydownMobile1($event)" formControlName="mobile1">
+                                        <span class="col-auto hyphen">-</span>
+                                        <input type="text" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"
+                                            class="col input-4-digits" id="mobile2" maxlength="4"
+                                            (keydown)="onKeydownMobile2($event)" formControlName="mobile2">
+                                        <span class="col-auto hyphen">-</span>
+                                        <input type="text" onkeyup="this.value=this.value.replace(/[^0-9]/g, '')"
+                                            class="col input-4-digits" id="mobile3" maxlength="4"
+                                            (keydown)="onKeydownMobile3($event)" formControlName="mobile3">
+                                    </div>
+                                    <span class="warning">SMS수신을 위해 핸드폰번호를 정확히 입력하시기 바랍니다.</span>
+                                </div>
+                            </div>
+                            <div class="form-row row email">
+                                <div class="label">이메일주소</div>
+                                <div class="input">
+                                    <div class="row ai-center">
+                                        <input class="col email-check" id="first-of-email" formControlName="firstEmail">
+                                        <span class="col-auto hyphen">@</span>
+                                        <input class="col" id="input-last-email" formControlName="inputLastEmail">
+                                        <span class="col-auto hyphen"></span>
+                                        <select-dropdown class="dropdown-select col row" id="last-of-email"
+                                            [options]="mailOptions" [options]="mailOptions" [selected]="mailSelected"
+                                            (changeSelectedValue)="hanldeOnChangeMailSelectedValue($event)">
+                                        </select-dropdown>
+                                        <div class="input">
+                                        </div>
+                                        <input type="hidden" id="inputCheckMail" value="ok">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-row row address">
+                                <div class="label">주소</div>
+                                <div class="input">
+                                    <div class="row row_1">
+                                        <input class="col" id="rPost" formControlName="rPost">
+                                        <div (click)="handleOnClickShowZipPopup();"
+                                            class="col-auto w-btn dark-btn open-popup-btn"
+                                            data-popup="address-browsing">
+                                            <span>검색</span>
+                                        </div>
+                                    </div>
+                                    <div class="row row_2">
+                                        <input id="rAddr1" formControlName="rAddr1">
+                                        <input id="rAddr2" hidden formControlName="rAddr2">
+                                        <input id="rAddr2_tmp" formControlName="rAddr2_tmp">
+                                    </div>
+                                </div>
+                                <div class="extra"></div>
+                            </div>
+                            <div class="form-row row receiving">
+                                <div class="label">알림수신</div>
+                                <div class="input ai-center">
+                                    <div class="row">
+                                        <div class="col-auto checkbox">
+                                            <input type="checkbox" id="agreementCheck2" name="agreementCheck2"
+                                                formControlName="agreementCheck2">
+                                            <label for="agreementCheck2"> 이메일</label>
+                                        </div>
+                                        <div class="col-auto checkbox">
+                                            <input type="checkbox" id="agreementCheck1" name="agreementCheck"
+                                                formControlName="agreementCheck1">
+                                            <label for="agreementCheck1"> 핸드폰</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="extra"></div>
+                            </div>
+                        </div>
+                        <div class="row group-btns">
+
+                            <a class="w-btn dark-btn" href="javascript:history.back()">이전</a>
+                            <a class="w-btn primary-btn" type="submit" (click)="onSubmit()">변경</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <section class="popups-container">
+        <zip-popup [showZip]="showZipPopup" [post]="post" (clickCloseZipPopup)="handleOnClickToggleZipPopup($event);"
+            (onclickRowZipPopup)="handleOnClickRowZipPopup($event);"></zip-popup>
+    </section>
+
+</div>

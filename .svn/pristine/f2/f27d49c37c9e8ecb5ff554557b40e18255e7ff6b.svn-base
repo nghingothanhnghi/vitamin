@@ -1,0 +1,16 @@
+<div class="searching-form" [formGroup]="form">
+  <div class="container">
+    <div class="row form-row hr-row">
+      <div class="row info standard-member-name">
+        <span class="label col-auto">오토십 번호</span>
+        <div class="col inputs-wrapper row">
+          <input class="col" disabled [value]="adoNo">
+          <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing" (click)="handleOnClickOpenAdoPopup();">
+            <span>오토십 검색</span>
+            <div class="icon"><img src="./assets/img/icons/search-ncc.svg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

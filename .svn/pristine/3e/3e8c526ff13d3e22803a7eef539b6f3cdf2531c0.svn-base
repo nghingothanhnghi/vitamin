@@ -1,0 +1,21 @@
+<section id="st-cta">
+    <div class="container">
+        <div class="row">
+            <h4 class="h-medium col-lg">지금 회원가입을 하셔서 AINCELL 코리아만의 다양한 혜택을 누려보세요.</h4>
+            <div class="col-auto w-btn large-btn secondary-btn" (click)="goToRegister()">
+                <span>신규가입</span>
+                <div class="icon">
+                    <img src="/assets/img/icons/register-white.svg">
+                </div>
+            </div>
+        </div>					
+    </div>
+    <div class="background">
+        <img class="element-1" src="/assets/img/elements/cta/element-1.svg">
+        <img class="element-2" src="/assets/img/elements/cta/element-2.svg">
+        <img class="element-3" src="/assets/img/elements/cta/element-3.svg">
+        <img class="element-4" src="/assets/img/elements/cta/element-4.svg">
+        <img class="element-5" src="/assets/img/elements/cta/element-5.svg">
+        <img class="element-6" src="/assets/img/elements/cta/element-6.svg">
+    </div>
+</section>

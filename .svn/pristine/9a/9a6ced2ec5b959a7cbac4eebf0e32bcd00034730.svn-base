@@ -1,0 +1,93 @@
+<div class="searching-form">
+    <div class="container default-container">
+        <div class="advanced-search-items">
+            <div class="row form-row date-time">
+                <div class="info date-selects col-xl-auto row">
+                    <div class="info-heading col-lg-auto">
+                        <span class="label col col-lg-auto">마감일자</span>
+                        <div class="w-btn col-auto btn-hide has-icon" hideAdvancedFilter>
+                            <span>닫기</span>
+                            <div class="icon"><img src="./assets/img/icons/hide.svg"></div>
+                        </div>
+                    </div>
+
+                    <div class="date-select date-from row col-lg">
+                        <div class="col-auto years-select">
+                            <select-dropdown class="dropdown-select row" [options]="yearOptions"
+                                [selected]="yearSelected"
+                                (changeSelectedValue)="handleOnChangeYearSelectedValue($event)"></select-dropdown>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Name -->
+                <div class="row col-xl row info standard-member-name">
+                    <span class="label col-auto">기준 회원명</span>
+                    <div class="inputs-wrapper col row">
+                        <input class="col" [value]="username" disabled="">
+                        <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+                            (click)="handleOpenMemberPopup();">
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Type -->
+                <div class="row col-xl info order-type">
+                    <div class="label col-auto">
+                        <span>주문유형</span>
+                    </div>
+                    <select-dropdown class="dropdown-select col row" [options]="kindOptions" [selected]="kindSelected"
+                        (changeSelectedValue)="hanldeOnChangeKindSelectedValue($event)"></select-dropdown>
+                </div>
+
+                <!-- Inquiry Classification -->
+                <div class="row col-12 col-xl info inquiry-classification">
+                    <span class="label col-auto">조회구분</span>
+                    <select-dropdown class="dropdown-select col row" [options]="checkUseridOptions"
+                        [selected]="checkUseridSelected"
+                        (changeSelectedValue)="hanldeOnChangeCheckUseridSelectedValue($event)"></select-dropdown>
+                </div>
+
+                <!-- Display Item -->
+                <div class="row col-12 col-xl-auto info display-item">
+                    <span class="label col-auto">표시항목</span>
+                    <select-dropdown class="dropdown-select col row" [options]="typeOptions" [selected]="typeSelected"
+                        (changeSelectedValue)="hanldeOnChangeTypeSelectedValue($event)"></select-dropdown>
+                </div>
+
+                <!-- Submit Btn -->
+                <div class="col-md-auto submit-btn-wrapper">
+                    <div class="w-btn submit-btn advanced has-icon" (click)="search.emit();">
+                        <span>검색</span>
+                        <div class="icon ms-2"><img src="./assets/img/icons/search-ncc.svg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="simple-search-items">
+            <div class="row">
+                <div class="w-btn btn-show-advanced-search col-auto" showAdvancedFilter>
+                    <div class="icon"><img src="./assets/img/icons/filter.svg"></div>
+                </div>
+                <div class="inputs-wrapper col row">
+                    <input class="col" [value]="username" disabled>
+                    <div class="col-auto open-popup-btn name-browsing-btn" data-popup="name-browsing"
+                        (click)="handleOpenMemberPopup();">
+                        <svg width="16" height="16" viewBox="0 0 16 16">
+                            <path
+                                d="M11.832 8.78645C11.0462 8.30849 10.257 7.97706 9.46651 7.7854C10.3305 7.41691 11.0543 6.75404 11.4962 5.87695C11.7819 5.30602 11.9267 4.69267 11.9267 4.05438C11.9267 1.81853 10.1061 0 7.86793 0C5.63208 0 3.81322 1.81886 3.81322 4.05438C3.81322 4.693 3.95805 5.30636 4.24367 5.87695C4.68357 6.75674 5.40977 7.42096 6.27777 7.78877C5.49162 7.98076 4.70682 8.31119 3.92538 8.78645C1.21056 10.4376 0 13.0611 0 17.2933C0 17.6837 0.316287 18 0.706669 18C1.09705 18 1.41333 17.6837 1.41333 17.2933C1.41333 12.601 3.05469 10.9704 4.66 9.99398C6.85577 8.65812 8.90199 8.65846 11.0984 9.99398C12.7037 10.9701 14.3451 12.601 14.3451 17.2933C14.3451 17.6837 14.6614 18 15.0518 18C15.4421 18 15.7584 17.6837 15.7584 17.2933C15.7574 13.0611 14.5469 10.4376 11.832 8.78645ZM5.50745 5.24506C5.32085 4.87219 5.22653 4.47171 5.22653 4.05438C5.22653 2.59794 6.41149 1.41299 7.86793 1.41299C9.32672 1.41299 10.5134 2.59794 10.5134 4.05438C10.5134 4.47171 10.4187 4.87185 10.2331 5.24304C9.78009 6.14169 8.87369 6.69981 7.86759 6.69981C6.86048 6.69981 5.95644 6.14236 5.50745 5.24506Z"
+                                fill="white"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input id="showUnit" type="hidden" [value]="showUnit" />

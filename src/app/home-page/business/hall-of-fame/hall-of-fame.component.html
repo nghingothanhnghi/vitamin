@@ -1,0 +1,81 @@
+
+<div id="help-center">
+    <div class="heading">
+        <h2 class="h-small col">아인셀의 직급자 명예의전당</h2>
+        <div class="search col-auto">
+            <input id="search-key" name="key" type="text" placeholder="검색어를 입력하세요." [(ngModel)]="searchKey" (keydown.enter)="onSearch()">
+            <div class="w-btn btn-search-open" (click)="onSearch()">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <path
+                        d="M19.5 19.5L24 24M21.4286 13.7143C21.4286 17.9748 17.9748 21.4286 13.7143 21.4286C9.4538 21.4286 6 17.9748 6 13.7143C6 9.4538 9.4538 6 13.7143 6C17.9748 6 21.4286 9.4538 21.4286 13.7143Z"
+                        stroke="#2A2E46" stroke-width="1.6" stroke-linecap="round">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-body">
+        <div class="notice-grid">
+            <table class="notices-table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>조회</th>
+                        <th>날짜</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of collection | paginate: config; let i = index">
+                        <td>
+                            <div class="post-icon">
+                                <span>{{ i+1 }}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <a class="post-title" href="javascript:;" (click)="handleOnClickBoardNo(item.boardNo)">{{ item.title }}</a>
+                            <div class="mobile-info">
+                                <span>{{ item.insUser }}</span>
+                                <span>{{ item.insDate }}</span>
+                            </div>
+                        </td>
+                        <td><span class="post-author">{{ item.insUser }}</span></td>
+                        <td><span class="post-number">{{ item.readCnt }}</span> </td>
+                        <td><span class="post-date">{{ item.insDate }}</span></td>
+                    </tr>
+                </tbody>
+
+                <ng-container *ngIf="totalRows < 5">
+                    <tbody>
+                        <tr *ngFor="let row of rows; index as i">
+                            <ng-container *ngFor="let col of cols; index as j">
+                                <td>
+                                    <span>&nbsp;</span>
+                                    <ng-container *ngIf="totalRows === 0 && i === 2 && j === floorTotalCols / 2">
+                                        <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                    </ng-container>
+                                </td>
+                            </ng-container>
+                        </tr>
+                    </tbody>
+                </ng-container>
+            </table>
+        </div>
+
+        <div class="pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems"
+                [config]="config" (changePage)="handleOnChangePage($event);"></paging>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ boardListTotalItems$ | async }}</span>
+            </div>
+        </div>
+    </div>
+</div>

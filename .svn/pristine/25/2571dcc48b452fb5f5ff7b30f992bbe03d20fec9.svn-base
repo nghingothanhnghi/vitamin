@@ -1,0 +1,11 @@
+.table-container .hr-table{
+    text-align: center;
+}
+
+.popup {
+    z-index: -100 !important;
+}
+
+.popup.opened {
+    z-index: 100 !important;
+}

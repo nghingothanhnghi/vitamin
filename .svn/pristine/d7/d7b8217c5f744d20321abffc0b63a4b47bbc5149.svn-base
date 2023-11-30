@@ -1,0 +1,102 @@
+<div class="result-block">
+    <h2 class="h-small">배송정보 / 구매자</h2>
+    <table class="vt-table">
+        <tbody>
+            <tr>
+                <td>배송구분</td>
+                <td>{{ shippingInfo.deliKindName }}</td>
+            </tr>
+            <tr>
+                <td>배송업체</td>
+                <td>{{ shippingInfo.courierName }}</td>
+            </tr>
+            <tr>
+                <td>출고본부/센터</td>
+                <td>{{ shippingInfo.storeName }}</td>
+            </tr>
+            <tr>
+                <td>출고일자</td>
+                <td>{{ shippingInfo.sendDate2 }}</td>
+            </tr>
+            <tr class="delivery-status">
+                <td>출고상태</td>
+                <td>
+                    <ng-container *ngIf="orderInfos$ | async as items;">
+                        <ng-container *ngIf="items">
+                            <ng-container *ngFor="let item of items;">
+                                <ng-container *ngFor="let deli of orderDeilis;">
+                                    <div class="row delivery-order">
+                                        <span class="id col">
+                                            <span>{{ deli.deliStatus }}</span>
+                                            <ng-container *ngIf="deli.invoiceNo !== null">
+                                                <span>( {{ deli.invoiceNo }} )</span>
+                                            </ng-container>
+                                        </span>
+                                        <a *ngIf="item.urlDeli && item.invoiceNo"
+                                            class="col open-popup-btn w-btn small-btn col light-btn"
+                                            [href]="item.urlDeli + '/' + item.invoiceNo" target="_blank">
+                                            배송추적
+                                        </a>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="result-block recipient">
+    <table class="vt-table">
+        <tbody>
+            <tr>
+                <td rowspan="4">배<br>송<br>지</td>
+            </tr>
+            <tr>
+                <td>받는사람</td>
+                <td>{{ shippingInfo.recipient }}</td>
+            </tr>
+            <tr>
+                <td>연락처</td>
+                <td>{{ shippingInfo.rMobile }}</td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td>{{ shippingInfo.rAddr1 }} {{ shippingInfo.rAddr2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="result-block buyer">
+    <table class="vt-table">
+        <tbody>
+            <tr>
+                <td rowspan="4">구<br>매<br>자</td>
+            </tr>
+            <tr>
+                <td>구매자명</td>
+                <td>{{ shippingInfo.bName }}</td>
+            </tr>
+            <tr>
+                <td>연락처</td>
+                <td>{{ shippingInfo.bMobile }}</td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td>{{ shippingInfo.bAddr1 }} {{ shippingInfo.bAddr2 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row group-btns">
+        <a href="javascript:;" class="col col-sm-auto w-btn primary-btn" (click)="handleOnClickOrderReport();">
+            <span>상품구매계약서</span>
+        </a>
+        <a href="javascript:;" class="col col-sm-auto w-btn dark-btn" (click)="handleOnClickCancelOrder();">
+            <span>청약철회신청서</span>
+        </a>
+    </div>
+</div>

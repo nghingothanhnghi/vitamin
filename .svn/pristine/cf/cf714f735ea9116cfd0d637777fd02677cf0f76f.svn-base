@@ -1,0 +1,141 @@
+/**/
+
+
+
+
+
+.sub-nav {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+@media all and (min-width: 768px) {
+	.sub-nav {
+        margin-top: 0px;
+    }
+}
+
+
+.sub-nav ul {
+    justify-content: center;
+    margin: 0;
+}
+
+.sub-nav ul li {
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.sub-nav ul li.active, 
+.sub-nav ul li:hover {
+    color: #f0875a;
+}
+
+
+
+@media all and (max-width: 575px) {
+	.sub-nav ul li {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.sub-nav ul li {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+
+@media all and (min-width: 768px) {
+	.sub-nav ul li {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+
+.sub-nav ul li:first-child {
+    padding-left: 0;
+}
+
+.sub-nav ul li:last-child {
+    padding-right: 0;
+}
+
+.sub-nav ul li:not(:last-child) {
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.part {
+        padding: 20px 0;
+    }
+}
+
+@media all and (min-width: 576px) {
+	.part {
+        padding: 20px 10px;
+    }
+}
+
+
+
+
+
+.part h4 {
+    font-weight: bold;
+}
+
+.part *:last-child {
+    margin-bottom: 0;
+}
+
+.part:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media all and (max-width: 575px) {
+	.container {
+        padding-bottom: 70px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.container {
+        padding-bottom: 80px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.container {
+        padding-bottom: 90px;
+    }
+}
+
+
+@media all and (min-width: 992px) {
+	.container {
+        padding-bottom: 100px;
+    }
+}
+
+

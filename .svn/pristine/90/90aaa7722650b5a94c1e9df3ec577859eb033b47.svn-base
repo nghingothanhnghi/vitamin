@@ -1,0 +1,206 @@
+.pointer-none {
+    pointer-events: none;
+}
+
+.display-none {
+    display: none;
+}
+
+
+
+@media only screen and (min-width: 900px) {
+    .abpost {
+        width: 320px;
+        margin-left: calc(50% - 215px);
+    }
+}
+
+
+.input-name .col:not(:last-child) {
+    margin-right: 10px;
+}
+
+
+
+
+@media all and (max-width: 575px) {
+	.profile,
+    .recommender,
+    .bank-account {
+        padding: 11px 0 11px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        margin-bottom: 11px;
+    }
+}
+
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	.profile,
+    .recommender,
+    .bank-account {
+        padding: 14px 0 34px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        margin-bottom: 14px;
+    }
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	.profile,
+    .recommender,
+    .bank-account {
+        padding: 17px 0 37px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        margin-bottom: 17px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .profile,
+    .recommender,
+    .bank-account {
+        padding: 20px 0 40px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+.birthdate .years-select,
+.birthdate .months-select {
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------ Step 3 | Member Information ------*/
+
+
+.registration-form {
+    max-width: 840px;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+.profile .sign-up input,
+.profile .member-name input,
+.profile .country-name input,
+.profile .password input {
+    width: 100%;
+}
+
+.profile .gender .dropdown-select {
+    width: 100%;
+}
+
+.profile .password .col:first-child {
+    width: calc(50% - 5px);
+    margin-right: 10px;
+}
+
+.profile .password .col:last-child {
+    width: calc(50% - 5px);
+}
+
+
+
+
+
+.profile .address .inputs-wrapper:first-child {
+    margin-bottom: 10px;
+}
+
+.profile .address .inputs-wrapper:last-child .col:first-child {
+    width: calc(50% - 5px);
+    margin-right: 10px;
+}
+
+.profile .address .inputs-wrapper:last-child .col:last-child {
+    width: calc(50% - 5px);
+}
+
+
+
+
+
+@media all and (max-width: 767px) {
+    .label,
+    .input,
+    .extra {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .label {
+        margin-bottom: 5px;
+    }
+    .verify-btn {
+        margin-bottom: 10px;
+    }
+
+    .group-btns a {
+        width: calc(50% - 5px);
+    }
+
+    .group-btns a:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+
+
+@media all and (min-width: 768px) {    
+    .extra {
+        width: calc(50% - 215px);
+    }
+    .label {
+        width: calc(50% - 215px);
+        height: 44px;
+    }
+
+    .input {
+        width: 430px;
+    }
+
+    .verify-btn {
+        width: 120px;
+    }
+
+    .group-btns a {
+        width: 210px;
+    }
+
+    .group-btns a:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+
+
+.open-popup-btn {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.group-btns a {
+    height: 44px;
+}

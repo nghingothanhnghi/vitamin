@@ -1,0 +1,37 @@
+<div class="main-body" id='media-center'>
+	<div class="content-part">									
+		<div class="heading">
+			<h4 class="h-small">아인셀 넥스트이코노미 7월호 기사</h4>
+			<div class="media-meta">
+				<span class="time">2022-07-05 11:43</span>
+			</div>
+		</div>
+		
+		<div class="content-row">
+			<p><img src="../../../../assets/img/home/media-center/now-apielgo-july-1.jpg"></p>
+			<p><img src="../../../../assets/img/home/media-center/now-apielgo-july-2.jpg"></p>
+		</div>
+
+	</div>
+
+	<div class="row post-foot">
+		<div class="prev col">
+			<a href="#">
+				<div class="carret left">
+					<img src="../../../../assets/img/icons/carret-right.svg">
+				</div>
+				<span>다이렉트셀링 200호에 실린 아인셀 관련기사</span>
+			</a>
+		</div>
+		<div class="next-post col-auto">
+			<a href="#">
+				<span>다이렉트셀링 200호에 실린 아인셀 관련기사</span>
+				<div class="carret right">
+					<img src="../../../../assets/img/icons/carret-right.svg">
+				</div>
+			</a>
+			
+		</div>
+	</div>
+
+</div>

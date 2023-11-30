@@ -1,0 +1,109 @@
+@media all and (max-width: 575px) {
+	#order-search .searching-result .standard-member-name,
+	#order-search .searching-result .order-type,
+	#order-search .searching-result .order-path	{
+		margin-bottom: 10px;
+	}
+	
+	#order-search .searching-result .criteria-classification {
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+	
+	#order-search .searching-result .criteria-classification .label {
+		margin-bottom: 0 !important;
+		margin-right: 20px;
+	}
+
+
+
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+	#order-search .searching-result .standard-member-name,
+	#order-search .searching-result .order-type {
+		margin-bottom: 10px;
+	}	
+}
+
+@media all and (min-width: 576px) and (max-width: 991px) {
+	#order-search .searching-result .standard-member-name,
+	#order-search .searching-result .order-type{
+		width: calc(50% - 5px);		
+	}
+
+	
+	#order-search .searching-result .standard-member-name {
+		margin-right: 10px;
+	}
+
+
+
+	
+	#order-search .searching-result .hr-mobile-table tbody{
+		width: 100%;
+	}
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#order-search .searching-result .order-type {
+		margin-right: 10px;
+	}	
+}
+
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+	#order-search .searching-result .order-type {
+		margin-right: 10px;
+	}	
+}
+
+@media all and (max-width: 911px) {
+	
+	#order-search .searching-result .radios-group li {
+		margin-right: 20px;
+	}
+	#order-search .searching-result .radios-group li:last-child {
+		margin-right: 0;
+	}
+}
+
+
+@media all and (max-width: 991px) {
+	#order-search .searching-result .criteria-classification {
+		margin-bottom: 15px;
+	}
+    #order-search .searching-result .searching-form .label {
+		width: 75px;
+	}
+
+    #order-search .searching-result .advanced-search-items .submit-btn-wrapper  {
+		width: 100%;
+	}
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+	
+	#order-search .searching-result .rank .dropdown-select {
+		min-width: 120px;
+	}	
+	
+	#order-search .searching-result .standard-member-name input {
+		width: 120px;
+	}
+    
+    #order-search .searching-result .standard-member-name, 
+	#order-search .searching-result .order-type{
+		margin-right: 20px;
+	}
+}
+
+@media all and (min-width: 1200px) {
+	#order-search .searching-result .standard-member-name, 
+	#order-search .searching-result .order-type  {
+		margin-right: 25px;
+	}
+}
+
+

@@ -1,0 +1,119 @@
+<div class="container mobile-container results memnberTab office-block" id="grid-member">
+    <div class="mobile-block none last">
+        <div class="pagination mobile-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ memberTotalItems$ | async }}</span>
+            </div>
+        </div>
+    
+    
+        <table class="hr-mobile-table">
+            <tbody *ngFor="let item of collection | paginate: config" (click)="handleOnClickRow(item);"
+                [ngClass]="item.status == '0'?'red-line':''">
+                <tr>
+                    <td>회원번호</td>
+                    <td>{{ item.userid }}</td>
+                </tr>
+                <tr>
+                    <td>회원명</td>
+                    <td>{{ item.username }}</td>
+                </tr>
+                <tr>
+                    <td>가입일자</td>
+                    <td>{{ item.regDate }}</td>
+                </tr>
+                <tr>
+                    <td>본부/센터</td>
+                    <td>{{ item.cntName }}</td>
+                </tr>
+                <tr>
+                    <td>직급</td>
+                    <td>{{ item.rankName }}</td>
+                </tr>
+                <tr>
+                    <td>승급일자</td>
+                    <td>{{ item.rankMaxDate }}</td>
+                </tr>
+                <tr>
+                    <td>추천인명</td>
+                    <td>{{ item.rname }}</td>
+                </tr>
+                <tr>
+                    <td>주소</td>
+                    <td>{{ item.addr1 }}</td>
+                </tr>
+            </tbody>
+            <grid-no-data-mobile [items]="collection"></grid-no-data-mobile>
+    
+        </table>
+    
+        <div class="table-container row draggable-element">
+            <div class="col col_data draggable-items-wrapper" draggableWrapper>
+                <div class="table-wrapper">
+                    <table class="hr-table">
+                        <thead>
+                            <tr>
+                                <th style="white-space: nowrap;" class="" sort-by="">회원번호<span></span></th>
+                                <th style="white-space: nowrap;" class="" sort-by="">회원명<span></span></th>
+                                <th style="white-space: nowrap;" class="" sort-by="">가입일자<span></span></th>
+                                <th style="white-space: nowrap;" class="" sort-by="">본부/센터 <span></span></th>
+                                <th style="white-space: nowrap;" class="" sort-by="">직급<span></span></th>
+                                <th style="white-space: nowrap;" class="" sort-by="">승급일자<span></span></th>
+                                <th style="white-space: nowrap;" class="" sort-by="">추천인명<span></span></th>
+                                <th style="white-space: nowrap;" class="" sort-by="">주소<span></span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of collection | paginate: config"
+                                [ngClass]="item.status == '0'?'red-line':''">
+                                <td (click)="handleOnClickRow(item);" style="cursor: pointer;">{{item.userid}}</td>
+                                <td (click)="handleOnClickRow(item);" style="cursor: pointer;">{{item.username}}</td>
+                                <td class="textCenter">{{item.regDate}}</td>
+                                <td>{{item.cntName}}</td>
+                                <td>{{item.rankName}}</td>
+                                <td class="textCenter">{{item.rankMaxDate}}</td>
+                                <td>{{item.rname}}</td>
+                                <td class="textLeft">{{item.addr1}}</td>
+                            </tr>
+                        </tbody>
+                        <ng-container *ngIf="totalRows < 5">
+                            <tbody>
+                                <tr *ngFor="let row of rows; index as i">
+                                    <ng-container *ngFor="let col of cols; index as j">
+                                        <td>
+                                            <span>&nbsp;</span>
+                                            <ng-container *ngIf="totalRows === 0 && i === 2 && j === totalCols / 2">
+                                                <span class='h-small empty-warning'>조회된 데이타가 없습니다.</span>
+                                            </ng-container>
+                                        </td>
+                                    </ng-container>
+                                </tr>
+                            </tbody>
+                        </ng-container>
+                    </table>
+                </div>
+            </div>
+        </div>
+    
+        <div class="pagination desktop-pagination row">
+            <div class="col-auto per-page row">
+                <div class="label col-auto"><span>페이지표시</span></div>
+                <select-dropdown class="dropdown-select col row" [options]="options" [selected]="selectedValue"
+                    (changeSelectedValue)="handleOnChangeSelectedValue($event);"></select-dropdown>
+            </div>
+            <paging class="col-auto row paging" [len]="len" [page]="page" [totalItems]="totalItems" [config]="config"
+                (changePage)="handleOnChangePage($event);"></paging>
+            <div class="col-auto total">
+                <span class="label">Total</span>
+                <span class="value">{{ memberTotalItems$ | async }}</span>
+            </div>
+        </div>
+    </div>
+    
+</div>

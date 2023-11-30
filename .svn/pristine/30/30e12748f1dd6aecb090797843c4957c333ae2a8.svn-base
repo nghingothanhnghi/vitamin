@@ -1,0 +1,45 @@
+/* .main-body {
+	padding-top: 30px;
+}
+
+.content h2 {
+    font-weight: 700;
+    color:#242529;
+}
+
+.content h3 {
+    color: #858585; 
+    margin-bottom: 50px;
+}
+
+
+
+
+
+
+@media (max-width: 991px) {
+	#plan .main-heading {
+		display: none;
+	}
+	#plan .main-body {
+		padding: 30px 0;
+	}
+}
+
+
+
+
+@media (min-width: 992px) {
+	#plan .main-container {
+    padding: 20px 0;
+}
+}
+
+
+
+
+
+
+
+
+ */
